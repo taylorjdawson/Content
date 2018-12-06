@@ -10,7 +10,7 @@
   "updatedAt": "2018-10-29T00:51:33.148Z",
   "createdAt": "2018-10-16T01:50:10.038Z",
   "stageContainerGroupId": "5bcdf0c31cf372e860c8b8ba",
-  "version": "Escrow",
+  "version": "Solidity v0.4.19",
   "image": {
     "_id": "5bcf85301cf372448c2e2695",
     "public_id": "kqmmgztswojpxzwshejo",
