@@ -12,17 +12,13 @@
   "projectSkeletons": [
     {
       "_id": "5bd1d383626daf1162be4b7b",
-      "folder": "aragon",
+      "ghNodeId": "MDEwOlJlcG9zaXRvcnkxNjM3NzM1NDY=",
+      "ghRepoId": 163773546,
       "title": "React Aragon",
       "description": "An Aragon application built using the react framework and your code!",
-      "zip_name": "react-aragon",
-      "thumbnail": {
-        "_id": "5bd1d383626daf1162be4b7c",
-        "width": 300,
-        "height": 274,
-        "secure_url": "https://res.cloudinary.com/divzjiip8/image/upload/v1533497293/iomus59bzzevabacgzj2.png"
-      }
-    }
+      "zipName": "react-aragon",
+      "thumbnailUrl": "https://res.cloudinary.com/divzjiip8/image/upload/v1533497293/iomus59bzzevabacgzj2.png"
+    },
   ],
   "abiValidations": "$$LOOKUP"
 }
