@@ -12,29 +12,21 @@
   "projectSkeletons": [
     {
       "_id": "5bd1d391626daf1162be4b7d",
-      "folder": "escrow/react",
+      "ghNodeId": "MDEwOlJlcG9zaXRvcnkxNjM3NzMyOTA=",
+      "ghRepoId": 163773290,
       "title": "React Application",
       "description": "A React Application built from the create-react-app generator, Bootstrap CSS and your code.",
-      "zip_name": "react-escrow",
-      "thumbnail": {
-        "_id": "5bd1d391626daf1162be4b7e",
-        "width": 384,
-        "height": 384,
-        "secure_url": "https://res.cloudinary.com/divzjiip8/image/upload/v1533497946/xlzxc3vxvffd16ur7f4k.png"
-      }
+      "zipName": "react-escrow",
+      "thumbnailUrl": "https://res.cloudinary.com/divzjiip8/image/upload/v1533497946/xlzxc3vxvffd16ur7f4k.png"
     },
     {
       "_id": "5bd1d391626daf1162be4b7f",
-      "folder": "escrow/jquery",
+      "ghNodeId": "MDEwOlJlcG9zaXRvcnkxNjM3NzMxMTA=",
+      "ghRepoId": 163773110,
       "title": "JQuery Application",
       "description": "A simple JQuery application created with parcel and your code.",
-      "zip_name": "react-jquery",
-      "thumbnail": {
-        "_id": "5bd1d391626daf1162be4b80",
-        "width": 1000,
-        "height": 963,
-        "secure_url": "https://res.cloudinary.com/divzjiip8/image/upload/v1539310543/i6pb4whihnecsqwuzc1w.png"
-      }
+      "zipName": "react-jquery",
+      "thumbnailUrl": "https://res.cloudinary.com/divzjiip8/image/upload/v1539310543/i6pb4whihnecsqwuzc1w.png",
     }
   ],
   "abiValidations": "$$LOOKUP"
