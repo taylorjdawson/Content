@@ -18,7 +18,7 @@
       "description": "An Aragon application built using the react framework and your code!",
       "zipName": "react-aragon",
       "thumbnailUrl": "https://res.cloudinary.com/divzjiip8/image/upload/v1533497293/iomus59bzzevabacgzj2.png"
-    },
+    }
   ],
   "abiValidations": "$$LOOKUP"
 }

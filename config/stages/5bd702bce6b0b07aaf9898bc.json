@@ -18,7 +18,7 @@
       "description": "A React Application built from the create-react-app generator, Bootstrap CSS and your code.",
       "zipName": "MultiSig-react",
       "thumbnailUrl": "https://res.cloudinary.com/divzjiip8/image/upload/v1540818157/eg4twjl2b448y0i6wdof.png"
-    },
+    }
   ],
   "abiValidations": "$$LOOKUP"
 }
