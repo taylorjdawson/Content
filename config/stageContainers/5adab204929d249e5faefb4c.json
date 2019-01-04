@@ -10,15 +10,5 @@
   "updatedAt": "2018-10-29T00:51:33.148Z",
   "createdAt": "2018-10-16T01:50:10.038Z",
   "stageContainerGroupId": "5bcdf0c31cf372e860c8b8ba",
-  "version": "Solidity v0.4.19",
-  "image": {
-    "_id": "5bcf85301cf372448c2e2695",
-    "public_id": "kqmmgztswojpxzwshejo",
-    "format": "png",
-    "width": 450,
-    "height": 450,
-    "resource_type": "image",
-    "bytes": 29886,
-    "secure_url": "https://res.cloudinary.com/divzjiip8/image/upload/v1540774288/kqmmgztswojpxzwshejo.png"
-  }
+  "version": "Solidity v0.4.19"
 }
