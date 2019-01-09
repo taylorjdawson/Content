@@ -1,0 +1,125 @@
+[
+  {
+    "_id": "5c181ccfe6b0b03a95da4248",
+    "constant": "false",
+    "payable": "false",
+    "error": null,
+    "task_display": "Define a public addExitToQueue function",
+    "name": "addExitToQueue",
+    "type": "function",
+    "inputs": [
+      {
+        "_id": "5c181ccfe6b0b03a95da4249",
+        "name": null,
+        "type": "uint256"
+      },
+      {
+        "_id": "5c181ccfe6b0b03a95da424a",
+        "name": null,
+        "type": "address"
+      },
+      {
+        "_id": "5c181ccfe6b0b03a95da424b",
+        "name": null,
+        "type": "address"
+      },
+      {
+        "_id": "5c181ccfe6b0b03a95da424c",
+        "name": null,
+        "type": "uint256"
+      },
+      {
+        "_id": "5c181ccfe6b0b03a95da424d",
+        "name": null,
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "_id": "5c181ccfe6b0b03a95da424e",
+    "constant": "true",
+    "payable": "false",
+    "error": null,
+    "task_display": "Define an exits mapping",
+    "name": "exits",
+    "type": "function",
+    "outputs": [
+      {
+        "_id": "5c181ccfe6b0b03a95da424f",
+        "name": null,
+        "type": "address"
+      },
+      {
+        "_id": "5c181ccfe6b0b03a95da4250",
+        "name": null,
+        "type": "address"
+      },
+      {
+        "_id": "5c181ccfe6b0b03a95da4251",
+        "name": null,
+        "type": "uint256"
+      }
+    ],
+    "inputs": [
+      {
+        "_id": "5c181ccfe6b0b03a95da4252",
+        "name": "",
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "_id": "5c181ccfe6b0b03a95da4253",
+    "constant": "true",
+    "payable": "nil",
+    "error": null,
+    "task_display": "Define an exitQueues mapping",
+    "name": "exitQueues",
+    "type": "function",
+    "outputs": [
+      {
+        "_id": "5c181ccfe6b0b03a95da4254",
+        "name": null,
+        "type": "address"
+      }
+    ],
+    "inputs": [
+      {
+        "_id": "5c181ccfe6b0b03a95da4255",
+        "name": null,
+        "type": "address"
+      }
+    ]
+  },
+  {
+    "_id": "5c181ccfe6b0b03a95da4256",
+    "constant": "false",
+    "payable": "false",
+    "error": null,
+    "task_display": "Define an ExitStarted event",
+    "name": "ExitStarted",
+    "type": "event",
+    "inputs": [
+      {
+        "_id": "5c181ccfe6b0b03a95da4257",
+        "name": null,
+        "type": "address"
+      },
+      {
+        "_id": "5c181ccfe6b0b03a95da4258",
+        "name": null,
+        "type": "uint256"
+      },
+      {
+        "_id": "5c181ccfe6b0b03a95da4259",
+        "name": null,
+        "type": "address"
+      },
+      {
+        "_id": "5c181ccfe6b0b03a95da425a",
+        "name": null,
+        "type": "uint256"
+      }
+    ]
+  }
+]

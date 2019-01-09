@@ -1,0 +1,25 @@
+{
+  "id": "5be62999e6b0b02ef6f2ac53",
+  "type": "CodeStage",
+  "codeFileIds": [
+    "5be629fce6b0b02ef6f2ac54",
+    "5be62a37e6b0b02ef6f2ac55",
+    "5be62dbce6b0b02ef6f2ac5a",
+    "5be63f7de6b0b02ef6f2ac5b",
+    "5be85256e6b0b02ef6f2ac5c",
+    "5be9f566e6b0b02ef6f2ac6d",
+    "5be9f53fe6b0b02ef6f2ac6c"
+  ],
+  "completionMessage": "Created a watcher",
+  "containerId": "5be339e5e6b0b02ef6f2abfa",
+  "details": "$$LOOKUP",
+  "language": "javascript",
+  "languageVersion": "6.x/babel",
+  "position": 3,
+  "task": "$$LOOKUP",
+  "testFramework": "mocha_bdd",
+  "title": "Plasma Chain Setup",
+  "updatedAt": "2019-01-09T02:39:32.456Z",
+  "createdAt": "2019-01-09T02:39:32.456Z",
+  "abiValidations": "$$LOOKUP"
+}

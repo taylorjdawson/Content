@@ -1,0 +1,25 @@
+{
+  "id": "5be33d9ce6b0b02ef6f2ac06",
+  "codeStageIds": [
+    "5be33ce2e6b0b02ef6f2abfd",
+    "5be4bc1ae6b0b02ef6f2ac21",
+    "5be4be04e6b0b02ef6f2ac34",
+    "5bfc67a6e6b0b0609838d6f0",
+    "5bfe1238e6b0b0609838d71c",
+    "5c1419a1e6b0b0704032fbc2",
+    "5c18783fe6b0b03a95da4263"
+  ],
+  "executable": true,
+  "executablePath": "contracts/Plasma.sol",
+  "fileLocation": "truffle/contracts/Plasma.sol",
+  "hasProgress": true,
+  "initialCode": "$$LOOKUP",
+  "mode": "sol",
+  "name": "Plasma.sol",
+  "readOnly": false,
+  "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
+  "testFixture": false,
+  "visible": true,
+  "updatedAt": "2019-01-09T02:39:33.676Z",
+  "createdAt": "2019-01-09T02:39:33.676Z"
+}

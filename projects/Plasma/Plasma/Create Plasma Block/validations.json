@@ -1,0 +1,30 @@
+[
+  {
+    "_id": "5c0f2f6ae6b0b03c3d9f3929",
+    "constant": "true",
+    "payable": "false",
+    "error": null,
+    "task_display": "Define a plasmaChain mapping",
+    "name": "plasmaChain",
+    "type": "function",
+    "outputs": [
+      {
+        "_id": "5c0f2f6ae6b0b03c3d9f392a",
+        "name": null,
+        "type": "bytes32"
+      },
+      {
+        "_id": "5c0f2f6ae6b0b03c3d9f392b",
+        "name": null,
+        "type": "uint256"
+      }
+    ],
+    "inputs": [
+      {
+        "_id": "5c0f2f6ae6b0b03c3d9f392c",
+        "name": null,
+        "type": "uint256"
+      }
+    ]
+  }
+]

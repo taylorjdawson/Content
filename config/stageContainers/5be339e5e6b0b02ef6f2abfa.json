@@ -1,0 +1,19 @@
+{
+  "id": "5be339e5e6b0b02ef6f2abfa",
+  "type": "BuildingBlock",
+  "intro": "$$LOOKUP",
+  "stageContainerGroupId": "5be33994e6b0b02ef6f2abf9",
+  "version": "Plasma",
+  "updatedAt": "2019-01-09T02:39:31.034Z",
+  "createdAt": "2019-01-09T02:39:31.034Z",
+  "image": {
+    "_id": "5be339e5e6b0b02ef6f2abfb",
+    "public_id": "rc2ywsoiodrjxflt7w9g",
+    "format": "png",
+    "width": 450,
+    "height": 450,
+    "resource_type": "image",
+    "bytes": 121816,
+    "secure_url": "https://res.cloudinary.com/divzjiip8/image/upload/v1541618148/rc2ywsoiodrjxflt7w9g.png"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "5be4bff1e6b0b02ef6f2ac3d",
+  "codeStageIds": [
+    "5be4be04e6b0b02ef6f2ac34"
+  ],
+  "executable": true,
+  "hasProgress": false,
+  "initialCode": "$$LOOKUP",
+  "mode": "javascript",
+  "name": "testDeposit.js",
+  "readOnly": true,
+  "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
+  "testFixture": true,
+  "visible": true,
+  "updatedAt": "2019-01-09T02:47:16.900Z",
+  "createdAt": "2019-01-09T02:39:34.388Z",
+  "executablePath": "test/testDeposit.js"
+}

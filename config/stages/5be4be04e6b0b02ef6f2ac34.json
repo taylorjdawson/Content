@@ -1,0 +1,23 @@
+{
+  "id": "5be4be04e6b0b02ef6f2ac34",
+  "type": "CodeStage",
+  "codeFileIds": [
+    "5be33d9ce6b0b02ef6f2ac06",
+    "5be4bff1e6b0b02ef6f2ac3d",
+    "5bfdfc4ee6b0b0609838d70b",
+    "5bff06f9e6b0b0609838d72a"
+  ],
+  "completionMessage": "Deposited funds to the contract. Next will begin building the JavaScript Plasma chain.",
+  "containerId": "5be339e5e6b0b02ef6f2abfa",
+  "details": "$$LOOKUP",
+  "language": "solidity",
+  "languageVersion": "0.4.19",
+  "position": 2,
+  "task": "$$LOOKUP",
+  "testFramework": "truffle_with_mocha",
+  "title": "Create Plasma Deposit",
+  "validatedContract": "Plasma",
+  "updatedAt": "2019-01-09T02:39:31.414Z",
+  "createdAt": "2019-01-09T02:39:31.414Z",
+  "abiValidations": "$$LOOKUP"
+}

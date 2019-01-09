@@ -1,0 +1,25 @@
+{
+  "id": "5bf352e0e6b0b02ef6f2ac9a",
+  "type": "CodeStage",
+  "codeFileIds": [
+    "5be9f53fe6b0b02ef6f2ac6c",
+    "5be85256e6b0b02ef6f2ac5c",
+    "5be62dbce6b0b02ef6f2ac5a",
+    "5be629fce6b0b02ef6f2ac54",
+    "5be63f7de6b0b02ef6f2ac5b",
+    "5be9f566e6b0b02ef6f2ac6d",
+    "5bf35645e6b0b02ef6f2ac9b"
+  ],
+  "completionMessage": "You marked a UTXO as spent. Next we will apply the block to the Plasma chain.",
+  "containerId": "5be339e5e6b0b02ef6f2abfa",
+  "details": "$$LOOKUP",
+  "language": "javascript",
+  "languageVersion": "6.x/babel",
+  "position": 7,
+  "task": "$$LOOKUP",
+  "testFramework": "mocha_bdd",
+  "title": "Mark Spent UTXO",
+  "updatedAt": "2019-01-09T02:39:31.455Z",
+  "createdAt": "2019-01-09T02:39:31.455Z",
+  "abiValidations": "$$LOOKUP"
+}

@@ -1,0 +1,75 @@
+[
+  {
+    "_id": "5c0f2b98e6b0b03c3d9f391a",
+    "constant": "true",
+    "payable": "false",
+    "error": null,
+    "task_display": "Define a public operator address",
+    "name": "operator",
+    "type": "function",
+    "outputs": [
+      {
+        "_id": "5c0f2b98e6b0b03c3d9f391b",
+        "name": null,
+        "type": "address"
+      }
+    ]
+  },
+  {
+    "_id": "5c0f2b98e6b0b03c3d9f391c",
+    "constant": "true",
+    "payable": "false",
+    "error": null,
+    "task_display": "Define a public uint currentPlasmaBlock",
+    "name": "currentPlasmaBlock",
+    "type": "function",
+    "outputs": [
+      {
+        "_id": "5c0f2b98e6b0b03c3d9f391d",
+        "name": null,
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "_id": "5c0f2b98e6b0b03c3d9f391e",
+    "constant": "true",
+    "payable": "false",
+    "error": null,
+    "task_display": "Define a public uint currentDepositBlock",
+    "name": "currentDepositBlock",
+    "type": "function",
+    "outputs": [
+      {
+        "_id": "5c0f2b98e6b0b03c3d9f391f",
+        "name": null,
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "_id": "5c0f2b98e6b0b03c3d9f3920",
+    "constant": "true",
+    "payable": "false",
+    "error": null,
+    "task_display": "Define a public uint constant BLOCK_BUFFER",
+    "name": "BLOCK_BUFFER",
+    "type": "function",
+    "outputs": [
+      {
+        "_id": "5c0f2b98e6b0b03c3d9f3921",
+        "name": null,
+        "type": "uint256"
+      }
+    ]
+  },
+  {
+    "_id": "5c0f2b98e6b0b03c3d9f3922",
+    "constant": "false",
+    "payable": "false",
+    "error": null,
+    "task_display": "Define a constructor function",
+    "name": "Plasma",
+    "type": "constructor"
+  }
+]

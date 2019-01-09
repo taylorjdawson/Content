@@ -1,0 +1,18 @@
+[
+  {
+    "_id": "5c107ea5e6b0b03c3d9f3957",
+    "constant": "false",
+    "payable": "false",
+    "error": null,
+    "task_display": "Define a public submitBlock function",
+    "name": "submitBlock",
+    "type": "function",
+    "inputs": [
+      {
+        "_id": "5c107ea5e6b0b03c3d9f3958",
+        "name": null,
+        "type": "bytes32"
+      }
+    ]
+  }
+]

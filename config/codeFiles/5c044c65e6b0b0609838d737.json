@@ -1,0 +1,19 @@
+{
+  "id": "5c044c65e6b0b0609838d737",
+  "codeStageIds": [
+    "5bfe1c22e6b0b0609838d727",
+    "5c19b6ade6b0b03a95da42b9"
+  ],
+  "executable": true,
+  "hasProgress": false,
+  "initialCode": "$$LOOKUP",
+  "mode": "javascript",
+  "name": "safeBuffer.js",
+  "readOnly": true,
+  "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
+  "testFixture": false,
+  "visible": false,
+  "updatedAt": "2019-01-09T02:47:16.623Z",
+  "createdAt": "2019-01-09T02:39:32.739Z",
+  "executablePath": "safeBuffer.js"
+}

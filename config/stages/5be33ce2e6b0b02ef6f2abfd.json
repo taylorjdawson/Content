@@ -1,0 +1,22 @@
+{
+  "id": "5be33ce2e6b0b02ef6f2abfd",
+  "type": "CodeStage",
+  "codeFileIds": [
+    "5be33d9ce6b0b02ef6f2ac06",
+    "5be34230e6b0b02ef6f2ac0e",
+    "5bfdfc4ee6b0b0609838d70b"
+  ],
+  "completionMessage": "You completed the Constructor Stage. Next we will create the Plasma Block structure.",
+  "containerId": "5be339e5e6b0b02ef6f2abfa",
+  "details": "$$LOOKUP",
+  "language": "solidity",
+  "languageVersion": "0.4.19",
+  "position": 0,
+  "task": "$$LOOKUP",
+  "testFramework": "truffle_with_mocha",
+  "title": "Constructor Plasma",
+  "validatedContract": "Plasma",
+  "updatedAt": "2019-01-09T02:39:32.358Z",
+  "createdAt": "2019-01-09T02:39:32.358Z",
+  "abiValidations": "$$LOOKUP"
+}

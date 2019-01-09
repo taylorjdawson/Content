@@ -1,0 +1,18 @@
+{
+  "id": "5c048b35e6b0b0609838d74f",
+  "codeStageIds": [
+    "5c18783fe6b0b03a95da4263"
+  ],
+  "executable": true,
+  "executablePath": "contracts/RLPDecode.sol",
+  "hasProgress": false,
+  "initialCode": "$$LOOKUP",
+  "mode": "sol",
+  "name": "RLPDecode.sol",
+  "readOnly": true,
+  "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
+  "testFixture": false,
+  "visible": false,
+  "updatedAt": "2019-01-09T02:39:34.484Z",
+  "createdAt": "2019-01-09T02:39:34.484Z"
+}

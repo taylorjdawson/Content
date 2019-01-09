@@ -1,0 +1,25 @@
+{
+  "id": "5beb2f42e6b0b02ef6f2ac81",
+  "type": "CodeStage",
+  "codeFileIds": [
+    "5be9f566e6b0b02ef6f2ac6d",
+    "5be9f53fe6b0b02ef6f2ac6c",
+    "5be85256e6b0b02ef6f2ac5c",
+    "5be63f7de6b0b02ef6f2ac5b",
+    "5be62dbce6b0b02ef6f2ac5a",
+    "5be629fce6b0b02ef6f2ac54",
+    "5beb563de6b0b02ef6f2ac85"
+  ],
+  "completionMessage": "Your `addDeposit` function is now in use. Next we will create an function to add Plasma chain transactions to the current block.",
+  "containerId": "5be339e5e6b0b02ef6f2abfa",
+  "details": "$$LOOKUP",
+  "language": "javascript",
+  "languageVersion": "6.x/babel",
+  "position": 5,
+  "task": "$$LOOKUP",
+  "testFramework": "mocha_bdd",
+  "title": "Add Deposit (cont.)",
+  "updatedAt": "2019-01-09T02:39:31.399Z",
+  "createdAt": "2019-01-09T02:39:31.399Z",
+  "abiValidations": "$$LOOKUP"
+}

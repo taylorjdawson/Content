@@ -1,0 +1,18 @@
+{
+  "id": "5c048a98e6b0b0609838d74d",
+  "codeStageIds": [
+    "5c18783fe6b0b03a95da4263"
+  ],
+  "executable": true,
+  "executablePath": "contracts/Merkle.sol",
+  "hasProgress": false,
+  "initialCode": "$$LOOKUP",
+  "mode": "sol",
+  "name": "Merkle.sol",
+  "readOnly": true,
+  "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
+  "testFixture": false,
+  "visible": true,
+  "updatedAt": "2019-01-09T02:39:33.556Z",
+  "createdAt": "2019-01-09T02:39:33.556Z"
+}

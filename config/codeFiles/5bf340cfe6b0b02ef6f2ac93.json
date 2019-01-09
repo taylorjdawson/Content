@@ -1,0 +1,18 @@
+{
+  "id": "5bf340cfe6b0b02ef6f2ac93",
+  "codeStageIds": [
+    "5bf0d31ee6b0b02ef6f2ac90"
+  ],
+  "executable": true,
+  "hasProgress": false,
+  "initialCode": "$$LOOKUP",
+  "mode": "javascript",
+  "name": "testAddTx.js",
+  "readOnly": true,
+  "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
+  "testFixture": true,
+  "visible": true,
+  "updatedAt": "2019-01-09T02:47:16.917Z",
+  "createdAt": "2019-01-09T02:39:34.470Z",
+  "executablePath": "test/testAddTx.js"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "5bfc67a6e6b0b0609838d6f0",
+  "type": "CodeStage",
+  "codeFileIds": [
+    "5be33d9ce6b0b02ef6f2ac06",
+    "5bfe0ba7e6b0b0609838d716",
+    "5bfdfc4ee6b0b0609838d70b"
+  ],
+  "completionMessage": "You submitted a block to the Plasma contract. Next we will re-visit our `deposit` function to make some much needed changes after everything we have learned up to this point.",
+  "containerId": "5be339e5e6b0b02ef6f2abfa",
+  "details": "$$LOOKUP",
+  "language": "solidity",
+  "languageVersion": "0.4.19",
+  "position": 10,
+  "task": "$$LOOKUP",
+  "testFramework": "truffle_with_mocha",
+  "title": "Submit Block",
+  "validatedContract": "Plasma",
+  "updatedAt": "2019-01-09T02:39:32.533Z",
+  "createdAt": "2019-01-09T02:39:32.533Z",
+  "abiValidations": "$$LOOKUP"
+}
