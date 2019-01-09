@@ -6,14 +6,14 @@
     "error": null,
     "task_display": "Define a confirmTransaction function",
     "name": "confirmTransaction",
-    "type": "function",
     "inputs": [
       {
         "_id": "5bd77d37626daf74460af324",
         "name": null,
         "type": "uint256"
       }
-    ]
+    ],
+    "interfaceType": "function"
   },
   {
     "_id": "5bd77d37626daf74460af325",
@@ -22,7 +22,6 @@
     "error": null,
     "task_display": "Define a getConfirmations function",
     "name": "getConfirmations",
-    "type": "function",
     "outputs": [
       {
         "_id": "5bd77d37626daf74460af326",
@@ -36,6 +35,7 @@
         "name": null,
         "type": "uint256"
       }
-    ]
+    ],
+    "interfaceType": "function"
   }
 ]

@@ -6,7 +6,6 @@
     "error": null,
     "task_display": "Create a public 'transfer' function",
     "name": "transfer",
-    "type": "function",
     "inputs": [
       {
         "_id": "5bd1f84f626daf1162be4bfd",
@@ -18,6 +17,7 @@
         "name": null,
         "type": "address"
       }
-    ]
+    ],
+    "interfaceType": "function"
   }
 ]

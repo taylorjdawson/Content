@@ -6,14 +6,14 @@
     "error": null,
     "task_display": "Create a constructor function",
     "name": null,
-    "type": "constructor",
     "inputs": [
       {
         "_id": "5b90c9a9f1d76e2d5c6c71cd",
         "name": "",
         "type": "uint256"
       }
-    ]
+    ],
+    "interfaceType": "constructor"
   },
   {
     "_id": "5b90c9a9f1d76e2d5c6c71ce",
@@ -22,13 +22,13 @@
     "error": null,
     "task_display": "Add a public participants getter",
     "name": "participants",
-    "type": "function",
     "outputs": [
       {
         "_id": "5b90c9a9f1d76e2d5c6c71cf",
         "name": null,
         "type": "uint256"
       }
-    ]
+    ],
+    "interfaceType": "function"
   }
 ]

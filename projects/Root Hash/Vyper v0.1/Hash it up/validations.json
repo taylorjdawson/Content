@@ -6,7 +6,6 @@
     "error": null,
     "task_display": "Create a function findRoot which takes in bytes and returns bytes32",
     "name": "findRoot",
-    "type": "function",
     "outputs": [
       {
         "_id": "5be311c7626daf0f9392cf79",
@@ -20,6 +19,7 @@
         "name": null,
         "type": "bytes"
       }
-    ]
+    ],
+    "interfaceType": "function"
   }
 ]

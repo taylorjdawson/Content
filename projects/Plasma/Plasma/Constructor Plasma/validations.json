@@ -6,14 +6,14 @@
     "error": null,
     "task_display": "Define a public operator address",
     "name": "operator",
-    "type": "function",
     "outputs": [
       {
         "_id": "5c0f2b98e6b0b03c3d9f391b",
         "name": null,
         "type": "address"
       }
-    ]
+    ],
+    "interfaceType": "function"
   },
   {
     "_id": "5c0f2b98e6b0b03c3d9f391c",
@@ -22,14 +22,14 @@
     "error": null,
     "task_display": "Define a public uint currentPlasmaBlock",
     "name": "currentPlasmaBlock",
-    "type": "function",
     "outputs": [
       {
         "_id": "5c0f2b98e6b0b03c3d9f391d",
         "name": null,
         "type": "uint256"
       }
-    ]
+    ],
+    "interfaceType": "function"
   },
   {
     "_id": "5c0f2b98e6b0b03c3d9f391e",
@@ -38,14 +38,14 @@
     "error": null,
     "task_display": "Define a public uint currentDepositBlock",
     "name": "currentDepositBlock",
-    "type": "function",
     "outputs": [
       {
         "_id": "5c0f2b98e6b0b03c3d9f391f",
         "name": null,
         "type": "uint256"
       }
-    ]
+    ],
+    "interfaceType": "function"
   },
   {
     "_id": "5c0f2b98e6b0b03c3d9f3920",
@@ -54,14 +54,14 @@
     "error": null,
     "task_display": "Define a public uint constant BLOCK_BUFFER",
     "name": "BLOCK_BUFFER",
-    "type": "function",
     "outputs": [
       {
         "_id": "5c0f2b98e6b0b03c3d9f3921",
         "name": null,
         "type": "uint256"
       }
-    ]
+    ],
+    "interfaceType": "function"
   },
   {
     "_id": "5c0f2b98e6b0b03c3d9f3922",
@@ -70,6 +70,6 @@
     "error": null,
     "task_display": "Define a constructor function",
     "name": "Plasma",
-    "type": "constructor"
+    "interfaceType": "constructor"
   }
 ]

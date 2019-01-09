@@ -6,7 +6,6 @@
     "error": null,
     "task_display": "Define a getTransactionIds public function",
     "name": "getTransactionIds",
-    "type": "function",
     "outputs": [
       {
         "_id": "5bd80784626daf74460af3ab",
@@ -25,7 +24,8 @@
         "name": null,
         "type": "bool"
       }
-    ]
+    ],
+    "interfaceType": "function"
   },
   {
     "_id": "5bd80784626daf74460af3ae",
@@ -34,7 +34,6 @@
     "error": null,
     "task_display": "Define a getTransactionCount public function",
     "name": "getTransactionCount",
-    "type": "function",
     "outputs": [
       {
         "_id": "5bd80784626daf74460af3af",
@@ -53,7 +52,8 @@
         "name": null,
         "type": "bool"
       }
-    ]
+    ],
+    "interfaceType": "function"
   },
   {
     "_id": "5bd80784626daf74460af3b2",
@@ -62,13 +62,13 @@
     "error": null,
     "task_display": "Define a getOwners public function",
     "name": "getOwners",
-    "type": "function",
     "outputs": [
       {
         "_id": "5bd80784626daf74460af3b3",
         "name": null,
         "type": "address[]"
       }
-    ]
+    ],
+    "interfaceType": "function"
   }
 ]

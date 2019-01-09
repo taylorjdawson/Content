@@ -6,7 +6,7 @@
     "error": null,
     "task_display": "Create a constructor function",
     "name": "Voting",
-    "type": "constructor"
+    "interfaceType": "constructor"
   },
   {
     "_id": "5bb6a69ce6b0b05579436d90",
@@ -15,14 +15,14 @@
     "error": null,
     "task_display": "Create a register function",
     "name": "register",
-    "type": "function",
     "inputs": [
       {
         "_id": "5bb6a69ce6b0b05579436d91",
         "name": null,
         "type": "address"
       }
-    ]
+    ],
+    "interfaceType": "function"
   },
   {
     "_id": "5bb6a69ce6b0b05579436d92",
@@ -31,13 +31,13 @@
     "error": null,
     "task_display": "Create a vote function",
     "name": "vote",
-    "type": "function",
     "inputs": [
       {
         "_id": "5bb6a69ce6b0b05579436d93",
         "name": null,
         "type": "bool"
       }
-    ]
+    ],
+    "interfaceType": "function"
   }
 ]

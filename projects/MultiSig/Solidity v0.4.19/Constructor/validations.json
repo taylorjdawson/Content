@@ -6,7 +6,6 @@
     "error": null,
     "task_display": "Define a public array owners",
     "name": "owners",
-    "type": "function",
     "outputs": [
       {
         "_id": "5bd7034c626daf74460af236",
@@ -20,7 +19,8 @@
         "name": null,
         "type": "uint256"
       }
-    ]
+    ],
+    "interfaceType": "function"
   },
   {
     "_id": "5bd7034c626daf74460af238",
@@ -29,14 +29,14 @@
     "error": null,
     "task_display": "Define a public uint required",
     "name": "required",
-    "type": "function",
     "outputs": [
       {
         "_id": "5bd7034c626daf74460af239",
         "name": null,
         "type": "uint256"
       }
-    ]
+    ],
+    "interfaceType": "function"
   },
   {
     "_id": "5bd7034c626daf74460af23a",
@@ -45,7 +45,6 @@
     "error": null,
     "task_display": "Define a constructor function",
     "name": "MultiSig",
-    "type": "constructor",
     "inputs": [
       {
         "_id": "5bd7034c626daf74460af23b",
@@ -57,6 +56,7 @@
         "name": null,
         "type": "uint256"
       }
-    ]
+    ],
+    "interfaceType": "constructor"
   }
 ]

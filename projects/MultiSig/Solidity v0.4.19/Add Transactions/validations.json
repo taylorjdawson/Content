@@ -6,7 +6,6 @@
     "error": null,
     "task_display": "Define an addTransaction function",
     "name": "addTransaction",
-    "type": "function",
     "outputs": [
       {
         "_id": "5bd76db2626daf74460af2fe",
@@ -25,6 +24,7 @@
         "name": null,
         "type": "uint256"
       }
-    ]
+    ],
+    "interfaceType": "function"
   }
 ]

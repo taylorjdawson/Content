@@ -6,14 +6,14 @@
     "error": null,
     "task_display": "Define a public payable deposit function",
     "name": "deposit",
-    "type": "function",
     "outputs": [
       {
         "_id": "5c0f3878e6b0b03c3d9f3936",
         "name": null,
         "type": "uint256"
       }
-    ]
+    ],
+    "interfaceType": "function"
   },
   {
     "_id": "5c0f3878e6b0b03c3d9f3937",
@@ -22,7 +22,6 @@
     "error": null,
     "task_display": "Define a DepositCreated event",
     "name": "DepositCreated",
-    "type": "event",
     "inputs": [
       {
         "_id": "5c0f3878e6b0b03c3d9f3938",
@@ -39,6 +38,7 @@
         "name": null,
         "type": "uint256"
       }
-    ]
+    ],
+    "interfaceType": "event"
   }
 ]

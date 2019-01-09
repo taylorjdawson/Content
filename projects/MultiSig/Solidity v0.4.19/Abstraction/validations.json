@@ -6,7 +6,6 @@
     "error": null,
     "task_display": "Add a bytes array to the Transaction struct",
     "name": "transactions",
-    "type": "function",
     "outputs": [
       {
         "_id": "5bdf6a18e6b0b01c01681106",
@@ -35,6 +34,7 @@
         "name": null,
         "type": "uint256"
       }
-    ]
+    ],
+    "interfaceType": "function"
   }
 ]

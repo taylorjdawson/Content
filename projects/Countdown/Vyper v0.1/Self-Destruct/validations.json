@@ -6,14 +6,14 @@
     "error": null,
     "task_display": "Create a payable constructor function.",
     "name": null,
-    "type": "constructor",
     "inputs": [
       {
         "_id": "5bbe46141cf3723ee7b20ae9",
         "name": null,
         "type": "uint256"
       }
-    ]
+    ],
+    "interfaceType": "constructor"
   },
   {
     "_id": "5bbe46141cf3723ee7b20aea",
@@ -22,6 +22,6 @@
     "error": null,
     "task_display": "Create a tick function.",
     "name": "tick",
-    "type": "function"
+    "interfaceType": "function"
   }
 ]

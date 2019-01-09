@@ -6,14 +6,14 @@
     "error": null,
     "task_display": "Add a public unsigned integer bananas",
     "name": "bananas",
-    "type": "function",
     "outputs": [
       {
         "_id": "5b8492c6d9f9972c8de2efd2",
         "name": null,
         "type": "uint8"
       }
-    ]
+    ],
+    "interfaceType": "function"
   },
   {
     "_id": "5b8492c6d9f9972c8de2efd3",
@@ -22,14 +22,14 @@
     "error": null,
     "task_display": "Add an addBananas function",
     "name": "addBananas",
-    "type": "function",
     "inputs": [
       {
         "_id": "5b8492c6d9f9972c8de2efd4",
         "name": null,
         "type": "uint8"
       }
-    ]
+    ],
+    "interfaceType": "function"
   },
   {
     "_id": "5b8492c6d9f9972c8de2efd5",
@@ -38,13 +38,13 @@
     "error": null,
     "task_display": "Add a removeBananas function",
     "name": "removeBananas",
-    "type": "function",
     "inputs": [
       {
         "_id": "5b8492c6d9f9972c8de2efd6",
         "name": null,
         "type": "uint8"
       }
-    ]
+    ],
+    "interfaceType": "function"
   }
 ]

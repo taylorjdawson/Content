@@ -6,7 +6,6 @@
     "error": null,
     "task_display": "Define a public addExitToQueue function",
     "name": "addExitToQueue",
-    "type": "function",
     "inputs": [
       {
         "_id": "5c181ccfe6b0b03a95da4249",
@@ -33,7 +32,8 @@
         "name": null,
         "type": "uint256"
       }
-    ]
+    ],
+    "interfaceType": "function"
   },
   {
     "_id": "5c181ccfe6b0b03a95da424e",
@@ -42,7 +42,6 @@
     "error": null,
     "task_display": "Define an exits mapping",
     "name": "exits",
-    "type": "function",
     "outputs": [
       {
         "_id": "5c181ccfe6b0b03a95da424f",
@@ -66,7 +65,8 @@
         "name": "",
         "type": "uint256"
       }
-    ]
+    ],
+    "interfaceType": "function"
   },
   {
     "_id": "5c181ccfe6b0b03a95da4253",
@@ -75,7 +75,6 @@
     "error": null,
     "task_display": "Define an exitQueues mapping",
     "name": "exitQueues",
-    "type": "function",
     "outputs": [
       {
         "_id": "5c181ccfe6b0b03a95da4254",
@@ -89,7 +88,8 @@
         "name": null,
         "type": "address"
       }
-    ]
+    ],
+    "interfaceType": "function"
   },
   {
     "_id": "5c181ccfe6b0b03a95da4256",
@@ -98,7 +98,6 @@
     "error": null,
     "task_display": "Define an ExitStarted event",
     "name": "ExitStarted",
-    "type": "event",
     "inputs": [
       {
         "_id": "5c181ccfe6b0b03a95da4257",
@@ -120,6 +119,7 @@
         "name": null,
         "type": "uint256"
       }
-    ]
+    ],
+    "interfaceType": "event"
   }
 ]

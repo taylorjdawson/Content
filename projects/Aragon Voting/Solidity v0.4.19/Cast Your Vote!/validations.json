@@ -6,7 +6,6 @@
     "error": null,
     "task_display": "Create a castVote function.",
     "name": "castVote",
-    "type": "function",
     "inputs": [
       {
         "_id": "5b731578d9f9970a465ebcee",
@@ -18,6 +17,7 @@
         "name": null,
         "type": "bool"
       }
-    ]
+    ],
+    "interfaceType": "function"
   }
 ]

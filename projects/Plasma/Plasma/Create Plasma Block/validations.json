@@ -6,7 +6,6 @@
     "error": null,
     "task_display": "Define a plasmaChain mapping",
     "name": "plasmaChain",
-    "type": "function",
     "outputs": [
       {
         "_id": "5c0f2f6ae6b0b03c3d9f392a",
@@ -25,6 +24,7 @@
         "name": null,
         "type": "uint256"
       }
-    ]
+    ],
+    "interfaceType": "function"
   }
 ]

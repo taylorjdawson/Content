@@ -6,13 +6,13 @@
     "error": null,
     "task_display": "Create the findWinner function",
     "name": "findWinner",
-    "type": "function",
     "outputs": [
       {
         "_id": "5bb4dce1d9f997a89a01f72e",
         "name": null,
         "type": "string"
       }
-    ]
+    ],
+    "interfaceType": "function"
   }
 ]

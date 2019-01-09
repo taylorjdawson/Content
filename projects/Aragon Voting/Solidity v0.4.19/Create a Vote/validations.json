@@ -6,14 +6,14 @@
     "error": "Could not find a public newVote function",
     "task_display": "Create a newVote function.",
     "name": "newVote",
-    "type": "function",
     "inputs": [
       {
         "_id": "5b731564d9f9970a465ebce8",
         "name": "",
         "type": "string"
       }
-    ]
+    ],
+    "interfaceType": "function"
   },
   {
     "_id": "5b731564d9f9970a465ebce9",
@@ -22,7 +22,6 @@
     "error": "",
     "task_display": "Create a public array votes which is a collection of the struct Vote.",
     "name": "votes",
-    "type": "function",
     "outputs": [
       {
         "_id": "5b731564d9f9970a465ebcea",
@@ -41,6 +40,7 @@
         "name": null,
         "type": "uint256"
       }
-    ]
+    ],
+    "interfaceType": "function"
   }
 ]

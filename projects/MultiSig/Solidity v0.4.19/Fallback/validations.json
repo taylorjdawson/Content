@@ -6,7 +6,6 @@
     "error": null,
     "task_display": "Define an isConfirmed function",
     "name": "isConfirmed",
-    "type": "function",
     "outputs": [
       {
         "_id": "5bd79375626daf74460af372",
@@ -20,7 +19,8 @@
         "name": null,
         "type": "uint256"
       }
-    ]
+    ],
+    "interfaceType": "function"
   },
   {
     "_id": "5bd79375626daf74460af374",
@@ -29,6 +29,6 @@
     "error": null,
     "task_display": "Define a payable fallback function",
     "name": null,
-    "type": "fallback"
+    "interfaceType": "fallback"
   }
 ]

@@ -6,14 +6,14 @@
     "error": "",
     "task_display": "Create a public required function",
     "name": "required",
-    "type": "function",
     "outputs": [
       {
         "_id": "5bd70d99626daf74460af2dd",
         "name": null,
         "type": "uint256"
       }
-    ]
+    ],
+    "interfaceType": "function"
   },
   {
     "_id": "5bd70d99626daf74460af2de",
@@ -22,14 +22,14 @@
     "error": null,
     "task_display": "Create a public transactionCount function",
     "name": "transactionCount",
-    "type": "function",
     "outputs": [
       {
         "_id": "5bd70d99626daf74460af2df",
         "name": null,
         "type": "uint256"
       }
-    ]
+    ],
+    "interfaceType": "function"
   },
   {
     "_id": "5bd70d99626daf74460af2e0",
@@ -38,7 +38,6 @@
     "error": null,
     "task_display": "Create a transactions mapping",
     "name": "transactions",
-    "type": "function",
     "outputs": [
       {
         "_id": "5bd70d99626daf74460af2e1",
@@ -62,7 +61,8 @@
         "name": null,
         "type": "uint256"
       }
-    ]
+    ],
+    "interfaceType": "function"
   },
   {
     "_id": "5bd70d99626daf74460af2e5",
@@ -71,7 +71,6 @@
     "error": null,
     "task_display": "Create a confirmations mapping",
     "name": "confirmations",
-    "type": "function",
     "outputs": [
       {
         "_id": "5bd70d99626daf74460af2e6",
@@ -90,6 +89,7 @@
         "name": "",
         "type": "address"
       }
-    ]
+    ],
+    "interfaceType": "function"
   }
 ]

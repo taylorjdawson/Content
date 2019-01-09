@@ -6,14 +6,14 @@
     "error": null,
     "task_display": "Create a constructor function",
     "name": null,
-    "type": "constructor",
     "inputs": [
       {
         "_id": "5bd098fd1cf372e300ff2bf5",
         "name": null,
         "type": "uint256"
       }
-    ]
+    ],
+    "interfaceType": "constructor"
   },
   {
     "_id": "5bd098fd1cf372e300ff2bf6",
@@ -22,7 +22,7 @@
     "error": null,
     "task_display": "Create a public rsvp function",
     "name": "rsvp",
-    "type": "function"
+    "interfaceType": "function"
   },
   {
     "_id": "5bd098fd1cf372e300ff2bf7",
@@ -31,13 +31,13 @@
     "error": null,
     "task_display": "Create a payBill function",
     "name": "payBill",
-    "type": "function",
     "inputs": [
       {
         "_id": "5bd098fd1cf372e300ff2bf8",
         "name": null,
         "type": "uint256"
       }
-    ]
+    ],
+    "interfaceType": "function"
   }
 ]

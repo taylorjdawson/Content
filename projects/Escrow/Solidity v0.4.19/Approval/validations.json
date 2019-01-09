@@ -6,6 +6,6 @@
     "error": "Expected to see an approve function on your EscrowContract",
     "task_display": "Create an approve Function",
     "name": "approve",
-    "type": "function"
+    "interfaceType": "function"
   }
 ]
