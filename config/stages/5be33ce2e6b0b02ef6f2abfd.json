@@ -6,7 +6,7 @@
     "5be34230e6b0b02ef6f2ac0e",
     "5bfdfc4ee6b0b0609838d70b"
   ],
-  "completionMessage": "You completed the Constructor Stage. Next we will create the Plasma Block structure.",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5be339e5e6b0b02ef6f2abfa",
   "details": "$$LOOKUP",
   "language": "solidity",

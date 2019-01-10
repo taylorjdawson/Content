@@ -16,6 +16,6 @@
   ],
   "abiValidations": "$$LOOKUP",
   "task": "$$LOOKUP",
-  "completionMessage": "",
+  "completionMessage": "$$LOOKUP",
   "details": "$$LOOKUP"
 }

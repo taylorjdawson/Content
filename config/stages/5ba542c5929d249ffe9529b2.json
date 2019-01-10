@@ -7,7 +7,7 @@
     "5ba1562ad9f997cd2e33eba9",
     "5ba54337929d249ffe9529b4"
   ],
-  "completionMessage": "",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5ba1558bd9f997cd2e33eba7",
   "details": "$$LOOKUP",
   "language": "javascript",

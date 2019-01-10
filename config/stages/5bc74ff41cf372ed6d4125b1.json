@@ -5,7 +5,7 @@
   "title": "Counting Votes",
   "position": 1,
   "task": "$$LOOKUP",
-  "completionMessage": "## Count it up \n\nYou did it. One last task to go! \n\nNext we'll let voters lookup their `vote`. ",
+  "completionMessage": "$$LOOKUP",
   "validatedContract": "Voting",
   "languageVersion": "0.4.19",
   "language": "solidity",

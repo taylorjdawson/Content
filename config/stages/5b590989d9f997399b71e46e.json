@@ -6,7 +6,7 @@
     "5b58fffbd9f997399b71e44a",
     "5b69fdfbd9f9970c8b2af0e3"
   ],
-  "completionMessage": "## Tally-Ho! \n\nGreat! Now we can keep a running tally of our votes. This is a huge step towards creating a decentralized voting system. \n\nNext we'll consider what happens when someone wants to change their vote.",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5b58fc40d9f997399b71e3fd",
   "details": "$$LOOKUP",
   "language": "solidity",

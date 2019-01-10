@@ -5,7 +5,7 @@
   "title": "Registration",
   "position": 0,
   "task": "$$LOOKUP",
-  "completionMessage": "## Registration Complete.\n\nThe votes are in, you did it! \n\nNext step is to return the number of votes.",
+  "completionMessage": "$$LOOKUP",
   "validatedContract": "Voting",
   "languageVersion": "0.4.19",
   "language": "solidity",

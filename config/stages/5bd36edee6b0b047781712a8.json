@@ -5,7 +5,7 @@
     "5bcfc074e6b0b0328e69567a",
     "5bd3d0d1e6b0b047781712d0"
   ],
-  "completionMessage": "## Thank Jupiter, such security. \n\nYou've done a great job! Now our MultiSig confirmation function is secure.\n\nOnto more exciting stuff. ",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5bce5e20e6b0b012e91da44b",
   "details": "$$LOOKUP",
   "language": "solidity",

@@ -9,7 +9,7 @@
     "5b5f8d62d9f997cca33a5208",
     "5b5f8c20d9f997cca33a51f6"
   ],
-  "completionMessage": "## Locked and Loaded\n\nNicely done, now we can load votes into our front-end application. This is a huge step. \n\nNext we'll listen for events from our `Voting` contract and update our application state accordingly!",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5b58fc40d9f997399b71e3fd",
   "details": "$$LOOKUP",
   "language": "javascript",

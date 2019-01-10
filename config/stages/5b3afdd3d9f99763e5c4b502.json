@@ -5,7 +5,7 @@
     "5b3afe0cd9f99763e5c4b503",
     "5b3b061dd9f99763e5c4b509"
   ],
-  "completionMessage": "### Great job! \n\nNext we're going to make that hash have some meaning.",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5b3afd70d9f99763e5c4b4fe",
   "details": "$$LOOKUP",
   "language": "javascript",

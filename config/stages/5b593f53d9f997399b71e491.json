@@ -6,7 +6,7 @@
     "5b594718d9f997399b71e493",
     "5b58fffbd9f997399b71e44a"
   ],
-  "completionMessage": "## Super\n\nYou did it! Now our Voting app has governance and upgradeability built in. This will make it much easier to build on top of when we want to add more complex logic to our application. \n\nNext step: The Front-End. ",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5b58fc40d9f997399b71e3fd",
   "details": "$$LOOKUP",
   "language": "solidity",

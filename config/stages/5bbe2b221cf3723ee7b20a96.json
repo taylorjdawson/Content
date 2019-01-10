@@ -5,7 +5,7 @@
     "5bbe2d861cf3723ee7b20a9c",
     "5bbe2de01cf3723ee7b20a9d"
   ],
-  "completionMessage": "",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5bbe29521cf3723ee7b20a95",
   "details": "$$LOOKUP",
   "language": "vyper",

@@ -7,7 +7,7 @@
     "5adab205929d249e5faefb5e",
     "5b3ae6a9d9f99763e5c4b4cc"
   ],
-  "completionMessage": "### Are you pumped? \n\nWe're pumped. You've created the Escrow Contract *and* the code you need to deploy it! Awesome.  \n\nNext, let's party on the TestNet.\n",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5adab204929d249e5faefb4c",
   "details": "$$LOOKUP",
   "language": "javascript",

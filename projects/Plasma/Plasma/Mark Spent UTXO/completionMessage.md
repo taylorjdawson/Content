@@ -1,0 +1,1 @@
+You marked a UTXO as spent. Next we will apply the block to the Plasma chain.

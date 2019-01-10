@@ -6,7 +6,7 @@
     "5ba1562ad9f997cd2e33eba9",
     "5ba15643d9f997cd2e33ebaa"
   ],
-  "completionMessage": "## You have *proved* your worth!\n\nNow let's write the necessary code to verify the node belongs in the tree. ",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5ba1558bd9f997cd2e33eba7",
   "details": "$$LOOKUP",
   "language": "javascript",

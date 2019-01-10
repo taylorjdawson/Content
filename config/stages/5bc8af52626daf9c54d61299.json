@@ -17,5 +17,5 @@
   "abiValidations": "$$LOOKUP",
   "task": "$$LOOKUP",
   "details": "$$LOOKUP",
-  "completionMessage": "## A Symbolic Victory\n\nWe're very pleased you have named your token. \n\nIt will most certainly go on to do great things! "
+  "completionMessage": "$$LOOKUP"
 }

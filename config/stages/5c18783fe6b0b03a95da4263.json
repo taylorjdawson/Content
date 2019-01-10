@@ -14,7 +14,7 @@
     "5be85256e6b0b02ef6f2ac5c",
     "5be629fce6b0b02ef6f2ac54"
   ],
-  "completionMessage": "Completed the start exit function.",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5be339e5e6b0b02ef6f2abfa",
   "details": "$$LOOKUP",
   "language": "solidity",

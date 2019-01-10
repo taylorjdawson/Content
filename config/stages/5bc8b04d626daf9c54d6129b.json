@@ -17,5 +17,5 @@
   "task": "$$LOOKUP",
   "details": "$$LOOKUP",
   "abiValidations": "$$LOOKUP",
-  "completionMessage": "## Transfer Complete\n\nHeck yeah, you did it! \n\nOne final question: Is your `transfer` secure? "
+  "completionMessage": "$$LOOKUP"
 }

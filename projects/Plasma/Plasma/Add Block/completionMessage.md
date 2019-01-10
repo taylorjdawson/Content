@@ -1,0 +1,1 @@
+You added a block to the Plasma chain. Next we will jump back into Solidity to build out a function to submit blocks to the Plasma contract.

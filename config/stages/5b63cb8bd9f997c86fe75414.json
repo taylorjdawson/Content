@@ -10,7 +10,7 @@
     "5b63cc29d9f997c86fe75415",
     "5b5f8c20d9f997cca33a51f6"
   ],
-  "completionMessage": "## YOU DID IT.\n\nYou've created an Aragon Voting application. \n\nNow, download the code and build on the work you've done! ",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5b58fc40d9f997399b71e3fd",
   "details": "$$LOOKUP",
   "language": "javascript",

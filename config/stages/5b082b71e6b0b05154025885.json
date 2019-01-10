@@ -5,7 +5,7 @@
     "5b082e1be6b0b05154025886",
     "5adab204929d249e5faefb55"
   ],
-  "completionMessage": "# So Security. Much Wow.\n\nYou just secured the hell out of the smart contract! YES. \n\nNext let's learn about how to log events on the blockchain! ",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5adab204929d249e5faefb4c",
   "details": "$$LOOKUP",
   "language": "solidity",

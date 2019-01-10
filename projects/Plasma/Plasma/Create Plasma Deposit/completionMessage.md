@@ -1,0 +1,1 @@
+Deposited funds to the contract. Next will begin building the JavaScript Plasma chain.

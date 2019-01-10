@@ -6,7 +6,7 @@
     "5be33d9ce6b0b02ef6f2ac06",
     "5bfe127ce6b0b0609838d71f"
   ],
-  "completionMessage": "You re-factored the deposit function. Next we will jump back to the Plasma chain to submit a block.",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5be339e5e6b0b02ef6f2abfa",
   "details": "$$LOOKUP",
   "language": "solidity",

@@ -17,5 +17,5 @@
   "abiValidations": "$$LOOKUP",
   "task": "$$LOOKUP",
   "details": "$$LOOKUP",
-  "completionMessage": "## We'll just call you Acrobat\n\nBecause you've got the balance! \n\nAwesome. Now let's spread the love around. "
+  "completionMessage": "$$LOOKUP"
 }

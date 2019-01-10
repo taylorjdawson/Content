@@ -5,7 +5,7 @@
     "5adab204929d249e5faefb55",
     "5adab204929d249e5faefb59"
   ],
-  "completionMessage": "### Nicely Done!\n\nYou've laid the infrastructure for the Escrow Contract. Over the next two steps we'll continue to build on what you've wrote and make it completely functional. \n\nWe're looking forward to your progress on the next stage! ",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5adab204929d249e5faefb4c",
   "details": "$$LOOKUP",
   "language": "solidity",

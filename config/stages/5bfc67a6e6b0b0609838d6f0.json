@@ -6,7 +6,7 @@
     "5bfe0ba7e6b0b0609838d716",
     "5bfdfc4ee6b0b0609838d70b"
   ],
-  "completionMessage": "You submitted a block to the Plasma contract. Next we will re-visit our `deposit` function to make some much needed changes after everything we have learned up to this point.",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5be339e5e6b0b02ef6f2abfa",
   "details": "$$LOOKUP",
   "language": "solidity",

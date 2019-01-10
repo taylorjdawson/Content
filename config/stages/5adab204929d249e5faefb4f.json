@@ -5,7 +5,7 @@
     "5adab204929d249e5faefb55",
     "5adab204929d249e5faefb5b"
   ],
-  "completionMessage": "## Yes. Well Done. \n\nThe funds can now be successfully moved from the `depositor` to the `beneficiary`. \n\nThis is a working escrow contract on the blockchain, very exciting!",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5adab204929d249e5faefb4c",
   "details": "$$LOOKUP",
   "language": "solidity",

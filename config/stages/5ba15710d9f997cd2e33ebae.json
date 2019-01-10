@@ -6,7 +6,7 @@
     "5ba15643d9f997cd2e33ebaa",
     "5ba1562ad9f997cd2e33eba9"
   ],
-  "completionMessage": "## Mod Two Equals One and You Are Done\n\nYou've figured out how to build the Merkle Tree and determine the root. Well done! \n\nNow it's time to pull only relevant data to prove that a particular hash belongs in the merkle tree. ",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5ba1558bd9f997cd2e33eba7",
   "details": "$$LOOKUP",
   "language": "javascript",

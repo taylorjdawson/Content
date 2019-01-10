@@ -10,7 +10,7 @@
     "5be9f566e6b0b02ef6f2ac6d",
     "5bf35645e6b0b02ef6f2ac9b"
   ],
-  "completionMessage": "You marked a UTXO as spent. Next we will apply the block to the Plasma chain.",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5be339e5e6b0b02ef6f2abfa",
   "details": "$$LOOKUP",
   "language": "javascript",

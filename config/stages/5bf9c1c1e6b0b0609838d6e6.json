@@ -10,7 +10,7 @@
     "5be62dbce6b0b02ef6f2ac5a",
     "5be629fce6b0b02ef6f2ac54"
   ],
-  "completionMessage": "You added a block to the Plasma chain. Next we will jump back into Solidity to build out a function to submit blocks to the Plasma contract.",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5be339e5e6b0b02ef6f2abfa",
   "details": "$$LOOKUP",
   "language": "javascript",

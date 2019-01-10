@@ -6,7 +6,7 @@
     "5b58fffbd9f997399b71e44a",
     "5b69fdfbd9f9970c8b2af0e3"
   ],
-  "completionMessage": "## WELL DONE. \n\nWe hope you're enjoying what you've accomplished so far. Look over your code and feel that pride! \n\nNow that we've handled the majority of the voting logic, we'll need to add some events to trigger changes on our front-end.",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5b58fc40d9f997399b71e3fd",
   "details": "$$LOOKUP",
   "language": "solidity",

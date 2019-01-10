@@ -10,7 +10,7 @@
     "5be629fce6b0b02ef6f2ac54",
     "5beb563de6b0b02ef6f2ac85"
   ],
-  "completionMessage": "Your `addDeposit` function is now in use. Next we will create an function to add Plasma chain transactions to the current block.",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5be339e5e6b0b02ef6f2abfa",
   "details": "$$LOOKUP",
   "language": "javascript",

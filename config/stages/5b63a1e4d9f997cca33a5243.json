@@ -10,7 +10,7 @@
     "5b63aaa6d9f997cca33a5246",
     "5b63aad6d9f997cca33a5247"
   ],
-  "completionMessage": "## A Promising Observation\n\nOur promising observation is that you passed the stage. Way to go! \n\nFinal stage ahead, we're going to modify our `stateUpdate` function to also handle when voters cast their vote.",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5b58fc40d9f997399b71e3fd",
   "details": "$$LOOKUP",
   "language": "javascript",

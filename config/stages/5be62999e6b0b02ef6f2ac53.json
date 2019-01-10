@@ -10,7 +10,7 @@
     "5be9f566e6b0b02ef6f2ac6d",
     "5be9f53fe6b0b02ef6f2ac6c"
   ],
-  "completionMessage": "Created a watcher",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5be339e5e6b0b02ef6f2abfa",
   "details": "$$LOOKUP",
   "language": "javascript",

@@ -16,5 +16,6 @@
     "5beb43421cf372546bb7291e",
     "5beb43681cf372546bb7291f"
   ],
-  "abiValidations": "$$LOOKUP"
+  "abiValidations": "$$LOOKUP",
+  "completionMessage": "$$LOOKUP"
 }

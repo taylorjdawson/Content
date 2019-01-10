@@ -5,7 +5,7 @@
     "5b84730ed9f9972c8de2efa1",
     "5b847341d9f9972c8de2efa2"
   ],
-  "completionMessage": "",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5b8332b6d9f99799d09d5bdf",
   "details": "$$LOOKUP",
   "language": "solidity",

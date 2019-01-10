@@ -6,7 +6,7 @@
     "5b59004dd9f997399b71e44e",
     "5b69fdfbd9f9970c8b2af0e3"
   ],
-  "completionMessage": "## Superb! \n\nYou've created a list of `Votes` that we can store in our Voting contract. Next we're going to collect whether our vote participants support or deny the vote. ",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5b58fc40d9f997399b71e3fd",
   "details": "$$LOOKUP",
   "language": "solidity",

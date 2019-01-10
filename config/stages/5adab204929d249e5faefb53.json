@@ -1,7 +1,7 @@
 {
   "id": "5adab204929d249e5faefb53",
   "type": "DownloadStage",
-  "completionMessage": "",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5adab204929d249e5faefb4c",
   "details": "$$LOOKUP",
   "position": 10,

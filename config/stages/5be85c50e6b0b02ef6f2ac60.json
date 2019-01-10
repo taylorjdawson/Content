@@ -10,7 +10,7 @@
     "5be63f7de6b0b02ef6f2ac5b",
     "5be62dbce6b0b02ef6f2ac5a"
   ],
-  "completionMessage": "You added a deposit transaction to the Plasma chain. Next we will clean up some code surrounding the `addDeposit` function.",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5be339e5e6b0b02ef6f2abfa",
   "details": "$$LOOKUP",
   "language": "javascript",

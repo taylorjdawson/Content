@@ -5,7 +5,7 @@
     "5adab204929d249e5faefb55",
     "5b082665e6b0b05154025883"
   ],
-  "completionMessage": "## Approved! \n\nWe approve of the code you just wrote. The code you wrote approves of the funds the depositor deposits. Kermit the frog approves of being green.\n\nNow that your smart contract is complete, we'll move onto deploying and interacting with it! ",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5adab204929d249e5faefb4c",
   "details": "$$LOOKUP",
   "language": "solidity",

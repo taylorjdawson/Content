@@ -5,7 +5,7 @@
     "5bcfc074e6b0b0328e69567a",
     "5bd228fbe6b0b0477817127c"
   ],
-  "completionMessage": "## Your awesomeness is deeply confirmed\n\nOk, we admit that was a bit of a setup stage. \n\nNext we'll move onto more functionality! ",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5bce5e20e6b0b012e91da44b",
   "details": "$$LOOKUP",
   "language": "solidity",

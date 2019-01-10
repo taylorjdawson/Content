@@ -1,0 +1,1 @@
+You submitted a Plasma chain block to the Plasma contract. Next we will learn how a Plasma exit works.

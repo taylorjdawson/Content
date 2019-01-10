@@ -6,7 +6,7 @@
     "5ba1562ad9f997cd2e33eba9",
     "5ba156e4d9f997cd2e33ebad"
   ],
-  "completionMessage": "## We're so impressed by you we wrote this sentence\n\nWe're so impressed by you we wrote (We're so impressed by you we wrote (We're so impressed by you we wrote ...))\n\nWhoops. No base case, we overflowed. :)\n\nOnto odd Merkle Trees! ",
+  "completionMessage": "$$LOOKUP",
   "containerId": "5ba1558bd9f997cd2e33eba7",
   "details": "$$LOOKUP",
   "language": "javascript",

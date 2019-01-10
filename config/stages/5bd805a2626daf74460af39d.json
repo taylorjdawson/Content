@@ -18,6 +18,6 @@
     "5bd80690626daf74460af3a7",
     "5bd806ba626daf74460af3a8"
   ],
-  "completionMessage": "## You took a byte out of that stage!\n\nGreat job extending your contract to accept tokens.\n\nLet's move on to our final stage.",
+  "completionMessage": "$$LOOKUP",
   "details": "$$LOOKUP"
 }
