@@ -10,7 +10,7 @@
       {
         "_id": "5bb7ff2c929d24ab56a977e8",
         "name": null,
-        "type": "string"
+        "staticType": "string"
       }
     ],
     "interfaceType": "function"
@@ -26,7 +26,7 @@
       {
         "_id": "5bb7ff2c929d24ab56a977ea",
         "name": null,
-        "type": "string"
+        "staticType": "string"
       }
     ],
     "interfaceType": "function"
@@ -42,7 +42,7 @@
       {
         "_id": "5bb7ff2c929d24ab56a977ec",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       }
     ],
     "interfaceType": "function"

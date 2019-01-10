@@ -10,7 +10,7 @@
       {
         "_id": "5c0f2b98e6b0b03c3d9f391b",
         "name": null,
-        "type": "address"
+        "staticType": "address"
       }
     ],
     "interfaceType": "function"
@@ -26,7 +26,7 @@
       {
         "_id": "5c0f2b98e6b0b03c3d9f391d",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       }
     ],
     "interfaceType": "function"
@@ -42,7 +42,7 @@
       {
         "_id": "5c0f2b98e6b0b03c3d9f391f",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       }
     ],
     "interfaceType": "function"
@@ -58,7 +58,7 @@
       {
         "_id": "5c0f2b98e6b0b03c3d9f3921",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       }
     ],
     "interfaceType": "function"

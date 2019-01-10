@@ -10,19 +10,19 @@
       {
         "_id": "5bd80784626daf74460af3ab",
         "name": null,
-        "type": "uint256[]"
+        "staticType": "uint256[]"
       }
     ],
     "inputs": [
       {
         "_id": "5bd80784626daf74460af3ac",
         "name": null,
-        "type": "bool"
+        "staticType": "bool"
       },
       {
         "_id": "5bd80784626daf74460af3ad",
         "name": null,
-        "type": "bool"
+        "staticType": "bool"
       }
     ],
     "interfaceType": "function"
@@ -38,19 +38,19 @@
       {
         "_id": "5bd80784626daf74460af3af",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       }
     ],
     "inputs": [
       {
         "_id": "5bd80784626daf74460af3b0",
         "name": null,
-        "type": "bool"
+        "staticType": "bool"
       },
       {
         "_id": "5bd80784626daf74460af3b1",
         "name": null,
-        "type": "bool"
+        "staticType": "bool"
       }
     ],
     "interfaceType": "function"
@@ -66,7 +66,7 @@
       {
         "_id": "5bd80784626daf74460af3b3",
         "name": null,
-        "type": "address[]"
+        "staticType": "address[]"
       }
     ],
     "interfaceType": "function"

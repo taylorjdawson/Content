@@ -10,7 +10,7 @@
       {
         "_id": "5bb4dce1d9f997a89a01f72e",
         "name": null,
-        "type": "string"
+        "staticType": "string"
       }
     ],
     "interfaceType": "function"

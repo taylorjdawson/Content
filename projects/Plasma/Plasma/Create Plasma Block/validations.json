@@ -10,19 +10,19 @@
       {
         "_id": "5c0f2f6ae6b0b03c3d9f392a",
         "name": null,
-        "type": "bytes32"
+        "staticType": "bytes32"
       },
       {
         "_id": "5c0f2f6ae6b0b03c3d9f392b",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       }
     ],
     "inputs": [
       {
         "_id": "5c0f2f6ae6b0b03c3d9f392c",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       }
     ],
     "interfaceType": "function"

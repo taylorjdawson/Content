@@ -19,7 +19,7 @@
       {
         "_id": "5bb84a6f929d24ab56a977fd",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       }
     ],
     "interfaceType": "function"

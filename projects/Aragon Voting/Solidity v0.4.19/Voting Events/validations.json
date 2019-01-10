@@ -10,7 +10,7 @@
       {
         "_id": "5b735726d9f9970a465ebd06",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       }
     ],
     "interfaceType": "event"
@@ -26,7 +26,7 @@
       {
         "_id": "5b735726d9f9970a465ebd08",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       }
     ],
     "interfaceType": "event"

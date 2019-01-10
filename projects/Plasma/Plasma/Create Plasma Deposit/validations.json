@@ -10,7 +10,7 @@
       {
         "_id": "5c0f3878e6b0b03c3d9f3936",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       }
     ],
     "interfaceType": "function"
@@ -26,17 +26,17 @@
       {
         "_id": "5c0f3878e6b0b03c3d9f3938",
         "name": null,
-        "type": "address"
+        "staticType": "address"
       },
       {
         "_id": "5c0f3878e6b0b03c3d9f3939",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       },
       {
         "_id": "5c0f3878e6b0b03c3d9f393a",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       }
     ],
     "interfaceType": "event"

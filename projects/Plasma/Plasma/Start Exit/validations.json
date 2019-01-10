@@ -10,22 +10,22 @@
       {
         "_id": "5c19a09ee6b0b03a95da4294",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       },
       {
         "_id": "5c19a09ee6b0b03a95da4295",
         "name": null,
-        "type": "bytes"
+        "staticType": "bytes"
       },
       {
         "_id": "5c19a09ee6b0b03a95da4296",
         "name": null,
-        "type": "bytes"
+        "staticType": "bytes"
       },
       {
         "_id": "5c19a09ee6b0b03a95da4297",
         "name": null,
-        "type": "bytes"
+        "staticType": "bytes"
       }
     ],
     "interfaceType": "function"

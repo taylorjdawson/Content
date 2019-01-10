@@ -10,7 +10,7 @@
       {
         "_id": "5bd612f41cf3720793cf1329",
         "name": null,
-        "type": "bytes32"
+        "staticType": "bytes32"
       }
     ],
     "interfaceType": "function"

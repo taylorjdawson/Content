@@ -10,7 +10,7 @@
       {
         "_id": "5baba4c6d9f9970063ceeeea",
         "name": null,
-        "type": "address[]"
+        "staticType": "address[]"
       }
     ],
     "interfaceType": "function"

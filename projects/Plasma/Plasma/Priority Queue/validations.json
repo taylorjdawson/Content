@@ -10,27 +10,27 @@
       {
         "_id": "5c181ccfe6b0b03a95da4249",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       },
       {
         "_id": "5c181ccfe6b0b03a95da424a",
         "name": null,
-        "type": "address"
+        "staticType": "address"
       },
       {
         "_id": "5c181ccfe6b0b03a95da424b",
         "name": null,
-        "type": "address"
+        "staticType": "address"
       },
       {
         "_id": "5c181ccfe6b0b03a95da424c",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       },
       {
         "_id": "5c181ccfe6b0b03a95da424d",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       }
     ],
     "interfaceType": "function"
@@ -46,24 +46,24 @@
       {
         "_id": "5c181ccfe6b0b03a95da424f",
         "name": null,
-        "type": "address"
+        "staticType": "address"
       },
       {
         "_id": "5c181ccfe6b0b03a95da4250",
         "name": null,
-        "type": "address"
+        "staticType": "address"
       },
       {
         "_id": "5c181ccfe6b0b03a95da4251",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       }
     ],
     "inputs": [
       {
         "_id": "5c181ccfe6b0b03a95da4252",
         "name": "",
-        "type": "uint256"
+        "staticType": "uint256"
       }
     ],
     "interfaceType": "function"
@@ -79,14 +79,14 @@
       {
         "_id": "5c181ccfe6b0b03a95da4254",
         "name": null,
-        "type": "address"
+        "staticType": "address"
       }
     ],
     "inputs": [
       {
         "_id": "5c181ccfe6b0b03a95da4255",
         "name": null,
-        "type": "address"
+        "staticType": "address"
       }
     ],
     "interfaceType": "function"
@@ -102,22 +102,22 @@
       {
         "_id": "5c181ccfe6b0b03a95da4257",
         "name": null,
-        "type": "address"
+        "staticType": "address"
       },
       {
         "_id": "5c181ccfe6b0b03a95da4258",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       },
       {
         "_id": "5c181ccfe6b0b03a95da4259",
         "name": null,
-        "type": "address"
+        "staticType": "address"
       },
       {
         "_id": "5c181ccfe6b0b03a95da425a",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       }
     ],
     "interfaceType": "event"

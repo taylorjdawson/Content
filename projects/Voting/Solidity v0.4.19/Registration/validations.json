@@ -16,7 +16,7 @@
     "inputs": [
       {
         "_id": "5bc74fad1cf372ed6d4125ae",
-        "type": "address"
+        "staticType": "address"
       }
     ],
     "interfaceType": "function"
@@ -30,7 +30,7 @@
     "inputs": [
       {
         "_id": "5bc74fad1cf372ed6d4125b0",
-        "type": "bool"
+        "staticType": "bool"
       }
     ],
     "interfaceType": "function"

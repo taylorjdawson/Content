@@ -10,7 +10,7 @@
       {
         "_id": "5bd098fd1cf372e300ff2bf5",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       }
     ],
     "interfaceType": "constructor"
@@ -35,7 +35,7 @@
       {
         "_id": "5bd098fd1cf372e300ff2bf8",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       }
     ],
     "interfaceType": "function"

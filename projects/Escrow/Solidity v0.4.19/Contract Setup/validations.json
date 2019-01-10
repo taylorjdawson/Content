@@ -10,7 +10,7 @@
       {
         "_id": "5b6f5a7cd9f9974bb8518d1e",
         "name": "",
-        "type": "address"
+        "staticType": "address"
       }
     ],
     "interfaceType": "function"
@@ -26,7 +26,7 @@
       {
         "_id": "5b6f5a7cd9f9974bb8518d20",
         "name": null,
-        "type": "address"
+        "staticType": "address"
       }
     ],
     "interfaceType": "function"
@@ -42,7 +42,7 @@
       {
         "_id": "5b6f5a7cd9f9974bb8518d22",
         "name": null,
-        "type": "address"
+        "staticType": "address"
       }
     ],
     "interfaceType": "function"

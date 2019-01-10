@@ -10,7 +10,7 @@
       {
         "_id": "5bd1f309626daf1162be4be8",
         "name": null,
-        "type": "bytes"
+        "staticType": "bytes"
       }
     ],
     "interfaceType": "function"
@@ -26,7 +26,7 @@
       {
         "_id": "5bd1f309626daf1162be4bea",
         "name": null,
-        "type": "bytes"
+        "staticType": "bytes"
       }
     ],
     "interfaceType": "function"

@@ -10,14 +10,14 @@
       {
         "_id": "5be311c7626daf0f9392cf79",
         "name": null,
-        "type": "bytes32"
+        "staticType": "bytes32"
       }
     ],
     "inputs": [
       {
         "_id": "5be311c7626daf0f9392cf7a",
         "name": null,
-        "type": "bytes"
+        "staticType": "bytes"
       }
     ],
     "interfaceType": "function"

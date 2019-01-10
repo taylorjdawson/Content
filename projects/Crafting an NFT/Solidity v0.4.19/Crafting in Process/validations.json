@@ -10,19 +10,19 @@
       {
         "_id": "5ba3c8cad9f997459c1b2c1e",
         "name": null,
-        "type": "string"
+        "staticType": "string"
       },
       {
         "_id": "5ba3c8cad9f997459c1b2c1f",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       }
     ],
     "inputs": [
       {
         "_id": "5ba3c8cad9f997459c1b2c20",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       }
     ],
     "interfaceType": "function"

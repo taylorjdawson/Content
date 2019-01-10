@@ -10,12 +10,12 @@
       {
         "_id": "5b6f5a91d9f9974bb8518d25",
         "name": null,
-        "type": "address"
+        "staticType": "address"
       },
       {
         "_id": "5b6f5a91d9f9974bb8518d26",
         "name": null,
-        "type": "address"
+        "staticType": "address"
       }
     ],
     "interfaceType": "constructor"

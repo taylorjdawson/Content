@@ -10,7 +10,7 @@
       {
         "_id": "5b731564d9f9970a465ebce8",
         "name": "",
-        "type": "string"
+        "staticType": "string"
       }
     ],
     "interfaceType": "function"
@@ -26,19 +26,19 @@
       {
         "_id": "5b731564d9f9970a465ebcea",
         "name": "creator",
-        "type": "address"
+        "staticType": "address"
       },
       {
         "_id": "5b731564d9f9970a465ebceb",
         "name": "question",
-        "type": "string"
+        "staticType": "string"
       }
     ],
     "inputs": [
       {
         "_id": "5b731564d9f9970a465ebcec",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       }
     ],
     "interfaceType": "function"

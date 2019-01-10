@@ -10,7 +10,7 @@
       {
         "_id": "5b8492c6d9f9972c8de2efd2",
         "name": null,
-        "type": "uint8"
+        "staticType": "uint8"
       }
     ],
     "interfaceType": "function"
@@ -26,7 +26,7 @@
       {
         "_id": "5b8492c6d9f9972c8de2efd4",
         "name": null,
-        "type": "uint8"
+        "staticType": "uint8"
       }
     ],
     "interfaceType": "function"
@@ -42,7 +42,7 @@
       {
         "_id": "5b8492c6d9f9972c8de2efd6",
         "name": null,
-        "type": "uint8"
+        "staticType": "uint8"
       }
     ],
     "interfaceType": "function"

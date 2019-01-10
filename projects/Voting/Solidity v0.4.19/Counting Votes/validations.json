@@ -8,7 +8,7 @@
     "outputs": [
       {
         "_id": "5bc74ff41cf372ed6d4125b3",
-        "type": "uint256"
+        "staticType": "uint256"
       }
     ],
     "interfaceType": "function"

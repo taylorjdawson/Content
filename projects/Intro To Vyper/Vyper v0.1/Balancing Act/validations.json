@@ -10,14 +10,14 @@
       {
         "_id": "5bd1f77a626daf1162be4bf8",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       }
     ],
     "inputs": [
       {
         "_id": "5bd1f77a626daf1162be4bf9",
         "name": null,
-        "type": "address"
+        "staticType": "address"
       }
     ],
     "interfaceType": "function"

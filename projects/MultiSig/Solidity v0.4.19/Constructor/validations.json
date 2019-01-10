@@ -10,14 +10,14 @@
       {
         "_id": "5bd7034c626daf74460af236",
         "name": null,
-        "type": "address"
+        "staticType": "address"
       }
     ],
     "inputs": [
       {
         "_id": "5bd7034c626daf74460af237",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       }
     ],
     "interfaceType": "function"
@@ -33,7 +33,7 @@
       {
         "_id": "5bd7034c626daf74460af239",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       }
     ],
     "interfaceType": "function"
@@ -49,12 +49,12 @@
       {
         "_id": "5bd7034c626daf74460af23b",
         "name": null,
-        "type": "address[]"
+        "staticType": "address[]"
       },
       {
         "_id": "5bd7034c626daf74460af23c",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       }
     ],
     "interfaceType": "constructor"

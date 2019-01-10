@@ -10,7 +10,7 @@
       {
         "_id": "5b6f50f4d9f997b326486f2b",
         "name": null,
-        "type": "bytes32"
+        "staticType": "bytes32"
       }
     ],
     "interfaceType": "function"
@@ -26,7 +26,7 @@
       {
         "_id": "5b6f50f4d9f997b326486f2d",
         "name": null,
-        "type": "bytes32"
+        "staticType": "bytes32"
       }
     ],
     "interfaceType": "function"

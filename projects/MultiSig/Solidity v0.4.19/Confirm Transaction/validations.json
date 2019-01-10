@@ -10,7 +10,7 @@
       {
         "_id": "5bd77d37626daf74460af324",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       }
     ],
     "interfaceType": "function"
@@ -26,14 +26,14 @@
       {
         "_id": "5bd77d37626daf74460af326",
         "name": null,
-        "type": "address[]"
+        "staticType": "address[]"
       }
     ],
     "inputs": [
       {
         "_id": "5bd77d37626daf74460af327",
         "name": null,
-        "type": "uint256"
+        "staticType": "uint256"
       }
     ],
     "interfaceType": "function"

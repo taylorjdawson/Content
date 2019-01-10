@@ -19,7 +19,7 @@
       {
         "_id": "5bb6a69ce6b0b05579436d91",
         "name": null,
-        "type": "address"
+        "staticType": "address"
       }
     ],
     "interfaceType": "function"
@@ -35,7 +35,7 @@
       {
         "_id": "5bb6a69ce6b0b05579436d93",
         "name": null,
-        "type": "bool"
+        "staticType": "bool"
       }
     ],
     "interfaceType": "function"
