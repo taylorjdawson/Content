@@ -8,6 +8,5 @@
   "updatedAt": "2018-10-22T15:46:11.576Z",
   "createdAt": "2018-10-22T15:46:11.576Z",
   "containerType": "Challenge",
-  "preface": "Hello ETH Berliners! This challenge requires you to sort through structs and find the top rated project, step right up and test your Solidity skills! ",
   "productionReady": false
 }

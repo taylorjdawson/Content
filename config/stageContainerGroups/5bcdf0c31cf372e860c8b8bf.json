@@ -10,6 +10,5 @@
   "updatedAt": "2018-10-22T15:46:11.534Z",
   "createdAt": "2018-10-22T15:46:11.534Z",
   "containerType": "Challenge",
-  "preface": "In this challenge it's up to you to figure out the next meeting on our Solidity calendar! We'll set you up with some test scenarios and you'll need to write a function that will determine the next meeting for each scenario. Best of luck! ",
   "productionReady": true
 }

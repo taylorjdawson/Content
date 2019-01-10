@@ -10,6 +10,5 @@
   "updatedAt": "2018-10-22T15:46:11.332Z",
   "createdAt": "2018-10-22T15:46:11.332Z",
   "containerType": "Challenge",
-  "preface": "Challenge that covers multiple denial of service attacks on smart contracts and the related preventative techniques.",
   "productionReady": true
 }
