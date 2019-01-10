@@ -1,5 +1,7 @@
-pragma // TODO: declare version ^0.4.19
+pragma solidity ^0.4.19;
 
 contract EscrowContract {
-	// TODO: create member variables
+	address public arbiter;
+	address public beneficiary;
+	address public depositor;
 }
