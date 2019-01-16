@@ -1,7 +1,26 @@
-## ChainShot Content
+## Content Repository
 
-This is the repository containing the ChainShot Tutorial Content which is available live on www.chainshot.com.
+This is a Content Repository created by the [ChainShot Builder](https://github.com/ChainShot/Builder).
 
-It was created with the [ChainShot Builder](https://github.com/ChainShot/Builder).
+To make modifications to this content use the ChainShot CLI which can be installed globally using npm:
 
-Feel free to contribute and open pull requests to fix content! You're also welcome to [fork the repository and host your own content](https://chainshotbuilder.readthedocs.io/en/latest/forking_existing_content.html)!
+```
+npm i -g chainshot-builder
+```
+
+Pull down this repository locally if you haven't already. Then run the builder:
+
+```
+chainshot-builder run
+```
+
+Any modifications made in the IDE will be reflected in the file system immediately and can be
+committed up to your repository.
+
+## Content Structure
+
+Content Repositories contain two folders, [projects and config](https://chainshotbuilder.readthedocs.io/en/latest/content.html#structure), which are used to track modifications to content and open up collaboration between many content creators.
+
+## Deployment
+
+[Follow Documentation](https://chainshotbuilder.readthedocs.io/en/latest/building_new_content.html#start-editing) to deploy to [ChainShot](https://www.chainshot.com/) as interactive content.
