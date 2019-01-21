@@ -20,6 +20,13 @@ class PlasmaChain {
         );
     }
 
+    addDeposit(event) {
+        const args = event.returnValues;
+        const {owner, value, blockNumber} = args;
+        const deposit = this.getDepositTx(owner, value);
+        blocks[blockNumber] = new Block([deposit], blockNumber);
+    }
+
     getDepositTx(owner, amount) {
         return new Transaction(0, 0, 0, 0, 0, 0, owner, amount, NULL_ADDRESS, 0);
     }
