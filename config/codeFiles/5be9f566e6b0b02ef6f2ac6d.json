@@ -9,7 +9,8 @@
     "5bf5de67e6b0b038b1989233",
     "5bf9c1c1e6b0b0609838d6e6",
     "5bfe1c22e6b0b0609838d727",
-    "5c19b6ade6b0b03a95da42b9"
+    "5c19b6ade6b0b03a95da42b9",
+    "5c4506483626a11224f832f4"
   ],
   "executable": true,
   "hasProgress": false,
@@ -22,5 +23,6 @@
   "visible": true,
   "updatedAt": "2019-01-09T02:47:16.909Z",
   "createdAt": "2019-01-09T02:39:34.408Z",
-  "executablePath": "plasmaObjects.js"
+  "executablePath": "plasmaObjects.js",
+  "fileLocation": null
 }

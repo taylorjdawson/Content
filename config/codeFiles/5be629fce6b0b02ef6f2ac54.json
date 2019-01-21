@@ -23,5 +23,6 @@
   "visible": true,
   "updatedAt": "2019-01-09T02:47:16.829Z",
   "createdAt": "2019-01-09T02:39:33.815Z",
-  "executablePath": "plasmaChain.js"
+  "executablePath": "plasmaChain.js",
+  "fileLocation": null
 }

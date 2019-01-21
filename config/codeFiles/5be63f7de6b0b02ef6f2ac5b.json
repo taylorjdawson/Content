@@ -22,5 +22,6 @@
   "visible": false,
   "updatedAt": "2019-01-09T02:47:16.930Z",
   "createdAt": "2019-01-09T02:39:34.529Z",
-  "executablePath": "deployPlasma.js"
+  "executablePath": "deployPlasma.js",
+  "fileLocation": null
 }

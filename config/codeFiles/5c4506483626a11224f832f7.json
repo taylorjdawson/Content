@@ -1,0 +1,15 @@
+{
+  "executablePath": "setup.js",
+  "name": "setup.js",
+  "testFixture": false,
+  "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
+  "codeStageIds": [
+    "5c4506483626a11224f832f4"
+  ],
+  "id": "5c4506483626a11224f832f7",
+  "initialCode": "$$LOOKUP",
+  "visible": false,
+  "executable": true,
+  "readOnly": true,
+  "mode": "javascript"
+}
