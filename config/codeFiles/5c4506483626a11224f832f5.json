@@ -1,0 +1,15 @@
+{
+  "executablePath": "getEther.js",
+  "name": "getEther.js",
+  "testFixture": false,
+  "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
+  "codeStageIds": [
+    "5c4506483626a11224f832f4"
+  ],
+  "id": "5c4506483626a11224f832f5",
+  "initialCode": "$$LOOKUP",
+  "visible": true,
+  "mode": "javascript",
+  "executable": true,
+  "hasProgress": true
+}

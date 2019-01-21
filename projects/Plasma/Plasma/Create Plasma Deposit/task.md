@@ -1,6 +1,6 @@
 ## Deposit Function
 
-1. Define a public `payable` function named `deposit`. This function should create a new `PlasmaBlock` where the root is a hash of the depositor's address and the value deposited. 
+1. Define a public `payable` function named `deposit`. This function should create a new `PlasmaBlock` where the root is a `keccak256` hash of the depositor's address and the value deposited. 
 
 The `deposit` function will allow someone to deposit funds into the Plasma chain. Depositing into the contract is the first step for a user to interact with the Plasma chain.
 

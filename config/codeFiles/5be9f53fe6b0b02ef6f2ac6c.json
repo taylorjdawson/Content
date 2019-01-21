@@ -10,7 +10,8 @@
     "5bf9c1c1e6b0b0609838d6e6",
     "5bfe1c22e6b0b0609838d727",
     "5c1419a1e6b0b0704032fbc2",
-    "5c19b6ade6b0b03a95da42b9"
+    "5c19b6ade6b0b03a95da42b9",
+    "5c4506483626a11224f832f4"
   ],
   "executable": true,
   "hasProgress": false,
@@ -23,5 +24,6 @@
   "visible": true,
   "updatedAt": "2019-01-09T02:47:16.706Z",
   "createdAt": "2019-01-09T02:39:33.237Z",
-  "executablePath": "utils.js"
+  "executablePath": "utils.js",
+  "fileLocation": null
 }
