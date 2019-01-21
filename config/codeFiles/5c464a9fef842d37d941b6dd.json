@@ -1,10 +1,7 @@
 {
-  "id": "5c01e850e6b0b0609838d733",
+  "id": "5c464a9fef842d37d941b6dd",
   "codeStageIds": [
-    "5bfe1c22e6b0b0609838d727",
-    "5c19b6ade6b0b03a95da42b9",
-    "5be62999e6b0b02ef6f2ac53",
-    "5beb2f42e6b0b02ef6f2ac81"
+    "5c464a9fef842d37d941b6d4"
   ],
   "executable": true,
   "hasProgress": false,

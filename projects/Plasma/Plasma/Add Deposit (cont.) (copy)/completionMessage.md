@@ -1,0 +1,1 @@
+Your `addDeposit` function is now in use. Next we will create an function to add Plasma chain transactions to the current block.
