@@ -4,7 +4,7 @@ const {Block, Transaction} = require('./plasmaObjects.js');
 const {validateTransaction, NULL_ADDRESS, decodeUtxoId} = require('./utils.js');
 
 class PlasmaChain {
-  constructor() {
+  constructor(operator, contractAddress) {
     this.events = [];
   }
   

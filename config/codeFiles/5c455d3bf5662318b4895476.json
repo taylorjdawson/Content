@@ -1,0 +1,18 @@
+{
+  "id": "5c455d3bf5662318b4895476",
+  "codeStageIds": [
+    "5c455d3bf5662318b4895473"
+  ],
+  "executable": true,
+  "hasProgress": false,
+  "initialCode": "$$LOOKUP",
+  "mode": "json",
+  "name": "Plasma.json",
+  "readOnly": true,
+  "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
+  "testFixture": false,
+  "visible": false,
+  "updatedAt": "2019-01-09T02:47:16.766Z",
+  "createdAt": "2019-01-09T02:39:33.463Z",
+  "executablePath": "Plasma.json"
+}

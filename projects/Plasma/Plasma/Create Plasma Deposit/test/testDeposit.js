@@ -1,4 +1,4 @@
-const {sha3} = require("../contracts/sha3Util.js");
+const {sha3} = require("../sha3Util.js");
 const Plasma = artifacts.require('Plasma');
 
 contract('Plasma', (accounts) => {
