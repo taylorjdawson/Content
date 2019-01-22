@@ -36,11 +36,28 @@ contract('Plasma', (accounts) => {
             assert.equal(events[0].event, 'DepositCreated');
         })
 
+        it('should log the owner', async () => {
+            watcher = contract.DepositCreated();
+            let events = await Promisify(cb => watcher.get(cb));
+            assert.equal(events[0].args.owner, accounts[1]);
+        })
+
+        it('should log the deposit amount', async () => {
+            watcher = contract.DepositCreated();
+            let events = await Promisify(cb => watcher.get(cb));
+            console.log()
+            assert.equal(web3.fromWei(events[0].args.amount.toNumber()), 1);
+        })
+
         it('should log the corresponding deposit block', async() => {
             watcher = contract.DepositCreated();
             let events = await Promisify(cb => watcher.get(cb));
             assert.equal(events[0].args.blockNumber.toNumber(), 1);
         })
+
+       
+
+        
     })
 })
 

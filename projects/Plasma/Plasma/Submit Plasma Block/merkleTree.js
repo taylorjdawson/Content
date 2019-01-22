@@ -1,5 +1,5 @@
 const reverse = require('./bufferReverse.js')
-const CryptoJS = require('crypto-js')
+const CryptoJS = require('./cryptoJS.js')
 
 /**
  * Class reprensenting a Merkle Tree

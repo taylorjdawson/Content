@@ -14,7 +14,7 @@ contract Plasma {
 
   event DepositCreated(
     address owner, 
-    uint256 value, 
+    uint256 amount, 
     uint256 blockNumber
   );
 

@@ -6,8 +6,8 @@ The `deposit` function will allow someone to deposit funds into the Plasma chain
 
 ## Deposit Event
 
-1. Define a `DepositCreated` event with the the `owner` address, `value` of the deposited amount, and the `blockNumber`. 
+1. Define a `DepositCreated` event with the the `owner` address, `amount` of the deposited amount, and the `blockNumber`. 
 
-It is important to name the variables as `owner`, `value`, and `blockNumber` because when we build the JavaScript Plasma chain, we will refer specifically to the event arguments in order to add the deposit to the Plasma chain.
+It is important to name the variables as `owner`, `amount`, and `blockNumber` because when we build the JavaScript Plasma chain, we will refer specifically to the event arguments in order to add the deposit to the Plasma chain.
 
 2. Invoke the `DepositCreated` event within the `deposit` function.

@@ -15,7 +15,7 @@ class PlasmaChain {
     depositListener(self) {
         this.plasmaContract.events.DepositCreated({},
             function (err, event) {
-                self.addDeposit(event);
+                self.events.push(event);
             }
         );
     }

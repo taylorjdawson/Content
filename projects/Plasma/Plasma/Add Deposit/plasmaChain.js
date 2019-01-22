@@ -8,6 +8,7 @@ class PlasmaChain {
         this.events = [];
         this.operator = operator;
         this.plasmaContract = new web3.eth.Contract(abi, contractAddress);
+        this.blocks = {};
 
         this.depositListener(this);
     }
@@ -15,16 +16,16 @@ class PlasmaChain {
     depositListener(self) {
         this.plasmaContract.events.DepositCreated({},
             function (err, event) {
-                self.addDeposit(event);
+                self.events.push(event);
             }
         );
     }
 
     addDeposit(event) {
         const args = event.returnValues;
-        const {owner, value, blockNumber} = args;
+        const {owner, amount, blockNumber} = args;
         const deposit = this.getDepositTx(owner, value);
-        blocks[blockNumber] = new Block([deposit], blockNumber);
+        this.blocks[blockNumber] = new Block([deposit], blockNumber);
     }
 
     getDepositTx(owner, amount) {
