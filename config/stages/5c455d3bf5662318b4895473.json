@@ -23,7 +23,7 @@
   "position": 4,
   "task": "$$LOOKUP",
   "testFramework": "mocha_bdd",
-  "title": "Plasma Chain Setup (copy)",
+  "title": "Add Deposit",
   "updatedAt": "2019-01-09T02:39:32.456Z",
   "createdAt": "2019-01-09T02:39:32.456Z",
   "abiValidations": "$$LOOKUP"
