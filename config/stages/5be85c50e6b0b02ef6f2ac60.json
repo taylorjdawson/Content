@@ -18,7 +18,7 @@
   "position": 5,
   "task": "$$LOOKUP",
   "testFramework": "mocha_bdd",
-  "title": "Add Deposit",
+  "title": "Add Deposit (old)",
   "validatedContract": "Plasma",
   "updatedAt": "2019-01-09T02:39:31.191Z",
   "createdAt": "2019-01-09T02:39:31.191Z",
