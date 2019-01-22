@@ -15,15 +15,11 @@ class Block {
 
     addTransaction(tx) {
         this.transactionSet.push(tx);
-        // Implementation encodes the inputs then marks the inputId as True in the spent utxos object
-        // Not sure why this has to occur and what it exactly means if the spent on the actual transaction is still false
-        // => This occurs to store the utxos that are spent during the phase before the block is submitted. This way you are able to track which utxos have already been spent and properly validate the transaction.
         let inputs = [[tx.blkNum1, tx.txIndex1, tx.oIndex1], [tx.blkNum2, tx.txIndex2, tx.oIndex2]];
         inputs.forEach(input => {
             const inputId = encodeUtxoId(...input);
             this.spentUtxos[inputId] = true;
         });
-        // Since the 3 inputs above are directly related to the utxo that was spent to create this new UTXO, we are able to refer back to these arguments and mark as spent.
     }
 
     merkle() {
