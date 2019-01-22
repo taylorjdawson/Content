@@ -16,6 +16,7 @@ describe('add deposit function', function() {
         plasmaChain = new PlasmaChain(operator, contract.options.address);
         await plasmaChain.plasmaContract.methods.deposit().send({from: account1.address, value: web3.utils.toWei(ether, 'ether')})
         block = plasmaChain.blocks[1];
+        
         tx = block.transactionSet[0];
     });
 

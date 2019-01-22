@@ -5,7 +5,6 @@ const { validateTransaction, NULL_ADDRESS, decodeUtxoId } = require('./utils.js'
 
 class PlasmaChain {
     constructor(operator, contractAddress) {
-        this.events = [];
         this.operator = operator;
         this.plasmaContract = new web3.eth.Contract(abi, contractAddress);
         this.blocks = {};
@@ -16,7 +15,7 @@ class PlasmaChain {
     depositListener(self) {
         this.plasmaContract.events.DepositCreated({},
             function (err, event) {
-                self.events.push(event);
+                self.addDeposit(event);
             }
         );
     }
