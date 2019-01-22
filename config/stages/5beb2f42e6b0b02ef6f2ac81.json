@@ -10,14 +10,16 @@
     "5be629fce6b0b02ef6f2ac54",
     "5beb563de6b0b02ef6f2ac85",
     "5c455d3bf5662318b489547e",
-    "5c01e850e6b0b0609838d733"
+    "5c01e850e6b0b0609838d733",
+    "5bff06f9e6b0b0609838d72a",
+    "5c01e763e6b0b0609838d732"
   ],
   "completionMessage": "$$LOOKUP",
   "containerId": "5be339e5e6b0b02ef6f2abfa",
   "details": "$$LOOKUP",
   "language": "javascript",
   "languageVersion": "6.x/babel",
-  "position": 6,
+  "position": 5,
   "task": "$$LOOKUP",
   "testFramework": "mocha_bdd",
   "title": "Add Deposit (cont.)",

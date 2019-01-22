@@ -1,1 +1,0 @@
-You added a deposit transaction to the Plasma chain. Next we will clean up some code surrounding the `addDeposit` function.

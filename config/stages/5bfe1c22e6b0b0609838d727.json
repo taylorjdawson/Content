@@ -20,7 +20,7 @@
   "details": "$$LOOKUP",
   "language": "javascript",
   "languageVersion": "6.x/babel",
-  "position": 14,
+  "position": 12,
   "task": "$$LOOKUP",
   "testFramework": "mocha_bdd",
   "title": "Submit Plasma Block",

@@ -1,7 +1,6 @@
 {
   "id": "5be9f53fe6b0b02ef6f2ac6c",
   "codeStageIds": [
-    "5be85c50e6b0b02ef6f2ac60",
     "5be62999e6b0b02ef6f2ac53",
     "5beb2f42e6b0b02ef6f2ac81",
     "5bf0d31ee6b0b02ef6f2ac90",
@@ -10,8 +9,7 @@
     "5bf9c1c1e6b0b0609838d6e6",
     "5bfe1c22e6b0b0609838d727",
     "5c1419a1e6b0b0704032fbc2",
-    "5c19b6ade6b0b03a95da42b9",
-    "5c4506483626a11224f832f4"
+    "5c19b6ade6b0b03a95da42b9"
   ],
   "executable": true,
   "hasProgress": false,
