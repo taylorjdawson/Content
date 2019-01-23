@@ -32,6 +32,7 @@ describe('mark spent utxo function', function() {
         plasmaChain.addTransaction(tx);
         const utxoId = plasmaChain.addTransaction(tx2);
         const transaction = plasmaChain.getTransaction(utxoId);
+        console.log(transaction);
         assert.equal(transaction.blkNum1, 1000);
         assert.equal(transaction.txIndex1, 0);
         assert.equal(transaction.oIndex1, 1);
