@@ -1,7 +1,7 @@
 const { web3 } = require('./web3Util.js');
 const { abi } = require('./Plasma.json');
 const { Block, Transaction } = require('./plasmaObjects.js');
-const { validateTransaction, NULL_ADDRESS, decodeUtxoId } = require('./utils.js');
+const { validateTransaction, NULL_ADDRESS, decodeUtxoId, encodeUtxoId } = require('./utils.js');
 
 class PlasmaChain {
     constructor(operator, contractAddress) {
@@ -33,14 +33,27 @@ class PlasmaChain {
     addTransaction(tx) {
         validateTransaction(tx, this.blocks, this.currentBlock, this.currentBlock.spentUtxos);
         this.currentBlock.transactionSet.push(tx);
+        return encodeUtxoId(this.currentBlock.blockNumber, this.currentBlock.transactionSet.length - 1, 0);
+    }
+
+    markUtxoSpent(utxoId) {
+        const [blkNum, txIndex, oIndex] = decodeUtxoId(utxoId);
+        const tx = this.getTransaction(utxoId);
+        if(oIndex === 0) {
+            tx.spent1 = true;
+        } else {
+            tx.spent2 = true;
+        }
     }
 
     getTransaction(utxoId) {
         const [blkNum, txIndex, oIndex] = decodeUtxoId(utxoId);
         if(this.blocks[blkNum]) {
             return this.blocks[blkNum].transactionSet[txIndex];
-        } else {
+        } else if(this.currentBlock.blockNumber === blkNum) {
             return this.currentBlock.transactionSet[txIndex];
+        } else {
+            return null;
         }
     }
 

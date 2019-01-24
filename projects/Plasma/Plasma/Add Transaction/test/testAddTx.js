@@ -5,6 +5,7 @@ const deploy = require('../deployPlasma.js');
 const {abi} = require('../Plasma.json');
 const PlasmaChain = require('../plasmaChain.js');
 const {Transaction} = require('../plasmaObjects.js');
+const {encodeUtxoId} = require('../utils.js');
 const NULL_ADDRESS = '0x0000000000000000000000000000000000000000';
 
 describe('add transaction function', function() {
@@ -50,4 +51,10 @@ describe('add transaction function', function() {
         const transactions = plasmaChain.currentBlock.transactionSet.length;
         assert.equal(transactions, 1);
     });
+
+    it('should return an encoded UTXO ID', function() {
+        const id = plasmaChain.addTransaction(tx);
+        const encoded = encodeUtxoId(plasmaChain.currentBlock.blockNumber, plasmaChain.currentBlock.transactionSet.length -1, 0);
+        assert.equal(id, encoded);
+    })
 });
