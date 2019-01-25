@@ -54,6 +54,7 @@ const validateTransaction = (tx, blocks, currentBlock, tempSpent = {}) => {
 
         let inputTx;
         if (blocks[blkNum]) {
+            
             inputTx = blocks[blkNum].transactionSet[txIndex];
         } else {
             inputTx = currentBlock.transactionSet[txIndex];

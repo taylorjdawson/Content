@@ -1,6 +1,6 @@
 ## Next Deposit Block
 
-Similar to our Plasma contract we need to keep track of the transaction block number as well as the deposit block number as more blocks are added to the Plasma chain.
+Similar to our Plasma contract we need to keep track of the transaction block number, as well as the deposit block number, as more blocks are added to the Plasma chain.
 
 1. Define a `nextDepositBlock` and assign it to 1.
 
@@ -8,11 +8,11 @@ Similar to our Plasma contract we need to keep track of the transaction block nu
 
 1. Define an `addBlock` function with a block as it's only argument. 
 
-This function should first check if the block is the next deposit block or the next transaction block. The block should then be applied. 
+This function should first check if the block is the next deposit block or the next Plasma transaction block and then apply that block. If it is neither a the next deposit or next Plasma transaction block, the function should return false.
 
-Next, we need to update the respective block numbers correctly depending on if the block was a deposit or a Plasma transaction.
+Next, we need to update the respective block numbers depending on if the block was a deposit or a Plasma transaction.
 
-If the block is the `currentBlock` the `nextCurrentBlock` should be incremented by the `blockBuffer` and the `nextDepositBlock` should reflect the submitted block number plus 1. This will allow us to maintain the 1000 block interval buffer upon each submitted current block.
+If the block is the `currentBlock` the `nextTxBlock` should be incremented by the `blockBuffer` and the `nextDepositBlock` should reflect the submitted block number plus 1. This will allow us to maintain the 1000 block interval buffer upon each submitted current block.
 
 If the block is a deposit block, the `nextDepositBlock` should increment by 1.
 
