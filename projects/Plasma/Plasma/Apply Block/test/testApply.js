@@ -69,8 +69,6 @@ describe('apply block function', function() {
         const blockNum = plasmaChain.currentBlock.blockNumber;
         plasmaChain.applyBlock(plasmaChain.currentBlock);
         assert.notEqual(plasmaChain.blocks[blockNum], undefined)
-        // const blocksLength = Object.keys(plasmaChain.blocks).length;
-        // assert.equal(blocksLength, 3);
     })
   
   	it('should not assign a block key to undefined', function () {
