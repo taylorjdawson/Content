@@ -12,6 +12,12 @@ contract Plasma {
 
   mapping(uint => PlasmaBlock) public plasmaChain;
 
+  event DepositCreated(
+    address owner, 
+    uint256 amount, 
+    uint256 blockNumber
+  );
+
   struct PlasmaBlock {
       bytes32 root;
       uint256 timestamp;
@@ -21,5 +27,27 @@ contract Plasma {
     operator = msg.sender;
     currentPlasmaBlock = BLOCK_BUFFER;
     currentDepositBlock = 1;
+  }
+
+  function deposit() 
+    public
+    payable
+  {
+    bytes32 root = keccak256(msg.sender, msg.value);
+    plasmaChain[currentDepositBlock] = PlasmaBlock(
+      root,
+      block.timestamp
+    );
+    DepositCreated(msg.sender, msg.value, currentDepositBlock);
+    currentDepositBlock++;
+  }
+
+  function submitBlock(bytes32 _root) 
+    public 
+  {
+    require(msg.sender == operator);
+    plasmaChain[currentPlasmaBlock] = PlasmaBlock(_root, block.timestamp);
+    currentPlasmaBlock += BLOCK_BUFFER;
+    currentDepositBlock = 1; 
   }
 }

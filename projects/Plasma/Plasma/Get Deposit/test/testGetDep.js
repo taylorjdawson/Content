@@ -12,19 +12,20 @@ contract('Plasma', (accounts) => {
             watcher = contract.DepositCreated();
             await contract.deposit({from: accounts[1], value: ether})
             await contract.submitBlock(root, {from: owner})
+            await contract.deposit({ from: accounts[1], value: ether })
         })
 
         it('should submit the correct current deposit block after a block is submitted', async() => {
-            await contract.deposit({from: accounts[1], value: ether})
+            await contract.deposit({ from: accounts[1], value: ether })
             let events = await watcher.get();
             const blkNum = events[0].args.blockNumber;
-            assert.equal(blkNum.toNumber(), 1001);
+            assert.equal(blkNum.toNumber(), 1002);
         })
 
         it('should set the correct current deposit block', async() => {
             await contract.deposit({from: accounts[1], value: ether})
             const counter = await contract.currentDepositBlock.call();
-            assert.equal(counter.toNumber(), 2);
+            assert.equal(counter.toNumber(), 3);
         })
 
         it('should be an internal function', async() => {
