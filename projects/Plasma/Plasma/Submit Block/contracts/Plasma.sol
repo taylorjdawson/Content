@@ -18,6 +18,11 @@ contract Plasma {
     uint256 blockNumber
   );
 
+  event BlockSubmitted(
+    bytes32 root,
+    uint timestamp
+  );
+
   struct PlasmaBlock {
       bytes32 root;
       uint256 timestamp;
@@ -47,6 +52,7 @@ contract Plasma {
   {
     require(msg.sender == operator);
     plasmaChain[currentPlasmaBlock] = PlasmaBlock(_root, block.timestamp);
+    BlockSubmitted(_root, block.timestamp);
     currentPlasmaBlock += BLOCK_BUFFER;
     currentDepositBlock = 1; 
   }

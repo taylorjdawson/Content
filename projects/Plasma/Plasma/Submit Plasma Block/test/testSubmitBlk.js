@@ -17,7 +17,7 @@ describe('submit block function', function() {
     const ether = '1';
     beforeEach(async() => {
         contract = await deploy(operator.address);
-        plasmaChain = new PlasmaChain(operator, contract.options.address);
+        plasmaChain = new PlasmaChain(operator.address, contract.options.address);
         await plasmaChain.plasmaContract.methods.deposit().send({from: account1.address, value: web3.utils.toWei(ether, 'ether')})
         await plasmaChain.plasmaContract.methods.deposit().send({from: account2.address, value: web3.utils.toWei(ether, 'ether')})
         const transferAmount = '10000';
@@ -70,7 +70,7 @@ describe('submit block function', function() {
         plasmaChain.addTransaction(tx2);
         plasmaChain.submitBlock(plasmaChain.currentBlock);
         const txBlock = plasmaChain.nextDepositBlock;
-        assert.equal(txBlock, 2001);
+        assert.equal(txBlock, 1001);
     });
 
     it('should update the next deposit block if submitted block is a deposit', async function() {
@@ -83,7 +83,7 @@ describe('submit block function', function() {
         plasmaChain.addTransaction(tx);
         plasmaChain.addTransaction(tx2);
         const root = plasmaChain.currentBlock.merkle().getRoot();
-        let rec = await plasmaChain.submitBlock(plasmaChain.currentBlock);
+        await plasmaChain.submitBlock(plasmaChain.currentBlock);
         let events = await contract.getPastEvents('BlockSubmitted')
         let blockRoot = events[0].returnValues.root;
         assert.equal(root, blockRoot);

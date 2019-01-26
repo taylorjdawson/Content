@@ -30,6 +30,13 @@ contract('Plasma', (accounts) => {
             const root2 = web3.sha3(accounts[1]);
             await expectThrow(contract.submitBlock(root2, {from: accounts[1]}))
         })
+
+        it('should log the submitted block', async() => {
+            let watcher = contract.BlockSubmitted();
+            let events = await Promisify(cb => watcher.get(cb));
+            assert(events[0].args.root, true);
+            assert(events[0].args.timestamp, true);
+        })
     })
 })
 
@@ -44,3 +51,14 @@ async function expectThrow(promise) {
 
     assert(false, errMsg);
 }
+
+const Promisify = (inner) =>
+    new Promise((resolve, reject) =>
+        inner((err, res) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(res);
+            }
+        })
+    );
