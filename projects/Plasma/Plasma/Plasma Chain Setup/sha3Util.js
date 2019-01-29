@@ -1,4 +1,4 @@
-const {web3} = require('./web3Util.js')
+// const {web3} = require('./web3Util.js')
 
 var cache = [
   '',

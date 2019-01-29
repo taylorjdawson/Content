@@ -1,15 +1,17 @@
-const {web3, _testAccounts} = require('../web3Util.js');
-const [operator, account1, account2] = _testAccounts;
-const deploy = require('../deployPlasma.js');
+// const {web3, _testAccounts} = require('../web3Util.js');
+// const [operator, account1, account2] = _testAccounts;
+// const deploy = require('../deployPlasma.js');
 const {Transaction, UnsignedTransaction} = require('../plasmaObjects.js');
 const {encodeUtxoId, NULL_ADDRESS} = require('../utils.js');
-const rlp = require("../rlp.js");
+// const rlp = require("../rlp.js");
 const Plasma = artifacts.require('Plasma');
 const PlasmaChain = require('../plasmaChain.js');
-const {sha3} = require('../sha3Util.js')
+const {sha3} = require('../sha3UtilSol.js');
 
 contract('Plasma', (accounts) => {
-    const ether = web3.utils.toWei('1', 'ether');
+    console.log(web3)
+    const operator = accounts[0];
+    const ether = web3.toWei('1', 'ether');
     let utxoId;
     let tx;
     let tx2;
@@ -19,8 +21,9 @@ contract('Plasma', (accounts) => {
     let sigs;
     describe('Priority Queue Function', () => {
         beforeEach(async() => {
-            contract = await deploy(operator.address);
-            plasmaChain = new PlasmaChain(operator, contract.options.address);
+            contract = await Plasma.new({from: operator})
+            // contract = await deploy(operator.address);
+            plasmaChain = new PlasmaChain(operator, contract.address);
             await plasmaChain.plasmaContract.methods.deposit().send({from: account1.address, value: ether})
             const transferAmount = '10000';
             const ogAmount = '1000000000000000000';
