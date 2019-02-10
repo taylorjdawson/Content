@@ -9,6 +9,7 @@ const {Transaction} = require('../plasmaObjects.js');
 const NULL_ADDRESS = '0x0000000000000000000000000000000000000000';
 
 describe('submit block function', function() {
+    console.log(web3)
     let contract;
     let plasmaChain;
     let tx;

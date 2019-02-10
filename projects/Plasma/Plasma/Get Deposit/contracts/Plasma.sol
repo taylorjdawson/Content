@@ -1,4 +1,4 @@
-pragma solidity ^0.4.19;
+pragma solidity ^0.5.0;
 
 import "./SafeMath.sol";
 
@@ -23,7 +23,7 @@ contract Plasma {
       uint256 timestamp;
   }
   
-  function Plasma() public {
+  constructor() public {
     operator = msg.sender;
     currentPlasmaBlock = BLOCK_BUFFER;
     currentDepositBlock = 1;
@@ -33,13 +33,13 @@ contract Plasma {
     public
     payable
   {
-    bytes32 root = keccak256(msg.sender, msg.value);
+    bytes32 root = keccak256(abi.encodePacked(msg.sender, msg.value));
     uint256 blockNum = getDepositBlock();
     plasmaChain[blockNum] = PlasmaBlock(
       root,
       block.timestamp
     );
-    DepositCreated(msg.sender, msg.value, blockNum);
+    emit DepositCreated(msg.sender, msg.value, blockNum);
     currentDepositBlock++;
   }
 

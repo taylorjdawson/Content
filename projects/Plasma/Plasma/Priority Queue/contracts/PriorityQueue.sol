@@ -1,4 +1,4 @@
-pragma solidity ^0.4.0;
+pragma solidity ^0.5.0;
 
 import "./SafeMath.sol";
 
@@ -14,7 +14,7 @@ contract PriorityQueue {
         _;
     }
 
-    function PriorityQueue() public {
+    constructor() public {
         owner = msg.sender;
         heapList = [0];
         currentSize = 0;

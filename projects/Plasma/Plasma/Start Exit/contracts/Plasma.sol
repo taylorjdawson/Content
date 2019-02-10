@@ -1,4 +1,4 @@
-pragma solidity ^0.4.19;
+pragma solidity ^0.5.0;
 
 import "./SafeMath.sol";
 import "./PriorityQueue.sol";
@@ -39,24 +39,24 @@ contract Plasma {
     uint256 amount;
   }
   
-  function Plasma() public {
+  constructor() public {
     operator = msg.sender;
     currentPlasmaBlock = BLOCK_BUFFER;
     currentDepositBlock = 1;
-    exitQueues[address(0)] = new PriorityQueue();
+    exitQueues[address(0)] = address(new PriorityQueue());
   }
 
   function deposit() 
     public
     payable
   {
-    bytes32 root = keccak256(msg.sender, msg.value);
+    bytes32 root = keccak256(abi.encodePacked(msg.sender, msg.value));
     uint256 blockNum = getDepositBlock();
     plasmaChain[blockNum] = PlasmaBlock(
       root,
       block.timestamp
     );
-    DepositCreated(msg.sender, msg.value, blockNum);
+    emit DepositCreated(msg.sender, msg.value, blockNum);
     currentDepositBlock++;
   }
 
@@ -69,7 +69,7 @@ contract Plasma {
     currentDepositBlock = 1; 
   }
 
-  function addExitToQueue(uint256 _utxoPos, address _token, address _exitor, uint256 _amount, uint256 _createdAt)
+  function addExitToQueue(uint256 _utxoPos, address _exitor, address _token, uint256 _amount, uint256 _createdAt)
     public
   {
     require(_amount > 0);
@@ -81,7 +81,7 @@ contract Plasma {
     queue.insert(exitableAt, _utxoPos);
 
     exits[_utxoPos] = Exit(_exitor, _token, _amount);
-    ExitStarted(_exitor, _utxoPos, _token, _amount);
+    emit ExitStarted(_exitor, _utxoPos, _token, _amount);
   }
 
   function getDepositBlock() 

@@ -1,4 +1,4 @@
-pragma solidity ^0.4.0;
+pragma solidity ^0.5.0;
 
 
 /**
@@ -176,7 +176,7 @@ library RLPDecode {
         return result;
     }
 
-    function toBytes(RLPItem memory item) internal pure returns (bytes) {
+    function toBytes(RLPItem memory item) internal pure returns (bytes memory) {
         uint offset = _payloadOffset(item.memPtr);
         uint len = item.len - offset; // data length
         bytes memory result = new bytes(len);

@@ -1,8 +1,6 @@
+const {web3} = require('./web3Util.js')
 const { encodeUtxoId, decodeUtxoId, decodeTxId, NULL_ADDRESS,
     NULL_SIGNATURE, NULL_HASH, sign } = require('./utils.js');
-const { sha3 } = require("./sha3Util.js");
-// const Web3Utils = require('web3-utils');
-// const CryptoJS = require('crypto-js');
 const rlp = require("./rlp.js");
 const MerkleTree = require("./merkleTree.js");
 
@@ -38,7 +36,7 @@ class Block {
                 return "0x" + buffer.toString('hex');
             })
             // let hexStrings = Web3Utils.soliditySha3(...transformed).slice(2);
-            let hexStrings = sha3(...transformed).slice(2);
+            let hexStrings = web3.utils.soliditySha3(...transformed).slice(2);
             return Buffer.from(hexStrings, 'hex');
         });
     }
@@ -67,12 +65,12 @@ class Transaction {
 
     hash() {
         // return Web3Utils.soliditySha3("0x" + this.encoded().toString('hex'))
-        return sha3("0x" + this.encoded().toString('hex'))
+        return web3.utils.soliditySha3("0x" + this.encoded().toString('hex'))
     }
 
     merkleHash() {
         // return Web3Utils.soliditySha3(this.hash(), this.sig1, this.sig2);
-        return sha3(this.hash(), this.sig1, this.sig2);
+        return web3.utils.soliditySha3(this.hash(), this.sig1, this.sig2);
     }
 
     // In order to encode the Transaction object we need to make sure all attributes are properly encodable
@@ -90,7 +88,7 @@ class Transaction {
     // The sha3 function in sha3Util has an odd way of passing in multiple arguments
     confirm(root, key) {
         // return sign(Web3Utils.soliditySha3(this.hash(), root), key).toString('hex');
-        return sign(sha3(this.hash(), root), key).toString('hex');
+        return sign(web3.utils.soliditySha3(this.hash(), root), key).toString('hex');
     }
 
     sign1(key) {

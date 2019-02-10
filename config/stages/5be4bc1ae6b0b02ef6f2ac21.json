@@ -10,7 +10,7 @@
   "containerId": "5be339e5e6b0b02ef6f2abfa",
   "details": "$$LOOKUP",
   "language": "solidity",
-  "languageVersion": "0.4.19",
+  "languageVersion": "0.5.0",
   "position": 1,
   "task": "$$LOOKUP",
   "testFramework": "truffle_with_mocha",

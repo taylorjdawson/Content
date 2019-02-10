@@ -2,7 +2,7 @@ const Plasma = artifacts.require('Plasma');
 
 contract('Plasma', (accounts) => {
     const owner = accounts[0];
-    let root = web3.sha3(owner);
+    let root = web3.utils.soliditySha3(owner);
     describe('Submit Function', () => {
         beforeEach(async() => {
             contract = await Plasma.new({from: owner})
@@ -13,7 +13,7 @@ contract('Plasma', (accounts) => {
         it('should create a new plasma block and add to the plasma chain', async() => {
             const block = await contract.plasmaChain.call(1000);
             const blockRoot = block[0];
-            assert.equal(blockRoot, web3.sha3(owner))
+            assert.equal(blockRoot, web3.utils.soliditySha3(owner))
         })
       
         it('should increment the current plasma block', async() => {
@@ -27,13 +27,12 @@ contract('Plasma', (accounts) => {
         })
 
         it('should only be callable by the operator', async() => {
-            const root2 = web3.sha3(accounts[1]);
+            const root2 = web3.utils.soliditySha3(accounts[1]);
             await expectThrow(contract.submitBlock(root2, {from: accounts[1]}))
         })
 
         it('should log the submitted block', async() => {
-            let watcher = contract.BlockSubmitted();
-            let events = await Promisify(cb => watcher.get(cb));
+            let events = await contract.getPastEvents('BlockSubmitted');
             assert(events[0].args.root, true);
             assert(events[0].args.timestamp, true);
         })

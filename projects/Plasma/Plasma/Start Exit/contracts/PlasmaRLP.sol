@@ -1,14 +1,15 @@
-pragma solidity ^0.4.0;
+pragma solidity ^0.5.0;
 
 import "./RLPDecode.sol";
 
 
 library PlasmaRLP {
 
+
     struct exitingTx {
         address exitor;
         address token;
-        uint256 amount;
+        uint256 amount;     
         uint256 inputCount;
     }
 
@@ -16,10 +17,9 @@ library PlasmaRLP {
 
     function getUtxoPos(bytes memory challengingTxBytes, uint256 oIndex)
         internal
-        constant
         returns (uint256)
     {
-        var txList = RLPDecode.toList(RLPDecode.toRlpItem(challengingTxBytes));
+        RLPDecode.RLPItem[] memory txList = RLPDecode.toList(RLPDecode.toRlpItem(challengingTxBytes));
         uint256 oIndexShift = oIndex * 3;
         return
             RLPDecode.toUint(txList[0 + oIndexShift]) * 1000000000 +
@@ -29,15 +29,16 @@ library PlasmaRLP {
 
     function createExitingTx(bytes memory exitingTxBytes, uint256 oindex)
         internal
-        constant
-        returns (exitingTx)
+        returns (exitingTx memory)
     {
-        var txList = RLPDecode.toList(RLPDecode.toRlpItem(exitingTxBytes));
-        return exitingTx({
-            exitor: RLPDecode.toAddress(txList[7 + 2 * oindex]),
-            token: RLPDecode.toAddress(txList[6]),
-            amount: RLPDecode.toUint(txList[8 + 2 * oindex]),
-            inputCount: RLPDecode.toUint(txList[0]) * RLPDecode.toUint(txList[3])
-        });
+        RLPDecode.RLPItem[] memory txList = RLPDecode.toList(RLPDecode.toRlpItem(exitingTxBytes));
+        return exitingTx(
+            RLPDecode.toAddress(txList[6 + (2 * oindex)]),
+            RLPDecode.toAddress(txList[10]),
+            RLPDecode.toUint(txList[7 + 2 * oindex]),
+            RLPDecode.toUint(txList[0]) * RLPDecode.toUint(txList[3])
+        );
     }
 }
+
+            

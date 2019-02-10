@@ -24,7 +24,8 @@ describe('add deposit function', function() {
         assert.equal(tx.newOwner1, account1.address);
     });
 
-    it('should create a new transaction with the amount within the deposit event', function() {
+    it('should create a new transaction with the amount within the deposit event', async function() {
+        let events = await plasmaChain.plasmaContract.getPastEvents('DepositCreated')
         assert.equal(tx.amount1, web3.utils.toWei(ether, 'ether'));
     });
 
