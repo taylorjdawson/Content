@@ -1,4 +1,6 @@
-const {web3} = require('./web3Util.js');
+if (!web3) {
+  const { web3 } = require('./web3Util.js')
+}
 const {abi} = require('./Plasma.json');
 const {Block, Transaction} = require('./plasmaObjects.js');
 const {validateTransaction, NULL_ADDRESS, decodeUtxoId, encodeUtxoId} = require('./utils.js');

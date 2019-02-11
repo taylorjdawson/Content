@@ -1,8 +1,23 @@
-const {web3} = require('./web3Util.js')
 const { encodeUtxoId, decodeUtxoId, decodeTxId, NULL_ADDRESS,
     NULL_SIGNATURE, NULL_HASH, sign } = require('./utils.js');
+
+function moduleIsAvailable() {
+    try {
+        require.resolve('web3');
+        return true;
+    } catch (e) {
+        return false;
+    }
+}    
+
+if(moduleIsAvailable()) {
+    const { web3 } = require('./web3Util.js');
+}
+// const { web3 } = require('./web3Util.js')
 const rlp = require("./rlp.js");
 const MerkleTree = require("./merkleTree.js");
+
+
 
 class Block {
     constructor(transactionSet, blockNumber) {
