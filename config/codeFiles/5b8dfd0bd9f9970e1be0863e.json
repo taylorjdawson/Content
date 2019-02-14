@@ -8,15 +8,16 @@
     "5b90c5def1d76e2d5c6c719c"
   ],
   "executable": true,
-  "executablePath": "contracts/Hackathon.sol",
+  "executablePath": "contracts/Buidlathon.sol",
   "hasProgress": true,
   "initialCode": "$$LOOKUP",
   "mode": "sol",
-  "name": "Hackathon.sol",
+  "name": "Buidlathon.sol",
   "readOnly": false,
   "stageContainerId": "5b8dfa4dd9f9970e1be08638",
   "testFixture": false,
   "visible": true,
   "updatedAt": "2018-10-16T01:50:11.068Z",
-  "createdAt": "2018-10-16T01:50:11.068Z"
+  "createdAt": "2018-10-16T01:50:11.068Z",
+  "fileLocation": null
 }
