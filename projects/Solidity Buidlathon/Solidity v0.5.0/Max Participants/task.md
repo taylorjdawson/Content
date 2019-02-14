@@ -1,6 +1,10 @@
-## Storing Max Participants
+## Setting up our Buidlathon
 
-### Public Integer
+Let's create a Buidlathon contract that will allow participants to enter our Buidlathon! 
+
+First let's set the maximum number of participants who can enter.
+
+### Max Participants Integer
 
 For our Buidlathon we want to determine the maximum number of participants we can admit. 
 
