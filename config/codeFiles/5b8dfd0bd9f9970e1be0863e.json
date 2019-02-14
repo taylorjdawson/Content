@@ -3,9 +3,7 @@
   "codeStageIds": [
     "5b8dfc7ed9f9970e1be0863b",
     "5b8efa8bd9f9970e1be08668",
-    "5b8f13c8d9f9970e1be0867d",
-    "5b90c1d9f1d76e2d5c6c7198",
-    "5b90c5def1d76e2d5c6c719c"
+    "5b8f13c8d9f9970e1be0867d"
   ],
   "executable": true,
   "executablePath": "contracts/Buidlathon.sol",
