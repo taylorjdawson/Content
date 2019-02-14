@@ -13,7 +13,14 @@ See more about Integers [in the Solidity Documentation](https://solidity.readthe
 
 ## Contract Constructor
 
+When you deploy a Smart Contract, the contract runs a special function called a "Constructor". This function is generally used to setup variables that will be used throughout the remainder of the contract's functions. 
 
+You can declare a constructor as follows:
 
+```
+constructor(uint someVariable) public {
 
-Similarily, learn about Contracts in the [Contracts](https://solidity.readthedocs.io/en/latest/contracts.html) documentation.
+}
+```
+
+You can learn more about Contracts in the [Contracts](https://solidity.readthedocs.io/en/latest/contracts.html) documentation.
