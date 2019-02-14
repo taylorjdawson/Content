@@ -3,7 +3,6 @@ const Buidlathon = artifacts.require('Buidlathon');
 contract('Buidlathon', (accounts) => {
   describe('entering one by one', () => {
     let contract;
-    let numberOfParticipants = 5;
 
     beforeEach(async () => {
       contract = await Buidlathon.new(200);
