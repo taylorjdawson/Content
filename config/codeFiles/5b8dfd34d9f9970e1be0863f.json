@@ -4,7 +4,7 @@
     "5b8dfc7ed9f9970e1be0863b"
   ],
   "executable": true,
-  "hasProgress": true,
+  "hasProgress": false,
   "initialCode": "$$LOOKUP",
   "mode": "javascript",
   "name": "testIntegers.js",
@@ -14,5 +14,6 @@
   "visible": true,
   "updatedAt": "2018-11-15T18:32:04.340Z",
   "createdAt": "2018-10-16T01:50:11.788Z",
-  "executablePath": "test/testIntegers.js"
+  "executablePath": "test/testIntegers.js",
+  "fileLocation": null
 }
