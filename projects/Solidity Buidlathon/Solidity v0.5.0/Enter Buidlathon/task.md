@@ -1,7 +1,12 @@
-## Intro to Address and Arrays
+## Enter Buidlathon
 
-Now instead of a count of participants, let's keep track of the participants addresses.
+It's time to allow participants to join our Buidlathon! 
 
-1. Create an array of participants
-2. Create an `enter` function for participants to enter the Hackathon
-3. Create a `numberOfParticipants` getter to check the length of the participants
+### Enter Functon 
+
+Let's create a `public` `enter` function that will allow an ethereum address to join our Buidlathon! 
+
+### Number of Participants
+
+To pass the test cases for this stage, you'll need to create a `public` getter called `numberOfParticipants` which will return the number of participants we have allowed into the hackathon thus far.
+
