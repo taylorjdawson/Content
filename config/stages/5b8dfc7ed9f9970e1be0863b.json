@@ -13,7 +13,7 @@
   "position": 0,
   "task": "$$LOOKUP",
   "testFramework": "truffle_with_mocha",
-  "title": "Max Participants",
+  "title": "Setting Up",
   "validatedContract": "Hackathon",
   "updatedAt": "2018-11-08T02:51:28.544Z",
   "createdAt": "2018-10-16T01:50:10.464Z",
