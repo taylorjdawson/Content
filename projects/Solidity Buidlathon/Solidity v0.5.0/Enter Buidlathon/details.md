@@ -21,3 +21,9 @@ uint public myNumber;
 ```
 
 By doing this, a getter function called `myNumber` is created automatically, which can be accessed from outside the contract.
+
+## The Function Caller Address
+
+In Solidity, there are a number of globally available variables. Among these is `msg.sender` which will give you the ethereum `address` calling the function. 
+
+Here's some documentation on [Units and Globally Available Variables](https://solidity.readthedocs.io/en/latest/units-and-global-variables.html?highlight=msg.sender)
