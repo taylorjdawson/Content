@@ -1,12 +1,12 @@
-const Hackathon = artifacts.require('Hackathon');
+const Buidlathon = artifacts.require('Buidlathon');
 
-contract('Hackathon', (accounts) => {
+contract('Buidlathon', (accounts) => {
   describe('entering one by one', () => {
     let contract;
     let numberOfParticipants = 5;
 
     beforeEach(async () => {
-      contract = await Hackathon.new();
+      contract = await Buidlathon.new(200);
       for(let i = 0; i < accounts.length; i++) {
         await contract.enter.sendTransaction({ from: accounts[i] });
       }

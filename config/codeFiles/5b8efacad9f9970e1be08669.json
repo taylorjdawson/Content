@@ -4,7 +4,7 @@
     "5b8efa8bd9f9970e1be08668"
   ],
   "executable": true,
-  "hasProgress": true,
+  "hasProgress": false,
   "initialCode": "$$LOOKUP",
   "mode": "javascript",
   "name": "testEntrants.js",
@@ -14,5 +14,6 @@
   "visible": true,
   "updatedAt": "2018-11-15T18:32:04.826Z",
   "createdAt": "2018-10-16T01:50:11.618Z",
-  "executablePath": "test/testEntrants.js"
+  "executablePath": "test/testEntrants.js",
+  "fileLocation": null
 }
