@@ -1,15 +1,12 @@
 const Plasma = artifacts.require('Plasma');
 
 contract('Plasma', (accounts) => {
-    let contract;
     const owner = accounts[0];
-    let root = web3.utils.soliditySha3(owner);
-    let watcher;
+    const root = web3.utils.soliditySha3(owner);
     const ether = web3.utils.toWei('1', 'ether');
     describe('Get Deposit Function', () => {
         beforeEach(async() => {
             contract = await Plasma.new({from: owner})
-            watcher = contract.DepositCreated();
             await contract.deposit({from: accounts[1], value: ether})
             await contract.submitBlock(root, {from: owner})
             await contract.deposit({ from: accounts[1], value: ether })

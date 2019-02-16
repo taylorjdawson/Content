@@ -6,7 +6,7 @@ const errors = [
 ]
 
 contract('Plasma', function(accounts) {
-    describe('Transaction Tests', function() {
+    describe('Create Plasma Block', function() {
         it('should define a plasmaChain mapping', async function() {
 	        const plasmaChain = Plasma.abi.filter(x => x.name === 'plasmaChain')[0];
             assert(plasmaChain, errors[0]);

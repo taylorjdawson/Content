@@ -1,18 +1,19 @@
 {
   "id": "5c1878f6e6b0b03a95da4272",
   "codeStageIds": [
-    "5c18783fe6b0b03a95da4263"
+    "5c64a2bb479bcc2db59b98bb"
   ],
   "executable": true,
   "hasProgress": false,
   "initialCode": "$$LOOKUP",
   "mode": "javascript",
-  "name": "testExit.js",
+  "name": "testChallenge.js",
   "readOnly": true,
   "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
   "testFixture": true,
   "visible": true,
   "updatedAt": "2019-01-09T02:47:16.667Z",
   "createdAt": "2019-01-09T02:39:33.054Z",
-  "executablePath": "test/testExit.js"
+  "executablePath": "test/testChallenge.js",
+  "fileLocation": null
 }

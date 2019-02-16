@@ -1,18 +1,32 @@
+const { web3 } = require('./web3Util.js');
 const { encodeUtxoId, decodeUtxoId, decodeTxId, NULL_ADDRESS,
     NULL_SIGNATURE, NULL_HASH, sign } = require('./utils.js');
 
-function moduleIsAvailable() {
-    try {
-        require.resolve('web3');
-        return true;
-    } catch (e) {
-        return false;
-    }
-}    
+// function checkWeb3() {
+//     if (typeof web3 !== 'undefined') {
+//         return web3;
+//     } else {
+//         const { web3 } = require('./web3Util.js');
+//         return web3;
+//     }
+// }
 
-if(moduleIsAvailable()) {
-    const { web3 } = require('./web3Util.js');
-}
+
+
+    
+// function moduleIsAvailable() {
+//     try {
+//         require.resolve('web3');
+//         return true;
+//     } catch (e) {
+//         return false;
+//     }
+// }
+
+// if(moduleIsAvailable()) {
+//     console.log('web3 avail')
+//     const { web3 } = require('./web3Util.js');
+// }
 // const { web3 } = require('./web3Util.js')
 const rlp = require("./rlp.js");
 const MerkleTree = require("./merkleTree.js");

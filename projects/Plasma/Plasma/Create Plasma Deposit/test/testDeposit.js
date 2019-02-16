@@ -3,9 +3,8 @@ const Plasma = artifacts.require('Plasma');
 contract('Plasma', (accounts) => {
     const owner = accounts[0];
 
-    describe('Deposit', () => {
+    describe('Create Plasma Deposit', () => {
         let contract;
-        let watcher;
         const ether = web3.utils.toWei('1', 'ether');
         beforeEach(async() => {
             contract = await Plasma.new({from: owner})

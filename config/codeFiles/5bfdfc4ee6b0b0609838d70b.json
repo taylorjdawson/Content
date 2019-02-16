@@ -7,7 +7,9 @@
     "5bfc67a6e6b0b0609838d6f0",
     "5bfe1238e6b0b0609838d71c",
     "5c1419a1e6b0b0704032fbc2",
-    "5c18783fe6b0b03a95da4263"
+    "5c18783fe6b0b03a95da4263",
+    "5c64a2bb479bcc2db59b98bb",
+    "5c64a2d9479bcc2db59b98bf"
   ],
   "executable": true,
   "executablePath": "contracts/SafeMath.sol",

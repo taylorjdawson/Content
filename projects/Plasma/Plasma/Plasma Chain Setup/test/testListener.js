@@ -5,7 +5,8 @@ const deploy = require('../deployPlasma.js');
 const {abi} = require('../Plasma.json');
 const PlasmaChain = require('../plasmaChain.js');
 
-describe('constructor function', function() {
+describe('Constructor Function', function() {
+    console.log(web3.currentProvider)
     let contract;
     let plasmaChain;
     let web3Contract;
