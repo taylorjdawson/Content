@@ -4,4 +4,4 @@ This could arguably be the most important step in creating a blockchain implemen
 
 To pass this step we simply need to make sure to include that `previousHash` in the `hash` calculation step in our `Block` class.
 
-> Hint: The `SHA256` hash function will only take a single string as it's argument when hashing. 
+> Hint: The `SHA256` hash function will take a single string as it's argument when hashing. 
