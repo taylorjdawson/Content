@@ -6,7 +6,7 @@ In order to store our created blocks on the Plasma chain, we need a `blocks` obj
 
 ## Syncing a Deposit
 
-Now that we have an event listener for the `DepositCreated` event, we need to now add that deposit to the Plasma chain.
+Now that we have an event listener for the `DepositCreated` event, we can add a deposit to the Plasma chain.
 
 1. Define an `addDeposit` function with an event as it's only argument
 

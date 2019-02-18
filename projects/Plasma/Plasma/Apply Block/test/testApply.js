@@ -62,6 +62,14 @@ describe('apply block function', function() {
         const blocksLength = Object.keys(plasmaChain.blocks).length;
         assert.equal(blocksLength, 3);
     })
+
+    it('should allocate the correct block number as the key within blocks', function () {
+        plasmaChain.addTransaction(tx);
+        plasmaChain.addTransaction(tx2);
+        const blockNum = plasmaChain.currentBlock.blockNumber;
+        plasmaChain.applyBlock(plasmaChain.currentBlock);
+        assert.notEqual(plasmaChain.blocks[blockNum], undefined)
+    })
   
   	it('should not assign a block key to undefined', function () {
         plasmaChain.addTransaction(tx);

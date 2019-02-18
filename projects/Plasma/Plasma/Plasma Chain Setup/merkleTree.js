@@ -1,5 +1,6 @@
 const reverse = require('./bufferReverse.js')
-const CryptoJS = require('crypto-js')
+const CryptoJS = require('./cryptoJS.js')
+const { sha3 } = require("./sha3Util.js");
 
 /**
  * Class reprensenting a Merkle Tree
@@ -29,7 +30,7 @@ class MerkleTree {
    *
    * const tree = new MerkleTree(leaves, sha256)
    */
-  constructor(leaves, hashAlgorithm, options={}) {
+  constructor(leaves, hashAlgorithm, options = {}) {
     this.hashAlgo = bufferifyFn(hashAlgorithm)
     this.leaves = leaves.map(bufferify)
     this.layers = [this.leaves]
@@ -47,7 +48,7 @@ class MerkleTree {
 
       for (let i = 0; i < nodes.length - 1; i += 2) {
         const left = nodes[i]
-        const right = nodes[i+1]
+        const right = nodes[i + 1]
         let data = null
 
         if (this.isBitcoinTree) {
@@ -68,7 +69,7 @@ class MerkleTree {
 
       // is odd number of nodes
       if (nodes.length % 2 === 1) {
-        let data = nodes[nodes.length-1]
+        let data = nodes[nodes.length - 1]
         let hash = data
 
         // is bitcoin tree
@@ -117,8 +118,8 @@ class MerkleTree {
    * const root = tree.getRoot()
    */
   getRoot() {
-      const root = this.layers[this.layers.length-1][0] || Buffer.from([])
-      return root.toString();
+    const root = this.layers[this.layers.length - 1][0] || Buffer.from([])
+    return "0x" + root.toString('hex');
   }
 
   /**
@@ -162,47 +163,47 @@ class MerkleTree {
       for (let i = 0; i < this.layers.length - 1; i++) {
         const layer = this.layers[i]
         const isRightNode = index % 2
-        const pairIndex = (isRightNode ? index - 1: index)
+        const pairIndex = (isRightNode ? index - 1 : index)
 
         if (pairIndex < layer.length) {
           proof.push({
-            position: isRightNode ? 'left': 'right',
+            position: isRightNode ? 'left' : 'right',
             data: layer[pairIndex]
           })
         }
 
         // set index to parent index
-        index = (index / 2)|0
+        index = (index / 2) | 0
 
-        }
-
-        return proof
-
-      } else {
-
-        // Proof Generation for Non-Bitcoin Trees
-
-        for (let i = 0; i < this.layers.length; i++) {
-          const layer = this.layers[i]
-          const isRightNode = index % 2
-          const pairIndex = (isRightNode ? index - 1 : index + 1)
-
-          if (pairIndex < layer.length) {
-            proof.push({
-              position: isRightNode ? 'left': 'right',
-              data: layer[pairIndex]
-            })
-          }
-
-          // set index to parent index
-          index = (index / 2)|0
-
-          }
-
-          return proof
-
-        }
       }
+
+      return proof
+
+    } else {
+
+      // Proof Generation for Non-Bitcoin Trees
+
+      for (let i = 0; i < this.layers.length; i++) {
+        const layer = this.layers[i]
+        const isRightNode = index % 2
+        const pairIndex = (isRightNode ? index - 1 : index + 1)
+
+        if (pairIndex < layer.length) {
+          proof.push({
+            position: isRightNode ? 'left' : 'right',
+            data: layer[pairIndex]
+          })
+        }
+
+        // set index to parent index
+        index = (index / 2) | 0
+
+      }
+
+      return proof
+
+    }
+  }
 
   /**
    * verify
@@ -223,9 +224,9 @@ class MerkleTree {
     let hash = bufferify(targetNode)
 
     if (!Array.isArray(proof) ||
-        !proof.length ||
-        !targetNode ||
-        !root) {
+      !proof.length ||
+      !targetNode ||
+      !root) {
       return false
     }
 
@@ -265,18 +266,16 @@ function bufferify(x) {
     if (typeof x === 'object' && x.words) {
       return Buffer.from(x.toString(CryptoJS.enc.Hex), 'hex')
     } else if (isHexStr(x)) {
-        // console.log(Buffer.from(x))
-        // changed this to handle without 0x
       return Buffer.from(x, 'hex')
     } else if (typeof x === 'string') {
-      return Buffer.from(x)
+      return Buffer.from(x);
     }
   }
 
   return x
 }
 
-function bufferifyFn (f) {
+function bufferifyFn(f) {
   return function (x) {
     const v = f(x)
     if (Buffer.isBuffer(v)) {

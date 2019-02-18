@@ -1,3 +1,4 @@
+// const {web3} = require('./web3Util.js')
 var cache = [
   '',
   ' ',
@@ -42,7 +43,7 @@ function leftPad (str, len, ch) {
   // pad `str`!
   return pad + str;
 }
-// const web3 = new Web3()
+
 
 // the size of a character in a hex string in bytes
 const HEX_CHAR_SIZE = 4
@@ -54,31 +55,31 @@ const DEFAULT_SIZE = 256
 const encodeWithPadding = size => value => {
   return typeof value === 'string'
     // non-hex string
-    ? web3.toHex(value)
+    ? web3.utils.toHex(value)
     // numbers, big numbers, and hex strings
     : encodeNum(size)(value)
 }
 
 /** Encodes a number in hex and adds padding to the given size if needed. Curried args. */
 const encodeNum = size => value => {
-  return leftPad(web3.toHex(value < 0 ? value >>> 0 : value).slice(2), size / HEX_CHAR_SIZE, value < 0 ? 'F' : '0')
+  return leftPad(web3.utils.toHex(value < 0 ? value >>> 0 : value).slice(2), size / HEX_CHAR_SIZE, value < 0 ? 'F' : '0')
 }
 
 /** Hashes one or more arguments, using a default size for numbers. */
 const sha3 = (...args) => {
   const paddedArgs = args.map(encodeWithPadding(DEFAULT_SIZE)).join('')
-  return web3.sha3(paddedArgs, { encoding: 'hex' })
+  return web3.utils.sha3(paddedArgs, { encoding: 'hex' })
 }
 
 /** Hashes a single value at the given size. */
 const sha3withsize = (value, size) => {
   const paddedArgs = encodeWithPadding(size)(value)
-  return web3.sha3(paddedArgs, { encoding: 'hex' })
+  return web3.utils.sha3(paddedArgs, { encoding: 'hex' })
 }
 
 const sha3num = (value, size = DEFAULT_SIZE) => {
   const paddedArgs = encodeNum(size)(value)
-  return web3.sha3(paddedArgs, { encoding: 'hex' })
+  return web3.utils.sha3(paddedArgs, { encoding: 'hex' })
 }
 
 module.exports = {sha3};

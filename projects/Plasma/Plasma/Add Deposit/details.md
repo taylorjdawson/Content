@@ -32,3 +32,4 @@ The next 4 attributes (`newOwner`, `amount`) are the new UTXO's created by this 
 Next we have `sig1` and `sig2`, these signatures refer to the creator of the transaction when it is signed. 
 
 Finally, we have whether a UTXO is `spent`. Each spent attribute will be set to `true` when the relative UTXO (`newOwner` and `amount`) is used as an input in another transaction.
+

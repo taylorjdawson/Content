@@ -2,7 +2,8 @@ const Plasma = artifacts.require('Plasma');
 
 contract('Plasma', (accounts) => {
     const owner = accounts[0];
-    describe('Constructor', () => {
+    console.log(web3.eth.accounts.sign)
+    describe('Plasma Constructor', () => {
         beforeEach(async() => {
             contract = await Plasma.new({from: owner})
         })

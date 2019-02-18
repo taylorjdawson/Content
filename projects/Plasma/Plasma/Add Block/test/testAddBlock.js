@@ -5,7 +5,7 @@ const deploy = require('../deployPlasma.js');
 const {abi} = require('../Plasma.json');
 const {encodeUtxoId} = require('../utils.js');
 const PlasmaChain = require('../plasmaChain.js');
-const {Transaction} = require('../plasmaObjects.js');
+const {Transaction, Block} = require('../plasmaObjects.js');
 const NULL_ADDRESS = '0x0000000000000000000000000000000000000000';
 
 describe('add block function', function() {
@@ -25,8 +25,12 @@ describe('add block function', function() {
         const leftover = ogAmount - transferAmount;
         tx = new Transaction(1,0,0,0,0,0, account2.address, transferAmount, account1.address, leftover);
         tx2 = new Transaction(1000,0,1,0,0,0, account2.address, transferAmount, account1.address, leftover - transferAmount);
-        // falseTx = new Transaction(1000,0,1,0,0,0, account2.address, transferAmount, account1.address, leftover - transferAmount);
     });
+
+    it('should instantiate the next deposit block', function() {
+        const blockNum = plasmaChain.nextDepositBlock;
+        assert.notEqual(blockNum, undefined);
+    })
 
     it('should apply all transactions within the block', function() {
         plasmaChain.addTransaction(tx);
@@ -49,6 +53,14 @@ describe('add block function', function() {
         assert.equal(blocksLength, 3);
     })
 
+    it('should allocate the correct block number as the key within blocks', function () {
+        plasmaChain.addTransaction(tx);
+        plasmaChain.addTransaction(tx2);
+        const blockNum = plasmaChain.currentBlock.blockNumber;
+        plasmaChain.addBlock(plasmaChain.currentBlock);
+        assert.notEqual(plasmaChain.blocks[blockNum], undefined)
+    })
+
     it('should not assign a block key to undefined', function () {
         plasmaChain.addTransaction(tx);
         plasmaChain.addTransaction(tx2);
@@ -56,6 +68,12 @@ describe('add block function', function() {
         const blockKeys= Object.keys(plasmaChain.blocks);
         const correct = blockKeys.includes('undefined');
         assert.equal(correct, false);
+    })
+
+    it('should return false if the block is not synced with the Plasma contract', function () {
+        const falseBlock = new Block([], 3000);
+        const bool = plasmaChain.addBlock(falseBlock);
+        assert.equal(bool, false);
     })
 
     it('should update the next transaction if submitted block is the current block', function() {
@@ -71,7 +89,7 @@ describe('add block function', function() {
         plasmaChain.addTransaction(tx2);
         plasmaChain.addBlock(plasmaChain.currentBlock);
         const txBlock = plasmaChain.nextDepositBlock;
-        assert.equal(txBlock, 2001);
+        assert.equal(txBlock, 1001);
     });
 
     it('should update the next deposit block if submitted block is a deposit', async function() {

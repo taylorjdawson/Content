@@ -1,4 +1,4 @@
-pragma solidity ^0.4.19;
+pragma solidity ^0.5.0;
 
 import "./SafeMath.sol";
 
@@ -17,7 +17,7 @@ contract Plasma {
       uint256 timestamp;
   }
   
-  function Plasma() public {
+  constructor() public {
     operator = msg.sender;
     currentPlasmaBlock = BLOCK_BUFFER;
     currentDepositBlock = 1;

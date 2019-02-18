@@ -1,10 +1,37 @@
+const { web3 } = require('./web3Util.js');
 const { encodeUtxoId, decodeUtxoId, decodeTxId, NULL_ADDRESS,
     NULL_SIGNATURE, NULL_HASH, sign } = require('./utils.js');
-const { sha3 } = require("./sha3Util.js");
-// const Web3Utils = require('web3-utils');
-// const CryptoJS = require('crypto-js');
+
+// function checkWeb3() {
+//     if (typeof web3 !== 'undefined') {
+//         return web3;
+//     } else {
+//         const { web3 } = require('./web3Util.js');
+//         return web3;
+//     }
+// }
+
+
+
+    
+// function moduleIsAvailable() {
+//     try {
+//         require.resolve('web3');
+//         return true;
+//     } catch (e) {
+//         return false;
+//     }
+// }
+
+// if(moduleIsAvailable()) {
+//     console.log('web3 avail')
+//     const { web3 } = require('./web3Util.js');
+// }
+// const { web3 } = require('./web3Util.js')
 const rlp = require("./rlp.js");
 const MerkleTree = require("./merkleTree.js");
+
+
 
 class Block {
     constructor(transactionSet, blockNumber) {
@@ -15,15 +42,11 @@ class Block {
 
     addTransaction(tx) {
         this.transactionSet.push(tx);
-        // Implementation encodes the inputs then marks the inputId as True in the spent utxos object
-        // Not sure why this has to occur and what it exactly means if the spent on the actual transaction is still false
-        // => This occurs to store the utxos that are spent during the phase before the block is submitted. This way you are able to track which utxos have already been spent and properly validate the transaction.
         let inputs = [[tx.blkNum1, tx.txIndex1, tx.oIndex1], [tx.blkNum2, tx.txIndex2, tx.oIndex2]];
         inputs.forEach(input => {
             const inputId = encodeUtxoId(...input);
             this.spentUtxos[inputId] = true;
         });
-        // Since the 3 inputs above are directly related to the utxo that was spent to create this new UTXO, we are able to refer back to these arguments and mark as spent.
     }
 
     merkle() {
@@ -42,7 +65,7 @@ class Block {
                 return "0x" + buffer.toString('hex');
             })
             // let hexStrings = Web3Utils.soliditySha3(...transformed).slice(2);
-            let hexStrings = sha3(...transformed).slice(2);
+            let hexStrings = web3.utils.soliditySha3(...transformed).slice(2);
             return Buffer.from(hexStrings, 'hex');
         });
     }
@@ -71,12 +94,12 @@ class Transaction {
 
     hash() {
         // return Web3Utils.soliditySha3("0x" + this.encoded().toString('hex'))
-        return sha3("0x" + this.encoded().toString('hex'))
+        return web3.utils.soliditySha3("0x" + this.encoded().toString('hex'))
     }
 
     merkleHash() {
         // return Web3Utils.soliditySha3(this.hash(), this.sig1, this.sig2);
-        return sha3(this.hash(), this.sig1, this.sig2);
+        return web3.utils.soliditySha3(this.hash(), this.sig1, this.sig2);
     }
 
     // In order to encode the Transaction object we need to make sure all attributes are properly encodable
@@ -94,7 +117,7 @@ class Transaction {
     // The sha3 function in sha3Util has an odd way of passing in multiple arguments
     confirm(root, key) {
         // return sign(Web3Utils.soliditySha3(this.hash(), root), key).toString('hex');
-        return sign(sha3(this.hash(), root), key).toString('hex');
+        return sign(web3.utils.soliditySha3(this.hash(), root), key).toString('hex');
     }
 
     sign1(key) {

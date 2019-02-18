@@ -1,7 +1,9 @@
 {
   "id": "5c048a98e6b0b0609838d74d",
   "codeStageIds": [
-    "5c18783fe6b0b03a95da4263"
+    "5c18783fe6b0b03a95da4263",
+    "5c64a2bb479bcc2db59b98bb",
+    "5c64a2d9479bcc2db59b98bf"
   ],
   "executable": true,
   "executablePath": "contracts/Merkle.sol",

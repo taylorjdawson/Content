@@ -1,6 +1,6 @@
 require('events').EventEmitter.defaultMaxListeners = 0;
 const Web3 = require('web3');
-const web3 = new Web3();
+const web3 = new Web3(Web3.givenProvider);
 let _testAccounts;
 let publicEtherAccount;
 (() => {
@@ -24,7 +24,9 @@ let publicEtherAccount;
   publicEtherAccount = web3.eth.accounts.privateKeyToAccount(publicEtherProps.secretKey)
   // temporary monkeypatch fix until versioning issues are fixed
   // https://github.com/ethereum/web3.js/issues/1038
-  provider.constructor.prototype.send = provider.constructor.prototype.sendAsync
+  // provider.constructor.prototype.send(() => {}) = provider.constructor.prototype.sendAsync
+  // provider.constructor.prototype.send(() => { })
+  // console.log(provider.send(provider.constructor.prototype.sendAsync))
   web3.setProvider(provider);
 })();
 

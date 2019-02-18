@@ -5,8 +5,8 @@ const errors = [
     "Make sure to declare a public uint for the confirmations!",
 ]
 
-contract('MultiSig', function(accounts) {
-    describe('Transaction Tests', function() {
+contract('Plasma', function(accounts) {
+    describe('Create Plasma Block', function() {
         it('should define a plasmaChain mapping', async function() {
 	        const plasmaChain = Plasma.abi.filter(x => x.name === 'plasmaChain')[0];
             assert(plasmaChain, errors[0]);
