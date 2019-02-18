@@ -8,5 +8,7 @@
   "updatedAt": "2018-10-22T15:46:11.591Z",
   "createdAt": "2018-10-22T15:46:11.591Z",
   "containerType": "Lesson",
-  "productionReady": true
+  "productionReady": true,
+  "thumbnailUrl": null,
+  "estimatedTime": 120
 }

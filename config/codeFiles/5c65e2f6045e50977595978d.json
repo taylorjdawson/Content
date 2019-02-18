@@ -1,0 +1,16 @@
+{
+  "executablePath": "test/testDoubleEntry.js",
+  "name": "testDoubleEntry.js",
+  "executable": true,
+  "hasProgress": false,
+  "mode": "javascript",
+  "readOnly": true,
+  "testFixture": true,
+  "visible": true,
+  "stageContainerId": "5b8dfa4dd9f9970e1be08638",
+  "codeStageIds": [
+    "5c65e133045e50977595978b"
+  ],
+  "id": "5c65e2f6045e50977595978d",
+  "initialCode": "$$LOOKUP"
+}
