@@ -1,5 +1,5 @@
 const { web3, _testAccounts } = require('../web3Util.js');
-console.log(web3)
+// console.log(web3)
 const [operator, account1, account2] = _testAccounts;
 const deploy = require('../deployPlasma.js');
 const { Transaction, UnsignedTransaction } = require('../plasmaObjects.js');
