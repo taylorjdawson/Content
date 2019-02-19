@@ -8,7 +8,7 @@ const deploy = (operator) => {
         data: bytecode
     }
     return PlasmaContract.deploy(deployParameters).estimateGas().then((gas) => {
-        return PlasmaContract.deploy(deployParameters).sendAsync({
+        return PlasmaContract.deploy(deployParameters).send({
             from: operator,
             gas,
         }, () => {});
