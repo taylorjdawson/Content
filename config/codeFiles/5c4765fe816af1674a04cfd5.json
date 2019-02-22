@@ -23,7 +23,7 @@
   "executable": true,
   "fileLocation": null,
   "hasProgress": null,
-  "mode": null,
+  "mode": "javascript",
   "readOnly": true,
   "visible": null
 }
