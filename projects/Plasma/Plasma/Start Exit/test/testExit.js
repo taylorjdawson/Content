@@ -1,5 +1,4 @@
 const { web3, _testAccounts } = require('../web3Util.js');
-// console.log(web3)
 const [operator, account1, account2] = _testAccounts;
 const deploy = require('../deployPlasma.js');
 const { Transaction, UnsignedTransaction } = require('../plasmaObjects.js');
@@ -81,7 +80,6 @@ describe('Start Exit Function', () => {
 
         let events = await contract.getPastEvents('ExitStarted');
         let exit = events[0].event;
-
         assert.equal(exit, 'ExitStarted');
     })
 })
