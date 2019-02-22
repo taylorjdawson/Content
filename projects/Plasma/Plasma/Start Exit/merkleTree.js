@@ -118,7 +118,7 @@ class MerkleTree {
    */
   getRoot() {
       const root = this.layers[this.layers.length-1][0] || Buffer.from([])
-      return root.toString();
+      return '0x' + root.toString('hex');
   }
 
   /**
