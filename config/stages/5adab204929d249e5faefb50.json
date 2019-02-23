@@ -12,7 +12,7 @@
   "details": "$$LOOKUP",
   "language": "javascript",
   "languageVersion": "6.x/babel",
-  "position": 7,
+  "position": 6,
   "task": "$$LOOKUP",
   "testFramework": "mocha_bdd",
   "title": "Deployment",
