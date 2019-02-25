@@ -24,8 +24,8 @@ contract Voting is AragonApp {
         VoteCreated(votes.length - 1);
     }
 
-    function castVote(uint _voteId, bool _supports) auth(CAST_VOTES_ROLE) {
-        Vote vote = votes[_voteId];
+    function castVote(uint _voteId, bool _supports) auth(CAST_VOTES_ROLE) public {
+        Vote storage vote = votes[_voteId];
 
         if(vote.voteStates[msg.sender] == VoteStates.Yes) {
             // if they voted yes before
