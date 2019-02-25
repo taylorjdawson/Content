@@ -1,0 +1,16 @@
+{
+  "executablePath": "aragon/os/contracts/factory/ENSFactory.sol",
+  "name": "ENSFactory.sol",
+  "executable": true,
+  "hasProgress": false,
+  "mode": "sol",
+  "readOnly": true,
+  "testFixture": false,
+  "visible": false,
+  "stageContainerId": "5b58fc40d9f997399b71e3fd",
+  "codeStageIds": [
+    "5b593f53d9f997399b71e491"
+  ],
+  "initialCode": "$$LOOKUP",
+  "id": "5c7441afee7ceadf808c92eb"
+}
