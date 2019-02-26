@@ -1,9 +1,11 @@
+const { assert } = require('chai');
 const { web3, _testAccounts } = require('../web3Util.js');
 const [operator, account1, account2] = _testAccounts;
 const deploy = require('../deployPlasma.js');
 const { Transaction, UnsignedTransaction } = require('../plasmaObjects.js');
 const { encodeUtxoId, NULL_ADDRESS } = require('../utils.js');
 const PlasmaChain = require('../plasmaChain.js');
+const {abi} = require('../Plasma.json');
 
 // Apply Exit => Stage 15
 
@@ -14,7 +16,7 @@ describe('Apply Exit Function', () => {
     let utxoPos;
     beforeEach(async () => {
         contract = await deploy(operator.address);
-        plasmaChain = new PlasmaChain(operator.address, contract.options.address);
+        plasmaChain = new PlasmaChain(operator.address, contract.options.address, abi);
         await plasmaChain.plasmaContract.methods.deposit().send({ from: account1.address, value: ether })
 
         const transferAmount = '10000';
@@ -37,7 +39,7 @@ describe('Apply Exit Function', () => {
 
         await plasmaChain.submitBlock(plasmaChain.currentBlock);
 
-        const utxoPos = encodeUtxoId(1000, 1, 0);
+        utxoPos = encodeUtxoId(1000, 1, 0);
         const txBytes = "0x" + tx2.encoded().toString('hex');
         const merkle = plasmaChain.blocks[1000].merkle();
         const proof = merkle.getProof(merkle.leaves[1]);
@@ -51,8 +53,8 @@ describe('Apply Exit Function', () => {
     })
 
     it('should mark the UTXO as spent', function () {
+
         const tx = plasmaChain.getTransaction(utxoPos);
-        console.log(assert)
-        // assert.equal(tx.spent1, true);
+        assert.equal(tx.spent1, true);
     });
 })

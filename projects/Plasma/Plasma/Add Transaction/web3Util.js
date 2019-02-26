@@ -51,6 +51,8 @@ function sendTransaction(tx) {
 const isFunction = (fn) => typeof fn === 'function'
 const isPromiseLike = (obj) => obj && obj.then && isFunction(obj.then);
 
+const web3JS = web3;
+
 module.exports = {
   _testAccounts,
   accountAddressesSentTo,
@@ -58,4 +60,5 @@ module.exports = {
   isPromiseLike,
   newAddress,
   web3,
+  web3JS,
 }
