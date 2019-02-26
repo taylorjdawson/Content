@@ -6,10 +6,13 @@ import app from './app';
  * @returns {observable}
  */
 function loadVote(id) {
-  return app.call( /* lookup the vote by id */ )
-  			.map((vote) => {
-    			/* return all vote properties, add the vote id, and transform yes/no counts */
-  			})
+	return app.call('votes', id)
+		.map((vote) => {
+			vote.yes = parseInt(vote.yes);
+			vote.no = parseInt(vote.no);
+			vote.id = id;
+			return vote;
+		})
 }
 
 export default loadVote;
