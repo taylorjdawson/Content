@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/factory/AppProxyFactory.sol",
+  "executablePath": "@aragon/os/contracts/factory/AppProxyFactory.sol",
   "name": "AppProxyFactory.sol",
   "executable": true,
   "hasProgress": false,

@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/factory/DAOFactory.sol",
+  "executablePath": "@aragon/os/contracts/factory/DAOFactory.sol",
   "name": "DAOFactory.sol",
   "executable": true,
   "hasProgress": false,

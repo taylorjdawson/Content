@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/acl/ACLSyntaxSugar.sol",
+  "executablePath": "@aragon/os/contracts/acl/ACLSyntaxSugar.sol",
   "name": "ACLSyntaxSugar.sol",
   "executable": true,
   "hasProgress": false,

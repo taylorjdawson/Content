@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/kernel/Kernel.sol",
+  "executablePath": "@aragon/os/contracts/kernel/Kernel.sol",
   "name": "Kernel.sol",
   "executable": true,
   "hasProgress": false,

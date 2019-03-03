@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/lib/ens/AbstractENS.sol",
+  "executablePath": "@aragon/os/contracts/lib/ens/AbstractENS.sol",
   "name": "AbstractENS.sol",
   "executable": true,
   "hasProgress": false,

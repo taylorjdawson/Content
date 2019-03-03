@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/apm/Repo.sol",
+  "executablePath": "@aragon/os/contracts/apm/Repo.sol",
   "name": "Repo.sol",
   "executable": true,
   "hasProgress": false,

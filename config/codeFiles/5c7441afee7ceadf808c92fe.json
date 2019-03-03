@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/lib/zeppelin/token/BasicToken.sol",
+  "executablePath": "@aragon/os/contracts/lib/zeppelin/token/BasicToken.sol",
   "name": "BasicToken.sol",
   "executable": true,
   "hasProgress": false,

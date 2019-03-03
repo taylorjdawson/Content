@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/lib/ens/ENS.sol",
+  "executablePath": "@aragon/os/contracts/lib/ens/ENS.sol",
   "name": "ENS.sol",
   "executable": true,
   "hasProgress": false,

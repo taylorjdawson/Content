@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/common/Initializable.sol",
+  "executablePath": "@aragon/os/contracts/common/Initializable.sol",
   "name": "Initializable.sol",
   "executable": true,
   "hasProgress": false,

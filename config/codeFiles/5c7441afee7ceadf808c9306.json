@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/common/IVaultRecoverable.sol",
+  "executablePath": "@aragon/os/contracts/common/IVaultRecoverable.sol",
   "name": "IVaultRecoverable.sol",
   "executable": true,
   "hasProgress": false,

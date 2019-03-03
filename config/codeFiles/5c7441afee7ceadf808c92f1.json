@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/apps/AppProxyPinned.sol",
+  "executablePath": "@aragon/os/contracts/apps/AppProxyPinned.sol",
   "name": "AppProxyPinned.sol",
   "executable": true,
   "hasProgress": false,

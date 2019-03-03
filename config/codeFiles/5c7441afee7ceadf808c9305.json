@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/common/IForwarder.sol",
+  "executablePath": "@aragon/os/contracts/common/IForwarder.sol",
   "name": "IForwarder.sol",
   "executable": true,
   "hasProgress": false,

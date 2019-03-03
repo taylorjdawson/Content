@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/ens/ENSConstants.sol",
+  "executablePath": "@aragon/os/contracts/ens/ENSConstants.sol",
   "name": "ENSConstants.sol",
   "executable": true,
   "hasProgress": false,

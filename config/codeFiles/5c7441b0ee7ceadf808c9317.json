@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/ens/ENSSubdomainRegistrar.sol",
+  "executablePath": "@aragon/os/contracts/ens/ENSSubdomainRegistrar.sol",
   "name": "ENSSubdomainRegistrar.sol",
   "executable": true,
   "hasProgress": false,

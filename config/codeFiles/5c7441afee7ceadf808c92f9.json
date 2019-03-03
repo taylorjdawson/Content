@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/lib/zeppelin/math/Math.sol",
+  "executablePath": "@aragon/os/contracts/lib/zeppelin/math/Math.sol",
   "name": "Math.sol",
   "executable": true,
   "hasProgress": false,

@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/lib/minime/ITokenController.sol",
+  "executablePath": "@aragon/os/contracts/lib/minime/ITokenController.sol",
   "name": "ITokenController.sol",
   "executable": true,
   "hasProgress": false,

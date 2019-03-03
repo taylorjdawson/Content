@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/evmscript/EVMScriptRegistry.sol",
+  "executablePath": "@aragon/os/contracts/evmscript/EVMScriptRegistry.sol",
   "name": "EVMScriptRegistry.sol",
   "executable": true,
   "hasProgress": false,
