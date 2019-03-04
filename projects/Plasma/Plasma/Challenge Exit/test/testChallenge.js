@@ -1,12 +1,10 @@
-const { web3, _testAccounts } = require('../js/web3Util.js');
-const [operator, account1, account2] = _testAccounts;
-const deploy = require('../js/deployPlasma.js');
-const { Transaction } = require('../js/plasmaObjects.js');
-const { encodeUtxoId, NULL_ADDRESS } = require('../js/utils.js');
+const { Transaction } = require('../plasmaObjects.js');
+const { encodeUtxoId, NULL_ADDRESS } = require('../utils.js');
 const Plasma = artifacts.require('Plasma');
 const PlasmaChain = require('../plasmaChain.js');
-const Web3Utils = require('web3-utils');
+web3.setProvider(new web3.providers.WebsocketProvider('http://127.0.0.1:7545/'))
 
+// Challenge Exit => Stage 16
 contract('Plasma', (accounts) => {
     const ether = web3.utils.toWei('1', 'ether');
     let utxoId;
@@ -23,33 +21,50 @@ contract('Plasma', (accounts) => {
     let cSigs;
     let cConfSig;
     let sigs;
+    let bond;
     describe('Start Exit Function', () => {
         // MIGHT WANT TO PULL EXIT BOND VALUE FROM CONTRACT INSTEAD OF HARDCODING
         beforeEach(async () => {
-            contract = await deploy(operator.address);
-            plasmaChain = new PlasmaChain(operator, contract.options.address);
+            operator = await web3.eth.personal.importRawKey("0xcd3376bb711cb332ee3fb2ca04c6a8b9f70c316fcdf7a1f44ef4c7999483295e", "password1234");
+            address1 = await web3.eth.personal.importRawKey("0xcd3376bb711cb332ee3fb2ca04c6a8b9f70c316fcdf7a1f44ef4c7999483295f", "password1234");
+            address2 = await web3.eth.personal.importRawKey("0xcd3376bb711cb332ee3fb2ca04c6a8b9f70c316fcdf7a1f44ef4c7999483295a", "password1234");
+            // use that password to unlock the account so truffle can use it
+            await web3.eth.personal.unlockAccount(operator, 'password1234', 6000);
+            await web3.eth.personal.unlockAccount(address1, 'password1234', 6000);
+            await web3.eth.personal.unlockAccount(address2, 'password1234', 6000);
 
-            await plasmaChain.plasmaContract.methods.deposit().send({ from: account1.address, value: ether })
+            // give our new account some ether from an already loaded account
+            await web3.eth.sendTransaction({ from: accounts[0], to: operator, value: web3.utils.toWei("1") })
+            await web3.eth.sendTransaction({ from: accounts[1], to: address1, value: web3.utils.toWei("2") })
+            await web3.eth.sendTransaction({ from: accounts[2], to: address2, value: web3.utils.toWei("2") })
+
+
+            // contract = await deploy(operator.address);
+            contract = await Plasma.new({ from: operator })
+            plasmaChain = new PlasmaChain(operator, contract.address, contract.abi, web3);
+
+            await contract.deposit({ from: address1, value: ether })
+            // await plasmaChain.plasmaContract.methods.deposit().send({from: account1.address, value: ether})
             const transferAmount = '10000';
             const ogAmount = '1000000000000000000';
             const leftover1 = ogAmount - transferAmount;
             const leftover2 = leftover1 - transferAmount;
 
             tx = new Transaction(1, 0, 0, 0, 0, 0,
-                account2.address, transferAmount,
-                account1.address, leftover1,
+                address2, transferAmount,
+                address1, leftover1,
                 NULL_ADDRESS);
 
             tx2 = new Transaction(1000, 0, 1, 0, 0, 0,
-                account2.address, transferAmount,
-                account1.address, leftover2,
+                address2, transferAmount,
+                address1, leftover1 - transferAmount,
                 NULL_ADDRESS);
 
             plasmaChain.addTransaction(tx);
             plasmaChain.addTransaction(tx2);
 
             utxoPos = encodeUtxoId(1000, 1, 0);
-            await tx2.sign1(account1.privateKey);
+            await tx2.sign1('0xcd3376bb711cb332ee3fb2ca04c6a8b9f70c316fcdf7a1f44ef4c7999483295f');
             await plasmaChain.submitBlock(plasmaChain.currentBlock);
 
 
@@ -58,56 +73,54 @@ contract('Plasma', (accounts) => {
             merkle = plasmaChain.blocks[1000].merkle();
             proof = merkle.getProof(merkle.leaves[1]);
             proofBytes = "0x" + proof[0].data.toString('hex');
-            confirmationSig = tx2.confirm(merkle.getRoot(), account1.privateKey);
+            confirmationSig = tx2.confirm(merkle.getRoot(), '0xcd3376bb711cb332ee3fb2ca04c6a8b9f70c316fcdf7a1f44ef4c7999483295f');
             sigs = tx2.sig1 + tx2.sig2.slice(2) + confirmationSig;
 
             // Challenging Transaction @ Block 2000
             cTx = new Transaction(1000, 1, 0, 0, 0, 0,
-                account2.address, transferAmount,
-                account1.address, leftover2 - transferAmount,
+                address2, transferAmount,
+                address1, leftover2 - transferAmount,
                 NULL_ADDRESS);
 
             plasmaChain.addTransaction(cTx);
 
             cUtxoPos = encodeUtxoId(2000, 0, 0);
-            await cTx.sign1(account2.privateKey);
+            await cTx.sign1('0xcd3376bb711cb332ee3fb2ca04c6a8b9f70c316fcdf7a1f44ef4c7999483295a');
             await plasmaChain.submitBlock(plasmaChain.currentBlock);
 
             cTxBytes = "0x" + cTx.encoded().toString('hex');
             cMerkle = plasmaChain.blocks[2000].merkle();
-            cConfSig = cTx.confirm(cMerkle.getRoot(), account2.privateKey);
+            cConfSig = cTx.confirm(cMerkle.getRoot(), '0xcd3376bb711cb332ee3fb2ca04c6a8b9f70c316fcdf7a1f44ef4c7999483295a');
             cSigs = cTx.sig1 + cTx.sig2.slice(2);
 
-            await plasmaChain.plasmaContract.methods.startExit(utxoPos, txBytes, proofBytes, sigs).send({ from: account2.address, gas: 200000, value: 1000000000000000000 });
+            bond = await contract.EXIT_BOND();
+            await contract.startExit(utxoPos, txBytes, proofBytes, sigs, { from: address2, gas: 200000, value: bond })
+            // await plasmaChain.plasmaContract.methods.startExit(utxoPos, txBytes, proofBytes, sigs).send({from: account2.address, gas: 200000, value: 1000000000000000000});
         })
 
         it('should revert if the exitor address does not match the recovered public key of the confirmation hash and confirmation signature', async () => {
-            await expectThrow(plasmaChain.plasmaContract.methods.challengeExit(cUtxoPos, 0, cTxBytes, "0x", cSigs, "0x" + confirmationSig).send({ from: account1.address, gas: 200000 }));
+            await expectThrow(contract.challengeExit(cUtxoPos, 0, cTxBytes, "0x", cSigs, "0x" + confirmationSig, { from: address1, gas: 200000 }))
         });
 
         it('should revert if the challenging transaction is not included within the blocks merkle tree', async () => {
-            await expectThrow(plasmaChain.plasmaContract.methods.challengeExit(cUtxoPos, 0, cTxBytes, proofBytes, cSigs, "0x" + cConfSig).send({ from: account1.address, gas: 200000 }));
+            await expectThrow(contract.challengeExit(cUtxoPos, 0, cTxBytes, proofBytes, cSigs, "0x" + cConfSig, { from: address1, gas: 200000 }))
         });
 
         it('should delete the exitor from the exit mapped to the exiting UTXO position', async () => {
-            await plasmaChain.plasmaContract.methods.challengeExit(cUtxoPos, 0, cTxBytes, "0x", cSigs, "0x" + cConfSig).send({ from: account1.address, gas: 200000 });
-            const exitor = await plasmaChain.plasmaContract.methods.exits(utxoPos).call();
-
+            await contract.challengeExit(cUtxoPos, 0, cTxBytes, "0x", cSigs, "0x" + cConfSig, { from: address1, gas: 200000 })
+            const exitor = await contract.exits(utxoPos);
             assert.equal(exitor.exitor, NULL_ADDRESS)
         });
 
         it('should transfer the exit bond to the challenger upon sucessful challenge', async () => {
-            const begBalance = await web3.eth.getBalance(account1.address);
-            const tx = await plasmaChain.plasmaContract.methods.challengeExit(cUtxoPos, 0, cTxBytes, "0x", cSigs, "0x" + cConfSig).send({ from: account1.address, gas: 200000 });
-
-            const exitBond = await plasmaChain.plasmaContract.methods.EXIT_BOND().call();
+            const begBalance = await web3.eth.getBalance(address1);
             const gasP = await web3.eth.getGasPrice();
-            const gasCost = tx.gasUsed * gasP;
-            const expectedChange = Web3Utils.toBN(exitBond).sub(Web3Utils.toBN(gasCost))
+            const tx = await contract.challengeExit(cUtxoPos, 0, cTxBytes, "0x", cSigs, "0x" + cConfSig, { from: address1, gas: 200000, gasPrice: gasP })
+            const gasCost = web3.utils.toBN(tx.receipt.gasUsed).mul(web3.utils.toBN(gasP));
+            const expectedChange = web3.utils.toBN(bond).sub(web3.utils.toBN(gasCost))
 
-            const newBalance = await web3.eth.getBalance(account1.address);
-            const totalChange = Web3Utils.toBN(newBalance).sub(Web3Utils.toBN(begBalance));
-
+            const newBalance = await web3.eth.getBalance(address1);
+            const totalChange = web3.utils.toBN(newBalance).sub(web3.utils.toBN(begBalance))
             assert.equal(expectedChange.toString(), totalChange.toString());
         });
     })

@@ -1,23 +1,17 @@
-Now that we have the ability to add an exit to the `PriorityQueue`, we need to create that exit transaction and check for its inclusion in the block's merkle tree. But first let's create an `EXIT_BOND`.
+1. Define a public `challengeExit` function with a challenging UTXO position, exiting UTXO index, exiting transaction in bytes, the proof proving the challenging transaction, signatures of the transaction, and a confirmation signature.
 
-## Exit Bond
+The function should create a confirmation hash from the transaction hash and block root.
 
-1. Define an `EXIT_BOND` public constant.
+Then the function should require the owner address located at the exit UTXO position within `exits` to be equal to the recovered address from the confirmation hash created above and the confirmation signature passed into the function.
 
-An exit bond is attached to an exit as a retainer against the good faith of the exitor. In this way, if an exitor attempts to exit an invalid transaction and it is successfully challenged by another party, the exit would be revoked, the exitor would lose their exit bond, and the challenger would win the exit bond.
+> Use the `ECRecovery` library to for this check.
 
-## Start Exit 
+The function should also check that the transaction is included in the merkle tree. 
 
-1. Define a public payable `startExit` function with a `uint256` utxo position, RLP encoded transaction in `bytes`, merkle proof in `bytes`, and signatures in `bytes`. 
+This can be accomplished by created a merkle hash from the transaction hash and the signatures passed into the function then checking the challenging transactions membership within the tree.
 
-The function should revert if the value sent to the function is not equal to the `EXIT_BOND` value.
+> Use the `Merkle` library to check for membership of the tree.
 
-This function should decode the UTXO position and retrieve the block number, transaction index, and output index. 
+If the checks above are passed by the challenging transaction, we have a successful challenge!
 
-Next, the function should create an exiting transaction using the `PlasmaRLP` library. The function should revert if the `exitor` in our exiting transaction is not equal to the sender.
-
-Next, we need to check for membership of the merkle hash within the block's merkle tree using our `Merkle` library and revert if the hash in not included.
-
-Lastly, invoke the `addExitToQueue` function.
-
-> UTXO Decoding: The logic for decoding is exactly the same as the `decodeUtxoId` function within the `utils.js` file found in previous `PlasmaChain` stages.
+At this point, you should finish the function by removing the `exitor` from the specific `Exit` within `exits`. The transferring the `EXIT_BOND` stored in the contract to the challenger's address.
