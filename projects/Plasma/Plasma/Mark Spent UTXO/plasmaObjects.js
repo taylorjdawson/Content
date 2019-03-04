@@ -1,37 +1,8 @@
 const { web3 } = require('./web3Util.js');
 const { encodeUtxoId, decodeUtxoId, decodeTxId, NULL_ADDRESS,
     NULL_SIGNATURE, NULL_HASH, sign } = require('./utils.js');
-
-// function checkWeb3() {
-//     if (typeof web3 !== 'undefined') {
-//         return web3;
-//     } else {
-//         const { web3 } = require('./web3Util.js');
-//         return web3;
-//     }
-// }
-
-
-
-    
-// function moduleIsAvailable() {
-//     try {
-//         require.resolve('web3');
-//         return true;
-//     } catch (e) {
-//         return false;
-//     }
-// }
-
-// if(moduleIsAvailable()) {
-//     console.log('web3 avail')
-//     const { web3 } = require('./web3Util.js');
-// }
-// const { web3 } = require('./web3Util.js')
 const rlp = require("./rlp.js");
 const MerkleTree = require("./merkleTree.js");
-
-
 
 class Block {
     constructor(transactionSet, blockNumber) {
@@ -64,7 +35,6 @@ class Block {
             let transformed = args.map((buffer) => {
                 return "0x" + buffer.toString('hex');
             })
-            // let hexStrings = Web3Utils.soliditySha3(...transformed).slice(2);
             let hexStrings = web3.utils.soliditySha3(...transformed).slice(2);
             return Buffer.from(hexStrings, 'hex');
         });
