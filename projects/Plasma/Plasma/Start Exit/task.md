@@ -1,5 +1,14 @@
 Now that we have the ability to add an exit to the `PriorityQueue`, we need to create that exit transaction and check for its inclusion in the block's merkle tree. But first let's create an `EXIT_BOND`.
 
+## Import
+
+There are a few contracts and libraries we will rely on for the remainder of the tutorial. Please import the following into our `Plasma.sol` contract:
+
+1. `PlasmaRLP.sol`
+2. `Validate.sol`
+3. `Merkle.sol`
+4. `ByteUtils.sol`
+
 ## Exit Bond
 
 1. Define an `EXIT_BOND` public constant.

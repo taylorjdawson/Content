@@ -12,7 +12,7 @@ describe('Constructor Function', function() {
     let web3Contract;
     beforeEach(async() => {
         contract = await deploy(operator.address);
-        plasmaChain = new PlasmaChain(operator, contract.options.address);
+        plasmaChain = new PlasmaChain(operator, contract.options.address, abi);
     });
 
     it('should assign the operator', function() {

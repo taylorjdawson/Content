@@ -11,7 +11,7 @@ const deploy = (operator) => {
         return PlasmaContract.deploy(deployParameters).send({
             from: operator,
             gas,
-        });
+        }, () => {});
     })
 }
 

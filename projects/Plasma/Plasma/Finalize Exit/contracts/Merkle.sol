@@ -23,7 +23,10 @@ library Merkle {
         uint256 _index,
         bytes32 _rootHash,
         bytes memory _proof
-    ) internal pure returns (bool) {
+    ) internal pure
+    // returns (uint256) 
+    returns (bool) 
+    {
         // Check that the proof length is valid.
         require(_proof.length % 32 == 0);
 
@@ -31,11 +34,13 @@ library Merkle {
         bytes32 proofElement;
         bytes32 computedHash = _leaf;
         uint256 index = _index;
+        uint256 test;
         for (uint256 i = 32; i <= _proof.length; i += 32) {
             assembly {
                 proofElement := mload(add(_proof, i))
             }
-            if (_index % 2 == 0) {
+            if (index % 2 == 0) {
+                test = 10;
                 computedHash = keccak256(abi.encodePacked(computedHash, proofElement));
             } else {
                 computedHash = keccak256(abi.encodePacked(proofElement, computedHash));
@@ -44,6 +49,7 @@ library Merkle {
         }
 
         // Check that the computer root and specified root match.
+        // return test;
         return computedHash == _rootHash;
     }
 }

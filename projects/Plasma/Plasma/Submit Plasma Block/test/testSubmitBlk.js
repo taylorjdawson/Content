@@ -9,7 +9,6 @@ const {Transaction} = require('../plasmaObjects.js');
 const NULL_ADDRESS = '0x0000000000000000000000000000000000000000';
 
 describe('submit block function', function() {
-    console.log(web3)
     let contract;
     let plasmaChain;
     let tx;
@@ -18,7 +17,7 @@ describe('submit block function', function() {
     const ether = '1';
     beforeEach(async() => {
         contract = await deploy(operator.address);
-        plasmaChain = new PlasmaChain(operator.address, contract.options.address);
+        plasmaChain = new PlasmaChain(operator.address, contract.options.address, abi);
         await plasmaChain.plasmaContract.methods.deposit().send({from: account1.address, value: web3.utils.toWei(ether, 'ether')})
         await plasmaChain.plasmaContract.methods.deposit().send({from: account2.address, value: web3.utils.toWei(ether, 'ether')})
         const transferAmount = '10000';

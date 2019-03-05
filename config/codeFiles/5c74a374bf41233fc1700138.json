@@ -1,10 +1,10 @@
 {
-  "executablePath": "sha3UtilSol.js",
-  "name": "sha3UtilSol.js",
+  "executablePath": "contracts/Validate.sol",
+  "name": "Validate.sol",
   "executable": true,
-  "hasProgress": true,
-  "mode": "javascript",
-  "readOnly": false,
+  "hasProgress": false,
+  "mode": "sol",
+  "readOnly": true,
   "testFixture": false,
   "visible": true,
   "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
@@ -13,7 +13,7 @@
     "5c64a2bb479bcc2db59b98bb",
     "5c64a2d9479bcc2db59b98bf"
   ],
-  "id": "5c4bf8211f8f54102edd12b6",
+  "id": "5c74a374bf41233fc1700138",
   "initialCode": "$$LOOKUP",
   "fileLocation": null
 }

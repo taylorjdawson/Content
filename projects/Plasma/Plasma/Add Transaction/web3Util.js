@@ -22,17 +22,11 @@ let publicEtherAccount;
   const provider = TestRPC.provider({ accounts: accounts.concat(publicEtherProps) });
   _testAccounts = accounts.map(({ secretKey }) => web3.eth.accounts.privateKeyToAccount(secretKey));
   publicEtherAccount = web3.eth.accounts.privateKeyToAccount(publicEtherProps.secretKey)
-  // temporary monkeypatch fix until versioning issues are fixed
-  // https://github.com/ethereum/web3.js/issues/1038
-  // provider.constructor.prototype.send(() => {}) = provider.constructor.prototype.sendAsync
-  // provider.constructor.prototype.send(() => { })
-  // console.log(provider.send(provider.constructor.prototype.sendAsync))
   web3.setProvider(provider);
 })();
 
 const GAS = 2000000;
-const CHAIN_ID = 10; // at least until this is cleared up: https://github.com/ethereum/web3.js/issues/932
-// const Q = require('q');
+const CHAIN_ID = 10;
 const newAddress = () => web3.eth.accounts.create().address;
 const accountAddressesSentTo = {}
 function signTransaction(account, value, index) {
@@ -51,6 +45,8 @@ function sendTransaction(tx) {
 const isFunction = (fn) => typeof fn === 'function'
 const isPromiseLike = (obj) => obj && obj.then && isFunction(obj.then);
 
+const web3JS = web3;
+
 module.exports = {
   _testAccounts,
   accountAddressesSentTo,
@@ -58,4 +54,5 @@ module.exports = {
   isPromiseLike,
   newAddress,
   web3,
+  web3JS,
 }

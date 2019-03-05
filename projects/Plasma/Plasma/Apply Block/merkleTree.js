@@ -1,6 +1,5 @@
 const reverse = require('./bufferReverse.js')
 const CryptoJS = require('./cryptoJS.js')
-const { sha3 } = require("./sha3Util.js");
 
 /**
  * Class reprensenting a Merkle Tree

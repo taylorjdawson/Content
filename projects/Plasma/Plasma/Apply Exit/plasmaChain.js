@@ -1,12 +1,11 @@
-const { web3 } = require('./web3Util.js');
-const { abi } = require('./Plasma.json');
+const { web3JS } = require('./web3Util.js');
 const { Block, Transaction } = require('./plasmaObjects.js');
 const { validateTransaction, NULL_ADDRESS, decodeUtxoId, encodeUtxoId } = require('./utils.js');
 
 class PlasmaChain {
-    constructor(operator, contractAddress) {
+    constructor(operator, contractAddress, contractAbi, web3 = web3JS) {
         this.operator = operator;
-        this.plasmaContract = new web3.eth.Contract(abi, contractAddress);
+        this.plasmaContract = new web3.eth.Contract(contractAbi, contractAddress);
         this.blocks = {};
         this.blockBuffer = 1000;
         this.nextTxBlock = this.blockBuffer;
@@ -14,6 +13,7 @@ class PlasmaChain {
         this.nextDepositBlock = 1;
 
         this.depositListener(this);
+        this.exitListener(this);
     }
 
     depositListener(self) {
@@ -22,6 +22,18 @@ class PlasmaChain {
                 self.addDeposit(event);
             }
         );
+    }
+
+    exitListener(self) {
+        this.plasmaContract.events.ExitStarted({},(err, event) => {
+            self.applyExit(event);
+        })
+    }
+
+    applyExit(event) {
+        const args = event.returnValues;
+        const { utxoPos } = args;
+        this.markUtxoSpent(utxoPos);
     }
 
     addDeposit(event) {
