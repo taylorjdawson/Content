@@ -5,18 +5,8 @@ const NULL_SIGNATURE = "0x" + new Array(130 + 1).join("0");
 const BLKNUM_OFFSET = 1000000000;
 const TXINDEX_OFFSET = 10000;
 
-const moduleIsAvailable = (path) => {
-    try {
-        require.resolve(path);
-        return true;
-    } catch (e) {
-        return false;
-    }
-}
-
 const decodeUtxoId = (utxoId) => {
     const blkNum = Math.round(utxoId / BLKNUM_OFFSET);
-    // Changed divisor to TXINDEX_OFFSET, was BLKNUM_OFFSET in mvp
     const txIndex = Math.round((utxoId % BLKNUM_OFFSET) / TXINDEX_OFFSET);
     const oIndex = Math.round(utxoId - blkNum * BLKNUM_OFFSET - txIndex * TXINDEX_OFFSET);
     return [blkNum, txIndex, oIndex];
@@ -44,9 +34,6 @@ const sign = (hash, key) => {
 // @param {object} currentBlock : Current block where new plasma chain transactions are added
 // @param {object} tempSpent : Collection of UTXO's already spent in the current block
 
-// Issues:
-// => Not checking for the signer
-// => Not checking for input amounts > output amounts for tx's other than deposits
 const validateTransaction = (tx, blocks, currentBlock, tempSpent = {}) => {
     let inputAmount = 0;
     let outputAmount = tx.amount1 + tx.amount2;
@@ -68,21 +55,16 @@ const validateTransaction = (tx, blocks, currentBlock, tempSpent = {}) => {
         }
 
         if (oIndex === 0) {
-            // validSignature = tx.sig1 !== NULL_SIGNATURE && inputTx.newOwner1 === tx.sender1;
             validSignature = tx.sig1 !== NULL_SIGNATURE;
             spent = inputTx.spent1;
             inputAmount += inputTx.amount1;
         } else {
-            // validSignature = tx.sig2 !== NULL_SIGNATURE && inputTx.newOwner2 === tx.sender2;
             validSignature = tx.sig2 !== NULL_SIGNATURE;
             spent = inputTx.spent2;
             inputAmount += inputTx.amount2;
         }
         const utxoId = encodeUtxoId(blkNum, txIndex, oIndex);
         if (spent || tempSpent.hasOwnProperty(utxoId)) throw "Transaction already spent";
-        // if (!validSignature) throw "Invalid Signature";
-        // Not sure how their isDepositBlock(fx) makes sense. Its just checking that the blkNum === 0, but we know that its dependent on whats passed in on the root chain
-        // if (!tx.isDepositBlock() && inputAmount < outputAmount) throw "Not enough funds";
     }
 };
 
@@ -95,5 +77,4 @@ module.exports = {
     NULL_SIGNATURE,
     NULL_HASH,
     sign,
-    moduleIsAvailable,
 }

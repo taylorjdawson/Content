@@ -1,5 +1,6 @@
 const { Transaction, UnsignedTransaction } = require('../plasmaObjects.js');
 const { encodeUtxoId, NULL_ADDRESS, NULL_SIGNATURE } = require('../utils.js');
+const { privateKeyOperator, privateKey1, privateKey2 } = require("../privateKeys.js");
 const PlasmaChain = require('../plasmaChain.js');
 const Plasma = artifacts.require('Plasma');
 web3.setProvider(new web3.providers.WebsocketProvider('http://127.0.0.1:7545/'))
@@ -22,9 +23,9 @@ contract('Plasma', (accounts) => {
         let address1;
         let address2;
         beforeEach(async () => {
-            operator = await web3.eth.personal.importRawKey("0xcd3376bb711cb332ee3fb2ca04c6a8b9f70c316fcdf7a1f44ef4c7999483295e", "password1234");
-            address1 = await web3.eth.personal.importRawKey("0xcd3376bb711cb332ee3fb2ca04c6a8b9f70c316fcdf7a1f44ef4c7999483295f", "password1234");
-            address2 = await web3.eth.personal.importRawKey("0xcd3376bb711cb332ee3fb2ca04c6a8b9f70c316fcdf7a1f44ef4c7999483295a", "password1234");
+            operator = await web3.eth.personal.importRawKey(privateKeyOperator, "password1234");
+            address1 = await web3.eth.personal.importRawKey(privateKey1, "password1234");
+            address2 = await web3.eth.personal.importRawKey(privateKey2, "password1234");
             // use that password to unlock the account so truffle can use it
             await web3.eth.personal.unlockAccount(operator, 'password1234', 6000);
             await web3.eth.personal.unlockAccount(address1, 'password1234', 6000);
@@ -59,7 +60,7 @@ contract('Plasma', (accounts) => {
             plasmaChain.addTransaction(tx);
             plasmaChain.addTransaction(tx2);
 
-            await tx2.sign1("0xcd3376bb711cb332ee3fb2ca04c6a8b9f70c316fcdf7a1f44ef4c7999483295f");
+            await tx2.sign1(privateKey1);
             await plasmaChain.submitBlock(plasmaChain.currentBlock);
 
             utxoPos = encodeUtxoId(1000, 1, 0);
@@ -67,7 +68,7 @@ contract('Plasma', (accounts) => {
             merkle = plasmaChain.blocks[1000].merkle();
             proof = merkle.getProof(merkle.leaves[1]);
             proofBytes = "0x" + proof[0].data.toString('hex');
-            confirmationSig = tx2.confirm(merkle.getRoot(), "0xcd3376bb711cb332ee3fb2ca04c6a8b9f70c316fcdf7a1f44ef4c7999483295f");
+            confirmationSig = tx2.confirm(merkle.getRoot(), privateKey1);
             sigs = tx2.sig1 + tx2.sig2.slice(2) + confirmationSig;
             
             bond = await plasmaChain.plasmaContract.methods.EXIT_BOND().call();
@@ -91,7 +92,7 @@ contract('Plasma', (accounts) => {
         });
 
         it('should check that the signatures are valid', async () => {
-            confirmationSig = tx2.confirm(merkle.getRoot(), "0xcd3376bb711cb332ee3fb2ca04c6a8b9f70c316fcdf7a1f44ef4c7999483295a");
+            confirmationSig = tx2.confirm(merkle.getRoot(), privateKey2);
             sigs = tx2.sig1 + tx2.sig2.slice(2) + confirmationSig;
 
             await expectThrow(contract.startExit(utxoPos, txBytes, proofBytes, sigs, { from: address2, gas: 200000, value: bond }))

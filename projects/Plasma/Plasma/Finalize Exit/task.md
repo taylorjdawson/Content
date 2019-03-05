@@ -1,23 +1,20 @@
-Now that we have the ability to add an exit to the `PriorityQueue`, we need to create that exit transaction and check for its inclusion in the block's merkle tree. But first let's create an `EXIT_BOND`.
+## Finalize Plasma Exits
 
-## Exit Bond
+It is now 2 weeks since our Plasma users have exited their Plasma UTXO and the challenge period for their exit has expired. 
 
-1. Define an `EXIT_BOND` public constant.
+We can now say that those exits are finalized and transfer the appropriate funds to the exitor.
 
-An exit bond is attached to an exit as a retainer against the good faith of the exitor. In this way, if an exitor attempts to exit an invalid transaction and it is successfully challenged by another party, the exit would be revoked, the exitor would lose their exit bond, and the challenger would win the exit bond.
+## Get Next Exit
 
-## Start Exit 
+Before writing our function to finalize exits we will need a helper function to get our next exit in the `PriorityQueue`.
 
-1. Define a public payable `startExit` function with a `uint256` utxo position, RLP encoded transaction in `bytes`, merkle proof in `bytes`, and signatures in `bytes`. 
+1. Define a public `getNextExit` function with an `address` token as it's only argument.
 
-The function should revert if the value sent to the function is not equal to the `EXIT_BOND` value.
+This function should get the top element of within the `PriorityQueue` heaplist.
 
-This function should decode the UTXO position and retrieve the block number, transaction index, and output index. 
+> Hint: Use the `getMin` function within the `PriorityQueue` contract.
 
-Next, the function should create an exiting transaction using the `PlasmaRLP` library. The function should revert if the `exitor` in our exiting transaction is not equal to the sender.
+## Finalize Exits
+1. Define a public `finalizeExits` function with an `address` token as it's only argument.
 
-Next, we need to check for membership of the merkle hash within the block's merkle tree using our `Merkle` library and revert if the hash in not included.
-
-Lastly, invoke the `addExitToQueue` function.
-
-> UTXO Decoding: The logic for decoding is exactly the same as the `decodeUtxoId` function within the `utils.js` file found in previous `PlasmaChain` stages.
+The function should iterate through all the exits which are currently exitable and transfer the exit amount and `EXIT_BOND` to the `exitor`.

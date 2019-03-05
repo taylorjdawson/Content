@@ -18,13 +18,14 @@ describe('add transaction function', function() {
     const ether = '1';
     beforeEach(async() => {
         contract = await deploy(operator.address);
-        plasmaChain = new PlasmaChain(operator, contract.options.address);
+        plasmaChain = new PlasmaChain(operator, contract.options.address, abi);
         await plasmaChain.plasmaContract.methods.deposit().send({from: account1.address, value: web3.utils.toWei(ether, 'ether')})
         await plasmaChain.plasmaContract.methods.deposit().send({from: account2.address, value: web3.utils.toWei(ether, 'ether')})
         const transferAmount = '10000';
         const ogAmount = '1000000000000000000';
         const leftover = ogAmount - transferAmount;
         tx = new Transaction(1,0,0,0,0,0, account2.address, transferAmount, account1.address, leftover);
+        tx.sign1
     });
 
     it('should define a block buffer', function() {
