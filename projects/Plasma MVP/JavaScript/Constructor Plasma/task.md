@@ -4,7 +4,7 @@ Let's create our Plasma Contract!
 
 First we'll create the smart contract which will ultimately hold the funds available on the Plasma chain. It will allow users to deposit into the chain, allow users to exit from the chain, and allow users to challenge any exits from the chain.
 
-You'll need to define four variables. One for this `address` of the [operator](?tab=details&scroll=Single%20Operator), a `uint` for both of the [Plasma Blocks](?tab=details&scroll=Plasma%20Blocks), and a `uint` for [Block Buffer](?tab=details&scroll=Block%20Buffer).
+You'll need to define four variables. One for the `address` of the [operator](?tab=details&scroll=Single%20Operator), a `uint` for both of the [Plasma Blocks](?tab=details&scroll=Plasma%20Blocks), and a `uint` for the [Block Buffer](?tab=details&scroll=Block%20Buffer).
 
 ## Public variables
 
