@@ -10,7 +10,7 @@ In this Plasma implementation we have two separate block numbers that will be st
 
 Deposits are first submitted to the Plasma contract and then updated on the Plasma chain. As a result, a deposit block is immediately created on the Plasma chain once it is updated. 
 
-On the other hand, Plasma transactions occur first on the Plasma chain, then are written to the `currentBlock`, and finally, once the `currentBlock` is submitted by the `operator`, the Plasma contract is updated.
+On the other hand, Plasma transactions first occur on the Plasma chain. These transactions are immediately written to the `currentBlock` on the Plasma chain. Once the `operator` submits the `currentBlock` from the Plasma chain to the Plasma contract, both are in sync with one another. 
 
 ## Block Buffer
 
