@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/lib/zeppelin/token/ERC20.sol",
+  "executablePath": "@aragon/os/contracts/lib/zeppelin/token/ERC20.sol",
   "name": "ERC20.sol",
   "executable": true,
   "hasProgress": false,

@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/apm/APMRegistry.sol",
+  "executablePath": "@aragon/os/contracts/apm/APMRegistry.sol",
   "name": "APMRegistry.sol",
   "executable": true,
   "hasProgress": false,

@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/apps/AppStorage.sol",
+  "executablePath": "@aragon/os/contracts/apps/AppStorage.sol",
   "name": "AppStorage.sol",
   "executable": true,
   "hasProgress": false,

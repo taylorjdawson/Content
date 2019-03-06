@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/evmscript/executors/CallsScript.sol",
+  "executablePath": "@aragon/os/contracts/evmscript/executors/CallsScript.sol",
   "name": "CallsScript.sol",
   "executable": true,
   "hasProgress": false,

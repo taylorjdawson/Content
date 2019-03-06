@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/lib/zeppelin/math/SafeMath.sol",
+  "executablePath": "@aragon/os/contracts/lib/zeppelin/math/SafeMath.sol",
   "name": "SafeMath.sol",
   "executable": true,
   "hasProgress": false,

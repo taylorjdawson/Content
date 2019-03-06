@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/lib/minime/MiniMeToken.sol",
+  "executablePath": "@aragon/os/contracts/lib/minime/MiniMeToken.sol",
   "name": "MiniMeToken.sol",
   "executable": true,
   "hasProgress": false,

@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/evmscript/executors/DelegateScript.sol",
+  "executablePath": "@aragon/os/contracts/evmscript/executors/DelegateScript.sol",
   "name": "DelegateScript.sol",
   "executable": true,
   "hasProgress": false,

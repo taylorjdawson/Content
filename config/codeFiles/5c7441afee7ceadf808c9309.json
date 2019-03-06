@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/common/VaultRecoverable.sol",
+  "executablePath": "@aragon/os/contracts/common/VaultRecoverable.sol",
   "name": "VaultRecoverable.sol",
   "executable": true,
   "hasProgress": false,

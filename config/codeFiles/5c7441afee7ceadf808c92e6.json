@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/kernel/KernelProxy.sol",
+  "executablePath": "@aragon/os/contracts/kernel/KernelProxy.sol",
   "name": "KernelProxy.sol",
   "executable": true,
   "hasProgress": false,

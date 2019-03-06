@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/acl/ACL.sol",
+  "executablePath": "@aragon/os/contracts/acl/ACL.sol",
   "name": "ACL.sol",
   "executable": true,
   "hasProgress": false,

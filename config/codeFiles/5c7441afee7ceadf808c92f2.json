@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/apps/AragonApp.sol",
+  "executablePath": "@aragon/os/contracts/apps/AragonApp.sol",
   "name": "AragonApp.sol",
   "executable": true,
   "hasProgress": false,

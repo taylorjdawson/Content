@@ -1,0 +1,19 @@
+{
+  "executablePath": "privateKeys.js",
+  "name": "privateKeys.js",
+  "executable": true,
+  "hasProgress": false,
+  "mode": "javascript",
+  "readOnly": true,
+  "testFixture": false,
+  "visible": false,
+  "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
+  "codeStageIds": [
+    "5c64a2d9479bcc2db59b98bf",
+    "5c18783fe6b0b03a95da4263",
+    "5c64a2bb479bcc2db59b98bb"
+  ],
+  "id": "5c7d91410dbcbe49c88aa5a9",
+  "initialCode": "$$LOOKUP",
+  "fileLocation": null
+}

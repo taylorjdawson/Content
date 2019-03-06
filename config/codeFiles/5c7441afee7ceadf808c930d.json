@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/evmscript/IEVMScriptExecutor.sol",
+  "executablePath": "@aragon/os/contracts/evmscript/IEVMScriptExecutor.sol",
   "name": "IEVMScriptExecutor.sol",
   "executable": true,
   "hasProgress": false,

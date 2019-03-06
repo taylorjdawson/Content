@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/factory/ENSFactory.sol",
+  "executablePath": "@aragon/os/contracts/factory/ENSFactory.sol",
   "name": "ENSFactory.sol",
   "executable": true,
   "hasProgress": false,

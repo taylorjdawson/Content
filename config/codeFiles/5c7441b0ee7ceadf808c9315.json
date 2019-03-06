@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/apm/APMNamehash.sol",
+  "executablePath": "@aragon/os/contracts/apm/APMNamehash.sol",
   "name": "APMNamehash.sol",
   "executable": true,
   "hasProgress": false,

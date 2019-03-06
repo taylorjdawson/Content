@@ -1,5 +1,5 @@
 {
-  "executablePath": "aragon/os/contracts/common/DepositableDelegateProxy.sol",
+  "executablePath": "@aragon/os/contracts/common/DepositableDelegateProxy.sol",
   "name": "DepositableDelegateProxy.sol",
   "executable": true,
   "hasProgress": false,
