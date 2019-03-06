@@ -23,3 +23,5 @@ While all 8 of these transactions occurred within the Plasma Chain, all we need 
 As a client in this system, you can watch this block mined with proof that transaction `D` has been stored in the Root Chain and therefore your transfer is complete!
 
 Meanwhile, our plasma chain effectively batched 8 transactions into one block. Not too shabby! 
+
+For more on Merkle Trees, check out our [Merkle Tree Lesson](https://www.chainshot.com/lessons/5c36bf15143eed0017f579755ba1558bd9f997cd2e33eba7/stage/5c36bf15143eed0017f579755ba155e6d9f997cd2e33eba8).
