@@ -14,6 +14,8 @@ On the other hand, Plasma transactions occur first on the Plasma chain, then are
 
 ## Block Buffer
 
-As you can see, we need a buffer between deposits and Plasma chain transaction blocks in order to keep the Plasma contract and Plasma chain in sync. If there wasn't a buffer, its quite possible that a submitted block could have the same block number as a deposit block. 
+The `BLOCK_BUFFER` serves as a tool to keep the Plasma contract and Plasma chain in sync. As described above, we have to keep track of deposit blocks, which begin on the Plasma contract, and Plasma transaction blocks, which begin on the Plasma chain. Therefore, we start our deposit block at 1 and our Plasma transaction block at 1000 (our `BLOCK_BUFFER`) and increment by 1 and 1000 respectively. In this way, we can create up to 999 deposits before interfering with the transactions occurring on the Plasma chain. 
+
+You will be exposed concept multiple times throughout the tutorial which should help to solidify the idea behind the framework.
 
 If this does not make sense now, do not worry as we will be building out this logic later in the tutorial to help solidify the concepts.
