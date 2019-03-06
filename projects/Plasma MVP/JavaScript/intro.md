@@ -10,9 +10,9 @@ Plasma achieves scalability by creating a smart contract on the main blockchain,
 
 The rest of the Plasma architecture consists of a centralized operator and a bunch of client nodes which you can think of as users. The advantage of the centralized operator is that all transactions can occur efficiently. At the same time, the design is such that the central operator has no ability to steal your funds. Sound like magic? Stick around, you'll build your very own Plasma MVP and understand it's core mechanisms! 
  
- ### What is Plasma MVP?
+### What is Plasma MVP?
 
- This tutorial is called Plasma MVP. So what is that, exactly?
+This tutorial is called Plasma MVP. So what is that, exactly?
 
 Plasma MVP or Minimal Viable Plasma, is the first proposed iteration of Plasma. As its name implies, it is the minimal concievable functionality necessary to achieve the design goals set out above (scalability with base layer security). 
 
