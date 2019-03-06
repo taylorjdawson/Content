@@ -6,7 +6,7 @@ Dealing with an operator in the early stages of Plasma development helps to keep
 
  ## Plasma Blocks and Buffer
 
-In this Plasma implementation we have two separate block numbers that will be stored in our contract, `currentPlasmaBlock` and `currentDepositBlock`. We also have a `BLOCK_BUFFER` constant of 1000. . 
+In this Plasma implementation we have two separate block numbers that will be stored in our contract, `currentPlasmaBlock` and `currentDepositBlock`. We also have a `BLOCK_BUFFER` constant of 1000.
 
 Deposits are first submitted to the Plasma contract and then updated on the Plasma chain. As a result, a deposit block is immediately created on the Plasma chain once it is updated. 
 
