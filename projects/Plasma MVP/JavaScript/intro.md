@@ -22,8 +22,8 @@ There are many drawbacks to Plasma MVP in it's usability and there are many new 
 
 What are the components that make up Plasma, you ask? Great Question. Let's define them:
 
-1. **Root Chain** - This is the Smart Contract that exists on the base blockchain. This is the contract you'll use if you want to enter funds into or exit funds from Plasma. It is where all disputes occur. If you see that Charlie sent some money to Bob, and Charlie tries to exit with that money you'd better let the root chain know (there may be a reward in it for you!). 
+1. **Plasma Contract** - This is the Smart Contract that exists on the base blockchain (which may also be referred to as the "main" or "root" chain in this architecture). This is the contract you'll use if you want to enter assets into or exit assets from Plasma. It is also where all disputes occur, which is where the Supreme Court analogy came from. If you see in the plasma chain that Charlie sent some money to Bob, and Charlie tries to exit with that money you'd better let the root chain know (there may be a reward in it for you!). 
 
-2. **Child Chain** - This is the centralized operator of the Plasma Chain. It manages and broadcasts all of the transactions that occur within the Plasma Chain. While it may sound like it has quite a bit of power in this architecture, don't worry! As a user within the Plasma Chain you can exit directly to the Root Chain at any time.
+2. **Plasma Operator** - This is the centralized operator of the Plasma Chain (also referred to as the "child" or "side" chain). The operator manages and broadcasts all of the transactions that occur within the Plasma Chain. While it may sound like it has quite a bit of power in this architecture, don't worry! As a user within the Plasma Chain you can exit directly to the Root Chain at any time. So long as you haven't signed a message to send your asset anywhere else you'll be able to redeem it on the main chain.
 
 3. **Client** - Think of this as a user within the Plasma Chain. They can transact with other clients in the plasma chain and can exit their funds to the root chain to go back to the base layer blockchain at any time.
