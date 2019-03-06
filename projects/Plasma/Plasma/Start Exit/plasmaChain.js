@@ -1,15 +1,4 @@
-function moduleIsAvailable() {
-    try {
-        require.resolve('web3');
-        return true;
-    } catch (e) {
-        return false;
-    }
-}
-
-if (moduleIsAvailable()) {
-    const { web3 } = require('./web3Util.js');
-}
+const { web3 } = require('./web3Util.js');
 const { abi } = require('./Plasma.json');
 const { Block, Transaction } = require('./plasmaObjects.js');
 const { validateTransaction, NULL_ADDRESS, decodeUtxoId, encodeUtxoId } = require('./utils.js');
@@ -30,7 +19,6 @@ class PlasmaChain {
     depositListener(self) {
         this.plasmaContract.events.DepositCreated({},
             function (err, event) {
-                console.log(err)
                 self.addDeposit(event);
             }
         );
@@ -52,10 +40,10 @@ class PlasmaChain {
     }
 
     addBlock(block) {
-        if(block.blockNumber == this.nextDepositBlock || block.blockNumber == this.nextTxBlock) {
+        if (block.blockNumber == this.nextDepositBlock || block.blockNumber == this.nextTxBlock) {
             this.applyBlock(block);
 
-            if(block.blockNumber == this.nextTxBlock) {
+            if (block.blockNumber == this.nextTxBlock) {
                 this.nextDepositBlock = this.nextTxBlock + 1;
                 this.nextTxBlock += this.blockBuffer;
             } else {
@@ -74,6 +62,15 @@ class PlasmaChain {
         } else {
             tx.spent2 = true;
         }
+    }
+
+    submitBlock(block) {
+        this.addBlock(block);
+        const merkle = block.merkle();
+        const root = merkle.getRoot();
+        return this.plasmaContract.methods.submitBlock(root).send({ from: this.operator }).then(() => {
+            this.currentBlock = new Block([], this.nextTxBlock);
+        })
     }
 
     applyTransaction(tx) {

@@ -1,4 +1,4 @@
-// const EthUtils = require('ethereumjs-util');
+const EthUtils = require('ethereumjs-util');
 const NULL_ADDRESS = '0x0000000000000000000000000000000000000000';
 const NULL_HASH = "0x" + new Array(64 + 1).join("0");
 const NULL_SIGNATURE = "0x" + new Array(130 + 1).join("0");
@@ -33,9 +33,9 @@ const decodeTxId = (utxoId) => {
 };
 
 const sign = (hash, key) => {
-    // const { r, s, v } = EthUtils.ecsign(EthUtils.toBuffer(hash), EthUtils.toBuffer(key));
-    // const rsvBytes = Buffer.concat([EthUtils.setLengthLeft(r, 32), EthUtils.setLengthLeft(s, 32), EthUtils.toBuffer(v)]);
-    // return rsvBytes;
+    const { r, s, v } = EthUtils.ecsign(EthUtils.toBuffer(hash), EthUtils.toBuffer(key));
+    const rsvBytes = Buffer.concat([EthUtils.setLengthLeft(r, 32), EthUtils.setLengthLeft(s, 32), EthUtils.toBuffer(v)]);
+    return rsvBytes;
 };
 
 // Validates a transaction for valid signatures and spent UTXO's
