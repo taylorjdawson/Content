@@ -2,10 +2,10 @@
   "executablePath": "test/testListener.js",
   "name": "testListener.js",
   "executable": true,
-  "hasProgress": true,
+  "hasProgress": false,
   "mode": "javascript",
-  "readOnly": false,
-  "testFixture": false,
+  "readOnly": true,
+  "testFixture": true,
   "visible": true,
   "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
   "codeStageIds": [
