@@ -23,8 +23,10 @@
   "position": 3,
   "task": "$$LOOKUP",
   "testFramework": "mocha_bdd",
-  "title": "Plasma Chain Setup",
+  "title": "Plasma Chain Constructor",
   "updatedAt": "2019-01-09T02:39:32.456Z",
   "createdAt": "2019-01-09T02:39:32.456Z",
-  "abiValidations": "$$LOOKUP"
+  "abiValidations": "$$LOOKUP",
+  "youtubeId": null,
+  "src": null
 }

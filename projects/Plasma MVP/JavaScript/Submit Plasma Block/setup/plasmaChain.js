@@ -7,7 +7,7 @@ class PlasmaChain {
     this.events = [];
   }
   
-  depositListener(self) {
+  depositListener() {
     // Listener logic here
   }
   

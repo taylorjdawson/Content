@@ -1,0 +1,17 @@
+{
+  "executablePath": "test/testListener.js",
+  "name": "testListener.js",
+  "executable": true,
+  "hasProgress": true,
+  "mode": "javascript",
+  "readOnly": false,
+  "testFixture": false,
+  "visible": true,
+  "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
+  "codeStageIds": [
+    "5c80808ad3fe5a868e886572"
+  ],
+  "id": "5c808191d3fe5a868e886574",
+  "initialCode": "$$LOOKUP",
+  "fileLocation": null
+}
