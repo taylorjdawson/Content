@@ -1,3 +1,7 @@
-## Your Watch has Begun
+## Plasma Chain Constructed!
 
-![John Snow](https://res.cloudinary.com/divzjiip8/image/upload/v1551923862/download_acjvpz.jpg)
+So pretty. 
+
+![Plasma Chain](https://res.cloudinary.com/divzjiip8/image/upload/v1551993899/plasma_nrwoet.gif)
+
+Next, we'll figure out how to watch for a deposit from the Plasma Contract!
