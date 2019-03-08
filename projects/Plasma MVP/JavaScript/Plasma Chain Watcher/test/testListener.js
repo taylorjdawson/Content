@@ -9,20 +9,47 @@ describe('Constructor Function', function () {
     let contract;
     let plasmaChain;
     let web3Contract;
-    beforeEach(async () => {
+    before(async () => {
         contract = await deploy(operator.address);
         plasmaChain = new PlasmaChain(operator, contract.options.address, abi, web3);
     });
 
-    it('should store a log of events', function () {
-        assert.equal(plasmaChain.events.length, 0);
+    it('should store blocks', () => {
+        assert(plasmaChain.blocks);
     });
 
-    it('should listen for deposits to the contract', async () => {
-        const ether = '1';
-        await plasmaChain.plasmaContract.methods.deposit().send({ from: account1.address, value: web3.utils.toWei(ether, 'ether') })
-        const events = plasmaChain.events;
-        const eventName = events[0].event;
-        assert.equal(eventName, 'DepositCreated');
+    it('should not have created a block before deposit', () => {
+        assert(!plasmaChain.blocks[1]);
+        assert(!plasmaChain.blocks[2]);
+    });
+
+    describe('after a single deposit', () => {
+        before(async () => {
+            await plasmaChain.plasmaContract.methods.deposit().send({
+                from: account1.address,
+                value: web3.utils.toWei('1', 'ether')
+            });
+        });
+
+        it('should have created a block at position 1', () => {
+            const block = plasmaChain.blocks[1];
+            assert(block, "Did not find a block at position 1");
+            assert.equal(block.blockNumber, 1, "blockNumber is not set correctly on block 1");
+        });
+        
+        describe('after a second deposit', () => {
+            before(async () => {
+                await plasmaChain.plasmaContract.methods.deposit().send({
+                    from: account1.address,
+                    value: web3.utils.toWei('1', 'ether')
+                });
+            });
+
+            it('should have created a block at position 2', () => {
+                const block = plasmaChain.blocks[2];
+                assert(block, "Did not find a block at position 2");
+                assert.equal(block.blockNumber, 2, "blockNumber is not set correctly on block 2");
+            }); 
+        });
     });
 });
