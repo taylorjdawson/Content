@@ -6,16 +6,6 @@ class PlasmaChain {
         this.events = [];
         this.operator = operator;
         this.plasmaContract = new web3.eth.Contract(abi, contractAddress);
-
-        this.depositListener(this);
-    }
-
-    depositListener() {
-        this.plasmaContract.events.DepositCreated({},
-            (err, event) => {
-                this.events.push(event);
-            }
-        );
     }
 
     getDepositTx(owner, amount) {
