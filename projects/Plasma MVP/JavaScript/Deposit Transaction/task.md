@@ -1,9 +1,3 @@
-## Blocks Object
-
-In order to store our created blocks on the Plasma chain, we need a `blocks` object to store these blocks.
-
-1. Define a `blocks` object in the constructor. 
-
 ## Syncing a Deposit
 
 Now that we have an event listener for the `DepositCreated` event, we can add a deposit to the Plasma chain.
