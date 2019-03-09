@@ -15,7 +15,7 @@ describe('add block function', function() {
     const depositedEther = web3.utils.toWei('1', 'ether');
     beforeEach(async() => {
         const contract = await deploy(operator.address);
-        plasmaChain = new PlasmaChain(operator, contract.options.address, abi);
+        plasmaChain = new PlasmaChain(operator, contract.options.address, abi, web3);
         await plasmaChain.plasmaContract.methods.deposit().send({
             from: account1.address, 
             value: depositedEther
