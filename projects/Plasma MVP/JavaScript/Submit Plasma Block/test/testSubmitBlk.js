@@ -17,7 +17,7 @@ describe('submit block function', function() {
     const ether = '1';
     beforeEach(async() => {
         contract = await deploy(operator.address);
-        plasmaChain = new PlasmaChain(operator.address, contract.options.address, abi);
+        plasmaChain = new PlasmaChain(operator.address, contract.options.address, abi, web3);
         await plasmaChain.plasmaContract.methods.deposit().send({from: account1.address, value: web3.utils.toWei(ether, 'ether')})
         await plasmaChain.plasmaContract.methods.deposit().send({from: account2.address, value: web3.utils.toWei(ether, 'ether')})
         const transferAmount = '10000';

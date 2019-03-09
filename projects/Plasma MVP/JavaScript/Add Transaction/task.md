@@ -2,11 +2,11 @@
 
 Before we move onto adding Plasma transactions to the Plasma chain, we need to define a few attributes on our Plasma chain.
 
-1. Define a `blockBuffer` of `1000` in the constructor
+1. Define a member variable `blockBuffer` of `1000` in the constructor
 
-2. Define a `nextTxBlock` that initializes to the `blockBuffer` in the constructor
+2. Define a member variable `nextTxBlock` that initializes at the `blockBuffer` value in the constructor
 
-3. Define a `currentBlock` that is assigned to a new `Block` with arguments of an empty `transactionSet` and `blockNumber` of the `nextTxBlock`
+3. Define a `currentBlock` that is assigned to a new `Block` with arguments of an empty array (for `transactionSet`) and `blockNumber` of the `nextTxBlock`
 
 
 ## Plasma Transaction
