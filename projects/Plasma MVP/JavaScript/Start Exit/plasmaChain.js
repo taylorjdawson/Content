@@ -1,9 +1,8 @@
-const { web3JS } = require('./web3Util.js');
 const { Block, Transaction } = require('./plasmaObjects.js');
 const { validateTransaction, NULL_ADDRESS, decodeUtxoId, encodeUtxoId } = require('./utils.js');
 
 class PlasmaChain {
-    constructor(operator, contractAddress, contractAbi, web3 = web3JS) {
+    constructor(operator, contractAddress, contractAbi, web3) {
         this.operator = operator;
         this.plasmaContract = new web3.eth.Contract(contractAbi, contractAddress);
         this.blocks = {};

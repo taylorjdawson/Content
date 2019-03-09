@@ -16,7 +16,7 @@ describe('Apply Exit Function', () => {
     let utxoPos;
     beforeEach(async () => {
         contract = await deploy(operator.address);
-        plasmaChain = new PlasmaChain(operator.address, contract.options.address, abi);
+        plasmaChain = new PlasmaChain(operator.address, contract.options.address, abi, web3);
         await plasmaChain.plasmaContract.methods.deposit().send({ from: account1.address, value: ether })
 
         const transferAmount = '10000';
