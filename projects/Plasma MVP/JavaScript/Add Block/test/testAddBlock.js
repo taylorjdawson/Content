@@ -9,17 +9,21 @@ const {Transaction, Block} = require('../plasmaObjects.js');
 const NULL_ADDRESS = '0x0000000000000000000000000000000000000000';
 
 describe('add block function', function() {
-    let contract;
     let plasmaChain;
     let tx;
     let tx2;
-    let falseTx;
-    const ether = '1';
+    const depositedEther = web3.utils.toWei('1', 'ether');
     beforeEach(async() => {
-        contract = await deploy(operator.address);
+        const contract = await deploy(operator.address);
         plasmaChain = new PlasmaChain(operator, contract.options.address, abi, web3);
-        await plasmaChain.plasmaContract.methods.deposit().send({from: account1.address, value: web3.utils.toWei(ether, 'ether')})
-        await plasmaChain.plasmaContract.methods.deposit().send({from: account2.address, value: web3.utils.toWei(ether, 'ether')})
+        await plasmaChain.plasmaContract.methods.deposit().send({
+            from: account1.address, 
+            value: depositedEther
+        });
+        await plasmaChain.plasmaContract.methods.deposit().send({
+            from: account2.address, 
+            value: depositedEther
+        });
         const transferAmount = '10000';
         const ogAmount = '1000000000000000000';
         const leftover = ogAmount - transferAmount;
@@ -93,7 +97,10 @@ describe('add block function', function() {
     });
 
     it('should update the next deposit block if submitted block is a deposit', async function() {
-        await plasmaChain.plasmaContract.methods.deposit().send({from: account1.address, value: web3.utils.toWei(ether, 'ether')})
+        await plasmaChain.plasmaContract.methods.deposit().send({ 
+            from: account1.address, 
+            value: depositedEther
+        });
         const txBlock = plasmaChain.nextDepositBlock;
         assert.equal(txBlock, 4);
     });
