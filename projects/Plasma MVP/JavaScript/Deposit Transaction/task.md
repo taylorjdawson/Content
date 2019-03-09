@@ -1,11 +1,10 @@
-## Syncing a Deposit
+## Deposit Transaction
 
-Now that we have an event listener for the `DepositCreated` event, we can add a deposit to the Plasma chain.
+OK, so we're listening for `DepositCreated` and we're using it create a block on our operator. 
 
-1. Define an `addDeposit` function with an event as it's only argument
+All that's left to finish this functionality is to add a `Transaction` to our block's `transactionSet`! 
 
-The `addDeposit` function should create a new deposit transaction using the `getDepositTx` function. 
-
-The function should also create a new `Block` based on the deposit transaction then add that block to the `blocks`. The `blockNumber` should point to the `Block` object.
+1. To create a transaction make use of the `getDepositTx` function already defined for you in the `PlasmaChain`. This will create a new `Transaction` using the `owner` and `amount` from your event `returnValues`.
+2. Once you have created this transaction, add it to your block's `transactionSet`.
 
 > The `getDepositTx` function will transform the deposit into a UTXO formatted transaction.
