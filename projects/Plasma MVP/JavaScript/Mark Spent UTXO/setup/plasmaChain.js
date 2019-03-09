@@ -3,7 +3,6 @@ const {validateTransaction, NULL_ADDRESS, decodeUtxoId, encodeUtxoId} = require(
 
 class PlasmaChain {
   constructor(operator, contractAddress, abi, web3) {
-    this.events = [];
     
   }
   
