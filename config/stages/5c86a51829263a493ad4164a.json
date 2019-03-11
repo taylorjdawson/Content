@@ -1,17 +1,17 @@
 {
-  "id": "5bf5de67e6b0b038b1989233",
+  "id": "5c86a51829263a493ad4164a",
   "type": "CodeStage",
   "codeFileIds": [
-    "5bf5de8de6b0b038b1989234",
-    "5be9f566e6b0b02ef6f2ac6d",
     "5be9f53fe6b0b02ef6f2ac6c",
-    "5be63f7de6b0b02ef6f2ac5b",
     "5be629fce6b0b02ef6f2ac54",
-    "5c455d3bf5662318b489547c",
-    "5c01e763e6b0b0609838d732",
-    "5c455d3bf5662318b489547e",
+    "5be63f7de6b0b02ef6f2ac5b",
+    "5be9f566e6b0b02ef6f2ac6d",
+    "5bf35645e6b0b02ef6f2ac9b",
     "5c044c65e6b0b0609838d737",
+    "5c01e850e6b0b0609838d733",
+    "5c044c40e6b0b0609838d736",
     "5c4765fe816af1674a04cfd5",
+    "5c01e763e6b0b0609838d732",
     "5c455d3bf5662318b4895478",
     "5c455d3bf5662318b4895476"
   ],
@@ -20,11 +20,13 @@
   "details": "$$LOOKUP",
   "language": "javascript",
   "languageVersion": "6.x/babel",
-  "position": 9,
+  "position": 8,
   "task": "$$LOOKUP",
   "testFramework": "mocha_bdd",
-  "title": "Apply Block",
-  "updatedAt": "2019-01-09T02:39:32.239Z",
-  "createdAt": "2019-01-09T02:39:32.239Z",
-  "abiValidations": "$$LOOKUP"
+  "title": "Mark Spent UTXO",
+  "updatedAt": "2019-01-09T02:39:31.455Z",
+  "createdAt": "2019-01-09T02:39:31.455Z",
+  "abiValidations": "$$LOOKUP",
+  "youtubeId": null,
+  "src": null
 }
