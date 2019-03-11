@@ -1,6 +1,8 @@
 ## Transaction Setup
 
-Before we move onto adding Plasma transactions to the Plasma chain, we need to define a few attributes on our Plasma chain.
+OK, it's just about time to add some transactions to our Plasma Chain! 
+
+First, let's define a few member variables in our class. 
 
 1. Define a member variable `blockBuffer` of `1000` in the constructor
 
@@ -9,9 +11,9 @@ Before we move onto adding Plasma transactions to the Plasma chain, we need to d
 3. Define a `currentBlock` that is assigned to a new `Block` with arguments of an empty array (for `transactionSet`) and `blockNumber` of the `nextTxBlock`
 
 
-## Plasma Transaction
+## Add Transactions!
 
-Plasma transactions are defined as transactions that occur within the Plasma chain which are separate from deposit transactions.
+Plasma transactions are transactions that occur within the Plasma chain. Think of these as being separate from deposit transactions.
 
 1. Define an `addTransaction` function with a transaction as its only argument and return an encoded UTXO ID. 
 
