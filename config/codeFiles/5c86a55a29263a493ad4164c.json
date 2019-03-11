@@ -1,0 +1,17 @@
+{
+  "executablePath": "test/testGetUTXO.js",
+  "name": "testGetUTXO.js",
+  "executable": true,
+  "hasProgress": false,
+  "mode": "javascript",
+  "readOnly": true,
+  "testFixture": true,
+  "visible": true,
+  "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
+  "codeStageIds": [
+    "5bf352e0e6b0b02ef6f2ac9a"
+  ],
+  "id": "5c86a55a29263a493ad4164c",
+  "initialCode": "$$LOOKUP",
+  "fileLocation": null
+}
