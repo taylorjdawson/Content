@@ -1,5 +1,5 @@
 const { Block, Transaction } = require('./plasmaObjects.js');
-const { validateTransaction, NULL_ADDRESS, decodeUtxoId, encodeUtxoId } = require('./utils.js');
+const { NULL_ADDRESS, decodeUtxoId, encodeUtxoId } = require('./utils.js');
 
 class PlasmaChain {
     constructor(operator, contractAddress, contractAbi, web3) {
@@ -32,7 +32,6 @@ class PlasmaChain {
     }
 
     addTransaction(tx) {
-        validateTransaction(tx, this.blocks, this.currentBlock, this.currentBlock.spentUtxos);
         this.currentBlock.transactionSet.push(tx);
         return encodeUtxoId(this.currentBlock.blockNumber, this.currentBlock.transactionSet.length - 1, 0);
     }

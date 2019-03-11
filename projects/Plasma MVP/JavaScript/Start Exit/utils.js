@@ -28,48 +28,7 @@ const sign = (hash, key) => {
     return rsvBytes;
 };
 
-// Validates a transaction for valid signatures and spent UTXO's
-// @param {object} tx : Transaction that requires validation
-// @param {object} blocks : All blocks stored on the Plasma chain
-// @param {object} currentBlock : Current block where new plasma chain transactions are added
-// @param {object} tempSpent : Collection of UTXO's already spent in the current block
-
-const validateTransaction = (tx, blocks, currentBlock, tempSpent = {}) => {
-    let inputAmount = 0;
-    let outputAmount = tx.amount1 + tx.amount2;
-    let validSignature;
-    let spent;
-
-    let inputs = [[tx.blkNum1, tx.txIndex1, tx.oIndex1], [tx.blkNum2, tx.txIndex2, tx.oIndex2]];
-    for (let i = 0; i < inputs.length; i++) {
-        const [blkNum, txIndex, oIndex] = inputs[i];
-    
-        if (blkNum === 0) continue;
-
-        let inputTx;
-        if (blocks[blkNum]) {
-            
-            inputTx = blocks[blkNum].transactionSet[txIndex];
-        } else {
-            inputTx = currentBlock.transactionSet[txIndex];
-        }
-
-        if (oIndex === 0) {
-            validSignature = tx.sig1 !== NULL_SIGNATURE;
-            spent = inputTx.spent1;
-            inputAmount += inputTx.amount1;
-        } else {
-            validSignature = tx.sig2 !== NULL_SIGNATURE;
-            spent = inputTx.spent2;
-            inputAmount += inputTx.amount2;
-        }
-        const utxoId = encodeUtxoId(blkNum, txIndex, oIndex);
-        if (spent || tempSpent.hasOwnProperty(utxoId)) throw "Transaction already spent";
-    }
-};
-
 module.exports = {
-    validateTransaction,
     decodeUtxoId,
     encodeUtxoId,
     decodeTxId,

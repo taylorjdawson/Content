@@ -1,1 +1,0 @@
-You applied a block to the Plasma chain. Next you will add create an function that will call applyBlock and update the necessary attributes on the Plasma chain.

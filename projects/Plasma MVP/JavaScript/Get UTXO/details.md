@@ -1,27 +1,4 @@
-## Utils
-
-Transactions created on the Plasma chain follow the UTXO format, similar to Bitcoin. The UTXO model was chosen for Plasma MVP due to it's simplicity compared to an account-based design like the main Ethereum chain. 
-
-## `encodeUtxoId` 
-
-Provides a unique way to transfer, and possibly store, a reference to a specific UTXO.
-
-## `decodeUtxoId` 
-
-Decodes the UTXO ID created from `encodeUtxoId` and allows access to a specific UTXO's details.
-
-## `validateTransaction`
-Used to check for a valid transaction. A valid transaction in this context is described as none of its input UTXO's are already spent and the signatures used to sign the transactions are not null.
-
-## Plasma Objects
-
-This file consists of objects used to create the blocks and transactions on the Plasma chain.
-
-## `Block`
-
-This block can consist of thousands of transactions and is a crucial part of the scalability solution Plasma is attempting to solve. 
-
-## `Transaction`
+## UTXO  
 
 A UTXO format transaction.
 
