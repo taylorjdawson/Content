@@ -16,7 +16,11 @@ This tutorial is called Plasma MVP. So what is that, exactly?
 
 Plasma MVP or Minimal Viable Plasma, is the first proposed iteration of Plasma. As its name implies, it is the minimal concievable functionality necessary to achieve the design goals set out above (scalability with base layer security). 
 
-There are many drawbacks to Plasma MVP in it's usability and there are many new proposed versions of Plasma being designed as we speak. However, it is the easiest one to teach and a great way to learn Plasma! 
+There are usability drawbacks to Plasma MVP and there are many new proposed versions of Plasma being designed as we speak. MVP is the easiest one to teach and a great way to learn Plasma! 
+
+Check out this video by [Karl Floersch](https://twitter.com/karl_dot_tech) on the Plasma MVP architecture: 
+
+<iframe src="https://www.youtube-nocookie.com/embed/jTc_2tyT_lY?autoplay=1&enablejsapi=1&modestbranding=1&rel=0&showinfo=0&color=white&iv_load_policy=3" frameborder="0" allowfullscreen></iframe>
 
 ### Components of Plasma
 
