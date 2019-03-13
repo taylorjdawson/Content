@@ -42,10 +42,11 @@ class Block {
 }
 
 class TransactionInput {
-    constructor(blkNum = 0, txIndex = 0, oindex = 0) {
+    constructor(blkNum = 0, txIndex = 0, oIndex = 0, signature = NULL_SIGNATURE) {
         this.blkNum = blkNum;
         this.txIndex = txIndex;
-        this.oindex = oindex;
+        this.oIndex = oIndex;
+        this.signature = signature;
     }
 }
 
@@ -53,22 +54,16 @@ class TransactionOutput {
     constructor(owner = NULL_ADDRESS, amount = 0) {
         this.owner = owner;
         this.amount = amount;
+        this.spent = false;
     }
 }
 
 class Transaction {
-    constructor(input1 = new TransactionInput(), input2 = new TransactionInput(), output1 = new TransactionOutput(), output2 = new TransactionOutput(), sig1 = NULL_SIGNATURE, sig2 = NULL_SIGNATURE) {
+    constructor(input1 = new TransactionInput(), input2 = new TransactionInput(), output1 = new TransactionOutput(), output2 = new TransactionOutput()) {
         this.input1 = input1;
         this.input2 = input2;
-
         this.output1 = output1;
         this.output2 = output2;
-
-        this.sig1 = sig1;
-        this.sig2 = sig2;
-
-        this.spent1 = false;
-        this.spent2 = false;
     }
 
     hash() {
