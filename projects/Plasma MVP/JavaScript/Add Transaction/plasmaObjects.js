@@ -48,6 +48,10 @@ class TransactionInput {
         this.oIndex = oIndex;
         this.signature = signature;
     }
+
+    encode() {
+        return encodeUtxoId(this.blkNum, this.txIndex, this.oIndex);
+    }
 }
 
 class TransactionOutput {
