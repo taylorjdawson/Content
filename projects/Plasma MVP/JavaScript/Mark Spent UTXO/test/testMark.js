@@ -5,7 +5,7 @@ const deploy = require('../deployPlasma.js');
 const {abi} = require('../Plasma.json');
 const {encodeUtxoId} = require('../utils.js');
 const PlasmaChain = require('../plasmaChain.js');
-const {Transaction} = require('../plasmaObjects.js');
+const { Transaction, TransactionInput, TransactionOutput} = require('../plasmaObjects.js');
 const NULL_ADDRESS = '0x0000000000000000000000000000000000000000';
 
 describe('mark spent utxo function', function() {
@@ -19,22 +19,38 @@ describe('mark spent utxo function', function() {
     beforeEach(async() => {
         contract = await deploy(operator.address);
         plasmaChain = new PlasmaChain(operator, contract.options.address, abi, web3);
-        await plasmaChain.plasmaContract.methods.deposit().send({from: account1.address, value: web3.utils.toWei(ether, 'ether')}); // Block 1
-        await plasmaChain.plasmaContract.methods.deposit().send({from: account2.address, value: web3.utils.toWei(ether, 'ether')}); // Block 2
+        await plasmaChain.plasmaContract.methods.deposit().send({
+            from: account1.address, 
+            value: web3.utils.toWei(ether, 'ether')
+        }); // Block 1
+        await plasmaChain.plasmaContract.methods.deposit().send({
+            from: account2.address, 
+            value: web3.utils.toWei(ether, 'ether')
+        }); // Block 2
         const transferAmount = '10000';
         const ogAmount = '1000000000000000000';
         const leftover = ogAmount - transferAmount;
-        tx = new Transaction(1,0,0,0,0,0, account2.address, transferAmount, account1.address, leftover); // Block 1000
-        tx2 = new Transaction(1000,0,1,0,0,0, account2.address, transferAmount, account1.address, leftover - transferAmount); // Block 1000
+        tx = new Transaction(
+            new TransactionInput(1,0,0), 
+            new TransactionInput(0,0,0), 
+            new TransactionOutput(account2.address, transferAmount),
+            new TransactionOutput(account1.address, leftover),
+        ); // Block 1
+        tx2 = new Transaction(
+            new TransactionInput(1000, 0, 1),
+            new TransactionInput(0, 0, 0),
+            new TransactionOutput(account2.address, transferAmount),
+            new TransactionOutput(account1.address, leftover - transferAmount),
+        ); // Block 1000
     });
 
     it('should return a transaction within the current block', function() {
         plasmaChain.addTransaction(tx);
         const utxoId = plasmaChain.addTransaction(tx2);
         const transaction = plasmaChain.getTransaction(utxoId);
-        assert.equal(transaction.blkNum1, 1000);
-        assert.equal(transaction.txIndex1, 0);
-        assert.equal(transaction.oIndex1, 1);
+        assert.equal(transaction.input1.blkNum, 1000);
+        assert.equal(transaction.input1.txIndex, 0);
+        assert.equal(transaction.input1.oIndex, 1);
     });
 
     it('should return a transaction within the plasma chain blocks', function () {
@@ -42,9 +58,9 @@ describe('mark spent utxo function', function() {
         plasmaChain.addTransaction(tx);
         plasmaChain.addTransaction(tx2);
         const transaction = plasmaChain.getTransaction(utxoId);
-        assert.equal(transaction.blkNum1, 0);
-        assert.equal(transaction.txIndex1, 0);
-        assert.equal(transaction.oIndex1, 0);
+        assert.equal(transaction.input1.blkNum, 0);
+        assert.equal(transaction.input1.txIndex, 0);
+        assert.equal(transaction.input1.oIndex, 0);
     });
 
     it('should not return a transaction if it does not exist', function () {
