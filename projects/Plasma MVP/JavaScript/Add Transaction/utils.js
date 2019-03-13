@@ -18,7 +18,7 @@ const encodeUtxoId = (blkNum, txIndex, oIndex) => {
 };
 
 const decodeTxId = (utxoId) => {
-    const [blkNum, txIndex, _] = decodeUtxoId(utxoId);
+    const [blkNum, txIndex] = decodeUtxoId(utxoId);
     return encodeUtxoId(blkNum, txIndex, 0);
 };
 
