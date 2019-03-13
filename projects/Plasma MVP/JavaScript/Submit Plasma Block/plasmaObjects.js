@@ -75,20 +75,17 @@ class Transaction {
     }
 
     merkleHash() {
-        return web3.utils.soliditySha3(this.hash(), this.sig1, this.sig2);
+        return web3.utils.soliditySha3(this.hash(), this.input1.signature, this.input2.signature);
     }
 
-    // In order to encode the Transaction object we need to make sure all attributes are properly encodable
     encoded() {
         return rlp.encode([
-            this.blkNum1, this.txIndex1, this.oIndex1,
-            this.blkNum2, this.txIndex2, this.oIndex2,
-            Buffer.from(this.newOwner1.slice(2), 'hex'), this.amount1,
-            Buffer.from(this.newOwner2.slice(2), 'hex'), this.amount2,
-            Buffer.from(this.token.slice(2), 'hex')
+            this.input1.blkNum, this.input1.txIndex, this.input1.oIndex,
+            this.input2.blkNum, this.input2.txIndex, this.input2.oIndex,
+            Buffer.from(this.output1.owner.slice(2), 'hex'), this.output1.amount1,
+            Buffer.from(this.output2.owner.slice(2), 'hex'), this.output2.amount2,
         ]);
     }
-
     
     confirm(root, key) {
         return sign(web3.utils.soliditySha3(this.hash(), root), key).toString('hex');
