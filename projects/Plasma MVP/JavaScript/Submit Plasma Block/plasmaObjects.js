@@ -41,20 +41,29 @@ class Block {
     }
 }
 
+class TransactionInput {
+    constructor(blkNum = 0, txIndex = 0, oindex = 0) {
+        this.blkNum = blkNum;
+        this.txIndex = txIndex;
+        this.oindex = oindex;
+    }
+}
+
+class TransactionOutput {
+    constructor(owner = NULL_ADDRESS, amount = 0) {
+        this.owner = owner;
+        this.amount = amount;
+    }
+}
+
 class Transaction {
-    constructor(blkNum1 = 0, txIndex1 = 0, oIndex1 = 0, blkNum2 = 0, txIndex2 = 0, oIndex2 = 0,
-        newOwner1 = NULL_ADDRESS, amount1 = 0, newOwner2 = NULL_ADDRESS, amount2 = 0, token = NULL_ADDRESS, sig1 = NULL_SIGNATURE, sig2 = NULL_SIGNATURE) {
-        this.blkNum1 = blkNum1;
-        this.txIndex1 = txIndex1;
-        this.oIndex1 = oIndex1;
-        this.blkNum2 = blkNum2;
-        this.txIndex2 = txIndex2;
-        this.oIndex2 = oIndex2;
-        this.newOwner1 = newOwner1;
-        this.amount1 = amount1;
-        this.newOwner2 = newOwner2;
-        this.amount2 = amount2;
-        this.token = token;
+    constructor(input1 = new TransactionInput(), input2 = new TransactionInput(), output1 = new TransactionOutput(), output2 = new TransactionOutput(), sig1 = NULL_SIGNATURE, sig2 = NULL_SIGNATURE) {
+        this.input1 = input1;
+        this.input2 = input2;
+
+        this.output1 = output1;
+        this.output2 = output2;
+
         this.sig1 = sig1;
         this.sig2 = sig2;
 
@@ -98,4 +107,6 @@ class Transaction {
 module.exports = {
     Block,
     Transaction,
+    TransactionInput,
+    TransactionOutput,
 }

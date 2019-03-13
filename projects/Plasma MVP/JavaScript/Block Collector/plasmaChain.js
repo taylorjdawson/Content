@@ -20,7 +20,7 @@ class PlasmaChain {
     }
 
     getDepositTx(owner, amount) {
-        return new Transaction(0, 0, 0, 0, 0, 0, owner, amount, NULL_ADDRESS, 0);
+        return new Transaction(null, null, new TransactionOutput(owner, amount));
     }
 }
 

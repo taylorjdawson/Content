@@ -40,8 +40,8 @@ describe('Plasma Chain Deposit Watcher', function () {
             const block = plasmaChain.blocks[1];
             const tx = block.transactionSet[0];
             assert(tx, "Did not find a transaction in the blocks transaction set");
-            assert.equal(tx.newOwner1, account1.address, "transaction owner was not set properly");
-            assert.equal(tx.amount1, etherDeposited, "transaction amount was not set properly");
+            assert.equal(tx.output1.owner, account1.address, "transaction owner was not set properly");
+            assert.equal(tx.output1.amount, etherDeposited, "transaction amount was not set properly");
         });
     });
 });
