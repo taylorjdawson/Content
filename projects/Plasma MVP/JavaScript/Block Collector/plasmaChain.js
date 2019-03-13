@@ -1,4 +1,4 @@
-const { Block, Transaction } = require('./plasmaObjects.js');
+const { Block, Transaction, TransactionInput, TransactionOutput } = require('./plasmaObjects.js');
 const { NULL_ADDRESS, decodeUtxoId } = require('./utils.js');
 
 class PlasmaChain {

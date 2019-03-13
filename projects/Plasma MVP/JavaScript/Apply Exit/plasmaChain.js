@@ -1,4 +1,4 @@
-const { Block, Transaction } = require('./plasmaObjects.js');
+const { Block, Transaction, TransactionInput, TransactionOutput } = require('./plasmaObjects.js');
 const { NULL_ADDRESS, decodeUtxoId, encodeUtxoId } = require('./utils.js');
 
 class PlasmaChain {
@@ -109,7 +109,7 @@ class PlasmaChain {
     }
 
     getDepositTx(owner, amount) {
-        return new Transaction(0, 0, 0, 0, 0, 0, owner, amount, NULL_ADDRESS, 0);
+        return new Transaction(null, null, new TransactionOutput(owner, amount));
     }
 }
 
