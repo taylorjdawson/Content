@@ -92,11 +92,11 @@ class Transaction {
     }
 
     sign1(key) {
-        this.sig1 = '0x' + sign(this.hash(), key).toString('hex');
+        this.input1.signature = '0x' + sign(this.hash(), key).toString('hex');
     }
 
     sign2(key) {
-        this.sig2 = '0x' + sign(this.hash(), key).toString('hex');
+        this.input2.signature = '0x' + sign(this.hash(), key).toString('hex');
     }
 }
 
