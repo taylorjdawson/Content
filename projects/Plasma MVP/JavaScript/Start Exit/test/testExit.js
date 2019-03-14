@@ -40,7 +40,6 @@ contract('Plasma', (accounts) => {
             contract = await Plasma.new({ from: operator })
             plasmaChain = new PlasmaChain(operator, contract.address, contract.abi, web3);
             
-
             await contract.deposit({ from: address1, value: ether })
 
             const transferAmount = 10000;

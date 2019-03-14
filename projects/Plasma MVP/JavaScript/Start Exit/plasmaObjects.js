@@ -82,8 +82,8 @@ class Transaction {
         return rlp.encode([
             this.input1.blkNum, this.input1.txIndex, this.input1.oIndex,
             this.input2.blkNum, this.input2.txIndex, this.input2.oIndex,
-            Buffer.from(this.output1.owner.slice(2), 'hex'), this.output1.amount1,
-            Buffer.from(this.output2.owner.slice(2), 'hex'), this.output2.amount2,
+            Buffer.from(this.output1.owner.slice(2), 'hex'), this.output1.amount,
+            Buffer.from(this.output2.owner.slice(2), 'hex'), this.output2.amount,
         ]);
     }
     

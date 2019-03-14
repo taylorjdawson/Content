@@ -10,8 +10,8 @@ import "./ECRecovery.sol";
  */
 library Validate {
     function checkSigs(bytes32 txHash, bytes32 rootHash, uint256 blknum2, bytes memory sigs)
-        internal
-        view
+        internal 
+        pure
         returns (bool)
     {
         require(sigs.length % 65 == 0 && sigs.length <= 260, "Invalid signature length.");
