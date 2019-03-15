@@ -2,12 +2,10 @@ const { assert } = require('chai');
 const { web3, _testAccounts } = require('../web3Util.js');
 const [operator, account1, account2] = _testAccounts;
 const deploy = require('../deployPlasma.js');
-const { Transaction, UnsignedTransaction } = require('../plasmaObjects.js');
+const { Transaction, TransactionInput, TransactionOutput } = require('../plasmaObjects.js');
 const { encodeUtxoId, NULL_ADDRESS } = require('../utils.js');
 const PlasmaChain = require('../plasmaChain.js');
 const {abi} = require('../Plasma.json');
-
-// Apply Exit => Stage 15
 
 describe('Apply Exit Function', () => {
     const ether = web3.utils.toWei('1', 'ether');
@@ -23,15 +21,19 @@ describe('Apply Exit Function', () => {
         const ogAmount = '1000000000000000000';
         const leftover = ogAmount - transferAmount;
 
-        const tx = new Transaction(1, 0, 0, 0, 0, 0,
-            account2.address, transferAmount,
-            account1.address, leftover,
-            NULL_ADDRESS);
+        const tx = new Transaction(
+            new TransactionInput(1, 0, 0),
+            new TransactionInput(0, 0, 0),
+            new TransactionOutput(account2.address, transferAmount),
+            new TransactionOutput(account1.address, leftover),
+        );
 
-        const tx2 = new Transaction(1000, 0, 1, 0, 0, 0,
-            account2.address, transferAmount,
-            account1.address, leftover - transferAmount,
-            NULL_ADDRESS);
+        const tx2 = new Transaction(
+            new TransactionInput(1000, 0, 1),
+            new TransactionInput(0, 0, 0),
+            new TransactionOutput(account2.address, transferAmount),
+            new TransactionOutput(account1.address, leftover - transferAmount),
+        );
 
         plasmaChain.addTransaction(tx);
         plasmaChain.addTransaction(tx2);
@@ -46,15 +48,14 @@ describe('Apply Exit Function', () => {
         const proofBytes = "0x" + proof[0].data.toString('hex');
 
         const confirmationSig = tx2.confirm(merkle.getRoot(), account1.privateKey);
-        const sigs = tx2.sig1 + tx2.sig2.slice(2) + confirmationSig;
+        const sigs = tx2.input1.signature + tx2.input2.signature.slice(2) + confirmationSig;
         const bond = await plasmaChain.plasmaContract.methods.EXIT_BOND().call();
 
         await plasmaChain.plasmaContract.methods.startExit(utxoPos, txBytes, proofBytes, sigs).send({ from: account2.address, gas: 200000, value: bond });
     })
 
     it('should mark the UTXO as spent', function () {
-
         const tx = plasmaChain.getTransaction(utxoPos);
-        assert.equal(tx.spent1, true);
+        assert.equal(tx.output1.spent, true);
     });
 })

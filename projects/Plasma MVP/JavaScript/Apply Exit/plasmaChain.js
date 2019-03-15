@@ -16,17 +16,16 @@ class PlasmaChain {
     }
 
     depositListener(self) {
-        this.plasmaContract.events.DepositCreated({},
-            function (err, event) {
+        this.plasmaContract.events.DepositCreated({}, (err, event) => {
                 self.addDeposit(event);
             }
         );
     }
 
     exitListener(self) {
-        this.plasmaContract.events.ExitStarted({},(err, event) => {
+        this.plasmaContract.events.ExitStarted({}, (err, event) => {
             self.applyExit(event);
-        })
+        });
     }
 
     applyExit(event) {
@@ -68,10 +67,19 @@ class PlasmaChain {
         const [blkNum, txIndex, oIndex] = decodeUtxoId(utxoId);
         const tx = this.getTransaction(utxoId);
         if (oIndex === 0) {
-            tx.spent1 = true;
+            tx.output1.spent = true;
         } else {
-            tx.spent2 = true;
+            tx.output2.spent = true;
         }
+    }
+
+    applyTransaction(tx) {
+        const { input1, input2 } = tx;
+        const inputs = [input1.encode(), input2.encode()];
+        inputs.forEach(utxoId => {
+            if (utxoId === 0) return;
+            this.markUtxoSpent(utxoId);
+        })
     }
 
     submitBlock(block) {
@@ -80,15 +88,6 @@ class PlasmaChain {
         const root = merkle.getRoot();
         return this.plasmaContract.methods.submitBlock(root).send({ from: this.operator }).then(() => {
             this.currentBlock = new Block([], this.nextTxBlock);
-        })
-    }
-
-    applyTransaction(tx) {
-        const { blkNum1, txIndex1, oIndex1, blkNum2, txIndex2, oIndex2 } = tx;
-        const inputs = [encodeUtxoId(blkNum1, txIndex1, oIndex1), encodeUtxoId(blkNum2, txIndex2, oIndex2)];
-        inputs.forEach(utxoId => {
-            if (utxoId === 0) return;
-            this.markUtxoSpent(utxoId);
         })
     }
 
