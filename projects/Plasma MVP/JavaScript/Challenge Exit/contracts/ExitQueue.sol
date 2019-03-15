@@ -15,6 +15,10 @@ contract ExitQueue {
         owner = msg.sender;
     }
 
+    function currentSize() public view returns(uint256) {
+        return last - first + 1;
+    }
+
     function enqueue(uint256 _exitableDate, uint256 _utxoPos) public onlyOwner {
         uint256 element = _exitableDate << 128 | _utxoPos;
         last += 1;
