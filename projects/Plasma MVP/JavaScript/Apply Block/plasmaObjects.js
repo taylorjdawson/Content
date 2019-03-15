@@ -41,25 +41,33 @@ class Block {
     }
 }
 
-class Transaction {
-    constructor(blkNum1 = 0, txIndex1 = 0, oIndex1 = 0, blkNum2 = 0, txIndex2 = 0, oIndex2 = 0,
-        newOwner1 = NULL_ADDRESS, amount1 = 0, newOwner2 = NULL_ADDRESS, amount2 = 0, token = NULL_ADDRESS, sig1 = NULL_SIGNATURE, sig2 = NULL_SIGNATURE) {
-        this.blkNum1 = blkNum1;
-        this.txIndex1 = txIndex1;
-        this.oIndex1 = oIndex1;
-        this.blkNum2 = blkNum2;
-        this.txIndex2 = txIndex2;
-        this.oIndex2 = oIndex2;
-        this.newOwner1 = newOwner1;
-        this.amount1 = amount1;
-        this.newOwner2 = newOwner2;
-        this.amount2 = amount2;
-        this.token = token;
-        this.sig1 = sig1;
-        this.sig2 = sig2;
+class TransactionInput {
+    constructor(blkNum = 0, txIndex = 0, oIndex = 0, signature = NULL_SIGNATURE) {
+        this.blkNum = blkNum;
+        this.txIndex = txIndex;
+        this.oIndex = oIndex;
+        this.signature = signature;
+    }
 
-        this.spent1 = false;
-        this.spent2 = false;
+    encode() {
+        return encodeUtxoId(this.blkNum, this.txIndex, this.oIndex);
+    }
+}
+
+class TransactionOutput {
+    constructor(owner = NULL_ADDRESS, amount = 0) {
+        this.owner = owner;
+        this.amount = amount;
+        this.spent = false;
+    }
+}
+
+class Transaction {
+    constructor(input1 = new TransactionInput(), input2 = new TransactionInput(), output1 = new TransactionOutput(), output2 = new TransactionOutput()) {
+        this.input1 = input1;
+        this.input2 = input2;
+        this.output1 = output1;
+        this.output2 = output2;
     }
 
     hash() {
@@ -67,35 +75,34 @@ class Transaction {
     }
 
     merkleHash() {
-        return web3.utils.soliditySha3(this.hash(), this.sig1, this.sig2);
+        return web3.utils.soliditySha3(this.hash(), this.input1.signature, this.input2.signature);
     }
 
-    // In order to encode the Transaction object we need to make sure all attributes are properly encodable
     encoded() {
         return rlp.encode([
-            this.blkNum1, this.txIndex1, this.oIndex1,
-            this.blkNum2, this.txIndex2, this.oIndex2,
-            Buffer.from(this.newOwner1.slice(2), 'hex'), this.amount1,
-            Buffer.from(this.newOwner2.slice(2), 'hex'), this.amount2,
-            Buffer.from(this.token.slice(2), 'hex')
+            this.input1.blkNum, this.input1.txIndex, this.input1.oIndex,
+            this.input2.blkNum, this.input2.txIndex, this.input2.oIndex,
+            Buffer.from(this.output1.owner.slice(2), 'hex'), this.output1.amount,
+            Buffer.from(this.output2.owner.slice(2), 'hex'), this.output2.amount,
         ]);
     }
-
     
     confirm(root, key) {
         return sign(web3.utils.soliditySha3(this.hash(), root), key).toString('hex');
     }
 
     sign1(key) {
-        this.sig1 = '0x' + sign(this.hash(), key).toString('hex');
+        this.input1.signature = '0x' + sign(this.hash(), key).toString('hex');
     }
 
     sign2(key) {
-        this.sig2 = '0x' + sign(this.hash(), key).toString('hex');
+        this.input2.signature = '0x' + sign(this.hash(), key).toString('hex');
     }
 }
 
 module.exports = {
     Block,
     Transaction,
+    TransactionInput,
+    TransactionOutput,
 }

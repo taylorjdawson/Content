@@ -4,11 +4,8 @@ import "./RLPDecode.sol";
 
 
 library PlasmaRLP {
-
-
     struct exitingTx {
         address exitor;
-        address token;
         uint256 amount;     
         uint256 inputCount;
     }
@@ -16,7 +13,7 @@ library PlasmaRLP {
     /* Public Functions */
 
     function getUtxoPos(bytes memory challengingTxBytes, uint256 oIndex)
-        internal
+        internal pure
         returns (uint256)
     {
         RLPDecode.RLPItem[] memory txList = RLPDecode.toList(RLPDecode.toRlpItem(challengingTxBytes));
@@ -28,13 +25,12 @@ library PlasmaRLP {
     }
 
     function createExitingTx(bytes memory exitingTxBytes, uint256 oindex)
-        internal
+        internal pure
         returns (exitingTx memory)
     {
         RLPDecode.RLPItem[] memory txList = RLPDecode.toList(RLPDecode.toRlpItem(exitingTxBytes));
         return exitingTx(
             RLPDecode.toAddress(txList[6 + (2 * oindex)]),
-            RLPDecode.toAddress(txList[10]),
             RLPDecode.toUint(txList[7 + 2 * oindex]),
             RLPDecode.toUint(txList[0]) * RLPDecode.toUint(txList[3])
         );

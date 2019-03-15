@@ -1,7 +1,7 @@
 pragma solidity ^0.5.0;
 
 import "./SafeMath.sol";
-import "./PriorityQueue.sol";
+import "./ExitQueue.sol";
 
 contract Plasma {
   using SafeMath for uint256;
@@ -13,7 +13,7 @@ contract Plasma {
 
   mapping(uint => PlasmaBlock) public plasmaChain;
   mapping(uint256 => Exit) public exits;
-  mapping(address => address) public exitQueues;
+  ExitQueue exitQueue;
 
   event DepositCreated(
     address owner, 
@@ -24,7 +24,6 @@ contract Plasma {
   event ExitStarted(
     address exitor,
     uint256 utxoPos,
-    address token,
     uint256 amount
   );
 
@@ -35,7 +34,6 @@ contract Plasma {
 
   struct Exit {
     address exitor;
-    address token;
     uint256 amount;
   }
   
@@ -43,7 +41,7 @@ contract Plasma {
     operator = msg.sender;
     currentPlasmaBlock = BLOCK_BUFFER;
     currentDepositBlock = 1;
-    exitQueues[address(0)] = address(new PriorityQueue());
+    exitQueue = new ExitQueue();
   }
 
   function deposit() 
@@ -69,19 +67,17 @@ contract Plasma {
     currentDepositBlock = 1; 
   }
 
-  function addExitToQueue(uint256 _utxoPos, address _exitor, address _token, uint256 _amount, uint256 _createdAt)
+  function addExitToQueue(uint256 _utxoPos, address _exitor, uint256 _amount, uint256 _createdAt)
     public
   {
     require(_amount > 0);
-    require(exitQueues[_token] != address(0));
     require(exits[_utxoPos].amount == 0);
-    PriorityQueue queue = PriorityQueue(exitQueues[_token]);
 
-    uint256 exitableAt = _createdAt + 2 weeks;
-    queue.insert(exitableAt, _utxoPos);
-
-    exits[_utxoPos] = Exit(_exitor, _token, _amount);
-    emit ExitStarted(_exitor, _utxoPos, _token, _amount);
+    uint256 exitableAt = block.timestamp + 2 weeks;
+    exitQueue.enqueue(exitableAt, _utxoPos);
+    
+    exits[_utxoPos] = Exit(_exitor, _amount);
+    emit ExitStarted(_exitor, _utxoPos, _amount);
   }
 
   function getDepositBlock() 

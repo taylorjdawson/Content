@@ -1,4 +1,4 @@
-const { Transaction } = require('../plasmaObjects.js');
+const { Transaction, TransactionInput, TransactionOutput } = require('../plasmaObjects.js');
 const { encodeUtxoId, NULL_ADDRESS } = require('../utils.js');
 const { privateKeyOperator, privateKey1, privateKey2 } = require("../privateKeys.js");
 const Plasma = artifacts.require('Plasma');
@@ -48,15 +48,19 @@ contract('Plasma', (accounts) => {
             const leftover1 = ogAmount - transferAmount;
             const leftover2 = leftover1 - transferAmount;
 
-            tx = new Transaction(1, 0, 0, 0, 0, 0,
-                address2, transferAmount,
-                address1, leftover1,
-                NULL_ADDRESS);
+            tx = new Transaction(
+                new TransactionInput(1, 0, 0),
+                new TransactionInput(0, 0, 0),
+                new TransactionOutput(address2, transferAmount),
+                new TransactionOutput(address1, leftover1),
+            );
 
-            tx2 = new Transaction(1000, 0, 1, 0, 0, 0,
-                address2, transferAmount,
-                address1, leftover1 - transferAmount,
-                NULL_ADDRESS);
+            tx2 = new Transaction(
+                new TransactionInput(1000, 0, 1),
+                new TransactionInput(0, 0, 0),
+                new TransactionOutput(address2, transferAmount),
+                new TransactionOutput(address1, leftover2),
+            );
 
             plasmaChain.addTransaction(tx);
             plasmaChain.addTransaction(tx2);
@@ -72,13 +76,14 @@ contract('Plasma', (accounts) => {
             proof = merkle.getProof(merkle.leaves[1]);
             proofBytes = "0x" + proof[0].data.toString('hex');
             confirmationSig = tx2.confirm(merkle.getRoot(), privateKey1);
-            sigs = tx2.sig1 + tx2.sig2.slice(2) + confirmationSig;
+            sigs = tx2.input1.signature + tx2.input2.signature.slice(2) + confirmationSig;
 
-            // Challenging Transaction @ Block 2000
-            cTx = new Transaction(1000, 1, 0, 0, 0, 0,
-                address2, transferAmount,
-                address1, leftover2 - transferAmount,
-                NULL_ADDRESS);
+            cTx = new Transaction(
+                new TransactionInput(1000, 1, 0),
+                new TransactionInput(0, 0, 0),
+                new TransactionOutput(address2, transferAmount),
+                new TransactionOutput(address1, leftover2 - transferAmount),
+            );
 
             plasmaChain.addTransaction(cTx);
 
@@ -89,7 +94,7 @@ contract('Plasma', (accounts) => {
             cTxBytes = "0x" + cTx.encoded().toString('hex');
             cMerkle = plasmaChain.blocks[2000].merkle();
             cConfSig = cTx.confirm(cMerkle.getRoot(), privateKey2);
-            cSigs = cTx.sig1 + cTx.sig2.slice(2);
+            cSigs = cTx.input1.signature + cTx.input2.signature.slice(2);
 
             bond = await contract.EXIT_BOND();
             await contract.startExit(utxoPos, txBytes, proofBytes, sigs, { from: address2, gas: 200000, value: bond })

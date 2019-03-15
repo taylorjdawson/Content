@@ -18,9 +18,11 @@
   "position": 14,
   "task": "$$LOOKUP",
   "testFramework": "truffle_with_mocha",
-  "title": "Priority Queue",
+  "title": "Exit Queue",
   "validatedContract": "Plasma",
   "updatedAt": "2019-01-09T02:39:31.988Z",
   "createdAt": "2019-01-09T02:39:31.988Z",
-  "abiValidations": "$$LOOKUP"
+  "abiValidations": "$$LOOKUP",
+  "youtubeId": null,
+  "src": null
 }

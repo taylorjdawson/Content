@@ -5,7 +5,7 @@ const deploy = require('../deployPlasma.js');
 const {abi} = require('../Plasma.json');
 const {encodeUtxoId} = require('../utils.js');
 const PlasmaChain = require('../plasmaChain.js');
-const {Transaction, Block} = require('../plasmaObjects.js');
+const {Transaction, Block, TransactionInput, TransactionOutput} = require('../plasmaObjects.js');
 const NULL_ADDRESS = '0x0000000000000000000000000000000000000000';
 
 describe('add block function', function() {
@@ -17,18 +17,28 @@ describe('add block function', function() {
         const contract = await deploy(operator.address);
         plasmaChain = new PlasmaChain(operator, contract.options.address, abi, web3);
         await plasmaChain.plasmaContract.methods.deposit().send({
-            from: account1.address, 
+            from: account1.address,
             value: depositedEther
         });
         await plasmaChain.plasmaContract.methods.deposit().send({
-            from: account2.address, 
+            from: account2.address,
             value: depositedEther
         });
         const transferAmount = '10000';
         const ogAmount = '1000000000000000000';
         const leftover = ogAmount - transferAmount;
-        tx = new Transaction(1,0,0,0,0,0, account2.address, transferAmount, account1.address, leftover);
-        tx2 = new Transaction(1000,0,1,0,0,0, account2.address, transferAmount, account1.address, leftover - transferAmount);
+        tx = new Transaction(
+            new TransactionInput(1, 0, 0),
+            new TransactionInput(0, 0, 0),
+            new TransactionOutput(account2.address, transferAmount),
+            new TransactionOutput(account1.address, leftover),
+        );
+        tx2 = new Transaction(
+            new TransactionInput(1000, 0, 1),
+            new TransactionInput(0, 0, 0),
+            new TransactionOutput(account2.address, transferAmount),
+            new TransactionOutput(account1.address, leftover - transferAmount),
+        );
     });
 
     it('should instantiate the next deposit block', function() {
@@ -45,8 +55,8 @@ describe('add block function', function() {
         const transaction1 = plasmaChain.getTransaction(utxoId1);
         const transaction2 = plasmaChain.getTransaction(utxoId2);
 
-        assert.equal(transaction1.spent1, true);
-        assert.equal(transaction2.spent2, true);
+        assert.equal(transaction1.output1.spent, true);
+        assert.equal(transaction2.output2.spent, true);
     })
 
     it('should add the current block to submitted blocks', function () {

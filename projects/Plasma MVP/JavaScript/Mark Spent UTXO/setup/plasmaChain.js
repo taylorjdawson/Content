@@ -1,13 +1,13 @@
-const {Block, Transaction} = require('./plasmaObjects.js');
+const {Block, Transaction, TransactionOutput, TransactionInput} = require('./plasmaObjects.js');
 const {NULL_ADDRESS, decodeUtxoId, encodeUtxoId} = require('./utils.js');
 
 class PlasmaChain {
   constructor(operator, contractAddress, abi, web3) {
-    
+
   }
-  
+
   getDepositTx(owner, amount) {
-      return new Transaction(0,0,0,0,0,0, owner, amount, NULL_ADDRESS, 0);
+    return new Transaction(undefined, undefined, new TransactionOutput(owner, amount));
   }
 }
 
