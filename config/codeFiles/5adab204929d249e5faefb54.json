@@ -5,7 +5,7 @@
     "5adab204929d249e5faefb52"
   ],
   "executable": true,
-  "hasProgress": true,
+  "hasProgress": false,
   "initialCode": "$$LOOKUP",
   "mode": "json",
   "name": "EscrowContract.json",
@@ -15,5 +15,6 @@
   "visible": true,
   "updatedAt": "2018-11-15T18:32:04.208Z",
   "createdAt": "2018-10-16T01:50:11.232Z",
-  "executablePath": "EscrowContract.json"
+  "executablePath": "EscrowContract.json",
+  "fileLocation": null
 }
