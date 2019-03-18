@@ -2,7 +2,7 @@
 
 Similar to our Plasma contract we need to keep track of the transaction block number, as well as the deposit block number, as more blocks are added to the Plasma chain.
 
-1. Define a `nextDepositBlock` and assign it to 1.
+1. In the constructor define a `nextDepositBlock` and assign it the value `1`.
 
 ## Add Block
 
