@@ -36,10 +36,10 @@ class PlasmaChain {
     markUtxoSpent(utxoId) {
         const [blkNum, txIndex, oIndex] = decodeUtxoId(utxoId);
         const tx = this.getTransaction(utxoId);
-        if(oIndex === 0) {
-            tx.spent1 = true;
+        if (oIndex === 0) {
+            tx.output1.spent = true;
         } else {
-            tx.spent2 = true;
+            tx.output2.spent = true;
         }
     }
 
