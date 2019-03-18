@@ -48,9 +48,9 @@ describe('mark spent utxo function', function() {
         plasmaChain.addTransaction(tx);
         const utxoId = plasmaChain.addTransaction(tx2);
         const transaction = plasmaChain.getTransaction(utxoId);
-        assert.equal(transaction.input1.blkNum, 1000);
-        assert.equal(transaction.input1.txIndex, 0);
-        assert.equal(transaction.input1.oIndex, 1);
+        assert.equal(transaction.input1.blkNum, 1000, "blkNum is not 1000 as expected");
+        assert.equal(transaction.input1.txIndex, 0, "txIndex is not 0 as expected");
+        assert.equal(transaction.input1.oIndex, 1, "oIndex is not 1 as expected");
     });
 
     it('should return a transaction within the plasma chain blocks', function () {
@@ -58,9 +58,9 @@ describe('mark spent utxo function', function() {
         plasmaChain.addTransaction(tx);
         plasmaChain.addTransaction(tx2);
         const transaction = plasmaChain.getTransaction(utxoId);
-        assert.equal(transaction.input1.blkNum, 0);
-        assert.equal(transaction.input1.txIndex, 0);
-        assert.equal(transaction.input1.oIndex, 0);
+        assert.equal(transaction.input1.blkNum, 0, "blkNum is not 0 as expected");
+        assert.equal(transaction.input1.txIndex, 0, "txIndex is not 0 as expected");
+        assert.equal(transaction.input1.oIndex, 0, "oIndex is not 0 as expected");
     });
 
     it('should not return a transaction if it does not exist', function () {
