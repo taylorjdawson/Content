@@ -1,6 +1,5 @@
 pragma solidity ^0.5.0;
 
-import "./SafeMath.sol";
 import "./ExitQueue.sol";
 import "./PlasmaRLP.sol";
 import "./Validate.sol";
@@ -8,7 +7,6 @@ import "./Merkle.sol";
 import "./ByteUtils.sol";
 
 contract Plasma {
-  using SafeMath for uint256;
   using PlasmaRLP for bytes;
   using Merkle for bytes32;
 
@@ -124,6 +122,6 @@ contract Plasma {
     view
     returns (uint256)
   {
-      return currentPlasmaBlock.sub(BLOCK_BUFFER).add(currentDepositBlock);
+      return currentPlasmaBlock - BLOCK_BUFFER + currentDepositBlock;
   }
 }
