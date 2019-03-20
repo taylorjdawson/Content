@@ -66,11 +66,17 @@ contract Plasma {
     currentDepositBlock++;
   }
 
+  event BlockSubmitted(
+    bytes32 root,
+    uint timestamp
+  );
+
   function submitBlock(bytes32 _root) 
     public 
   {
     require(msg.sender == operator);
     plasmaChain[currentPlasmaBlock] = PlasmaBlock(_root, block.timestamp);
+    emit BlockSubmitted(_root, block.timestamp);
     currentPlasmaBlock += BLOCK_BUFFER;
     currentDepositBlock = 1; 
   }
