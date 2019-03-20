@@ -7,9 +7,8 @@ Let's begin by importing the `ExitQueue.sol` contract into our `Plasma.sol` cont
 ## Exit Setup
 
 1. Define an `Exit` struct with an exitor `address`, token `address`, and `uint256` amount as it's arguments
-2. Define an `exits` mapping where a UTXO position is mapped to an `Exit` struct
-3. Define an `exitQueue` which is an instance of the `ExitQueue` contract.
-4. Instantiate a `exitQueues[address(0)]` to the `address` of a new `PriorityQueue` within the constract constructor
+2. Define a public `exits` mapping where a UTXO position is mapped to an `Exit` struct
+3. Define a public `exitQueue` which will be an instance of the `ExitQueue` contract. Instantiate this `exitQueue` within the constructor.
 5. Define an `ExitStarted` event with an `exitor` address, utxo position named `utxoPos`, `token` address, and `amount` to be exited as it's attributes.
 
 ## Add Exit to Queue

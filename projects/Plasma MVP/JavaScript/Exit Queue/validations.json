@@ -21,16 +21,6 @@
         "_id": "5c181ccfe6b0b03a95da424b",
         "name": null,
         "staticType": "address"
-      },
-      {
-        "_id": "5c181ccfe6b0b03a95da424c",
-        "name": null,
-        "staticType": "uint256"
-      },
-      {
-        "_id": "5c181ccfe6b0b03a95da424d",
-        "name": null,
-        "staticType": "uint256"
       }
     ],
     "interfaceType": "function"
@@ -73,18 +63,11 @@
     "constant": "true",
     "payable": "nil",
     "error": null,
-    "task_display": "Define an exitQueues mapping",
-    "name": "exitQueues",
+    "task_display": "Define a public exitQueue struct",
+    "name": "exitQueue",
     "outputs": [
       {
         "_id": "5c181ccfe6b0b03a95da4254",
-        "name": null,
-        "staticType": "address"
-      }
-    ],
-    "inputs": [
-      {
-        "_id": "5c181ccfe6b0b03a95da4255",
         "name": null,
         "staticType": "address"
       }
