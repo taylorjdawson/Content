@@ -4,9 +4,7 @@ Hopefully by now you have an understanding of why a buffer is necessary between 
 
 As such, we need to create a function to be able to provide the correct deposit block each time a deposit is entered into the Plasma contract. In this way we can keep the Plasma contract and Plasma chain in sync.
 
-1. Define an internal `getDepositBlock` function. 
-
-This function should use the `SafeMath` library to calculate the deposit block number then return that value. 
+1. Define an internal `getDepositBlock` function. Calculate the deposit block number then return the value. 
 
 Remember that there is a buffer between submitted blocks and deposit blocks. The returned value should be a deposit block number which starts at the last submitted block plus 1.
 

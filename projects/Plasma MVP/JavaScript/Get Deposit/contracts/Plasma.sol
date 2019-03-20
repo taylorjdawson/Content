@@ -1,9 +1,6 @@
 pragma solidity ^0.5.0;
 
-import "./SafeMath.sol";
-
 contract Plasma {
-  using SafeMath for uint256;
   address public operator;
   uint public currentPlasmaBlock;
   uint public currentDepositBlock;
@@ -56,6 +53,6 @@ contract Plasma {
     internal
     returns (uint256)
   {
-      return currentPlasmaBlock.sub(BLOCK_BUFFER).add(currentDepositBlock);
+      return currentPlasmaBlock - BLOCK_BUFFER + currentDepositBlock;
   }
 }
