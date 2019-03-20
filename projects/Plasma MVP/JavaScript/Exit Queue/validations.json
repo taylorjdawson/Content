@@ -18,9 +18,9 @@
         "staticType": "address"
       },
       {
-        "_id": "5c181ccfe6b0b03a95da424b",
+        "_id": "5c181ccfe6b0b03a95da424c",
         "name": null,
-        "staticType": "address"
+        "staticType": "uint256"
       }
     ],
     "interfaceType": "function"
@@ -35,11 +35,6 @@
     "outputs": [
       {
         "_id": "5c181ccfe6b0b03a95da424f",
-        "name": null,
-        "staticType": "address"
-      },
-      {
-        "_id": "5c181ccfe6b0b03a95da4250",
         "name": null,
         "staticType": "address"
       },
@@ -91,11 +86,6 @@
         "_id": "5c181ccfe6b0b03a95da4258",
         "name": null,
         "staticType": "uint256"
-      },
-      {
-        "_id": "5c181ccfe6b0b03a95da4259",
-        "name": null,
-        "staticType": "address"
       },
       {
         "_id": "5c181ccfe6b0b03a95da425a",
