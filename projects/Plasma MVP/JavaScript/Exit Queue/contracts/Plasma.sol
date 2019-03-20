@@ -11,7 +11,7 @@ contract Plasma {
 
   mapping(uint => PlasmaBlock) public plasmaChain;
   mapping(uint256 => Exit) public exits;
-  ExitQueue exitQueue;
+  ExitQueue public exitQueue;
 
   event DepositCreated(
     address owner, 
@@ -65,7 +65,7 @@ contract Plasma {
     currentDepositBlock = 1; 
   }
 
-  function addExitToQueue(uint256 _utxoPos, address _exitor, uint256 _amount, uint256 _createdAt)
+  function addExitToQueue(uint256 _utxoPos, address _exitor, uint256 _amount)
     public
   {
     require(_amount > 0);
@@ -80,6 +80,7 @@ contract Plasma {
 
   function getDepositBlock() 
     internal
+    view
     returns (uint256)
   {
       return currentPlasmaBlock - BLOCK_BUFFER + currentDepositBlock;
