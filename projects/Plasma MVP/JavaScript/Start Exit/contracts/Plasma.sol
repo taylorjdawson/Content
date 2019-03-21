@@ -109,7 +109,7 @@ contract Plasma {
         bytes32 merkleHash = keccak256(abi.encodePacked(keccak256(_txBytes), ByteUtils.slice(_sigs, 0, 130)));
 
         require(merkleHash.checkMembership(txindex, root, _proof), "Transaction Merkle proof is invalid.");
-        // require(Validate.checkSigs(keccak256(_txBytes), root, exitingTx.inputCount, _sigs), "Signatures must match.");
+        require(Validate.checkSigs(keccak256(_txBytes), root, exitingTx.inputCount, _sigs), "Signatures must match.");
         address addr = exitingTx.exitor;
         address payable exitor = address(uint160(addr));
 
