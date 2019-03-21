@@ -4,95 +4,29 @@
     "constant": "false",
     "payable": "false",
     "error": null,
-    "task_display": "Define a public addExitToQueue function",
-    "name": "addExitToQueue",
-    "inputs": [
+    "task_display": "Create an dequeue function",
+    "name": "dequeue",
+    "interfaceType": "function"
+  },
+  {
+    "_id": "5c181ccfe6b0b03a95da4249",
+    "constant": "false",
+    "payable": "false",
+    "error": null,
+    "task_display": "Create an peek function",
+    "name": "peek",
+    "outputs": [
       {
         "_id": "5c181ccfe6b0b03a95da4249",
         "name": null,
         "staticType": "uint256"
       },
       {
-        "_id": "5c181ccfe6b0b03a95da424a",
-        "name": null,
-        "staticType": "address"
-      },
-      {
-        "_id": "5c181ccfe6b0b03a95da424c",
+        "_id": "5c181ccfe6b0b03a95da4250",
         "name": null,
         "staticType": "uint256"
       }
     ],
     "interfaceType": "function"
-  },
-  {
-    "_id": "5c181ccfe6b0b03a95da424e",
-    "constant": "true",
-    "payable": "false",
-    "error": null,
-    "task_display": "Define an exits mapping",
-    "name": "exits",
-    "outputs": [
-      {
-        "_id": "5c181ccfe6b0b03a95da424f",
-        "name": null,
-        "staticType": "address"
-      },
-      {
-        "_id": "5c181ccfe6b0b03a95da4251",
-        "name": null,
-        "staticType": "uint256"
-      }
-    ],
-    "inputs": [
-      {
-        "_id": "5c181ccfe6b0b03a95da4252",
-        "name": "",
-        "staticType": "uint256"
-      }
-    ],
-    "interfaceType": "function"
-  },
-  {
-    "_id": "5c181ccfe6b0b03a95da4253",
-    "constant": "true",
-    "payable": "nil",
-    "error": null,
-    "task_display": "Define a public exitQueue struct",
-    "name": "exitQueue",
-    "outputs": [
-      {
-        "_id": "5c181ccfe6b0b03a95da4254",
-        "name": null,
-        "staticType": "address"
-      }
-    ],
-    "interfaceType": "function"
-  },
-  {
-    "_id": "5c181ccfe6b0b03a95da4256",
-    "constant": "false",
-    "payable": "false",
-    "error": null,
-    "task_display": "Define an ExitStarted event",
-    "name": "ExitStarted",
-    "inputs": [
-      {
-        "_id": "5c181ccfe6b0b03a95da4257",
-        "name": null,
-        "staticType": "address"
-      },
-      {
-        "_id": "5c181ccfe6b0b03a95da4258",
-        "name": null,
-        "staticType": "uint256"
-      },
-      {
-        "_id": "5c181ccfe6b0b03a95da425a",
-        "name": null,
-        "staticType": "uint256"
-      }
-    ],
-    "interfaceType": "event"
   }
 ]

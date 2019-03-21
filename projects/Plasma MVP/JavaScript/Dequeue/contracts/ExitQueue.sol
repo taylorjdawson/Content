@@ -15,12 +15,12 @@ contract ExitQueue {
         queue[last] = element;
     }
 
-    function peek() public onlyOwner view returns (uint256, uint256) {
+    function peek() public view returns (uint256, uint256) {
         require(last >= first); 
         return _splitElement(queue[first]);
     }
 
-    function dequeue() public onlyOwner {
+    function dequeue() public {
         require(last >= first); 
         delete queue[first];
         first += 1;
