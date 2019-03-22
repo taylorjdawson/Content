@@ -19,3 +19,11 @@ The `BLOCK_BUFFER` serves as a tool to keep the Plasma contract and Plasma chain
 You will be exposed concept multiple times throughout the tutorial which should help to solidify the idea behind the framework.
 
 If this does not make sense now, do not worry as we will be building out this logic later in the tutorial to help solidify the concepts.
+
+## Architecture
+
+The goal of these first three stages is to create a Plasma Contract that allows users to deposit ether into a plasma chain.
+
+For each deposit we'll create a special Plasma Block called a Deposit Block that will keep track of who deposited the block and how much they deposited.
+
+![Plasma Contract](https://res.cloudinary.com/divzjiip8/image/upload/v1553298728/ContractDeposits_yalobw.png)
