@@ -1,6 +1,8 @@
 ## Plasma Contract
 
-Let's create our Plasma Contract! 
+Let's create our Plasma Contract! First we'll need to lay down the structure of the contract on the blockchain.
+
+> Check out the [Architecture](?tab=details&scroll=Architecture) section for an image of these first three stages and what we're planning to build.
 
 First we'll create the smart contract which will ultimately hold the funds available on the Plasma chain. It will allow users to deposit into the chain, exit from the chain, challenge any exits from the chain, and finalize any exits that have gone through a challenge period.
 

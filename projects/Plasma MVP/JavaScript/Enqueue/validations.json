@@ -1,0 +1,39 @@
+[
+  {
+    "_id": "5c181ccfe6b0b03a95da4248",
+    "constant": "false",
+    "payable": "false",
+    "error": null,
+    "task_display": "Create an enqueue function",
+    "name": "enqueue",
+    "inputs": [
+      {
+        "_id": "5c181ccfe6b0b03a95da4249",
+        "name": null,
+        "staticType": "uint256"
+      },
+      {
+        "_id": "5c181ccfe6b0b03a95da424a",
+        "name": null,
+        "staticType": "uint256"
+      }
+    ],
+    "interfaceType": "function"
+  },
+  {
+    "_id": "5c181ccfe6b0b03a95da4249",
+    "constant": "false",
+    "payable": "false",
+    "error": null,
+    "task_display": "Create an currentSize function",
+    "name": "enqueue",
+    "outputs": [
+      {
+        "_id": "5c181ccfe6b0b03a95da4249",
+        "name": null,
+        "staticType": "uint256"
+      }
+    ],
+    "interfaceType": "function"
+  }
+]

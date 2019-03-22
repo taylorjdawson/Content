@@ -1,0 +1,16 @@
+{
+  "executablePath": "test/testExitQueue.js",
+  "name": "testExitQueue.js",
+  "executable": true,
+  "hasProgress": false,
+  "mode": "javascript",
+  "readOnly": true,
+  "testFixture": true,
+  "visible": true,
+  "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
+  "codeStageIds": [
+    "5c92d67511da6705acab5882"
+  ],
+  "id": "5c92d72911da6705acab5889",
+  "initialCode": "$$LOOKUP"
+}
