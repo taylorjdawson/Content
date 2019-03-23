@@ -1,6 +1,6 @@
 {
   "id": "5be339e5e6b0b02ef6f2abfa",
-  "type": "BuildingBlock",
+  "type": "Lesson",
   "intro": "$$LOOKUP",
   "stageContainerGroupId": "5be33994e6b0b02ef6f2abf9",
   "version": "JavaScript",
