@@ -6,13 +6,6 @@
     "error": null,
     "task_display": "Define a public payable deposit function",
     "name": "deposit",
-    "outputs": [
-      {
-        "_id": "5c0f3878e6b0b03c3d9f3936",
-        "name": null,
-        "staticType": "uint256"
-      }
-    ],
     "interfaceType": "function"
   },
   {
