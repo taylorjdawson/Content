@@ -15,12 +15,14 @@ describe('Constructor Function', function() {
     });
 
     it('should assign the operator', function() {
-        assert.equal(plasmaChain.operator, operator);
+        assert(plasmaChain.operator, "Could not find an operator property on your PlasmaChain instance")
+        assert.equal(plasmaChain.operator, operator, "Expected the operator to be equal to the first parameter passed in");
     });
 
     it('should create a plasma contract instance', function() {
+        assert(plasmaChain.plasmaContract, "Could not find a plasmaContract property on your PlasmaChain instance")
         const pcAddress = plasmaChain.plasmaContract.options.address;
         const contractAddress = contract.options.address;
-        assert.equal(pcAddress, contractAddress);
+        assert.equal(pcAddress, contractAddress, "Use the contractAddress passed in the constructor on your plasmaContract");
     });
 });
