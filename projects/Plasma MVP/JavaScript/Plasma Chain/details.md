@@ -1,6 +1,6 @@
 ## Utils
 
-Transactions created on the Plasma chain follow the UTXO format, similar to Bitcoin. The UTXO model was chosen for Plasma MVP due to it's simplicity compared to an account-based design like the main Ethereum chain.
+Transactions created on the Plasma chain follow the UTXO format, similar to Bitcoin. This Plasma MVP implementation uses UTXO model due to it's simplicity compared to an account-based design like in Ethereum.
 
 ## `encodeUtxoId`
 
