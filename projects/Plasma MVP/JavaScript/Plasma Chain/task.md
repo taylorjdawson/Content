@@ -1,8 +1,8 @@
 ## The Plasma Chain
 
-Now we begin building the `PlasmaChain` in JavaScript! Remember, in our grand architecture, this is the centralized operator component. 
+Now we begin building the `PlasmaChain` in JavaScript! Remember, in our grand architecture, this is the centralized operator component. Check out the [Architecture section](?tab=details&scroll=Architecture) to see our updated schematic.
 
-You're going to build up the `plasmaChain.js` file which uses `utils.js` and `plasmaObjects.js` for support. Take a look at the [Details Tab](?tab=details) for more information on both of these files.
+You're going to build up the `plasmaChain.js` file which uses `utils.js` and `plasmaObjects.js` for support. Take a look at the [Helper Files section](?tab=details&scroll=Helper%20Files) for more information on both of these files.
 
 **Constructor**
 
