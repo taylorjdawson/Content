@@ -11,15 +11,6 @@ class Block {
         this.spentUtxos = {};
     }
 
-    addTransaction(tx) {
-        this.transactionSet.push(tx);
-        let inputs = [[tx.blkNum1, tx.txIndex1, tx.oIndex1], [tx.blkNum2, tx.txIndex2, tx.oIndex2]];
-        inputs.forEach(input => {
-            const inputId = encodeUtxoId(...input);
-            this.spentUtxos[inputId] = true;
-        });
-    }
-
     merkle() {
         let hashedTxSet = [];
         this.transactionSet.forEach((tx, idx) => {
