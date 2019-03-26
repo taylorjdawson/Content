@@ -15,7 +15,9 @@ First, let's define a few member variables in our class.
 
 Plasma transactions are transactions that occur within the Plasma chain. Think of these as being separate from deposit transactions.
 
-1. Define an `addTransaction` function with a transaction as its only argument and return an encoded UTXO ID. 
+1. Define an `addTransaction` function which takes an instance of `Transaction` as its only argument.
+2. Add the transaction to the current block's `transactionSet`.
+2. Use the transaction properties and return an [encoded UTXO ID](?tab=details&scroll=Encoded%20UTXO%20ID).
 
 The function should validate the transaction then add the transaction to the `currentBlock`.
 

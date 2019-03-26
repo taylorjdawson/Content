@@ -4,7 +4,7 @@ const [operator, account1, account2] = _testAccounts;
 const deploy = require('../deployPlasma.js');
 const {abi} = require('../Plasma.json');
 const PlasmaChain = require('../plasmaChain.js');
-const {Transaction} = require('../plasmaObjects.js');
+const {Transaction, TransactionInput, TransactionOutput} = require('../plasmaObjects.js');
 const {encodeUtxoId} = require('../utils.js');
 const NULL_ADDRESS = '0x0000000000000000000000000000000000000000';
 
@@ -30,8 +30,12 @@ describe('add transaction function', function() {
         const transferAmount = '10000';
         const ogAmount = '1000000000000000000';
         const leftover = ogAmount - transferAmount;
-        tx = new Transaction(1,0,0,0,0,0, account2.address, transferAmount, account1.address, leftover);
-        tx.sign1
+        tx = new Transaction(
+            new TransactionInput(1,0,0),
+            new TransactionInput(0,0,0), 
+            new TransactionOutput(account2.address, transferAmount), 
+            new TransactionOutput(account1.address, leftover)
+        );
     });
 
     it('should define a block buffer', function() {
