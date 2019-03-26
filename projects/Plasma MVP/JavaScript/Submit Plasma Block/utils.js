@@ -12,7 +12,6 @@ const decodeUtxoId = (utxoId) => {
     return [blkNum, txIndex, oIndex];
 }
 
-// Unique way to store entire UTXO as a unique ID
 const encodeUtxoId = (blkNum, txIndex, oIndex) => {
     return Math.round((blkNum * BLKNUM_OFFSET) + (txIndex * TXINDEX_OFFSET) + (oIndex * 1));
 };
