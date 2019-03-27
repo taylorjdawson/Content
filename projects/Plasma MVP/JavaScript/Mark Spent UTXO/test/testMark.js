@@ -44,9 +44,10 @@ describe('mark spent utxo function', function() {
         ); // Block 1000
     });
 
-    it('should return a transaction within the current block', function() {
+    it('should return a transaction within the current block', function () {
+        const utxoId = encodeUtxoId(1000, 1, 0);
         plasmaChain.addTransaction(tx);
-        const utxoId = plasmaChain.addTransaction(tx2);
+        plasmaChain.addTransaction(tx2);
         const transaction = plasmaChain.getTransaction(utxoId);
         assert.equal(transaction.input1.blkNum, 1000, "blkNum is not 1000 as expected");
         assert.equal(transaction.input1.txIndex, 0, "txIndex is not 0 as expected");
@@ -76,7 +77,7 @@ describe('mark spent utxo function', function() {
         plasmaChain.addTransaction(tx);
         plasmaChain.markUtxoSpent(utxoId);
         const transaction = plasmaChain.getTransaction(utxoId);
-        assert.equal(transaction.spent1, true);
+        assert.equal(transaction.output1.spent, true);
     });
 
     it('should mark the utxo as spent for an oIndex of 1', function() {
@@ -85,6 +86,6 @@ describe('mark spent utxo function', function() {
         plasmaChain.addTransaction(tx2);
         plasmaChain.markUtxoSpent(utxoId);
         const transaction = plasmaChain.getTransaction(utxoId);
-        assert.equal(transaction.spent2, true);
+        assert.equal(transaction.output2.spent, true);
     });
 });

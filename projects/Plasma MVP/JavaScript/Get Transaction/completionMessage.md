@@ -1,1 +1,3 @@
-You marked a UTXO as spent. Next we will apply the block to the Plasma chain.
+## Located the TXOs
+
+You found the TXOs! Now that we're able to locate them, let's figure out how to mark them as `spent` upon a successful transaction.
