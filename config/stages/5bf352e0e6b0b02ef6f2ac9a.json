@@ -23,7 +23,7 @@
   "position": 7,
   "task": "$$LOOKUP",
   "testFramework": "mocha_bdd",
-  "title": "Get UTXO",
+  "title": "Get Transaction",
   "updatedAt": "2019-01-09T02:39:31.455Z",
   "createdAt": "2019-01-09T02:39:31.455Z",
   "abiValidations": "$$LOOKUP",

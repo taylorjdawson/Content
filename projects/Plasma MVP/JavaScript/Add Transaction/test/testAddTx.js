@@ -9,16 +9,11 @@ const {encodeUtxoId} = require('../utils.js');
 const NULL_ADDRESS = '0x0000000000000000000000000000000000000000';
 
 describe('add transaction function', function() {
-    let contract;
     let plasmaChain;
-    let event;
-    let block;
-    let tx;
-    let tx2;
-    const ether = '1';
     before(async () => {
-        contract = await deploy(operator.address);
+        const contract = await deploy(operator.address);
         plasmaChain = new PlasmaChain(operator, contract.options.address, abi, web3);
+        const ether = '1';
         await plasmaChain.plasmaContract.methods.deposit().send({
             from: account1.address, 
             value: web3.utils.toWei(ether, 'ether')
@@ -27,15 +22,6 @@ describe('add transaction function', function() {
             from: account2.address, 
             value: web3.utils.toWei(ether, 'ether')
         });
-        const transferAmount = '10000';
-        const ogAmount = '1000000000000000000';
-        const leftover = ogAmount - transferAmount;
-        tx = new Transaction(
-            new TransactionInput(1,0,0),
-            new TransactionInput(0,0,0), 
-            new TransactionOutput(account2.address, transferAmount), 
-            new TransactionOutput(account1.address, leftover)
-        );
     });
 
     it('should define a block buffer', function() {
@@ -52,20 +38,23 @@ describe('add transaction function', function() {
         assert.equal(currentBlock.blockNumber, plasmaChain.blockBuffer);
     });
 
-    describe('after adding a transaction', () => {
-        let id;
+    describe('adding a single transaction', () => {
         before(() => {
-            id = plasmaChain.addTransaction(tx);
+            const transferAmount = '10000';
+            const ogAmount = '1000000000000000000';
+            const leftover = ogAmount - transferAmount;
+            const tx = new Transaction(
+                new TransactionInput(0, 0, 0),
+                new TransactionInput(1, 0, 0),
+                new TransactionOutput(account2.address, transferAmount),
+                new TransactionOutput(account1.address, leftover)
+            );
+            plasmaChain.addTransaction(tx);
         });
 
         it('should have a transaction in its transactionSet', () => {
             const transactions = plasmaChain.currentBlock.transactionSet.length;
             assert.equal(transactions, 1);
-        });
-
-        it('should return an encoded UTXO ID', () => {
-            const encoded = encodeUtxoId(plasmaChain.currentBlock.blockNumber, plasmaChain.currentBlock.transactionSet.length - 1, 0);
-            assert.equal(id, encoded);
         });
     });
 });
