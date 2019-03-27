@@ -52,12 +52,12 @@ class PlasmaChain {
     }
 
     markUtxoSpent(utxoId) {
-        const [blockNumber, transactionIndex, outputIndex] = decodeUtxoId(utxoId);
-        const tx = this.getTransaction(utxoId);
-        if (outputIndex === 0) {
-            tx.output1.spent = true;
-        } else {
-            tx.output2.spent = true;
+        const transaction = this.getTransaction(utxoId);
+        if (utxoId % 2 === 0) {
+            transaction.output1.spent = true;
+        }
+        else {
+            transaction.output2.spent = true;
         }
     }
 
