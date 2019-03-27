@@ -7,18 +7,18 @@ const TXINDEX_OFFSET = 10000;
 
 const decodeUtxoId = (utxoId) => {
     const blockNumber = Math.round(utxoId / BLKNUM_OFFSET);
-    const txIndex = Math.round((utxoId % BLKNUM_OFFSET) / TXINDEX_OFFSET);
-    const outputIndex = Math.round(utxoId - blockNumber * BLKNUM_OFFSET - txIndex * TXINDEX_OFFSET);
-    return [blockNumber, txIndex, outputIndex];
+    const transactionIndex = Math.round((utxoId % BLKNUM_OFFSET) / TXINDEX_OFFSET);
+    const outputIndex = Math.round(utxoId - blockNumber * BLKNUM_OFFSET - transactionIndex * TXINDEX_OFFSET);
+    return [blockNumber, transactionIndex, outputIndex];
 }
 
-const encodeUtxoId = (blockNumber, txIndex, outputIndex) => {
-    return Math.round((blockNumber * BLKNUM_OFFSET) + (txIndex * TXINDEX_OFFSET) + (outputIndex * 1));
+const encodeUtxoId = (blockNumber, transactionIndex, outputIndex) => {
+    return Math.round((blockNumber * BLKNUM_OFFSET) + (transactionIndex * TXINDEX_OFFSET) + (outputIndex * 1));
 };
 
 const decodeTxId = (utxoId) => {
-    const [blockNumber, txIndex] = decodeUtxoId(utxoId);
-    return encodeUtxoId(blockNumber, txIndex, 0);
+    const [blockNumber, transactionIndex] = decodeUtxoId(utxoId);
+    return encodeUtxoId(blockNumber, transactionIndex, 0);
 };
 
 const sign = (hash, key) => {

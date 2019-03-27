@@ -65,7 +65,7 @@ class PlasmaChain {
     }
 
     markUtxoSpent(utxoId) {
-        const [blockNumber, txIndex, outputIndex] = decodeUtxoId(utxoId);
+        const [blockNumber, transactionIndex, outputIndex] = decodeUtxoId(utxoId);
         const tx = this.getTransaction(utxoId);
         if (outputIndex === 0) {
             tx.output1.spent = true;
@@ -98,11 +98,11 @@ class PlasmaChain {
     }
 
     getTransaction(utxoId) {
-        const [blockNumber, txIndex, outputIndex] = decodeUtxoId(utxoId);
+        const [blockNumber, transactionIndex, outputIndex] = decodeUtxoId(utxoId);
         if (this.blocks[blockNumber]) {
-            return this.blocks[blockNumber].transactionSet[txIndex];
+            return this.blocks[blockNumber].transactionSet[transactionIndex];
         } else if (this.currentBlock.blockNumber === blockNumber) {
-            return this.currentBlock.transactionSet[txIndex];
+            return this.currentBlock.transactionSet[transactionIndex];
         } else {
             return null;
         }

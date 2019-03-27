@@ -50,7 +50,7 @@ describe('get UTXO', function () {
         plasmaChain.addTransaction(tx2);
         const transaction = plasmaChain.getTransaction(utxoId);
         assert.equal(transaction.input1.blockNumber, 1000);
-        assert.equal(transaction.input1.txIndex, 0);
+        assert.equal(transaction.input1.transactionIndex, 0);
         assert.equal(transaction.input1.outputIndex, 1);
     });
 
@@ -60,7 +60,7 @@ describe('get UTXO', function () {
         plasmaChain.addTransaction(tx2);
         const transaction = plasmaChain.getTransaction(utxoId);
         assert.equal(transaction.input1.blockNumber, 0);
-        assert.equal(transaction.input1.txIndex, 0);
+        assert.equal(transaction.input1.transactionIndex, 0);
         assert.equal(transaction.input1.outputIndex, 0);
     });
 });

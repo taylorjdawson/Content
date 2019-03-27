@@ -50,7 +50,7 @@ describe('mark spent utxo function', function() {
         plasmaChain.addTransaction(tx2);
         const transaction = plasmaChain.getTransaction(utxoId);
         assert.equal(transaction.input1.blockNumber, 1000, "blockNumber is not 1000 as expected");
-        assert.equal(transaction.input1.txIndex, 0, "txIndex is not 0 as expected");
+        assert.equal(transaction.input1.transactionIndex, 0, "transactionIndex is not 0 as expected");
         assert.equal(transaction.input1.outputIndex, 1, "outputIndex is not 1 as expected");
     });
 
@@ -60,7 +60,7 @@ describe('mark spent utxo function', function() {
         plasmaChain.addTransaction(tx2);
         const transaction = plasmaChain.getTransaction(utxoId);
         assert.equal(transaction.input1.blockNumber, 0, "blockNumber is not 0 as expected");
-        assert.equal(transaction.input1.txIndex, 0, "txIndex is not 0 as expected");
+        assert.equal(transaction.input1.transactionIndex, 0, "transactionIndex is not 0 as expected");
         assert.equal(transaction.input1.outputIndex, 0, "outputIndex is not 0 as expected");
     });
 
