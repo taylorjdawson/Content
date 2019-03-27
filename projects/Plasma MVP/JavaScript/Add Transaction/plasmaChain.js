@@ -30,7 +30,6 @@ class PlasmaChain {
 
     addTransaction(tx) {
         this.currentBlock.transactionSet.push(tx);
-        return encodeUtxoId(this.currentBlock.blockNumber, this.currentBlock.transactionSet.length -1, 0);
     }
 
     getDepositTx(owner, amount) {

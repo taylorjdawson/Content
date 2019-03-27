@@ -1,0 +1,17 @@
+## Encoded UTXO ID
+
+For this plasma implementation we'll be encoding & decoding our UTXO ID. This will take our three properties `blkNum`, `txIndex` and `oIndex` and provide us with a single integer value to lookup the UTXO:
+
+![UTXO ID](https://res.cloudinary.com/divzjiip8/image/upload/v1553559789/utxoid_nosxvu.png)
+
+If you take a look at the `utils.js` file you'll see that  in the `encodeUtxoId` function the values passed in are multiplied by these factors and then added together to get the one integer value.
+
+This value is a convienent way to refer to a spent transaction output. We'll build it into our smart contract later to expect the UTXO position in this format.
+
+## Connecting UTXOs
+
+We're trying to build a chain with a series of blocks where outputs from one transaction could be the inputs to another transaction in a different block. Here's a sketch: 
+
+![UTXO Blocks](https://res.cloudinary.com/divzjiip8/image/upload/v1553565934/UTXOBlocks_kbzyg3.png)
+
+Each arrow represents an output being used as an input for another transaction. Each block could batch hundreds of transactions off the blockchain which is what gives it's scalability property. 

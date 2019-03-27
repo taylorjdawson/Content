@@ -44,16 +44,17 @@ describe('get UTXO', function () {
         ); // Block 1000
     });
 
-    it('should return a transaction within the current block', function () {
+    it('should return a transaction within the current block (1000)', function () {
+        const utxoId = encodeUtxoId(1000, 1, 0);
         plasmaChain.addTransaction(tx);
-        const utxoId = plasmaChain.addTransaction(tx2);
+        plasmaChain.addTransaction(tx2);
         const transaction = plasmaChain.getTransaction(utxoId);
         assert.equal(transaction.input1.blkNum, 1000);
         assert.equal(transaction.input1.txIndex, 0);
         assert.equal(transaction.input1.oIndex, 1);
     });
 
-    it('should return a transaction within the plasma chain blocks', function () {
+    it('should return a transaction from the plasmaChain deposit blocks', function () {
         const utxoId = encodeUtxoId(1, 0, 0);
         plasmaChain.addTransaction(tx);
         plasmaChain.addTransaction(tx2);
