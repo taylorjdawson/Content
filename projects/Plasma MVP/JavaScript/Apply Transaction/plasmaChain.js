@@ -52,11 +52,6 @@ class PlasmaChain {
         })
     }
 
-    applyBlock(block) {
-        block.transactionSet.forEach(tx => this.applyTransaction(tx));
-        this.blocks[block.blockNumber] = block;
-    }
-
     getTransaction(utxoId) {
         const [blockNumber, transactionIndex, outputIndex] = decodeUtxoId(utxoId);
         if (this.blocks[blockNumber]) {
