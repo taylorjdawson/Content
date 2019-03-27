@@ -12,16 +12,16 @@ library PlasmaRLP {
 
     /* Public Functions */
 
-    function getUtxoPos(bytes memory challengingTxBytes, uint256 oIndex)
+    function getUtxoPos(bytes memory challengingTxBytes, uint256 outputIndex)
         internal pure
         returns (uint256)
     {
         RLPDecode.RLPItem[] memory txList = RLPDecode.toList(RLPDecode.toRlpItem(challengingTxBytes));
-        uint256 oIndexShift = oIndex * 3;
+        uint256 outputIndexShift = outputIndex * 3;
         return
-            RLPDecode.toUint(txList[0 + oIndexShift]) * 1000000000 +
-            RLPDecode.toUint(txList[1 + oIndexShift]) * 10000 +
-            RLPDecode.toUint(txList[2 + oIndexShift]);
+            RLPDecode.toUint(txList[0 + outputIndexShift]) * 1000000000 +
+            RLPDecode.toUint(txList[1 + outputIndexShift]) * 10000 +
+            RLPDecode.toUint(txList[2 + outputIndexShift]);
     }
 
     function createExitingTx(bytes memory exitingTxBytes, uint256 oindex)

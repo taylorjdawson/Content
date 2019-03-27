@@ -6,19 +6,19 @@ const BLKNUM_OFFSET = 1000000000;
 const TXINDEX_OFFSET = 10000;
 
 const decodeUtxoId = (utxoId) => {
-    const blkNum = Math.round(utxoId / BLKNUM_OFFSET);
+    const blockNumber = Math.round(utxoId / BLKNUM_OFFSET);
     const txIndex = Math.round((utxoId % BLKNUM_OFFSET) / TXINDEX_OFFSET);
-    const oIndex = Math.round(utxoId - blkNum * BLKNUM_OFFSET - txIndex * TXINDEX_OFFSET);
-    return [blkNum, txIndex, oIndex];
+    const outputIndex = Math.round(utxoId - blockNumber * BLKNUM_OFFSET - txIndex * TXINDEX_OFFSET);
+    return [blockNumber, txIndex, outputIndex];
 }
 
-const encodeUtxoId = (blkNum, txIndex, oIndex) => {
-    return Math.round((blkNum * BLKNUM_OFFSET) + (txIndex * TXINDEX_OFFSET) + (oIndex * 1));
+const encodeUtxoId = (blockNumber, txIndex, outputIndex) => {
+    return Math.round((blockNumber * BLKNUM_OFFSET) + (txIndex * TXINDEX_OFFSET) + (outputIndex * 1));
 };
 
 const decodeTxId = (utxoId) => {
-    const [blkNum, txIndex] = decodeUtxoId(utxoId);
-    return encodeUtxoId(blkNum, txIndex, 0);
+    const [blockNumber, txIndex] = decodeUtxoId(utxoId);
+    return encodeUtxoId(blockNumber, txIndex, 0);
 };
 
 const sign = (hash, key) => {

@@ -1,6 +1,6 @@
 ## Encoded UTXO ID
 
-For this plasma implementation we'll be encoding & decoding our UTXO ID. This will take our three properties `blkNum`, `txIndex` and `oIndex` and provide us with a single integer value to lookup the UTXO:
+For this plasma implementation we'll be encoding & decoding our UTXO ID. This will take our three properties `blockNumber`, `txIndex` and `outputIndex` and provide us with a single integer value to lookup the UTXO:
 
 ![UTXO ID](https://res.cloudinary.com/divzjiip8/image/upload/v1553559789/utxoid_nosxvu.png)
 

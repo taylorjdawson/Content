@@ -33,10 +33,10 @@ class PlasmaChain {
     }
 
     getTransaction(utxoId) {
-        const [blkNum, txIndex, oIndex] = decodeUtxoId(utxoId);
-        if(this.blocks[blkNum]) {
-            return this.blocks[blkNum].transactionSet[txIndex];
-        } else if(this.currentBlock.blockNumber === blkNum) {
+        const [blockNumber, txIndex, outputIndex] = decodeUtxoId(utxoId);
+        if(this.blocks[blockNumber]) {
+            return this.blocks[blockNumber].transactionSet[txIndex];
+        } else if(this.currentBlock.blockNumber === blockNumber) {
             return this.currentBlock.transactionSet[txIndex];
         } else {
             return null;

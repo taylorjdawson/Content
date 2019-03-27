@@ -15,8 +15,8 @@ contract('Plasma', (accounts) => {
         it('should submit the correct current deposit block after a block is submitted', async() => {
             await contract.deposit({ from: accounts[1], value: ether })
             let events = await contract.getPastEvents('DepositCreated');
-            const blkNum = events[0].args.blockNumber;
-            assert.equal(blkNum.toNumber(), 1002);
+            const blockNumber = events[0].args.blockNumber;
+            assert.equal(blockNumber.toNumber(), 1002);
         })
 
         it('should set the correct current deposit block', async() => {

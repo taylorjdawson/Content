@@ -49,9 +49,9 @@ describe('get UTXO', function () {
         plasmaChain.addTransaction(tx);
         plasmaChain.addTransaction(tx2);
         const transaction = plasmaChain.getTransaction(utxoId);
-        assert.equal(transaction.input1.blkNum, 1000);
+        assert.equal(transaction.input1.blockNumber, 1000);
         assert.equal(transaction.input1.txIndex, 0);
-        assert.equal(transaction.input1.oIndex, 1);
+        assert.equal(transaction.input1.outputIndex, 1);
     });
 
     it('should return a transaction from the plasmaChain deposit blocks', function () {
@@ -59,8 +59,8 @@ describe('get UTXO', function () {
         plasmaChain.addTransaction(tx);
         plasmaChain.addTransaction(tx2);
         const transaction = plasmaChain.getTransaction(utxoId);
-        assert.equal(transaction.input1.blkNum, 0);
+        assert.equal(transaction.input1.blockNumber, 0);
         assert.equal(transaction.input1.txIndex, 0);
-        assert.equal(transaction.input1.oIndex, 0);
+        assert.equal(transaction.input1.outputIndex, 0);
     });
 });
