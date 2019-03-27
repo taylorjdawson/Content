@@ -5,10 +5,6 @@ class PlasmaChain {
   constructor(operator, contractAddress, abi, web3) {
     
   }
-  
-  getDepositTx(owner, amount) {
-    return new Transaction(undefined, undefined, new TransactionOutput(owner, amount));
-  }
 }
 
 module.exports = PlasmaChain;

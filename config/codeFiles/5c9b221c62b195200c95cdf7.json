@@ -1,0 +1,16 @@
+{
+  "executablePath": "test/testApplyBlock.js",
+  "name": "testApplyBlock.js",
+  "executable": true,
+  "hasProgress": false,
+  "mode": "javascript",
+  "readOnly": true,
+  "testFixture": true,
+  "visible": true,
+  "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
+  "codeStageIds": [
+    "5c9b21b962b195200c95cdf5"
+  ],
+  "id": "5c9b221c62b195200c95cdf7",
+  "initialCode": "$$LOOKUP"
+}

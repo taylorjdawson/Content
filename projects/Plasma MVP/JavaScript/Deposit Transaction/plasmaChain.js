@@ -21,12 +21,8 @@ class PlasmaChain {
     addDeposit(event) {
         const args = event.returnValues;
         const { owner, amount, blockNumber } = args;
-        const deposit = this.getDepositTx(owner, amount);
+        const deposit = new Transaction(undefined, undefined, new TransactionOutput(owner, amount));
         this.blocks[blockNumber] = new Block([deposit], blockNumber);
-    }
-
-    getDepositTx(owner, amount) {
-        return new Transaction(undefined, undefined, new TransactionOutput(owner, amount));
     }
 }
 

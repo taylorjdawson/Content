@@ -6,10 +6,6 @@ class PlasmaChain {
         this.operator = operator;
         this.plasmaContract = new web3.eth.Contract(abi, contractAddress);
     }
-
-    getDepositTx(owner, amount) {
-        return new Transaction(undefined, undefined, new TransactionOutput(owner, amount));
-    }
 }
 
 module.exports = PlasmaChain;
