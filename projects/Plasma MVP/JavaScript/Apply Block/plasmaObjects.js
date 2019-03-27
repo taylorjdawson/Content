@@ -8,7 +8,6 @@ class Block {
     constructor(transactionSet, blockNumber) {
         this.transactionSet = transactionSet;
         this.blockNumber = blockNumber;
-        this.spentUtxos = {};
     }
 
     merkle() {
