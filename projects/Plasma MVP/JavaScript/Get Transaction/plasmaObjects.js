@@ -33,15 +33,15 @@ class Block {
 }
 
 class TransactionInput {
-    constructor(blkNum = 0, txIndex = 0, oIndex = 0, signature = NULL_SIGNATURE) {
-        this.blkNum = blkNum;
-        this.txIndex = txIndex;
-        this.oIndex = oIndex;
+    constructor(blockNumber = 0, transactionIndex = 0, outputIndex = 0, signature = NULL_SIGNATURE) {
+        this.blockNumber = blockNumber;
+        this.transactionIndex = transactionIndex;
+        this.outputIndex = outputIndex;
         this.signature = signature;
     }
 
     encode() {
-        return encodeUtxoId(this.blkNum, this.txIndex, this.oIndex);
+        return encodeUtxoId(this.blockNumber, this.transactionIndex, this.outputIndex);
     }
 }
 
@@ -71,8 +71,8 @@ class Transaction {
 
     encoded() {
         return rlp.encode([
-            this.input1.blkNum, this.input1.txIndex, this.input1.oIndex,
-            this.input2.blkNum, this.input2.txIndex, this.input2.oIndex,
+            this.input1.blockNumber, this.input1.transactionIndex, this.input1.outputIndex,
+            this.input2.blockNumber, this.input2.transactionIndex, this.input2.outputIndex,
             Buffer.from(this.output1.owner.slice(2), 'hex'), this.output1.amount,
             Buffer.from(this.output2.owner.slice(2), 'hex'), this.output2.amount,
         ]);

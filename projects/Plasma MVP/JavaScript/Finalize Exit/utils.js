@@ -6,19 +6,19 @@ const BLKNUM_OFFSET = 1000000000;
 const TXINDEX_OFFSET = 10000;
 
 const decodeUtxoId = (utxoId) => {
-    const blkNum = Math.round(utxoId / BLKNUM_OFFSET);
-    const txIndex = Math.round((utxoId % BLKNUM_OFFSET) / TXINDEX_OFFSET);
-    const oIndex = Math.round(utxoId - blkNum * BLKNUM_OFFSET - txIndex * TXINDEX_OFFSET);
-    return [blkNum, txIndex, oIndex];
+    const blockNumber = Math.round(utxoId / BLKNUM_OFFSET);
+    const transactionIndex = Math.round((utxoId % BLKNUM_OFFSET) / TXINDEX_OFFSET);
+    const outputIndex = Math.round(utxoId - blockNumber * BLKNUM_OFFSET - transactionIndex * TXINDEX_OFFSET);
+    return [blockNumber, transactionIndex, outputIndex];
 }
 
-const encodeUtxoId = (blkNum, txIndex, oIndex) => {
-    return Math.round((blkNum * BLKNUM_OFFSET) + (txIndex * TXINDEX_OFFSET) + (oIndex * 1));
+const encodeUtxoId = (blockNumber, transactionIndex, outputIndex) => {
+    return Math.round((blockNumber * BLKNUM_OFFSET) + (transactionIndex * TXINDEX_OFFSET) + (outputIndex * 1));
 };
 
 const decodeTxId = (utxoId) => {
-    const [blkNum, txIndex] = decodeUtxoId(utxoId);
-    return encodeUtxoId(blkNum, txIndex, 0);
+    const [blockNumber, transactionIndex] = decodeUtxoId(utxoId);
+    return encodeUtxoId(blockNumber, transactionIndex, 0);
 };
 
 const sign = (hash, key) => {

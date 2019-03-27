@@ -49,9 +49,9 @@ describe('mark spent utxo function', function() {
         plasmaChain.addTransaction(tx);
         plasmaChain.addTransaction(tx2);
         const transaction = plasmaChain.getTransaction(utxoId);
-        assert.equal(transaction.input1.blkNum, 1000, "blkNum is not 1000 as expected");
-        assert.equal(transaction.input1.txIndex, 0, "txIndex is not 0 as expected");
-        assert.equal(transaction.input1.oIndex, 1, "oIndex is not 1 as expected");
+        assert.equal(transaction.input1.blockNumber, 1000, "blockNumber is not 1000 as expected");
+        assert.equal(transaction.input1.transactionIndex, 0, "transactionIndex is not 0 as expected");
+        assert.equal(transaction.input1.outputIndex, 1, "outputIndex is not 1 as expected");
     });
 
     it('should return a transaction within the plasma chain blocks', function () {
@@ -59,9 +59,9 @@ describe('mark spent utxo function', function() {
         plasmaChain.addTransaction(tx);
         plasmaChain.addTransaction(tx2);
         const transaction = plasmaChain.getTransaction(utxoId);
-        assert.equal(transaction.input1.blkNum, 0, "blkNum is not 0 as expected");
-        assert.equal(transaction.input1.txIndex, 0, "txIndex is not 0 as expected");
-        assert.equal(transaction.input1.oIndex, 0, "oIndex is not 0 as expected");
+        assert.equal(transaction.input1.blockNumber, 0, "blockNumber is not 0 as expected");
+        assert.equal(transaction.input1.transactionIndex, 0, "transactionIndex is not 0 as expected");
+        assert.equal(transaction.input1.outputIndex, 0, "outputIndex is not 0 as expected");
     });
 
     it('should not return a transaction if it does not exist', function () {
@@ -72,7 +72,7 @@ describe('mark spent utxo function', function() {
         assert.equal(transaction, null);
     });
 
-    it('should mark the utxo as spent for an oIndex of 0', function() {
+    it('should mark the utxo as spent for an outputIndex of 0', function() {
         const utxoId = encodeUtxoId(1,0,0);
         plasmaChain.addTransaction(tx);
         plasmaChain.markUtxoSpent(utxoId);
@@ -80,7 +80,7 @@ describe('mark spent utxo function', function() {
         assert.equal(transaction.output1.spent, true);
     });
 
-    it('should mark the utxo as spent for an oIndex of 1', function() {
+    it('should mark the utxo as spent for an outputIndex of 1', function() {
         const utxoId = encodeUtxoId(1000,0,1);
         plasmaChain.addTransaction(tx);
         plasmaChain.addTransaction(tx2);

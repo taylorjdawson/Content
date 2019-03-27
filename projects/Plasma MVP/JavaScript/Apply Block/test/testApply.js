@@ -40,7 +40,7 @@ describe('apply block function', function() {
         );
     });
 
-    it('should mark the utxo as spent for an oIndex of 0', function() {
+    it('should mark the utxo as spent for an outputIndex of 0', function() {
         plasmaChain.addTransaction(tx);
         plasmaChain.applyTransaction(tx);
         const utxoId = encodeUtxoId(1,0,0);
@@ -48,7 +48,7 @@ describe('apply block function', function() {
         assert.equal(transaction.output1.spent, true);
     });
 
-    it('should mark the utxo as spent for an oIndex of 1', function() {
+    it('should mark the utxo as spent for an outputIndex of 1', function() {
         plasmaChain.addTransaction(tx);
         plasmaChain.addTransaction(tx2);
         plasmaChain.applyTransaction(tx2);

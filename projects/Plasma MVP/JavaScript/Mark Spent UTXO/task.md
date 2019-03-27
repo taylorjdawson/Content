@@ -4,4 +4,4 @@ After a UTXO is spent within we need to make sure it is marked as spent so it ca
 
 1. Define a `markUtxoSpent` function with an encoded `utxoId` as it's only argument.
 
-The function should decode the `utxoId`, get the related transaction and then assign the related `spent` attribute to `true` based on the `oIndex` of the transaction.
+The function should decode the `utxoId`, get the related transaction and then assign the related `spent` attribute to `true` based on the `outputIndex` of the transaction.

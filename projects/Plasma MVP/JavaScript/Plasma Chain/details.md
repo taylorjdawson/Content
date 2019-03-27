@@ -46,9 +46,9 @@ The first two arguments to construct a `Transaction` are of the `TransactionInpu
 
 Within the `TransactionInput` class we have four properties:
 
-- **`blkNum`** - The block number that this input comes from. Remember in our [Analogy](?tab=details&scroll=UTXOs) that an input in a transaction is an output of some other transaction.
-- **`txIndex`** - Similar to our `blkNum` property, the `txIndex` helps us find the UTXO by pointing us to the right transaction in the block's transaction set.
-- **`oIndex`** - As mentioned in the UTXO section and further explained below, a transaction may have two outputs in our implementation. The `oIndex` tells us which one to look at to find this `input`.
+- **`blockNumber`** - The block number that this input comes from. Remember in our [Analogy](?tab=details&scroll=UTXOs) that an input in a transaction is an output of some other transaction.
+- **`transactionIndex`** - Similar to our `blockNumber` property, the `transactionIndex` helps us find the UTXO by pointing us to the right transaction in the block's transaction set.
+- **`outputIndex`** - As mentioned in the UTXO section and further explained below, a transaction may have two outputs in our implementation. The `outputIndex` tells us which one to look at to find this `input`.
 - **`signature`** - The signatures verifies the owner of the UTXO intended this transaction.
 
 The last two arguments in a `Transaction` are the new UTXO's created by this transaction. There can be up to two UTXO's created by each transaction. These are the results of the transaction. A UTXO input always refers to some unspent output in the past. 
