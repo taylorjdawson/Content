@@ -18,10 +18,6 @@ class PlasmaChain {
             }
         );
     }
-
-    getDepositTx(owner, amount) {
-        return new Transaction(undefined, undefined, new TransactionOutput(owner, amount));
-    }
 }
 
 module.exports = PlasmaChain;

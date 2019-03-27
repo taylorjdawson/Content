@@ -1,4 +1,5 @@
 const { web3 } = require('./web3Util.js');
+const assert = require('assert');
 const { encodeUtxoId, decodeUtxoId, decodeTxId, NULL_ADDRESS,
     NULL_SIGNATURE, NULL_HASH, sign } = require('./utils.js');
 const rlp = require("./rlp.js");
@@ -54,6 +55,12 @@ class TransactionOutput {
 
 class Transaction {
     constructor(input1 = new TransactionInput(), input2 = new TransactionInput(), output1 = new TransactionOutput(), output2 = new TransactionOutput()) {
+        const inputErr = "Transaction inputs must be an instance of TransactionInput. Either pass in an input or undefined.";
+        const outputErr = "Transaction outputs must be an instance of TransactionOutput. Either pass in an output or undefined.";
+        assert(input1 instanceof TransactionInput, inputErr);
+        assert(input2 instanceof TransactionInput, inputErr);
+        assert(output1 instanceof TransactionOutput, outputErr);
+        assert(output2 instanceof TransactionOutput, outputErr);
         this.input1 = input1;
         this.input2 = input2;
         this.output1 = output1;
