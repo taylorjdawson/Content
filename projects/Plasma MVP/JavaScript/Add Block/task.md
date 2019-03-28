@@ -22,7 +22,7 @@ Next, we need to update the respective block numbers depending on if the block w
 5. First, increment the `nextDepositBlock` to be the current `nextTxBlock` + 1. 
 6. Then, increment the `nextTxBlock` by our `blockBuffer` set in the constructor.
 
-> This logic might be tough to wrap your brain around. If you're wondering why the counters in incremented in this way, check out this [counter timeline](?tab=details&scroll=Counter%20Timeline).
+> This logic might be tough to wrap your brain around. If you're wondering why the counters are incremented in this way, check out this [counter timeline](?tab=details&scroll=Counter%20Timeline).
 
 ## DepositCreated Listener
 
