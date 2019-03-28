@@ -15,3 +15,9 @@ We're trying to build a chain with a series of blocks where outputs from one tra
 ![UTXO Blocks](https://res.cloudinary.com/divzjiip8/image/upload/v1553565934/UTXOBlocks_kbzyg3.png)
 
 Each arrow represents an output being used as an input for another transaction. Each block could batch hundreds of transactions off the blockchain which is what gives it's scalability property. 
+
+This image is to remind you of the scale we're looking at. We can be talking potentially thousands of transactions! For a more close-up view of what's going on here. Let's take a look at two blocks where the second block uses outputs from the first:
+
+![Block Transactions](https://res.cloudinary.com/divzjiip8/image/upload/c_scale,h_372/v1553801107/BlockTransactions_eclwq3.png)
+
+Here you can see the `output1` from both transactions in block #1 are mapping to the inputs of the only transaction in block #1. 
