@@ -7,3 +7,5 @@ The purpose of this function is to add a `Block` object to our plasma chain `blo
 1. Define an `applyBlock` function with a block as it's only argument.
 2. This function should iterate through the `transactionSet` of the block and invoke the `applyTransaction` function on each transaction. 
 3. Once all block transactions are applied, the block should be added to `blocks` using the `blockNumber` as the object key.
+
+> Remember that `blockNumber` will be available on the block passed in. For the definition of the `Block` class see `plasmaObjects.js`.

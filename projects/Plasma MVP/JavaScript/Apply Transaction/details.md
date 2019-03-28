@@ -17,3 +17,13 @@ After a `DepositCreated` event has occurred on our `Plasma.sol` contract we will
 ![Deposit Transaction](https://res.cloudinary.com/divzjiip8/image/upload/c_scale,h_387/v1553713346/DepositTransaction_gbhca1.png)
 
 All other properties should be set to their default values.
+
+## Using UTXOs
+
+Blocks can use UTXOs from previous blocks as input to their transactions.
+
+![Block Transactions](https://res.cloudinary.com/divzjiip8/image/upload/c_scale,h_372/v1553801107/BlockTransactions_eclwq3.png)
+
+For (Block 1, Transaction 1, Output 1) and (Block 1, Transaction 2, Output 1) we have arrows drawn to the inputs of (Block 2, Transaction 2). 
+
+When we map this outputs from the previous block they must be not `spent`. Once we use these as inputs they must become `spent`. 
