@@ -37,17 +37,13 @@ class PlasmaChain {
     }
 
     addBlock(block) {
-        if(block.blockNumber == this.nextDepositBlock || block.blockNumber == this.nextTxBlock) {
-            this.applyBlock(block);
-
-            if(block.blockNumber == this.nextTxBlock) {
-                this.nextDepositBlock = this.nextTxBlock + 1;
-                this.nextTxBlock += this.blockBuffer;
-            } else {
-                this.nextDepositBlock += 1;
-            }
-        } else {
-            return false;
+        this.applyBlock(block);
+        if (block.blockNumber === this.nextDepositBlock) {
+            this.nextDepositBlock++;
+        }
+        else {
+            this.nextDepositBlock = this.nextTxBlock + 1;
+            this.nextTxBlock += this.blockBuffer;
         }
     }
 

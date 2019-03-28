@@ -8,7 +8,7 @@ const MerkleTree = require("./merkleTree.js");
 class Block {
     constructor(transactionSet, blockNumber) {
         this.transactionSet = transactionSet;
-        this.blockNumber = blockNumber;
+        this.blockNumber = Number(blockNumber);
     }
 
     merkle() {
