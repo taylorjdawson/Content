@@ -1,23 +1,29 @@
 ## Next Deposit Block
 
-Similar to our Plasma contract we need to keep track of the transaction block number, as well as the deposit block number, as more blocks are added to the Plasma chain.
+Similar to our `Plasma.sol` contract we need to differentiate between our deposit and transaction blocks. Let's keep a counter for both.
 
 1. In the constructor define a `nextDepositBlock` and assign it the value `1`.
 
-## Add Block
+## Add Block Function
 
-1. Define an `addBlock` function with a block as it's only argument. 
+Next let's create a generic `addBlock` function that will take either a deposit block or a plasma block and apply it to our plasma blocks.
 
-This function should first check if the block is the next deposit block or the next Plasma transaction block and then apply that block. If it is neither a the next deposit or next Plasma transaction block, the function should return false.
+2. Define an `addBlock` function with a block as it's only argument. 
+3. Use the `applyBlock` function to apply this block to our plasma blocks.
 
 Next, we need to update the respective block numbers depending on if the block was a deposit or a Plasma transaction.
 
-If the block is the `currentBlock` the `nextTxBlock` should be incremented by the `blockBuffer` and the `nextDepositBlock` should reflect the submitted block number plus 1. This will allow us to maintain the 1000 block interval buffer upon each submitted current block.
+**If this is the next deposit**:
 
-If the block is a deposit block, the `nextDepositBlock` should increment by 1.
+4. Increment the `nextDepositBlock` by 1.
 
-## Clean Up
+**If this is the next plasma block**:
 
-1. Re-factor the `addDeposit` function to invoke `addBlock` instead of immediately storing the block inside of the `blocks` object.
+5. First, increment the `nextDepositBlock` to be the current `nextTxBlock` + 1. 
+6. Then, increment the `nextTxBlock` by our `blockBuffer` set in the constructor.
 
-> Note: Depending on how you handled the `blockNumber` argument within the `DepositCreated` event, it might be stored as a `string` or an `integer` on the `block` object. When evaluating for equality in JavaScript, we can either use a strict equality `===` that checks for equality of value and type or we can use `==` which only checks for equality of value. 
+> This logic might be tough to wrap your brain around. If you're wondering why the counters in incremented in this way, check out this [counter timeline](?tab=details&scroll=Counter%20Timeline).
+
+## DepositCreated Listener
+
+7. Finally, we'll need to update our `DepositCreated` listener function to invoke `addBlock` instead of immediately storing the block inside of the `blocks` object. 

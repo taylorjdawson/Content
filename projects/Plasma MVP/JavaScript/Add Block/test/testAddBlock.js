@@ -44,7 +44,7 @@ describe('add block function', function() {
     it('should instantiate the next deposit block', function() {
         const blockNum = plasmaChain.nextDepositBlock;
         assert.notEqual(blockNum, undefined);
-    })
+    });
 
     it('should apply all transactions within the block', function() {
         plasmaChain.addTransaction(tx);
@@ -57,7 +57,7 @@ describe('add block function', function() {
 
         assert.equal(transaction1.output1.spent, true);
         assert.equal(transaction2.output2.spent, true);
-    })
+    });
 
     it('should add the current block to submitted blocks', function () {
         plasmaChain.addTransaction(tx);
@@ -65,7 +65,7 @@ describe('add block function', function() {
         plasmaChain.addBlock(plasmaChain.currentBlock);
         const blocksLength = Object.keys(plasmaChain.blocks).length;
         assert.equal(blocksLength, 3);
-    })
+    });
 
     it('should allocate the correct block number as the key within blocks', function () {
         plasmaChain.addTransaction(tx);
@@ -73,7 +73,7 @@ describe('add block function', function() {
         const blockNum = plasmaChain.currentBlock.blockNumber;
         plasmaChain.addBlock(plasmaChain.currentBlock);
         assert.notEqual(plasmaChain.blocks[blockNum], undefined)
-    })
+    });
 
     it('should not assign a block key to undefined', function () {
         plasmaChain.addTransaction(tx);
@@ -82,13 +82,7 @@ describe('add block function', function() {
         const blockKeys= Object.keys(plasmaChain.blocks);
         const correct = blockKeys.includes('undefined');
         assert.equal(correct, false);
-    })
-
-    it('should return false if the block is not synced with the Plasma contract', function () {
-        const falseBlock = new Block([], 3000);
-        const bool = plasmaChain.addBlock(falseBlock);
-        assert.equal(bool, false);
-    })
+    });
 
     it('should update the next transaction if submitted block is the current block', function() {
         plasmaChain.addTransaction(tx);
