@@ -72,8 +72,7 @@ class PlasmaChain {
 
     submitBlock(block) {
         this.addBlock(block);
-        const merkle = block.merkle();
-        const root = merkle.getRoot();
+        const root = block.getMerkleRoot();
         return this.plasmaContract.methods.submitBlock(root).send({from: this.operator}).then(() => {
             this.currentBlock = new Block([], this.nextTxBlock);
         })
