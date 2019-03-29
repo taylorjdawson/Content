@@ -2,7 +2,7 @@
 
 It's time to write ourselves an exit queue! Super exciting!
 
-This queue will allow people to exit from the plasma chain. Remember that a Queue is a [FIFO Stucture](?tab=details).
+This queue will allow people to exit from the plasma chain. A Queue is a [FIFO Stucture](?tab=details).
 
 You'll need to create two `public` methods on our `ExitQueue`: 
 
