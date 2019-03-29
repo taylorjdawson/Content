@@ -31,7 +31,7 @@ contract Plasma {
     payable
   {
     bytes32 root = keccak256(abi.encodePacked(msg.sender, msg.value));
-    uint256 blockNum = getDepositBlock();
+    uint256 blockNum = getBlockNumber();
     plasmaChain[blockNum] = PlasmaBlock(
       root,
       block.timestamp
@@ -49,7 +49,7 @@ contract Plasma {
     currentDepositBlock = 1; 
   }
 
-  function getDepositBlock() 
+  function getBlockNumber() 
     internal
     returns (uint256)
   {

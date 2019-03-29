@@ -1,13 +1,13 @@
-## Get Deposit Block
+## Get Block Number
 
-Hopefully by now you have an understanding of why a buffer is necessary between our Plasma transaction blocks and deposit blocks. 
+In our `Plasma.sol` contract to this point, we've have two counters: `currentDepositBlock` and `currentPlasmaBlock`. 
 
-As such, we need to create a function to be able to provide the correct deposit block each time a deposit is entered into the Plasma contract. In this way we can keep the Plasma contract and Plasma chain in sync.
+On every deposit the `currentDepositBlock` increments by one. On every submission the `currentDepositBlock` resets and the `currentPlasmaBlock` increments by the buffer. 
 
-1. Define an internal `getDepositBlock` function. Calculate the deposit block number then return the value. 
+> The block buffer helps the JS Operator keep a deterministic value for the next plasma block. Here's a [reminder of the buffer's importance](?tab=details&scroll=Block%20Buffer).
 
-Remember that there is a buffer between submitted blocks and deposit blocks. The returned value should be a deposit block number which starts at the last submitted block plus 1.
+We have a running count for both the plasma and deposit blocks. Now we'll need a way to create a unique block number for deposits based on both counters. 
 
-## Clean up
+1. Define a `getBlockNumber` function. Calculate the next  then return the value. 
 
-1. Re-factor the `deposit` function to use the `getDepositBlock` function when adding a deposit block to the `plasmaChain`.
+2. Re-factor the `deposit` function to use the `getBlockNumber` function when adding a deposit block to the `plasmaChain`.
