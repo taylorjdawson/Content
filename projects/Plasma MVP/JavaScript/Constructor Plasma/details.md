@@ -14,11 +14,23 @@ On the other hand, Plasma transactions first occur on the Plasma chain. These tr
 
 ## Block Buffer
 
-The `BLOCK_BUFFER` serves as a tool to keep the Plasma contract and Plasma chain in sync. As described above, we have to keep track of deposit blocks, which begin on the Plasma contract, and Plasma transaction blocks, which begin on the Plasma chain. Therefore, we start our deposit block at 1 and our Plasma transaction block at 1000 (our `BLOCK_BUFFER`) and increment by 1 and 1000 respectively. In this way, we can create up to 999 deposits before interfering with the transactions occurring on the Plasma chain. 
+You may be asking yourself, "what is the point of the `BLOCK_BUFFER`?". It's a bit of an implementation detail and it's easiest to understand why it's necessary by looking from the Plasma Operator's perspective. 
 
-You will be exposed concept multiple times throughout the tutorial which should help to solidify the idea behind the framework.
+As the plasma operator, you submit a block. This submission is being mined, meanwhile users are still submitted UTXOs. If the plasma block was just the last deposit block + 1, you would have to wait to hear an event before knowing what that number is. 
 
-If this does not make sense now, do not worry as we will be building out this logic later in the tutorial to help solidify the concepts.
+For example, let's say blocks are mined in this order:
+
+1. Deposit Block - 1
+2. Deposit Block - 2
+
+If you were to submit a plasma block without the buffer you might expect the next block to be `3`. But what if a deposit was mined first? Then it would be:
+
+1. Deposit Block - 1
+2. Deposit Block - 2
+3. Deposit Block - 3
+4. Plasma Block - 4
+
+By using the block buffer, the operator knows that the next Plasma Block is `1000`, regardless of whether it is mined in position `3` or `4`. This is not the only way to accomplish this implementation, although it certainly does simplify things. 
 
 ## Architecture
 
