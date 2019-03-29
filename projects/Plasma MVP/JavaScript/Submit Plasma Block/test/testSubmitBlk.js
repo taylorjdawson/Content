@@ -102,7 +102,7 @@ describe('submit block function', function() {
     it('should submit the block to the plasma contract', async () => {
         plasmaChain.addTransaction(tx);
         plasmaChain.addTransaction(tx2);
-        const root = plasmaChain.currentBlock.merkle().getRoot();
+        const root = plasmaChain.currentBlock.getMerkleRoot();
         await plasmaChain.submitBlock(plasmaChain.currentBlock);
         let events = await contract.getPastEvents('BlockSubmitted')
         let blockRoot = events[0].returnValues.root;
