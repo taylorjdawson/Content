@@ -8,9 +8,6 @@ This means that the things we enqueue first will be the things we dequeue first.
 2. Enqueue the letter 'b'
 3. Enqueue the letter 'c'
 
+**Question**: When we dequeue, what order will the letters come out in `abc` or `cba`?
 
-When we dequeue, what order will the letters come out in `abc` or `cba`?
-
-**Spoiler Alert!**
-
-The answer is `abc`! The first letter to be enqueued, `a` was also the first letter to be dequeued. 
+**Answer:** The answer is `abc`! The first letter to be enqueued, `a` was also the first letter to be dequeued. 

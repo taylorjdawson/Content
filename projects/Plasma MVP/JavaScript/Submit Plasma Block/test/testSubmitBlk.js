@@ -103,7 +103,9 @@ describe('submit block function', function() {
         plasmaChain.addTransaction(tx);
         plasmaChain.addTransaction(tx2);
         const root = plasmaChain.currentBlock.getMerkleRoot();
-        await plasmaChain.submitBlock(plasmaChain.currentBlock);
+        const promiEvent = plasmaChain.submitBlock(plasmaChain.currentBlock);
+        assert(promiEvent, "Did not receive a return value from the `submitBlock` function.");
+        await promiEvent;
         let events = await contract.getPastEvents('BlockSubmitted')
         let blockRoot = events[0].returnValues.root;
         assert.equal(root, blockRoot);
