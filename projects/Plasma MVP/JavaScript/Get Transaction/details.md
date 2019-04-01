@@ -2,7 +2,16 @@
 
 For this plasma implementation we'll be encoding & decoding our UTXO ID. This will take our three properties `blockNumber`, `transactionIndex` and `outputIndex` and provide us with a single integer value to lookup the UTXO:
 
-![UTXO ID](https://res.cloudinary.com/divzjiip8/image/upload/v1553559789/utxoid_nosxvu.png)
+UTXO Position: `2000003030001`
+
+Can be decoded to:
+
+Block Number: `2000`
+Transaction Index: `303`
+Output Index: `1`
+
+![UTXO Position](https://res.cloudinary.com/divzjiip8/image/upload/v1554142977/CorrectedUTXOPosition_katge7.png)
+
 
 If you take a look at the `utils.js` file you'll see that  in the `encodeUtxoId` function the values passed in are multiplied by these factors and then added together to get the one integer value.
 
