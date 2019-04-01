@@ -20,7 +20,7 @@
   "details": "$$LOOKUP",
   "language": "javascript",
   "languageVersion": "6.x/babel",
-  "position": 19,
+  "position": 20,
   "task": "$$LOOKUP",
   "testFramework": "mocha_bdd",
   "title": "Apply Exit",

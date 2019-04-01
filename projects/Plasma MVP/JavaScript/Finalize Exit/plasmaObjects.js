@@ -11,7 +11,7 @@ class Block {
         this.blockNumber = Number(blockNumber);
     }
 
-    getMerkleRoot() {
+    merkle() {
         let hashedTxSet = [];
         this.transactionSet.forEach((tx, idx) => {
             const hashed = tx.merkleHash().slice(2);
@@ -28,7 +28,11 @@ class Block {
             })
             let hexStrings = web3.utils.soliditySha3(...transformed).slice(2);
             return Buffer.from(hexStrings, 'hex');
-        }).getRoot();
+        });
+    }
+
+    getMerkleRoot() {
+        return this.merkle.getRoot();
     }
 }
 
