@@ -8,15 +8,6 @@ contract('Plasma', (accounts) => {
             contract = await Plasma.new({from: owner})
         });
 
-        it('should only exit an amount greater than 0', async() => {
-            await expectThrow(contract.addExitToQueue(0, owner, 0));
-        });
-
-        it('should not add to the queue if the exit already exists', async() => {
-            await contract.addExitToQueue(0, owner, 1);
-            await expectThrow(contract.addExitToQueue(0, owner, 1));
-        });
-
         it('should add the exit to the mapping of available exits', async() => {
             await contract.addExitToQueue(0, owner, 1);
             let exit = await contract.exits.call(0);
@@ -31,15 +22,3 @@ contract('Plasma', (accounts) => {
         });
     });
 });
-
-async function expectThrow(promise) {
-    const errMsg = 'Expected throw not received';
-    try {
-        await promise;
-    } catch (err) {
-        assert(err.toString().includes('revert'), errMsg);
-        return;
-    }
-
-    assert(false, errMsg);
-}

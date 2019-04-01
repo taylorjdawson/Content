@@ -68,9 +68,6 @@ contract Plasma {
   function addExitToQueue(uint256 _utxoPos, address _exitor, uint256 _amount)
     public
   {
-    require(_amount > 0);
-    require(exits[_utxoPos].amount == 0);
-
     uint256 exitableAt = block.timestamp + 2 weeks;
     exitQueue.enqueue(exitableAt, _utxoPos);
     
