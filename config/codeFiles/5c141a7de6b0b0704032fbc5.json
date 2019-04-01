@@ -6,8 +6,7 @@
     "5c64a2d9479bcc2db59b98bf",
     "5c92d67511da6705acab5882",
     "5c92da3b11da6705acab588a",
-    "5ca2446e101dc304dfff3c22",
-    "5c18783fe6b0b03a95da4263"
+    "5ca2446e101dc304dfff3c22"
   ],
   "executable": true,
   "executablePath": "contracts/ExitQueue.sol",
