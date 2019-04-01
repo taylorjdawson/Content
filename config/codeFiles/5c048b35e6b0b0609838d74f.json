@@ -3,7 +3,8 @@
   "codeStageIds": [
     "5c64a2bb479bcc2db59b98bb",
     "5c64a2d9479bcc2db59b98bf",
-    "5ca2446e101dc304dfff3c22"
+    "5ca2446e101dc304dfff3c22",
+    "5ca25ca4101dc304dfff3c2a"
   ],
   "executable": true,
   "executablePath": "contracts/RLPDecode.sol",

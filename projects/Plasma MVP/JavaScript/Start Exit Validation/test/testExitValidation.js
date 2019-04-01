@@ -6,6 +6,7 @@ const Plasma = artifacts.require('Plasma');
 web3.setProvider(new web3.providers.WebsocketProvider('http://127.0.0.1:7545/'));
 const PW = 'rawkeypassword';
 
+// Start Exit => Stage 14
 contract('Plasma', (accounts) => {
 
     describe('Start Exit Function', () => {
@@ -38,7 +39,7 @@ contract('Plasma', (accounts) => {
 
             contract = await Plasma.new({ from: operator })
             plasmaChain = new PlasmaChain(operator, contract.address, contract.abi, web3);
-            
+
             await contract.deposit({ from: address1, value: ether })
 
             const transferAmount = 10000;
@@ -72,12 +73,32 @@ contract('Plasma', (accounts) => {
             proofBytes = "0x" + proof[0].data.toString('hex');
             confirmationSig = tx2.confirm(merkle.getRoot(), privateKey1);
             sigs = tx2.input1.signature + tx2.input2.signature.slice(2) + confirmationSig;
-            
+
             bond = await plasmaChain.plasmaContract.methods.EXIT_BOND().call();
-        });
+        })
 
         it('should start an exit', async () => {
             await contract.startExit(utxoPos, txBytes, proofBytes, sigs, { from: address2, gas: 200000, value: bond })
+        });
+
+        it('should revert if the value sent is not equal to the exit bond', async () => {
+            await expectThrow(contract.startExit(utxoPos, txBytes, proofBytes, sigs, { from: address2, gas: 200000, value: 500 }))
+        })
+
+        it('should not allow an invalid exitor to exit the utxo', async () => {
+            await expectThrow(contract.startExit(utxoPos, txBytes, proofBytes, sigs, { from: address1, gas: 200000, value: bond }))
+        });
+
+        it('should check for membership of the transaction in the merkle tree', async () => {
+            const invalidProof = '0x12345';
+            await expectThrow(contract.startExit(utxoPos, txBytes, invalidProof, sigs, { from: address2, gas: 200000, value: bond }))
+        });
+
+        it('should check that the signatures are valid', async () => {
+            confirmationSig = tx2.confirm(merkle.getRoot(), privateKey2);
+            sigs = tx2.input1.signature + tx2.input2.signature.slice(2) + confirmationSig;
+
+            await expectThrow(contract.startExit(utxoPos, txBytes, proofBytes, sigs, { from: address2, gas: 200000, value: bond }))
         });
 
         it('should emit an ExitStarted event', async () => {
@@ -87,6 +108,18 @@ contract('Plasma', (accounts) => {
             let exit = events[0].event;
 
             assert.equal(exit, 'ExitStarted');
-        });
-    });
-});
+        })
+    })
+})
+
+async function expectThrow(promise) {
+    const errMsg = 'Expected throw not received';
+    try {
+        await promise;
+    } catch (err) {
+        assert(err.toString().includes('revert'), errMsg);
+        return;
+    }
+
+    assert(false, errMsg);
+}
