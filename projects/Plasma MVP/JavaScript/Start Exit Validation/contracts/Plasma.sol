@@ -4,7 +4,6 @@ import "./ExitQueue.sol";
 import "./PlasmaRLP.sol";
 import "./Validate.sol";
 import "./Merkle.sol";
-import "./ByteUtils.sol";
 
 contract Plasma {
   using PlasmaRLP for bytes;
