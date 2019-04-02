@@ -77,11 +77,15 @@ contract('Plasma', (accounts) => {
         });
 
         it('should start an exit', async () => {
-            await contract.startExit(utxoPos, txBytes, proofBytes, sigs, { from: address2, gas: 200000, value: bond })
+            await contract.startExit(utxoPos, txBytes, proofBytes, sigs, { from: address2, gas: 200000, value: bond });
+            
+            const { exitor, amount } = await contract.exits(utxoPos);
+            assert.equal(exitor.toLowerCase(), address2, "Exitor address was not expected");
+            assert.equal(amount, tx2.output1.amount, "Exit Amount was not expected");
         });
 
         it('should emit an ExitStarted event', async () => {
-            await contract.startExit(utxoPos, txBytes, proofBytes, sigs, { from: address2, gas: 200000, value: bond })
+            await contract.startExit(utxoPos, txBytes, proofBytes, sigs, { from: address2, gas: 200000, value: bond });
 
             let events = await contract.getPastEvents('ExitStarted');
             let exit = events[0].event;

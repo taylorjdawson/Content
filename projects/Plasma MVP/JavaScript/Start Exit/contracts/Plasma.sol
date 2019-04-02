@@ -105,10 +105,8 @@ contract Plasma {
         (uint blknum, uint txindex, uint oindex) = decodeUTXO(_utxoPos);
         
         PlasmaRLP.exitingTx memory exitingTx = _txBytes.createExitingTx(oindex);
-        address addr = exitingTx.exitor;
-        address payable exitor = address(uint160(addr));
 
-        addExitToQueue(_utxoPos, exitor, exitingTx.amount);
+        addExitToQueue(_utxoPos, exitingTx.exitor, exitingTx.amount);
     }
 
 
