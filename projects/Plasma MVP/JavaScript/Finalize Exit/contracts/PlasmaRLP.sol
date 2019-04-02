@@ -2,7 +2,6 @@ pragma solidity ^0.5.0;
 
 import "./RLPDecode.sol";
 
-
 library PlasmaRLP {
     struct exitingTx {
         address exitor;
