@@ -1,0 +1,16 @@
+{
+  "executablePath": "test/testMerkle.js",
+  "name": "testMerkle.js",
+  "executable": true,
+  "hasProgress": false,
+  "mode": "javascript",
+  "readOnly": true,
+  "testFixture": true,
+  "visible": true,
+  "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
+  "codeStageIds": [
+    "5ca3f0f2101dc304dfff3c55"
+  ],
+  "id": "5ca3f127101dc304dfff3c59",
+  "initialCode": "$$LOOKUP"
+}

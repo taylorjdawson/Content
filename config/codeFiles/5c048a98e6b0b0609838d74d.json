@@ -3,7 +3,9 @@
   "codeStageIds": [
     "5c64a2bb479bcc2db59b98bb",
     "5c64a2d9479bcc2db59b98bf",
-    "5ca25ca4101dc304dfff3c2a"
+    "5ca25ca4101dc304dfff3c2a",
+    "5ca3f0e1101dc304dfff3c52",
+    "5ca3f0f2101dc304dfff3c55"
   ],
   "executable": true,
   "executablePath": "contracts/Merkle.sol",

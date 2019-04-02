@@ -3,7 +3,9 @@
   "codeStageIds": [
     "5c1419a1e6b0b0704032fbc2",
     "5c64a2bb479bcc2db59b98bb",
-    "5c64a2d9479bcc2db59b98bf"
+    "5c64a2d9479bcc2db59b98bf",
+    "5ca3f0e1101dc304dfff3c52",
+    "5ca3f0f2101dc304dfff3c55"
   ],
   "executable": true,
   "executablePath": "contracts/ByteUtils.sol",
