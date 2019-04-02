@@ -6,9 +6,7 @@ const Plasma = artifacts.require('Plasma');
 web3.setProvider(new web3.providers.WebsocketProvider('http://127.0.0.1:7545/'));
 const PW = 'rawkeypassword';
 
-// Start Exit => Stage 14
 contract('Plasma', (accounts) => {
-
     describe('Start Exit Function', () => {
         const ether = web3.utils.toWei('1', 'ether');
         let utxoId;
