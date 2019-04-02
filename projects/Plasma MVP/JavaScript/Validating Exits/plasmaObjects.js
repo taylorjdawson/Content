@@ -87,7 +87,7 @@ class Transaction {
             Buffer.from(this.output2.owner.slice(2), 'hex'), this.output2.amount,
         ]);
     }
-    
+
     confirm(root, key) {
         return sign(web3.utils.soliditySha3(this.hash(), root), key).toString('hex');
     }
