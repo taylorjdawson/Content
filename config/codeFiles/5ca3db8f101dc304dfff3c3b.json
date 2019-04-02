@@ -1,0 +1,17 @@
+{
+  "executablePath": "utils.js",
+  "name": "utils.js",
+  "executable": true,
+  "hasProgress": false,
+  "mode": "javascript",
+  "readOnly": true,
+  "testFixture": false,
+  "visible": false,
+  "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
+  "codeStageIds": [
+    "5ca25ca4101dc304dfff3c2a"
+  ],
+  "id": "5ca3db8f101dc304dfff3c3b",
+  "initialCode": "$$LOOKUP",
+  "fileLocation": null
+}

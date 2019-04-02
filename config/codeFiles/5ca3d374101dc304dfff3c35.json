@@ -1,0 +1,17 @@
+{
+  "executablePath": "contracts/ECRecovery.sol",
+  "name": "ECRecovery.sol",
+  "executable": true,
+  "hasProgress": false,
+  "mode": "sol",
+  "readOnly": true,
+  "testFixture": false,
+  "visible": false,
+  "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
+  "codeStageIds": [
+    "5ca25ca4101dc304dfff3c2a"
+  ],
+  "id": "5ca3d374101dc304dfff3c35",
+  "initialCode": "$$LOOKUP",
+  "fileLocation": null
+}

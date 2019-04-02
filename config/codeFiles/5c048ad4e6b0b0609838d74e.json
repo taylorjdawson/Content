@@ -3,7 +3,8 @@
   "codeStageIds": [
     "5c64a2bb479bcc2db59b98bb",
     "5c64a2d9479bcc2db59b98bf",
-    "5ca2446e101dc304dfff3c22"
+    "5ca2446e101dc304dfff3c22",
+    "5ca25ca4101dc304dfff3c2a"
   ],
   "executable": true,
   "executablePath": "contracts/PlasmaRLP.sol",
@@ -14,7 +15,8 @@
   "readOnly": true,
   "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
   "testFixture": false,
-  "visible": true,
+  "visible": false,
   "updatedAt": "2019-01-09T02:39:33.394Z",
-  "createdAt": "2019-01-09T02:39:33.394Z"
+  "createdAt": "2019-01-09T02:39:33.394Z",
+  "fileLocation": null
 }

@@ -2,7 +2,7 @@ When exiting transactions from the Plasma chain, a queue is established to allow
 
 Let's begin by importing the `ExitQueue.sol` contract you just wrote into our `Plasma.sol` contract. 
 
-1. Import the `ExitQueue.sol` contract into `Plasma.sol`.
+1. Import `./ExitQueue.sol` into `Plasma.sol`.
 
 ## Exit Setup
 

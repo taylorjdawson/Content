@@ -2,13 +2,9 @@ pragma solidity ^0.5.0;
 
 import "./ExitQueue.sol";
 import "./PlasmaRLP.sol";
-import "./Validate.sol";
-import "./Merkle.sol";
-import "./ByteUtils.sol";
 
 contract Plasma {
   using PlasmaRLP for bytes;
-  using Merkle for bytes32;
 
   address public operator;
   uint public currentPlasmaBlock;
@@ -86,6 +82,17 @@ contract Plasma {
     emit ExitStarted(_exitor, _utxoPos, _amount);
   }
 
+  function decodeUTXO(uint _utxoPos) 
+    public 
+    view
+    returns(uint, uint, uint)
+  {
+      uint256 blknum = _utxoPos / 1000000000;
+      uint256 txindex = (_utxoPos % 1000000000) / 10000;
+      uint256 oindex = _utxoPos - blknum * 1000000000 - txindex * 10000;
+      return (blknum, txindex, oindex);
+  }
+
   function startExit(
         uint256 _utxoPos,
         bytes memory _txBytes,
@@ -95,25 +102,11 @@ contract Plasma {
         public
         payable
     {
-        require(msg.value == EXIT_BOND);
-        uint256 blknum = _utxoPos / 1000000000;
-        uint256 txindex = (_utxoPos % 1000000000) / 10000;
-        uint256 oindex = _utxoPos - blknum * 1000000000 - txindex * 10000;
-
-        // Check the sender owns this UTXO.
+        (uint blknum, uint txindex, uint oindex) = decodeUTXO(_utxoPos);
+        
         PlasmaRLP.exitingTx memory exitingTx = _txBytes.createExitingTx(oindex);
-        require(msg.sender == exitingTx.exitor, "Sender must be exitor.");
-        // Check the transaction was included in the chain and is correctly signed.
-        bytes32 root = plasmaChain[blknum].root;
 
-        bytes32 merkleHash = keccak256(abi.encodePacked(keccak256(_txBytes), ByteUtils.slice(_sigs, 0, 130)));
-
-        require(merkleHash.checkMembership(txindex, root, _proof), "Transaction Merkle proof is invalid.");
-        require(Validate.checkSigs(keccak256(_txBytes), root, exitingTx.inputCount, _sigs), "Signatures must match.");
-        address addr = exitingTx.exitor;
-        address payable exitor = address(uint160(addr));
-
-        addExitToQueue(_utxoPos, exitor, exitingTx.amount);
+        addExitToQueue(_utxoPos, exitingTx.exitor, exitingTx.amount);
     }
 
 
