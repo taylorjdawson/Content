@@ -30,7 +30,7 @@
   "position": 20,
   "task": "$$LOOKUP",
   "testFramework": "truffle_with_mocha",
-  "title": "Start Exit Validation",
+  "title": "Validating Exits",
   "validatedContract": "Plasma",
   "updatedAt": "2019-01-09T02:39:31.793Z",
   "createdAt": "2019-01-09T02:39:31.793Z",
