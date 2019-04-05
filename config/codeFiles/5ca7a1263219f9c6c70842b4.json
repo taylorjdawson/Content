@@ -1,19 +1,17 @@
 {
-  "executablePath": "contracts/ECRecovery.sol",
-  "name": "ECRecovery.sol",
+  "executablePath": "contracts/Merkle.sol",
+  "name": "Merkle.sol",
   "executable": true,
   "hasProgress": false,
   "mode": "sol",
   "readOnly": true,
   "testFixture": false,
-  "visible": true,
+  "visible": false,
   "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
   "codeStageIds": [
-    "5c64a2d9479bcc2db59b98bf",
-    "5ca3f0e1101dc304dfff3c52",
-    "5ca3f0f2101dc304dfff3c55"
+    "5c64a2bb479bcc2db59b98bb"
   ],
-  "id": "5c74a3bcbf41233fc170013a",
+  "id": "5ca7a1263219f9c6c70842b4",
   "initialCode": "$$LOOKUP",
   "fileLocation": null
 }
