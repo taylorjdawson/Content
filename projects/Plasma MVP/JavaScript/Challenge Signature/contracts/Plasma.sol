@@ -132,8 +132,6 @@ contract Plasma {
        bytes32 txHash = keccak256(_txBytes);
        // Confirmation hash of the challenging transaction
        bytes32 confirmationHash = keccak256(abi.encodePacked(txHash, root));
-       // Merkle hash of the challenging transaction which included challenging signatures
-       bytes32 merkleHash = keccak256(abi.encodePacked(txHash, _sigs));
 
 
        // Encoded position of exiting UTXO
@@ -144,12 +142,6 @@ contract Plasma {
        // Validate the spending transaction
        // The confirmation hash includes the spent utxo as ones of its inputs so the owner should be the owner at the exiting utxo pos
        require(owner == ECRecovery.recover(confirmationHash, _confirmationSig), "Confirmation signature must be signed by owner.");
-
-
-       // Transaction index of challenging tx
-       uint256 txindex = (_cUtxoPos % 1000000000) / 10000;
-       // Checks that the challenging transaction was indeed included in the block
-       require(merkleHash.checkMembership(txindex, root, _proof), "Transaction Merkle proof is invalid.");
 
        // Delete the owner but keep the amount to prevent another exit.
        // Keeping the amount does not allow one to add an exit to queue as the amount > 0

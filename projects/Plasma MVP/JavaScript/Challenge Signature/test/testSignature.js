@@ -3,7 +3,8 @@ const { encodeUtxoId, NULL_ADDRESS } = require('../utils.js');
 const { privateKeyOperator, privateKey1, privateKey2 } = require("../privateKeys.js");
 const Plasma = artifacts.require('Plasma');
 const PlasmaChain = require('../plasmaChain.js');
-web3.setProvider(new web3.providers.WebsocketProvider('http://127.0.0.1:7545/'))
+web3.setProvider(new web3.providers.WebsocketProvider('http://127.0.0.1:7545/'));
+const PW = 'password1234';
 
 // Challenge Exit => Stage 16
 contract('Plasma', (accounts) => {
@@ -25,19 +26,18 @@ contract('Plasma', (accounts) => {
     let bond;
     describe('Start Exit Function', () => {
         beforeEach(async () => {
-            operator = await web3.eth.personal.importRawKey(privateKeyOperator, "password1234");
-            address1 = await web3.eth.personal.importRawKey(privateKey1, "password1234");
-            address2 = await web3.eth.personal.importRawKey(privateKey2, "password1234");
+            operator = await web3.eth.personal.importRawKey(privateKeyOperator, PW);
+            address1 = await web3.eth.personal.importRawKey(privateKey1, PW);
+            address2 = await web3.eth.personal.importRawKey(privateKey2, PW);
             // use that password to unlock the account so truffle can use it
-            await web3.eth.personal.unlockAccount(operator, 'password1234', 6000);
-            await web3.eth.personal.unlockAccount(address1, 'password1234', 6000);
-            await web3.eth.personal.unlockAccount(address2, 'password1234', 6000);
+            await web3.eth.personal.unlockAccount(operator, PW, 6000);
+            await web3.eth.personal.unlockAccount(address1, PW, 6000);
+            await web3.eth.personal.unlockAccount(address2, PW, 6000);
 
             // give our new account some ether from an already loaded account
             await web3.eth.sendTransaction({ from: accounts[0], to: operator, value: web3.utils.toWei("1") })
             await web3.eth.sendTransaction({ from: accounts[1], to: address1, value: web3.utils.toWei("2") })
             await web3.eth.sendTransaction({ from: accounts[2], to: address2, value: web3.utils.toWei("2") })
-
 
             contract = await Plasma.new({ from: operator })
             plasmaChain = new PlasmaChain(operator, contract.address, contract.abi, web3);
@@ -101,17 +101,13 @@ contract('Plasma', (accounts) => {
         })
 
         it('should revert if the exitor address does not match the recovered public key of the confirmation hash and confirmation signature', async () => {
-            await expectThrow(contract.challengeExit(cUtxoPos, 0, cTxBytes, "0x", cSigs, "0x" + confirmationSig, { from: address1, gas: 200000 }))
-        });
-
-        it('should revert if the challenging transaction is not included within the blocks merkle tree', async () => {
-            await expectThrow(contract.challengeExit(cUtxoPos, 0, cTxBytes, proofBytes, cSigs, "0x" + cConfSig, { from: address1, gas: 200000 }))
+            await expectThrow(contract.challengeExit(cUtxoPos, 0, cTxBytes, "0x", cSigs, "0x" + confirmationSig, { from: address1, gas: 200000 }));
         });
 
         it('should delete the exitor from the exit mapped to the exiting UTXO position', async () => {
             await contract.challengeExit(cUtxoPos, 0, cTxBytes, "0x", cSigs, "0x" + cConfSig, { from: address1, gas: 200000 })
             const exitor = await contract.exits(utxoPos);
-            assert.equal(exitor.exitor, NULL_ADDRESS)
+            assert.equal(exitor.exitor, NULL_ADDRESS);
         });
 
         it('should transfer the exit bond to the challenger upon sucessful challenge', async () => {
