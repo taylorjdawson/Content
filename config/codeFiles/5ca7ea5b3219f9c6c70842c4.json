@@ -1,18 +1,17 @@
 {
-  "executablePath": "contracts/Validate.sol",
-  "name": "Validate.sol",
+  "executablePath": "contracts/ExitQueue.sol",
+  "name": "ExitQueue.sol",
   "executable": true,
   "hasProgress": false,
   "mode": "sol",
   "readOnly": true,
   "testFixture": false,
-  "visible": true,
+  "visible": false,
   "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
   "codeStageIds": [
-    "5c64a2d9479bcc2db59b98bf",
-    "5ca25ca4101dc304dfff3c2a"
+    "5ca3f0f2101dc304dfff3c55"
   ],
-  "id": "5c74a374bf41233fc1700138",
+  "id": "5ca7ea5b3219f9c6c70842c4",
   "initialCode": "$$LOOKUP",
   "fileLocation": null
 }
