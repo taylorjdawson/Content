@@ -127,8 +127,7 @@ contract Plasma {
       public
     {
        // Encoded position of exiting UTXO
-       uint256 eUtxoPos = _txBytes.getUtxoPos(_eUtxoIndex);
-
+       uint256 eUtxoPos = PlasmaRLP.getUtxoPos(_txBytes, _eUtxoIndex);
        // Delete the owner but keep the amount to prevent another exit.
        // Keeping the amount does not allow one to add an exit to queue as the amount > 0
        delete exits[eUtxoPos].exitor;
