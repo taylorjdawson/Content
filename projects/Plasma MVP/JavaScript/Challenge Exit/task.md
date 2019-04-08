@@ -15,7 +15,12 @@ Define a public `challengeExit` function which takes in six parameters:
 - `bytes` - signatures of the transaction 
 - `bytes` - confirmation signature.
 
-For this stage, let's take the challenger's word for it and simply accomplish two things:
+For this stage, let's assume this challenge is valid. Upon a successful challenge we'll want to do two things:
 
 1. Remove the `exitor` from the specific `Exit` within `exits`.
+
+> To find the exit from `exits` we can use the `PlasmaRLP` `getUtxoPos` to get the exiting UTXO position. This function requires we send over the exiting transaction and the ouput index we are targetting.
+
 2. Transfer the `EXIT_BOND` stored in the contract to the challenger's address.
+
+> The _challenger_ is the address calling `challengeExit` function! 
