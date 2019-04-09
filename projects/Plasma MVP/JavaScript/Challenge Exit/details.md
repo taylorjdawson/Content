@@ -1,0 +1,1 @@
+![Challenge Architecture](https://res.cloudinary.com/divzjiip8/image/upload/v1554792644/ExitArchitecture_gr1io8.png)
