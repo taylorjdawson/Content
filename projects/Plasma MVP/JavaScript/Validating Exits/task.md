@@ -19,4 +19,4 @@ We need to validate that the parameters passed into `startExit` are allowed. Let
 
 2. The function should revert if the `exitor` in our exiting transaction is not equal to the sender.
 
-3. Finally we need to check for membership of the merkle hash within the block's merkle tree using our `Merkle` library and revert if the hash in not included.
+3. Finally we need to [check for membership](?tab=details&scroll=Merkle%20Proof) of the merkle hash within the block's merkle tree using our `Merkle` library and revert if the hash in not included. 

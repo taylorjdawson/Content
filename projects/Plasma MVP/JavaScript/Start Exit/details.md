@@ -35,3 +35,9 @@ We're going to be building two methods for handling exits:
 2. **Challenge Exit** - This will allow users to challenge other exits if they have proof that the funds have been spent elsewhere. 
 
 ![Exit Architecture](https://res.cloudinary.com/divzjiip8/image/upload/v1554792644/ExitArchitecture_gr1io8.png)
+
+## Merkle Proof
+
+Since we're using the UTXO model each exit must point to a specific output. We also want to make sure that only the person who actually owns that output can withdraw it. This is why a user needs to submit a Merkle Proof to start an exit. 
+
+The smart contract will check the merkle proof to make sure that the transaction that created the output exists in the plasma chain. The contract then also checks that the output is owned by the user who started the exit.
