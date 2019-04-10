@@ -1,0 +1,16 @@
+{
+  "executablePath": "test/testSignature.js",
+  "name": "testSignature.js",
+  "executable": true,
+  "hasProgress": false,
+  "mode": "javascript",
+  "readOnly": true,
+  "testFixture": true,
+  "visible": true,
+  "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
+  "codeStageIds": [
+    "5ca3f0e1101dc304dfff3c52"
+  ],
+  "id": "5ca3f113101dc304dfff3c58",
+  "initialCode": "$$LOOKUP"
+}

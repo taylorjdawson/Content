@@ -4,8 +4,8 @@ const { privateKeyOperator, privateKey1, privateKey2 } = require("../privateKeys
 const Plasma = artifacts.require('Plasma');
 const PlasmaChain = require('../plasmaChain.js');
 web3.setProvider(new web3.providers.WebsocketProvider('http://127.0.0.1:7545/'))
+const PW = 'password1234';
 
-// Challenge Exit => Stage 16
 contract('Plasma', (accounts) => {
     const ether = web3.utils.toWei('1', 'ether');
     let utxoId;
@@ -25,13 +25,13 @@ contract('Plasma', (accounts) => {
     let bond;
     describe('Start Exit Function', () => {
         beforeEach(async () => {
-            operator = await web3.eth.personal.importRawKey(privateKeyOperator, "password1234");
-            address1 = await web3.eth.personal.importRawKey(privateKey1, "password1234");
-            address2 = await web3.eth.personal.importRawKey(privateKey2, "password1234");
+            operator = await web3.eth.personal.importRawKey(privateKeyOperator, PW);
+            address1 = await web3.eth.personal.importRawKey(privateKey1, PW);
+            address2 = await web3.eth.personal.importRawKey(privateKey2, PW);
             // use that password to unlock the account so truffle can use it
-            await web3.eth.personal.unlockAccount(operator, 'password1234', 6000);
-            await web3.eth.personal.unlockAccount(address1, 'password1234', 6000);
-            await web3.eth.personal.unlockAccount(address2, 'password1234', 6000);
+            await web3.eth.personal.unlockAccount(operator, PW, 6000);
+            await web3.eth.personal.unlockAccount(address1, PW, 6000);
+            await web3.eth.personal.unlockAccount(address2, PW, 6000);
 
             // give our new account some ether from an already loaded account
             await web3.eth.sendTransaction({ from: accounts[0], to: operator, value: web3.utils.toWei("1") })
@@ -98,14 +98,6 @@ contract('Plasma', (accounts) => {
 
             bond = await contract.EXIT_BOND();
             await contract.startExit(utxoPos, txBytes, proofBytes, sigs, { from: address2, gas: 200000, value: bond })
-        })
-
-        it('should revert if the exitor address does not match the recovered public key of the confirmation hash and confirmation signature', async () => {
-            await expectThrow(contract.challengeExit(cUtxoPos, 0, cTxBytes, "0x", cSigs, "0x" + confirmationSig, { from: address1, gas: 200000 }))
-        });
-
-        it('should revert if the challenging transaction is not included within the blocks merkle tree', async () => {
-            await expectThrow(contract.challengeExit(cUtxoPos, 0, cTxBytes, proofBytes, cSigs, "0x" + cConfSig, { from: address1, gas: 200000 }))
         });
 
         it('should delete the exitor from the exit mapped to the exiting UTXO position', async () => {
@@ -125,17 +117,5 @@ contract('Plasma', (accounts) => {
             const totalChange = web3.utils.toBN(newBalance).sub(web3.utils.toBN(begBalance))
             assert.equal(expectedChange.toString(), totalChange.toString());
         });
-    })
-})
-
-async function expectThrow(promise) {
-    const errMsg = 'Expected throw not received';
-    try {
-        await promise;
-    } catch (err) {
-        assert(err.toString().includes('revert'), errMsg);
-        return;
-    }
-
-    assert(false, errMsg);
-}
+    });
+});

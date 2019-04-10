@@ -1,0 +1,17 @@
+{
+  "executablePath": "contracts/Merkle.sol",
+  "name": "Merkle.sol",
+  "executable": true,
+  "hasProgress": false,
+  "mode": "sol",
+  "readOnly": true,
+  "testFixture": false,
+  "visible": false,
+  "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
+  "codeStageIds": [
+    "5c64a2bb479bcc2db59b98bb"
+  ],
+  "id": "5ca7a1263219f9c6c70842b4",
+  "initialCode": "$$LOOKUP",
+  "fileLocation": null
+}

@@ -1,0 +1,17 @@
+{
+  "executablePath": "contracts/ExitQueue.sol",
+  "name": "ExitQueue.sol",
+  "executable": true,
+  "hasProgress": false,
+  "mode": "sol",
+  "readOnly": true,
+  "testFixture": false,
+  "visible": false,
+  "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
+  "codeStageIds": [
+    "5ca3f0e1101dc304dfff3c52"
+  ],
+  "id": "5ca7a7313219f9c6c70842be",
+  "initialCode": "$$LOOKUP",
+  "fileLocation": null
+}

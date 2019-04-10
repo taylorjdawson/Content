@@ -1,8 +1,8 @@
 ## Start Exit 
 
-It's time to write the function that will allow anyone to exit the plasma chain with proof that they own their ETH. 
+It's time to write the function that will allow anyone to exit the plasma chain with proof that they own their ETH. Check out a [visual construction](?tab=details?scroll=Start%20Exit%20Visually) for an easy view of this function. 
 
->This is the primary security measure for our Plasma construction, so it's important we get it right! 
+> This is the primary security measure for our Plasma construction, so it's important we get it right! 
 
 1. Define a public payable `startExit` function with a `uint256` utxo position, RLP encoded transaction in `bytes`, merkle proof in `bytes`, and signatures in `bytes`. 
 
