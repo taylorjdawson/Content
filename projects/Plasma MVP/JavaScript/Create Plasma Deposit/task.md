@@ -20,3 +20,5 @@ The `deposit` function will allow someone to deposit funds into the Plasma chain
 > It is important to name the variables as `owner`, `amount`, and `blockNumber` because when we build the JavaScript Plasma chain, we will refer specifically to the event arguments in order to add the deposit to the Plasma chain.
 
 2. Emit the `DepositCreated` event within the `deposit` function.
+
+> The BlockNumber for this event will be the deposit block number prior to being incremented. 
