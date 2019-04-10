@@ -1,14 +1,14 @@
 ## What is Plasma?
 
-Plasma is set of design patterns for batching transactions on top of a secure blockchain for the purposes of scalability, while mantaining the security gaurantees of that base level blockchain. 
+Plasma is set of design patterns for batching transactions on top of a secure blockchain for the purposes of scalability, all while mantaining the security gaurantees of that base level blockchain. 
 
 Don't worry if we lost you there! Let's break it down. 
 
-By design patterns we mean there are many different versions of Plasma. They are similar in the base architecture while there are many nuances that make some versions more advantageous in certain scenarios. 
+By design patterns we mean there are many different versions of Plasma. They are similar in their base architecture while there are many nuances that make some versions more advantageous in certain scenarios. 
 
-Plasma achieves scalability by creating a smart contract on the main blockchain, which acts as a sort of Supreme Court. You don't need to settle all disputes at the Supreme Court. Similarly in Plasma you can complete most of your transactions without having to go back to the main blockchain. 
+Plasma achieves scalability by creating a smart contract on the main blockchain, which acts as a sort of Supreme Court. You don't need to settle all disputes at the Supreme Court. Similarly in Plasma you can complete most of your transactions without having to go back to the main blockchain. Plasma batches it's transactions on a sidechain, while allowing anyone to exit via the Plasma Contract on the root chain at any point. 
 
-The rest of the Plasma architecture consists of a centralized operator and a bunch of client nodes which you can think of as users. The advantage of the centralized operator is that all transactions can occur efficiently. At the same time, the design is such that the central operator has no ability to steal your funds. Sound like magic? Stick around, you'll build your very own Plasma MVP and understand it's core mechanisms! 
+The Plasma architecture consists of a smart contract, a centralized operator and many client nodes which you can think of as users. The advantage of the centralized operator is that all transactions can occur efficiently. At the same time, the design is such that the central operator has no ability to steal your funds. Sound like magic? Stick around, you'll build your very own Plasma MVP and understand it's core mechanisms! 
  
 ### What is Plasma MVP?
 

@@ -1,8 +1,8 @@
-## Single Operator
+## Centralized Operator
 
-This version of Plasma is created under the assumption of a single `operator`. This means that all transactions that occur on the Plasma chain will be sent to and stored on the operator's centralized server. These transactions can then be submitted by the `operator` to the Plasma contract.
+The idea of a single, centralized operator may seem strange to those familiar with blockchain. Typically we don't rely on a single operator with our transactions because it requires an element of **trust**. Instead, blockchains provide decentralization by being a permissionless network of many computers that are financially incentivized to come to a consensus. 
 
-Dealing with an operator in the early stages of Plasma development helps to keep the construction simple and easy to test. The idea is that if this can be accomplished with a single `operator` it can also be accomplished with a group of validators.
+Why do we use a single operator in Plasma, then? The reason is because Plasma is a special type of sidechain that works even if the consensus layer fails. As long as the base chain that plasma works on top is secure. Users can always exit their funds to the root chain provided they can offer valid proof they own the funds and they have not been spent.
 
 ## Plasma Blocks 
 
