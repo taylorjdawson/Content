@@ -2,7 +2,7 @@
   "id": "5be33994e6b0b02ef6f2abf9",
   "containerType": "Lesson",
   "description": "Build your own Plasma MVP. Learn how to scale transactions off-chain while depending on the root chain for security.",
-  "productionReady": false,
+  "productionReady": true,
   "title": "Plasma MVP",
   "updatedAt": "2019-01-09T02:39:30.168Z",
   "createdAt": "2019-01-09T02:39:30.168Z",
