@@ -13,7 +13,7 @@ You'll need to define four variables. One for the `address` of the [operator](?t
 1. Define a public `address` named `operator`
 2. Define a public `uint` named `currentPlasmaBlock`
 3. Define a public `uint` named `currentDepositBlock`
-4. Define a public `uint` constant named `BLOCK_BUFFER` initialized to 1000
+4. Define a public `uint` named `BLOCK_BUFFER` initialized to the value `1000`.
 
 ## Constructor
 
