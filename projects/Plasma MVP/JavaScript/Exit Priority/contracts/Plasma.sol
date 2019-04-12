@@ -119,7 +119,7 @@ contract Plasma {
       address addr = exitingTx.exitor;
       address payable exitor = address(uint160(addr));
       
-      addExitToQueue(_utxoPos, exitor, exitingTx.amount, plasmaBlocks[blknum].timestamp);
+      addExitToQueue(_utxoPos, exitor, exitingTx.amount, plasmaChain[blknum].timestamp);
   }
 
   function challengeExit(
