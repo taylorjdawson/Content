@@ -4,30 +4,8 @@
     "constant": "false",
     "payable": "false",
     "error": null,
-    "task_display": "Define a public startExit function",
-    "name": "startExit",
-    "inputs": [
-      {
-        "_id": "5c19a09ee6b0b03a95da4294",
-        "name": null,
-        "staticType": "uint256"
-      },
-      {
-        "_id": "5c19a09ee6b0b03a95da4295",
-        "name": null,
-        "staticType": "bytes"
-      },
-      {
-        "_id": "5c19a09ee6b0b03a95da4296",
-        "name": null,
-        "staticType": "bytes"
-      },
-      {
-        "_id": "5c19a09ee6b0b03a95da4297",
-        "name": null,
-        "staticType": "bytes"
-      }
-    ],
+    "task_display": "Define a public finalizeExits function",
+    "name": "finalizeExits",
     "interfaceType": "function"
   }
 ]
