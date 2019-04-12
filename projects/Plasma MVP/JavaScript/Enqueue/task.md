@@ -4,6 +4,8 @@ In a couple stages we'll write the functionality that will allow users to move t
 
 More on that later. For now know that we'll need to write a Queue that will allow us to hold a series of "exits" and finalize them after a period of time in [First-In-First-Out (FIFO)](?tab=details) order.
 
+## Enqueue & Current Size
+
 You'll need to create two `public` methods on our `ExitQueue`: 
 
 1. `enqueue` which takes in a `uint256 _exitableDate` and a  `uint256 _utxoPos`. 
