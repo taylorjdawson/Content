@@ -4,11 +4,16 @@
     "constant": "false",
     "payable": "false",
     "error": null,
-    "task_display": "Define a public startExit function",
-    "name": "startExit",
+    "task_display": "Define a public challengeExit function",
+    "name": "challengeExit",
     "inputs": [
       {
         "_id": "5c19a09ee6b0b03a95da4294",
+        "name": null,
+        "staticType": "uint256"
+      },
+      {
+        "_id": "5c19a09ee6b0b03a95da4291",
         "name": null,
         "staticType": "uint256"
       },
@@ -24,6 +29,11 @@
       },
       {
         "_id": "5c19a09ee6b0b03a95da4297",
+        "name": null,
+        "staticType": "bytes"
+      },
+      {
+        "_id": "5c19a09ee6b0b03a95da4298",
         "name": null,
         "staticType": "bytes"
       }
