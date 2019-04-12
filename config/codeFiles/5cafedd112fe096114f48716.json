@@ -1,0 +1,16 @@
+{
+  "executablePath": "test/testPriority.js",
+  "name": "testPriority.js",
+  "executable": true,
+  "hasProgress": false,
+  "mode": "javascript",
+  "readOnly": true,
+  "testFixture": true,
+  "visible": true,
+  "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
+  "codeStageIds": [
+    "5cafebd412fe096114f4870b"
+  ],
+  "id": "5cafedd112fe096114f48716",
+  "initialCode": "$$LOOKUP"
+}

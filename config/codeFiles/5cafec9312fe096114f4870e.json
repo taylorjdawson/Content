@@ -1,18 +1,17 @@
 {
-  "executablePath": "plasmaObjects.js",
-  "name": "plasmaObjects.js",
+  "executablePath": "contracts/Merkle.sol",
+  "name": "Merkle.sol",
   "executable": true,
   "hasProgress": false,
-  "mode": "javascript",
+  "mode": "sol",
   "readOnly": true,
   "testFixture": false,
   "visible": false,
   "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
   "codeStageIds": [
-    "5c64a2d9479bcc2db59b98bf",
     "5cafebd412fe096114f4870b"
   ],
-  "id": "5ca3edae101dc304dfff3c4b",
+  "id": "5cafec9312fe096114f4870e",
   "initialCode": "$$LOOKUP",
   "fileLocation": null
 }
