@@ -12,4 +12,4 @@ We'll need to create a function that will loop over all exits from the top of th
 
 3. If an exit is ready to be finalized, we can transfer the amount back to the exitor (as well as the `EXIT_BOND`).
 
-4. The last thing we'll want to do for finalized exits is make sure we clean up the memory. We'll need to `dequeue` the exit from the queue and then delete the `exitor` from our `exits`.
+4. The last thing we'll want to do for finalized exits is ensure we `dequeue` the exit from the queue so it cannot be exited again.

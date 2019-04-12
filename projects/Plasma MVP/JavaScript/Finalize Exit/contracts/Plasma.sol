@@ -160,25 +160,24 @@ contract Plasma {
 
   function finalizeExits() public {
     uint256 utxoPos;
-      uint256 exitableAt;
-      (exitableAt, utxoPos) = exitQueue.peek();
-      Exit memory currentExit = exits[utxoPos];
-      while (exitableAt < block.timestamp) {
-          currentExit = exits[utxoPos];
+    uint256 exitableAt;
+    (exitableAt, utxoPos) = exitQueue.peek();
+    Exit memory currentExit = exits[utxoPos];
+    while (exitableAt < block.timestamp) {
+        currentExit = exits[utxoPos];
 
-          if (currentExit.exitor != address(0)) {
-              currentExit.exitor.transfer(currentExit.amount + EXIT_BOND);
-          }
+        if (currentExit.exitor != address(0)) {
+            currentExit.exitor.transfer(currentExit.amount + EXIT_BOND);
+        }
 
-          exitQueue.dequeue();
-          delete exits[utxoPos].exitor;
+        exitQueue.dequeue();
 
-          if (exitQueue.currentSize() > 0) {
-              (exitableAt, utxoPos) = exitQueue.peek();
-          } else {
-              return;
-          }
-      }
+        if (exitQueue.currentSize() > 0) {
+            (exitableAt, utxoPos) = exitQueue.peek();
+        } else {
+            return;
+        }
+    }
   }
 
   function getDepositBlock() 

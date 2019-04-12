@@ -100,32 +100,48 @@ contract('Plasma', (accounts) => {
 
             await web3.currentProvider.send(timeOptions, () => (timeOptions));
             await web3.currentProvider.send(mineOptions, () => (mineOptions));
-        })
+        });
 
         it('should finalize an exit', async () => {
             await contract.finalizeExits({ from: operator, gas: 200000 })
-        })
-
-        it('should transfer the exit amount plus exit bond to the proper exitor', async () => {
-            const begBalance = await web3.eth.getBalance(address2);
-            const expectedChange = web3.utils.toBN(bond).add(web3.utils.toBN(transferAmount))
-            await contract.finalizeExits({ from: operator, gas: 200000 })
-            const newBalance = await web3.eth.getBalance(address2);
-            const totalChange = web3.utils.toBN(newBalance).sub(web3.utils.toBN(begBalance))
-            assert.equal(expectedChange.toString(), totalChange.toString());
-        })
-
-        // Tests will run out of gas if not satisfied due to infinite loop
-        // it('should remove and finalize multiple exits from the queue', async () => {
-        //     await contract.finalizeExits(NULL_ADDRESS, { from: operator, gas: 200000 })
-        //     const heapLength = await pqContract.methods.currentSize().call();
-        //     assert.equal(heapLength, 0);
-        // })
-
-        it('should delete the exitor from the specific exit', async () => {
-            await contract.finalizeExits({ from: operator, gas: 200000 })
-            const exit = await contract.exits(utxoPos);
-            assert.equal(exit.exitor, NULL_ADDRESS);
         });
-    })
-})
+
+        describe('after finalizing exits', () => {
+            let initialBalance;
+            let expectedChange;
+            let newBalance;
+            let totalChange;
+            beforeEach(async () => {
+                initialBalance = await web3.eth.getBalance(address2);
+                expectedChange = web3.utils.toBN(bond).add(web3.utils.toBN(transferAmount));
+                await contract.finalizeExits({ from: operator, gas: 200000 });
+                newBalance = await web3.eth.getBalance(address2);
+                totalChange = web3.utils.toBN(newBalance).sub(web3.utils.toBN(initialBalance));
+            });
+
+            it('should transfer the exit amount plus exit bond to the proper exitor', () => {
+                assert.equal(expectedChange.toString(), totalChange.toString());
+            });
+
+            describe('after finalizing again', () => {
+                beforeEach(async () => {
+                    initialBalance = await web3.eth.getBalance(address2);
+                    expectedChange = 0;
+                    try {
+                        await contract.finalizeExits({ from: operator, gas: 200000 });
+                        newBalance = await web3.eth.getBalance(address2);
+                        totalChange = web3.utils.toBN(newBalance).sub(web3.utils.toBN(initialBalance));
+                    }
+                    catch (ex) {
+                        // reverting is acceptable behavior here since there are no exits
+                        totalChange = 0;
+                    }
+                });
+
+                it('should not transfer more', () => {
+                    assert.equal(expectedChange.toString(), totalChange.toString());
+                });
+            });
+        });
+    });
+});
