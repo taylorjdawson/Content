@@ -7,9 +7,9 @@ contract('Exit Priority Queue', (accounts) => {
     });
 
     describe('after first enqueue', () => {
-        const firstPriority = 2;
+        const firstPriority = [2,1];
         beforeEach(async () => {
-            await contract.enqueue(firstPriority);
+            await contract.enqueue(...firstPriority);
         });
 
         it('should have a size of one', async () => {
@@ -18,8 +18,9 @@ contract('Exit Priority Queue', (accounts) => {
         });
 
         it('should return the value when peeked', async () => {
-            const v = await contract.peek();
-            assert.equal(v, firstPriority);
+            Object.values(await contract.peek()).forEach((val, i) => {
+                assert.equal(val, firstPriority[i]);
+            });
         });
 
         describe('after a subsequent dequeue', () => {
@@ -38,9 +39,9 @@ contract('Exit Priority Queue', (accounts) => {
         });
 
         describe('enqueuing a second, higher priority', () => {
-            const secondPriority = 4;
+            const secondPriority = [1, 0];
             beforeEach(async () => {
-                await contract.enqueue(secondPriority);
+                await contract.enqueue(...secondPriority);
             });
 
             it('should have a size of two', async () => {
@@ -49,14 +50,15 @@ contract('Exit Priority Queue', (accounts) => {
             });
 
             it('should peek this one', async () => {
-                const v = await contract.peek();
-                assert.equal(v, secondPriority);
+                Object.values(await contract.peek()).forEach((val, i) => {
+                    assert.equal(val, secondPriority[i]);
+                });
             });
 
             describe('enqueuing a third, middle priority', () => {
-                const thirdPriority = 3;
+                const thirdPriority = [2,0];
                 beforeEach(async () => {
-                    await contract.enqueue(thirdPriority);
+                    await contract.enqueue(...thirdPriority);
                 });
 
                 it('should have a size of three', async () => {
@@ -65,8 +67,9 @@ contract('Exit Priority Queue', (accounts) => {
                 });
 
                 it('should peek the second', async () => {
-                    const v = await contract.peek();
-                    assert.equal(v, secondPriority);
+                    Object.values(await contract.peek()).forEach((val, i) => {
+                        assert.equal(val, secondPriority[i]);
+                    });
                 });
 
                 describe('after dequeue', () => {
@@ -80,8 +83,9 @@ contract('Exit Priority Queue', (accounts) => {
                     });
 
                     it('should peek the third one', async () => {
-                        const v = await contract.peek();
-                        assert.equal(v, thirdPriority);
+                        Object.values(await contract.peek()).forEach((val, i) => {
+                            assert.equal(val, thirdPriority[i]);
+                        });
                     });
 
                     describe('after dequeue', () => {
@@ -95,8 +99,9 @@ contract('Exit Priority Queue', (accounts) => {
                         });
 
                         it('should peek the first one', async () => {
-                            const v = await contract.peek();
-                            assert.equal(v, firstPriority);
+                            Object.values(await contract.peek()).forEach((val, i) => {
+                                assert.equal(val, firstPriority[i]);
+                            });
                         });
                     });
                 });
@@ -113,8 +118,9 @@ contract('Exit Priority Queue', (accounts) => {
                 });
 
                 it('should peek the first one', async () => {
-                    const v = await contract.peek();
-                    assert.equal(v, firstPriority);
+                    Object.values(await contract.peek()).forEach((val, i) => {
+                        assert.equal(val, firstPriority[i]);
+                    });
                 });
 
                 describe('after dequeue', () => {
