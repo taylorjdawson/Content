@@ -12,8 +12,6 @@ To do this we'll need to turn out Exit Queue into a [Priority Queue](?tab=detail
 
 We'll need to refactor our queue:
 
-1) Change the `enqueue` function to create a priority based on the exit date and the UTXO position. The highest priority should be the oldest date (lowest value) and then the oldest UTXO position (lowest value).
-
-> If you're wondering why we're prioritizing the date first, you're one step ahead! In the next stage we'll update the exit date to take into account the time when the block was submitted. 
+1) Change the `enqueue` function to create a priority based on the exit date and the UTXO position. The highest priority should be the oldest UTXO position (lowest value) and then the oldest date (lowest value).
 
 2) Once you've calculated the priority, update the `enqueue` function to set the priority in its appropriate spot within the queue. Instead of first-in-first-out, the first item will be the highest priority. 

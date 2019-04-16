@@ -17,7 +17,7 @@ contract ExitQueue {
 
     function enqueue(uint256 _exitableDate, uint256 _utxoPos) public {
         uint size = currentSize();
-        uint element = _exitableDate << 128 | _utxoPos;
+        uint element = _utxoPos << 128 | _exitableDate;
         last += 1;
         if(size == 0) {
             queue[last] = element;
@@ -47,6 +47,6 @@ contract ExitQueue {
     function _splitElement(uint256 _element) private pure returns (uint256, uint256) {
         uint256 priority = _element >> 128;
         uint256 value = uint256(uint128(_element));
-        return (priority, value);
+        return (value, priority);
     }
 }
