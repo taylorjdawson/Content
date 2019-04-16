@@ -6,6 +6,8 @@ You'll want to create a `blocks` class member that can map a `blockNumber` to a 
 
 1. Define this `blocks` member variable.
 
+> Since blocks start at 1 and will increment by the block buffer when one is submitted you can choose to either use an object or a sparse array. 
+
 ## Deposit Listener
 
 OK, now it's time to listen to the deposit event from our Solidity Contract! 
