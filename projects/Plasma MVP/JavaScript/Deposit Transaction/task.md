@@ -9,3 +9,5 @@ All that's left to finish this functionality is to add a [Transaction](?tab=deta
 > The `Transaction` constructor takes four values: `input1`, `input2`, `output1`, and `output2`. For a deposit transaction you will only need to fill in `output1`, everything else leave `undefined` and they will be filled in with default values. 
 
 2. Once you have created this transaction, add it to the block's `transactionSet`.
+
+> The `transactionSet` is the first argument passed to the `Block` constructor. 
