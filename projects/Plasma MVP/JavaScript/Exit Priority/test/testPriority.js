@@ -21,7 +21,7 @@ contract('Plasma', (accounts) => {
 
             // give our new account some ether from an already loaded account
             await web3.eth.sendTransaction({ from: accounts[0], to: operator, value: web3.utils.toWei("1") })
-            await web3.eth.sendTransaction({ from: accounts[1], to: address1, value: web3.utils.toWei("3") })
+            await web3.eth.sendTransaction({ from: accounts[1], to: address1, value: web3.utils.toWei("4") })
             await web3.eth.sendTransaction({ from: accounts[2], to: address2, value: web3.utils.toWei("2") })
 
             contract = await Plasma.new({ from: operator })
@@ -35,54 +35,51 @@ contract('Plasma', (accounts) => {
 
             tx = new Transaction(
                 new TransactionInput(1, 0, 0),
-                new TransactionInput(0, 0, 0),
+                undefined,
                 new TransactionOutput(address2, transferAmount),
                 new TransactionOutput(address1, leftover1),
             );
 
             tx2 = new Transaction(
                 new TransactionInput(1000, 0, 1),
-                new TransactionInput(0, 0, 0),
+                undefined,
                 new TransactionOutput(address2, transferAmount),
                 new TransactionOutput(address1, leftover1 - transferAmount),
             );
 
             tx3 = new Transaction(
                 new TransactionInput(1000, 0, 0),
-                new TransactionInput(0, 0, 0),
+                undefined,
                 new TransactionOutput(address1, transferAmount),
                 new TransactionOutput(NULL_ADDRESS, 0),
             );
 
             plasmaChain.addTransaction(tx);
             plasmaChain.addTransaction(tx2);
+            // double spend tx3
+            plasmaChain.addTransaction(tx3);
             plasmaChain.addTransaction(tx3);
 
             await tx2.sign1(privateKey1);
             await tx3.sign1(privateKey2);
             await plasmaChain.submitBlock(plasmaChain.currentBlock);
-            utxoPos = encodeUtxoId(1000, 1, 0);
-            utxoPos2 = encodeUtxoId(1000, 2, 0);
-
-            // Exiting Transaction
-            txBytes = "0x" + tx2.encoded().toString('hex');
-            merkle = plasmaChain.blocks[1000].merkle();
-            proof = merkle.getProof(merkle.leaves[1], 1);
-            proofBytes = "0x" + proof[0].data.toString('hex') + proof[1].data.toString('hex');
-            confirmationSig = tx2.confirm(merkle.getRoot(), privateKey1);
-            sigs = tx2.input1.signature + tx2.input2.signature.slice(2) + confirmationSig;
-
-            // Second Exiting Transaction
-            txBytes2 = "0x" + tx3.encoded().toString('hex');
-            proof2 = merkle.getProof(merkle.leaves[2], 2);
-            proofBytes2 = "0x" + proof2[0].data.toString('hex') + proof2[1].data.toString('hex');
-            confirmationSig2 = tx3.confirm(merkle.getRoot(), privateKey2);
-            sigs2 = tx3.input1.signature + tx3.input2.signature.slice(2) + confirmationSig2;
 
             bond = await contract.EXIT_BOND();
-            await contract.startExit(utxoPos, txBytes, proofBytes, sigs, { from: address2, gas: 200000, value: bond })
-            await contract.startExit(utxoPos2, txBytes2, proofBytes2, sigs2, { from: address1, gas: 200000, value: bond })
 
+            async function startExit(utxoPos, tx, leafIndex, pkey, address) {
+                txBytes = "0x" + tx.encoded().toString('hex');
+                merkle = plasmaChain.blocks[1000].merkle();
+                proof = merkle.getProof(merkle.leaves[leafIndex], leafIndex);
+                proofBytes = "0x" + proof[0].data.toString('hex') + proof[1].data.toString('hex');
+                confirmationSig = tx.confirm(merkle.getRoot(), pkey);
+                sigs = tx.input1.signature + tx.input2.signature.slice(2) + confirmationSig;
+                await contract.startExit(utxoPos, txBytes, proofBytes, sigs, { from: address, gas: 200000, value: bond });
+            }
+
+            await startExit(encodeUtxoId(1000, 3, 0), tx3, 2, privateKey2, address1);
+            await startExit(encodeUtxoId(1000, 2, 0), tx3, 2, privateKey2, address1);
+            await startExit(encodeUtxoId(1000, 1, 0), tx2, 1, privateKey1, address2);
+            
             // // Increases time by 2 weeks plus 1
             const timeOptions = {
                 jsonrpc: '2.0',
@@ -100,32 +97,15 @@ contract('Plasma', (accounts) => {
 
             await web3.currentProvider.send(timeOptions, () => (timeOptions));
             await web3.currentProvider.send(mineOptions, () => (mineOptions));
-        })
-
-        it('should finalize an exit', async () => {
-            await contract.finalizeExits({ from: operator, gas: 200000 })
-        })
+        });
 
         it('should transfer the exit amount plus exit bond to the proper exitor', async () => {
             const begBalance = await web3.eth.getBalance(address2);
-            const expectedChange = web3.utils.toBN(bond).add(web3.utils.toBN(transferAmount))
-            await contract.finalizeExits({ from: operator, gas: 200000 })
+            const expectedChange = web3.utils.toBN(bond).add(web3.utils.toBN(transferAmount));
+            await contract.finalizeExits({ from: operator, gas: 200000 });
             const newBalance = await web3.eth.getBalance(address2);
-            const totalChange = web3.utils.toBN(newBalance).sub(web3.utils.toBN(begBalance))
+            const totalChange = web3.utils.toBN(newBalance).sub(web3.utils.toBN(begBalance));
             assert.equal(expectedChange.toString(), totalChange.toString());
-        })
-
-        // Tests will run out of gas if not satisfied due to infinite loop
-        // it('should remove and finalize multiple exits from the queue', async () => {
-        //     await contract.finalizeExits(NULL_ADDRESS, { from: operator, gas: 200000 })
-        //     const heapLength = await pqContract.methods.currentSize().call();
-        //     assert.equal(heapLength, 0);
-        // })
-
-        it('should delete the exitor from the specific exit', async () => {
-            await contract.finalizeExits({ from: operator, gas: 200000 })
-            const exit = await contract.exits(utxoPos);
-            assert.equal(exit.exitor, NULL_ADDRESS);
         });
-    })
-})
+    });
+});
