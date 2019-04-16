@@ -10,8 +10,8 @@ How do we mitigate this attack? We'll need to make sure that older UTXOs can exi
 
 To do this we'll need to turn out Exit Queue into a [Priority Queue](?tab=details&scroll=Priority%20Queue), so we can dynamically change the priority of an exit at the time it is enqueued.
 
-We'll need to refactor our queue in two ways:
+We'll need to refactor our queue:
 
-1) Change the `enqueue` function to only take in one `uint`: the priority. This will affect your peek function as well, which only needs to return one `uint`. 
+1) Change the `enqueue` function to create a priority based on the exit date and the UTXO position. The highest priority should be the oldest UTXO position (lowest value) and then the oldest date (lowest value).
 
-2) Update the `enqueue` function to set the priority in its appropriate spot within the queue. Instead of FIFO, the first item to exit will be the highest priority. For this implementation, the lowest value will be the highest priority. 
+2) Once you've calculated the priority, update the `enqueue` function to set the priority in its appropriate spot within the queue. Instead of first-in-first-out, the first item will be the highest priority. 

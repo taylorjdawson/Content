@@ -15,30 +15,38 @@ contract ExitQueue {
         }
     }
 
-    function enqueue(uint256 _priority) public {
+    function enqueue(uint256 _exitableDate, uint256 _utxoPos) public {
+        uint size = currentSize();
+        uint element = _utxoPos << 128 | _exitableDate;
         last += 1;
-        if(currentSize() == 0) {
-            queue[last] = _priority;
+        if(size == 0) {
+            queue[last] = element;
         }
         else {
             for(uint i = first; i <= last; i++) {
-                if(_priority > queue[i]) {
+                if(element < queue[i]) {
                     pushForward(i);
-                    queue[i] = _priority;
+                    queue[i] = element;
                     break;
                 }
             }
         }
     }
 
-    function peek() public view returns (uint256) {
+    function peek() public view returns (uint256, uint256) {
         require(last >= first); 
-        return queue[first];
+        return _splitElement(queue[first]);
     }
 
     function dequeue() public {
         require(last >= first); 
         delete queue[first];
         first += 1;
+    }
+
+    function _splitElement(uint256 _element) private pure returns (uint256, uint256) {
+        uint256 priority = _element >> 128;
+        uint256 value = uint256(uint128(_element));
+        return (value, priority);
     }
 }
