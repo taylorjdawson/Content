@@ -4,6 +4,8 @@ const { encodeUtxoId, decodeUtxoId, decodeTxId, NULL_ADDRESS,
     NULL_SIGNATURE, NULL_HASH, sign } = require('./utils.js');
 const rlp = require("./rlp.js");
 const MerkleTree = require("./merkleTree.js");
+const inputErr = "Transaction inputs must be an instance of TransactionInput. Either pass in an input or undefined.";
+const outputErr = "Transaction outputs must be an instance of TransactionOutput. Either pass in an output or undefined.";
 
 class Block {
     constructor(transactionSet, blockNumber) {
@@ -58,13 +60,11 @@ class TransactionOutput {
 }
 
 class Transaction {
-    constructor(input1 = new TransactionInput(), input2 = new TransactionInput(), output1 = new TransactionOutput(), output2 = new TransactionOutput()) {
-        const inputErr = "Transaction inputs must be an instance of TransactionInput. Either pass in an input or undefined.";
-        const outputErr = "Transaction outputs must be an instance of TransactionOutput. Either pass in an output or undefined.";
-        assert(input1 instanceof TransactionInput, inputErr);
-        assert(input2 instanceof TransactionInput, inputErr);
-        assert(output1 instanceof TransactionOutput, outputErr);
-        assert(output2 instanceof TransactionOutput, outputErr);
+    constructor(input1, input2, output1, output2) {
+        input1 = input1 || new TransactionInput(); assert(input1 instanceof TransactionInput, inputErr);
+        input2 = input2 || new TransactionInput(); assert(input2 instanceof TransactionInput, inputErr);
+        output1 = output1 || new TransactionOutput(); assert(output1 instanceof TransactionOutput, outputErr);
+        output2 = output2 || new TransactionOutput(); assert(output2 instanceof TransactionOutput, outputErr);
         this.input1 = input1;
         this.input2 = input2;
         this.output1 = output1;

@@ -8,7 +8,7 @@ All that's left to finish this functionality is to add a [Transaction](?tab=deta
 
 2. Create a [deposit transaction](?tab=details&scroll=Deposit%20Transaction). You'll need to create a new instance of the `Transaction` class provided by `plasmaObjects.js`. The `TransactionOutput` you created in step 1 will be the `output1`.
 
-> The `Transaction` constructor takes four values: `input1`, `input2`, `output1`, and `output2`. For a deposit transaction you will only need to fill in `output1`, everything else leave `undefined` and they will be filled in with default values. 
+> The `Transaction` constructor takes four values: `input1`, `input2`, `output1`, and `output2`. For a deposit transaction you will only need to fill in `output1`. All other leave `null` or `undefined`.
 
 3. Once you have created this transaction, add it to the block's `transactionSet`.
 
