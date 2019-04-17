@@ -17,6 +17,8 @@ Next, we need to update the respective block numbers depending on if the block w
 
 4. Increment the `nextDepositBlock` by 1.
 
+> You can tell if this is the next deposit block by checking if the `blockNumber` is equal to the `nextDepositBlock` counter. If not, it's a plasma block.
+
 **If this is the next plasma block**:
 
 5. First, increment the `nextDepositBlock` to be the current `nextTxBlock` + 1. 

@@ -2,11 +2,11 @@
 
 Amazing work so far! Now let's write a function that will take a transaction and mark it's inputs as spent. 
 
-> Remember that Plasma Transactions use [UTXOs as inputs](?tab=details&scroll=Using%20UTXOs). It will the outputs we'll want to mark as spent, not the inputs. **Transaction inputs are used to reference an output.**
-
-1. Define an `applyTransaction` function with a transaction as it's only argument. We will apply it by marking any outputs that it used as input.
+Remember that Plasma Transactions use [UTXOs as inputs](?tab=details&scroll=Using%20UTXOs). It will the outputs we'll want to mark as spent, not the inputs. **Transaction inputs are used solely to reference an output.**
 
 > For a [Transaction](?tab=details&scroll=Transaction) both inputs are not required. In the case of a [Deposit Transaction](?tab=details&scroll=Deposit%20Transaction) there are no inputs! 
+
+1. Within our `PlasmaChain` class, define an `applyTransaction` function with a transaction as it's only argument. 
 
 2. This function should go through both `input1` and `input2` and find the output they refer to. 
 

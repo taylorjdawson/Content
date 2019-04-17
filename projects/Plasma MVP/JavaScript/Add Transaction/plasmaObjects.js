@@ -34,7 +34,7 @@ class Block {
     }
 
     getMerkleRoot() {
-        return this.merkle.getRoot();
+        return this.merkle().getRoot();
     }
 }
 
