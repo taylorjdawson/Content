@@ -8,7 +8,10 @@ More on that later. For now know that we'll need to write a Queue that will allo
 
 You'll need to create two `public` methods on our `ExitQueue`: 
 
-1. `enqueue` which takes in a `uint256 _exitableDate` and a  `uint256 _utxoPos`. 
+1. `enqueue` which takes in a `uint256` Exitable Date and a  `uint256` UTXO position. Store these values within the Queue.
+
+> The exitable date is the time at which this exit can be processed and the UTXO position is a reference UTXO ID. More on this later, for now you can simply store them in this queue.
 
 2. `currentSize` which returns the number of items in our queue. 
 
+> Internally you are free to implement the queue however you like. Just remember we'll be taking items off the front of this queue so you should structure it in a way that will make this process easier.
