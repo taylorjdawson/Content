@@ -13,7 +13,7 @@
   "initialCode": "$$LOOKUP",
   "mode": "sol",
   "name": "ExitQueue.sol",
-  "readOnly": true,
+  "readOnly": false,
   "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
   "testFixture": false,
   "visible": true,
