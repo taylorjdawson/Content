@@ -14,7 +14,7 @@
   "task": "$$LOOKUP",
   "testFramework": "truffle_with_mocha",
   "title": "Dequeue",
-  "validatedContract": "Plasma",
+  "validatedContract": "ExitQueue",
   "updatedAt": "2019-01-09T02:39:31.988Z",
   "createdAt": "2019-01-09T02:39:31.988Z",
   "abiValidations": "$$LOOKUP",
