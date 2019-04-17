@@ -12,6 +12,6 @@ You'll need to create two `public` methods on our `ExitQueue`:
 
 > The exitable date is the time at which this exit can be processed and the UTXO position is a reference UTXO ID. More on this later, for now you can simply store them in this queue.
 
-2. `currentSize` which returns the number of items in our queue. 
+2. `currentSize` which returns a `uint` that is the number of items in our queue. 
 
 > Internally you are free to implement the queue however you like. Just remember we'll be taking items off the front of this queue so you should structure it in a way that will make this process easier.
