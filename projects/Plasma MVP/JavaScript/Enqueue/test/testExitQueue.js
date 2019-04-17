@@ -13,7 +13,7 @@ contract('Exit Queue', (accounts) => {
 
         it('should have a size of one', async () => {
             const size = await contract.currentSize();
-            assert.equal(size, 1);
+            assert.equal(size.toNumber(), 1);
         });
 
         describe('after second enqueue', () => {
@@ -23,7 +23,7 @@ contract('Exit Queue', (accounts) => {
 
             it('should have a size of two', async () => {
                 const size = await contract.currentSize();
-                assert.equal(size, 2);
+                assert.equal(size.toNumber(), 2);
             });
 
             describe('after third enqueue', () => {
@@ -33,7 +33,7 @@ contract('Exit Queue', (accounts) => {
 
                 it('should have a size of three', async () => {
                     const size = await contract.currentSize();
-                    assert.equal(size, 3);
+                    assert.equal(size.toNumber(), 3);
                 });
             });
         });
