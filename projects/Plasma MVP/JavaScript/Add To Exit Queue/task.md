@@ -1,4 +1,6 @@
-When exiting transactions from the Plasma chain, a queue is established to allow each exit a specified challenge period. We will later define this challenge period within the `addExitToQueue` function. 
+## Add to Exit Queue
+
+When exiting transactions from the Plasma chain, a queue is established to allow each exit a specified challenge period. We will define this challenge period within the `addExitToQueue` function. 
 
 Let's begin by importing the `ExitQueue.sol` contract you just wrote into our `Plasma.sol` contract. 
 
