@@ -2,7 +2,7 @@
 
 Let's take a look at how our two counters `nextTxBlock` and `nextDepositBlock` change over time. 
 
-![Counter Timeline](https://res.cloudinary.com/divzjiip8/image/upload/v1553812738/CounterTimeline_o9e1v2.png)
+![Counter Timeline](https://res.cloudinary.com/divzjiip8/image/upload/v1555509984/DepositCounter_ifsqhi.png)
 
 It's important to recognize that our counter is set to be the **next** value. So while `nextTXBlock` may be ahead by our buffer (`1000`), the deposit blocks will still be incrementing by `1`. 
 
