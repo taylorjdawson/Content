@@ -26,7 +26,7 @@
     "payable": "false",
     "error": null,
     "task_display": "Create an currentSize function",
-    "name": "enqueue",
+    "name": "currentSize",
     "outputs": [
       {
         "_id": "5c181ccfe6b0b03a95da4249",

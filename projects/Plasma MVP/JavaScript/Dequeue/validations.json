@@ -13,7 +13,7 @@
     "constant": "false",
     "payable": "false",
     "error": null,
-    "task_display": "Create an peek function",
+    "task_display": "Create a peek function",
     "name": "peek",
     "outputs": [
       {
