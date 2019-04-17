@@ -5,7 +5,9 @@ Awesome, we added the submit block function to our `Plasma.sol` contract! Now it
 Let's write a `submitBlock` function on our JS operator.
 
 1. Define a `submitBlock` function with a block as it's only argument. 
+
 2. In this function add the block using the `addBlock` function you wrote earlier.
+
 3. Next we'll need to get the merkle root of this block. We can use the `getMerkleRoot` function which is available on this `block` instance.
 
 > See `PlasmaObjects.js` for the definition of the `getMerkleRoot` function on the `Block` class.
