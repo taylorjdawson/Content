@@ -16,7 +16,7 @@ To get us started, let's define a few member variables in our class.
 
 Now let's create a function that will allow us to add a transaction to our plasma chain.
 
-1. Define an `addTransaction` function which takes an instance of `Transaction` as its only argument.
+1. Within our `PlasmaChain` class, define an `addTransaction` function which takes an instance of `Transaction` as its only argument.
 
 2. Add the transaction to the current block's `transactionSet`.
 

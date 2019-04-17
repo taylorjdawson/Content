@@ -4,7 +4,7 @@ In this Plasma implementation we will [encode and decode our UTXO ID](?tab=detai
 
 Let's write a helper function that will take an ecoded UTXO ID and return us a transaction.
 
-1. Define a `getTransaction` function with an integer [encoded UTXO ID](?tab=details&scroll=Encoded%20UTXO%20ID) as it's only argument. 
+1. Within our `PlasmaChain` class, define a `getTransaction` function with an integer [encoded UTXO ID](?tab=details&scroll=Encoded%20UTXO%20ID) as it's only argument. 
 
 2. Decode the `utxoId` from it's integer value to get the `blockNumber`, `transactionIndex` and `outputIndex`
 
