@@ -19,7 +19,7 @@ This value is a convienent way to refer to a spent transaction output. We'll bui
 
 ## Connecting UTXOs
 
-Encoding/Decoding Transaction Outputs is important when trying to specifically locat them. We're trying to build a chain with a series of blocks where outputs from one transaction could be the inputs to another transaction in a different block. Here's a sketch: 
+Encoding/Decoding Transaction Outputs is important when trying to specifically locate them. We're trying to build a chain with a series of blocks where outputs from one transaction could be the inputs to another transaction in a different block. Here's a sketch: 
 
 ![UTXO Blocks](https://res.cloudinary.com/divzjiip8/image/upload/v1553804746/TXZoomedOutBlocks_voog1p.png)
 
