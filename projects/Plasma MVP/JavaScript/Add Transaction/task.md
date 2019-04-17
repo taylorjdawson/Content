@@ -17,4 +17,7 @@ To get us started, let's define a few member variables in our class.
 Now let's create a function that will allow us to add a transaction to our plasma chain.
 
 1. Define an `addTransaction` function which takes an instance of `Transaction` as its only argument.
+
 2. Add the transaction to the current block's `transactionSet`.
+
+> Use the `currentBlock` defined in the third step of the Transaction Setup. On the `Block` you can access `transactionSet` as a member variable and simply push the new transaction onto it.
