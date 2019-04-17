@@ -18,6 +18,6 @@ Let's write a `submitBlock` function on our JS operator.
 
 5. Return the result of the `submitBlock` function, as mentioned in the documentation this should be a [`PromiEvent`](https://web3js.readthedocs.io/en/1.0/web3-eth-contract.html#id22).
 
-6. Once this message has been successfully broadcasted, create a new `currentBlock` with an empty transaction set.
+6. Once this message has been successfully broadcasted, create a new `currentBlock` with an empty transaction set. This will be our next plasma block which we can start adding transactions to. 
 
-> This can be done in the callback of the `send` method. If you make use of the `addBlock` function for step 2 the `nextTxBlock` should be set to the right number for you to use for the new `currentBlock`.
+> This can be done in the callback of the [`send`](https://web3js.readthedocs.io/en/1.0/web3-eth-contract.html#methods-mymethod-send) method. If you called `addBlock` in step 2 the `nextTxBlock` will be the `blockNumber` we can use for this new `currentBlock`.
