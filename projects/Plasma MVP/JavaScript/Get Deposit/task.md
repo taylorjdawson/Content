@@ -10,7 +10,8 @@ On every deposit the `currentDepositBlock` increments by one. On every submissio
 
 Now we'll need a way to create a unique block number for deposits based on both counters. 
 
-1. Within our `deposit` function update the way we calculate the determine the blockNumber for the deposit. Prior to this stage we just used `currentDepositBlock`, but now we'll also need to account for the submitted plasma blocks.
-2. Ensure that the `blockNumber` submitted in the `DepositCreated` event also reflects this new calculation.
+1. Within our `deposit` function we need to use the current block number instead of `currentDepositBlock` to store new deposits. You can calculate the block number by subtracting the `BLOCK_BUFFER` from our `plasmaBlock` and adding the deposit block.
 
-> To see how the blockNumber ought to be calculated check out the [Block Timeline](?tab=details&scroll=Block%20Timeline).
+> To understand why the block buffer is calculated in this way see the [Block Timeline](?tab=details&scroll=Block%20Timeline).
+
+2. Ensure that the `blockNumber` submitted in the `DepositCreated` event also uses this new calculation.
