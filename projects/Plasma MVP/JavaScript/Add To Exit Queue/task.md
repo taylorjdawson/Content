@@ -1,4 +1,6 @@
-When exiting transactions from the Plasma chain, a queue is established to allow each exit a specified challenge period. We will later define this challenge period within the `addExitToQueue` function. 
+## Add to Exit Queue
+
+When exiting transactions from the Plasma chain, a queue is established to allow each exit a specified challenge period. We will define this challenge period within the `addExitToQueue` function. 
 
 Let's begin by importing the `ExitQueue.sol` contract you just wrote into our `Plasma.sol` contract. 
 
@@ -13,12 +15,12 @@ Let's begin by importing the `ExitQueue.sol` contract you just wrote into our `P
 
 ## Add Exit to Queue
 
-1. Define an `addExitToQueue` public function with a UTXO position, exitor address, and an exit amount as it's arguments.
+1. Define an `addExitToQueue` public function with a UTXO position `uint`, exitor `address`, and a exit amount `uint` as it's arguments.
 
-2. Push this exit onto our `ExitQueue`. You'll need the UTXO position and the time at which the exit can be finalized. For this exit date use the current block timestamp plus `2 weeks`.
+2. Then `enqueue` this exit onto our `ExitQueue`. Pass the UTXO position and the time at which the exit can be finalized. For the exit date use the current block timestamp plus `2 weeks`.
 
 > The exit period needs to be long enough where participants are given enough time to challenge invalid exits. This plasma construct depends heavily on clients detecting misbehavior. 
 
-3. Then create the `Exit` and map it to it's UTXO position.
+3. Then create the `Exit` and add it to the `exits` mapping. Map the exit it to it's UTXO position `uint`.
 
 4. Finally, emit the `ExitStarted` event.
