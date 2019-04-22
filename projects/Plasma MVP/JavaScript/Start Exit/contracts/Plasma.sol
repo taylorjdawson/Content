@@ -11,7 +11,6 @@ contract Plasma {
   uint public currentDepositBlock;
 
   uint public BLOCK_BUFFER = 1000;
-  uint256 public EXIT_BOND = 1000000000000000000;
 
   mapping(uint => PlasmaBlock) public plasmaChain;
   mapping(uint256 => Exit) public exits;

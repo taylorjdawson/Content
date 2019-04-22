@@ -18,7 +18,6 @@ contract('Plasma', (accounts) => {
         let merkle;
         let confirmationHash;
         let sigs;
-        let bond;
         let operator;
         let address1;
         let address2;
@@ -72,12 +71,10 @@ contract('Plasma', (accounts) => {
             proofBytes = "0x" + proof[0].data.toString('hex');
             confirmationSig = tx2.confirm(merkle.getRoot(), privateKey1);
             sigs = tx2.input1.signature + tx2.input2.signature.slice(2) + confirmationSig;
-            
-            bond = await plasmaChain.plasmaContract.methods.EXIT_BOND().call();
         });
 
         it('should start an exit', async () => {
-            await contract.startExit(utxoPos, txBytes, proofBytes, sigs, { from: address2, gas: 200000, value: bond });
+            await contract.startExit(utxoPos, txBytes, proofBytes, sigs, { from: address2, gas: 200000 });
             
             const { exitor, amount } = await contract.exits(utxoPos);
             assert.equal(exitor.toLowerCase(), address2, "Exitor address was not expected");
@@ -85,7 +82,7 @@ contract('Plasma', (accounts) => {
         });
 
         it('should emit an ExitStarted event', async () => {
-            await contract.startExit(utxoPos, txBytes, proofBytes, sigs, { from: address2, gas: 200000, value: bond });
+            await contract.startExit(utxoPos, txBytes, proofBytes, sigs, { from: address2, gas: 200000 });
 
             let events = await contract.getPastEvents('ExitStarted');
             let exit = events[0].event;
