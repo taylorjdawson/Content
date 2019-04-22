@@ -10,7 +10,7 @@ contract('Plasma', () => {
             contract = await Plasma.new()
         });
 
-        describe('1:1:1', () => {
+        describe('when BlockNumber:TransactionIndex:OutputIndex is 1:1:1', () => {
             it('should decode UTXO', async () => {
                 const [blknum, txindex, oindex] = Object.values(await contract.decodeUTXO(1000010001));
                 assert.equal(blknum.toNumber(), 1, BLK_ERR);
@@ -19,7 +19,7 @@ contract('Plasma', () => {
             });
         });
 
-        describe('1000:0:1', () => {
+        describe('when BlockNumber:TransactionIndex:OutputIndex is 1000:0:1', () => {
             it('should decode UTXO', async () => {
                 const [blknum, txindex, oindex] = Object.values(await contract.decodeUTXO(1000000000001));
                 assert.equal(blknum.toNumber(), 1000, BLK_ERR);
@@ -28,7 +28,7 @@ contract('Plasma', () => {
             });
         });
 
-        describe('2000:303:1', () => {
+        describe('when BlockNumber:TransactionIndex:OutputIndex is 2000:303:1', () => {
             it('should decode UTXO', async () => {
                 const [blknum, txindex, oindex] = Object.values(await contract.decodeUTXO(2000003030001));
                 assert.equal(blknum.toNumber(), 2000, BLK_ERR);
