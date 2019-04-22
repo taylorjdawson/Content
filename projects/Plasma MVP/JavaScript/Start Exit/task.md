@@ -8,6 +8,8 @@ Let's write this functionality into a function called `startExit`. Check out a [
 
 1. Define a public payable `startExit` function with a `uint256` utxo position, RLP encoded transaction in `bytes`, [merkle proof](?tab=details&scroll=Merkle%20Proof) in `bytes`, and signatures in `bytes`. 
 
+> You'll need to designate the data location for the `bytes`, use `memory`. 
+
 2. This function should decode the UTXO position and retrieve the block number, transaction index, and output index. Let's use the `decodeUTXO` function from the previous stage!
 
 3. Next, we'll need to create an exiting transaction using the [`PlasmaRLP` library](?tab=details&scroll=Plasma%20RLP%20Library). The `createExitingTx` will return an `exitingTx` with our exitor and exit amount. 

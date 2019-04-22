@@ -1,0 +1,17 @@
+{
+  "executablePath": "contracts/PlasmaRLP.sol",
+  "name": "PlasmaRLP.sol",
+  "executable": true,
+  "hasProgress": false,
+  "mode": "sol",
+  "readOnly": true,
+  "testFixture": false,
+  "visible": true,
+  "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
+  "codeStageIds": [
+    "5ca2446e101dc304dfff3c22"
+  ],
+  "id": "5cbd1f66d7c8be04fcaa0794",
+  "initialCode": "$$LOOKUP",
+  "fileLocation": null
+}
