@@ -1,10 +1,3 @@
-## Import
-
-There are a couple libraries we will rely on for this stage. Import the following into our `Plasma.sol` contract:
-
-1. `./Validate.sol`
-2. `./Merkle.sol`
-
 ## Exit Bond
 
 1. Define an `EXIT_BOND` public constant with a value of `1 ether`.
