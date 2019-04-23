@@ -8,8 +8,8 @@ Since the Plasma operator only submits merkle roots, the proof must be a set of 
 
 The function should also confirm that the transaction is a member in the blocks merkle tree.
 
-This can be accomplished by creating a merkle hash from the transaction hash and the signatures passed into the function. This hash will be a `Merkle` tree instance. Then the challenge transaction should be checked for membership of the `Merkle` tree instance.
+1. Create a Merkle Hash like you did in `startExit`. It should be a hash of the transaction hash and the signatures. 
 
-> Hint: Use the `Merkle` library to check for membership.
+2. Similar to `startExit` use the merkle hash, transaction index and proof to ensure this transaction exists within the merkle root. 
 
 If the checks above are passed by the challenging transaction, we have a successful challenge!

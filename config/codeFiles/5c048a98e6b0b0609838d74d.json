@@ -1,7 +1,6 @@
 {
   "id": "5c048a98e6b0b0609838d74d",
   "codeStageIds": [
-    "5c64a2d9479bcc2db59b98bf",
     "5ca25ca4101dc304dfff3c2a",
     "5ca3f0f2101dc304dfff3c55"
   ],
@@ -16,5 +15,6 @@
   "testFixture": false,
   "visible": true,
   "updatedAt": "2019-01-09T02:39:33.556Z",
-  "createdAt": "2019-01-09T02:39:33.556Z"
+  "createdAt": "2019-01-09T02:39:33.556Z",
+  "fileLocation": null
 }
