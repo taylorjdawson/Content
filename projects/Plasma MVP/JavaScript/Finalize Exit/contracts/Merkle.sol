@@ -33,13 +33,11 @@ library Merkle {
         bytes32 proofElement;
         bytes32 computedHash = _leaf;
         uint256 index = _index;
-        uint256 test;
         for (uint256 i = 32; i <= _proof.length; i += 32) {
             assembly {
                 proofElement := mload(add(_proof, i))
             }
             if (index % 2 == 0) {
-                test = 10;
                 computedHash = keccak256(abi.encodePacked(computedHash, proofElement));
             } else {
                 computedHash = keccak256(abi.encodePacked(proofElement, computedHash));
