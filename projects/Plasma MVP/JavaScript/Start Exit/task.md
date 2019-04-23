@@ -17,3 +17,5 @@ Let's write this functionality into a function called `startExit`. Check out a [
 > Be sure to import PlasmaRLP to be able to use the `createExitingTx` function and access the `exitingTx` struct: `import "./PlasmaRLP.sol";`
 
 4. Lastly, invoke the `addExitToQueue` function using the UTXO position, exitor and exit amount. 
+
+> You can find the exit amount from the on the `exitingTx` created in step 3. 
