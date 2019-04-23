@@ -6,12 +6,12 @@
   "mode": "sol",
   "readOnly": true,
   "testFixture": false,
-  "visible": true,
+  "visible": false,
   "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
   "codeStageIds": [
-    "5ca3f0e1101dc304dfff3c52"
+    "5c64a2d9479bcc2db59b98bf"
   ],
-  "id": "5c74a3bcbf41233fc170013a",
+  "id": "5cbf604ed7c8be04fcaa0798",
   "initialCode": "$$LOOKUP",
   "fileLocation": null
 }
