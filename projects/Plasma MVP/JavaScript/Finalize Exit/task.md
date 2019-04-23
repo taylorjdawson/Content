@@ -6,7 +6,7 @@ Finalization! It's time to help our Plasma users exit the Plasma Chain for any e
 
 We'll need to create a function that will loop over all exits from the top of the Exit Queue and move down until the top exit is not ready to be finalized.
 
-1. Define a public `finalizeExits` function with no arguments.
+1. Within `PLasma.sol`, define a public `finalizeExits` function with no arguments.
 
 2. Within `finalizeExits` iterate over every item on the `exitQueue` and determine if it is ready to be finalized.
 
