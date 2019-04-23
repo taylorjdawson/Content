@@ -24,7 +24,6 @@ library Merkle {
         bytes32 _rootHash,
         bytes memory _proof
     ) internal pure
-    // returns (uint256) 
     returns (bool) 
     {
         // Check that the proof length is valid.
@@ -49,7 +48,6 @@ library Merkle {
         }
 
         // Check that the computer root and specified root match.
-        // return test;
         return computedHash == _rootHash;
     }
 }

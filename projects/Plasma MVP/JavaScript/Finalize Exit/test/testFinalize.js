@@ -70,14 +70,14 @@ contract('Plasma', (accounts) => {
             proof = merkle.getProof(merkle.leaves[1], 1);
             proofBytes = "0x" + proof[0].data.toString('hex') + proof[1].data.toString('hex');
             confirmationSig = tx2.confirm(merkle.getRoot(), privateKey1);
-            sigs = tx2.input1.signature + tx2.input2.signature.slice(2) + confirmationSig;
+            sigs = tx2.input1.signature + tx2.input2.signature.slice(2);
 
             // Second Exiting Transaction
             txBytes2 = "0x" + tx3.encoded().toString('hex');
             proof2 = merkle.getProof(merkle.leaves[2], 2);
             proofBytes2 = "0x" + proof2[0].data.toString('hex') + proof2[1].data.toString('hex');
             confirmationSig2 = tx3.confirm(merkle.getRoot(), privateKey2);
-            sigs2 = tx3.input1.signature + tx3.input2.signature.slice(2) + confirmationSig2;
+            sigs2 = tx3.input1.signature + tx3.input2.signature.slice(2);
 
             bond = await contract.EXIT_BOND();
             await contract.startExit(utxoPos, txBytes, proofBytes, sigs, { from: address2, gas: 200000, value: bond })

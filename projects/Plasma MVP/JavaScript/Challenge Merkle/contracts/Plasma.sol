@@ -2,9 +2,8 @@ pragma solidity ^0.5.0;
 
 import "./ExitQueue.sol";
 import "./PlasmaRLP.sol";
-import "./Validate.sol";
 import "./Merkle.sol";
-import "./ByteUtils.sol";
+import "./ECRecovery.sol";
 
 contract Plasma {
   using PlasmaRLP for bytes;
@@ -15,7 +14,7 @@ contract Plasma {
   uint public currentDepositBlock;
 
   uint public BLOCK_BUFFER = 1000;
-  uint256 public EXIT_BOND = 1000000000000000000;
+  uint256 public EXIT_BOND = 1 ether;
 
   mapping(uint => PlasmaBlock) public plasmaChain;
   mapping(uint256 => Exit) public exits;
@@ -106,10 +105,9 @@ contract Plasma {
         // Check the transaction was included in the chain and is correctly signed.
         bytes32 root = plasmaChain[blknum].root;
 
-        bytes32 merkleHash = keccak256(abi.encodePacked(keccak256(_txBytes), ByteUtils.slice(_sigs, 0, 130)));
+        bytes32 merkleHash = keccak256(abi.encodePacked(keccak256(_txBytes), _sigs));
 
         require(merkleHash.checkMembership(txindex, root, _proof), "Transaction Merkle proof is invalid.");
-        require(Validate.checkSigs(keccak256(_txBytes), root, exitingTx.inputCount, _sigs), "Signatures must match.");
         address addr = exitingTx.exitor;
         address payable exitor = address(uint160(addr));
 
