@@ -6,7 +6,7 @@
   "mode": "sol",
   "readOnly": true,
   "testFixture": false,
-  "visible": true,
+  "visible": false,
   "stageContainerId": "5be339e5e6b0b02ef6f2abfa",
   "codeStageIds": [
     "5c64a2d9479bcc2db59b98bf",
