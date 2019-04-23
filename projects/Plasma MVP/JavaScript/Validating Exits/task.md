@@ -7,7 +7,7 @@ There are a couple libraries we will rely on for this stage. Import the followin
 
 ## Exit Bond
 
-1. Define an `EXIT_BOND` public constant and give it some initial value in Wei.
+1. Define an `EXIT_BOND` public constant with a value of `1 ether`.
 
 An exit bond is attached to an exit as a retainer against the good faith of the exitor. In this way, if an exitor attempts to exit an invalid transaction and it is successfully challenged by another party, the exit would be revoked, the exitor would lose their exit bond, and the challenger would win the exit bond.
 
