@@ -19,12 +19,12 @@ We need to validate that the parameters passed into `startExit` are allowed. Let
 
 2. Revert if the `exitor` in our exiting transaction is not equal to the sender.
 
-3. Finally we need to [check for membership](?tab=details&scroll=Merkle%20Proof) of the merkle hash within the block's merkle tree. For this step you'll need to do two things:
+Finally we need to [check for membership](?tab=details&scroll=Merkle%20Proof) of the merkle hash within the block's merkle tree. For this step you'll need to do two things:
 
-- Calculate the merkle hash of this transaction. The merkle hash of a transaction is the hash of the transaction bytes hashed together with the input signatures.
+3. Calculate the merkle hash of this transaction. The merkle hash of a transaction is the hash of the transaction bytes hashed together with the input signatures.
 
 > In pseudo code, the merkle hash is: `hash(hash(txBytes), signatures)`. Remember to use `keccak256` to calculate hashes and when hashing together two inputs you'll need to use `abi.encodePacked` on the arguments.
 
-- Use the `Merkle.checkMembership` within the `Merkle.sol` library to determine if the merkle hash we calculated above is within the root hash. Revert if it is not.
+4. Use the `Merkle.checkMembership` within the `Merkle.sol` library to determine if the merkle hash we calculated above is within the root hash. Revert if it is not.
 
 > The leaf will be your merkle hash, the index will be the transaction index, the root can be found on the block on the `plasmaChain` (use the block number to look it up) and finally the proof is a provided argument of `startExit`.
