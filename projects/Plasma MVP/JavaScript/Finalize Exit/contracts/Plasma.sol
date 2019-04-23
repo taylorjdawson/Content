@@ -112,10 +112,8 @@ contract Plasma {
       bytes32 root = plasmaChain[blknum].root;
       bytes32 merkleHash = keccak256(abi.encodePacked(keccak256(_txBytes), _sigs));
       require(merkleHash.checkMembership(txindex, root, _proof), "Transaction Merkle proof is invalid.");
-      address addr = exitingTx.exitor;
-      address payable exitor = address(uint160(addr));
 
-      addExitToQueue(_utxoPos, exitor, exitingTx.amount);
+      addExitToQueue(_utxoPos, msg.sender, exitingTx.amount);
   }
 
   function challengeExit(
@@ -164,9 +162,7 @@ contract Plasma {
     while (exitableAt < block.timestamp) {
         currentExit = exits[utxoPos];
 
-        if (currentExit.exitor != address(0)) {
-            currentExit.exitor.transfer(currentExit.amount + EXIT_BOND);
-        }
+        currentExit.exitor.transfer(currentExit.amount + EXIT_BOND);
 
         exitQueue.dequeue();
 
