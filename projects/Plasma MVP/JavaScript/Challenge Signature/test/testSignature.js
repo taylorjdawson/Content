@@ -6,7 +6,6 @@ const PlasmaChain = require('../plasmaChain.js');
 web3.setProvider(new web3.providers.WebsocketProvider('http://127.0.0.1:7545/'));
 const PW = 'password1234';
 
-// Challenge Exit => Stage 16
 contract('Plasma', (accounts) => {
     const ether = web3.utils.toWei('1', 'ether');
     let utxoId;
@@ -76,7 +75,7 @@ contract('Plasma', (accounts) => {
             proof = merkle.getProof(merkle.leaves[1]);
             proofBytes = "0x" + proof[0].data.toString('hex');
             confirmationSig = tx2.confirm(merkle.getRoot(), privateKey1);
-            sigs = tx2.input1.signature + tx2.input2.signature.slice(2) + confirmationSig;
+            sigs = tx2.input1.signature + tx2.input2.signature.slice(2);
 
             cTx = new Transaction(
                 new TransactionInput(1000, 1, 0),
